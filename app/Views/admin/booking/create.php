@@ -10,125 +10,181 @@
     }
 
     .booking-card {
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .booking-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     }
 
     .booking-card .card-header {
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #e9ecef;
-        padding: 15px 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-bottom: none;
+        padding: 1.5rem 2rem;
+        position: relative;
+        color: white;
     }
 
     .booking-card .card-header h5 {
         margin: 0;
-        color: #495057;
-        font-weight: 600;
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .booking-card .card-body {
-        padding: 20px;
+        padding: 2rem;
     }
 
     /* Styling untuk pemilihan jam */
     .time-slots-container {
         margin-top: 20px;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 15px;
     }
 
     .time-slot {
         display: block;
         width: 100%;
-        padding: 10px 15px;
-        margin-bottom: 5px;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #212529;
-        font-weight: 500;
+        padding: 12px 20px;
+        margin-bottom: 8px;
+        border: 2px solid #e9ecef;
+        border-radius: 50px;
+        background: white;
+        color: #495057;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.2s;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .time-slot::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .time-slot:hover::before {
+        left: 100%;
     }
 
     .time-slot:hover {
-        background-color: #f8f9fa;
-        border-color: #0d6efd;
+        background: linear-gradient(135deg, var(--light-color) 0%, var(--light-gray) 100%);
+        border-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--secondary-light);
     }
 
     .time-slot.active {
-        background-color: #0d6efd;
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
         color: white;
-        border-color: #0d6efd;
+        border-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px var(--secondary-light);
     }
 
     .time-slot.booked {
-        background-color: #dc3545;
+        background: linear-gradient(135deg, var(--danger-color), var(--accent-orange));
         color: white;
-        border-color: #dc3545;
+        border-color: var(--danger-color);
         cursor: not-allowed;
+        opacity: 0.8;
     }
 
     .time-slot.partial-booked {
-        background-color: #ffc107;
-        color: #212529;
-        border-color: #ffc107;
+        background: linear-gradient(135deg, var(--warning-color), var(--accent-orange));
+        color: var(--text-primary);
+        border-color: var(--warning-color);
         cursor: pointer;
     }
 
     .time-slot.disabled {
-        background-color: #f8f9fa;
+        background: #f8f9fa;
         color: #6c757d;
         border-color: #dee2e6;
         cursor: not-allowed;
+        opacity: 0.6;
     }
 
     .booking-date-display {
-        font-weight: bold;
-        color: #495057;
+        font-weight: 700;
+        color: var(--secondary-color);
         margin-bottom: 15px;
+        padding: 1rem;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        border-left: 4px solid var(--secondary-color);
     }
 
     .status-legend {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 1rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .legend-item {
         display: flex;
         align-items: center;
-        font-size: 0.85rem;
-        margin-right: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        background: #f8f9fa;
+        border-radius: 25px;
+        border: 1px solid #e9ecef;
     }
 
     .legend-color {
-        width: 15px;
-        height: 15px;
-        border-radius: 3px;
-        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin-right: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .legend-available {
-        background-color: #fff;
-        border: 1px solid #dee2e6;
+        background: white;
+        border: 2px solid #e9ecef;
     }
 
     .legend-selected {
-        background-color: #0d6efd;
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
     }
 
     .legend-booked {
-        background-color: #dc3545;
+        background: linear-gradient(135deg, var(--danger-color), var(--accent-orange));
     }
 
     .legend-partial {
-        background-color: #ffc107;
+        background: linear-gradient(135deg, var(--warning-color), var(--accent-orange));
     }
 
     .legend-disabled {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
+        background: #f8f9fa;
+        border: 2px solid #dee2e6;
     }
 
     /* Styling untuk tanggal booking */
@@ -137,20 +193,30 @@
     }
 
     .date-picker-container .form-control {
-        background-color: #fff;
-        border: 1px solid #ced4da;
-        padding-left: 40px;
-        height: calc(2.5rem + 2px);
+        background: white;
+        border: 2px solid #e9ecef;
+        border-radius: 15px;
+        padding: 1rem 1rem 1rem 3rem;
+        height: auto;
         font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .date-picker-container .form-control:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 4px 20px var(--secondary-light);
+        transform: translateY(-2px);
     }
 
     .date-picker-container .calendar-icon {
         position: absolute;
-        left: 10px;
+        left: 15px;
         top: 50%;
         transform: translateY(-50%);
-        color: #0d6efd;
+        color: var(--secondary-color);
         z-index: 4;
+        font-size: 1.2rem;
     }
 
     input[type="date"] {
@@ -174,28 +240,41 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 10;
-        border-radius: 10px;
+        border-radius: 15px;
     }
 
     .customer-card,
     .paket-card {
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        padding: 15px;
-        margin-top: 10px;
-        background-color: #f8f9fa;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 1px solid #e9ecef;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-top: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .customer-card:hover,
+    .paket-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     .customer-card h6,
     .paket-card h6 {
         margin-top: 0;
-        color: #495057;
-        font-weight: 600;
+        color: #2c3e50;
+        font-weight: 700;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .search-input {
@@ -208,24 +287,50 @@
 
     .search-input .search-icon {
         position: absolute;
-        right: 10px;
-        top: 10px;
-        color: #6c757d;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--secondary-color);
+        font-size: 1.1rem;
     }
 
     .table-container {
-        max-height: 300px;
+        max-height: 400px;
         overflow-y: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .customer-table,
+    .paket-table {
+        margin: 0;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .customer-table thead,
+    .paket-table thead {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
+        color: white;
+    }
+
+    .customer-table th,
+    .paket-table th {
+        border: none;
+        font-weight: 600;
+        padding: 1rem;
     }
 
     .customer-table tr,
     .paket-table tr {
         cursor: pointer;
+        transition: all 0.3s ease;
     }
 
     .customer-table tr:hover,
     .paket-table tr:hover {
-        background-color: #f1f1f1;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        transform: scale(1.01);
     }
 
     .selected-customer,
@@ -239,13 +344,248 @@
 
     .payment-details {
         display: none;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        margin-top: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Modern Form Controls */
+    .form-control, .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 15px;
+        padding: 0.8rem 1.2rem;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 4px 20px var(--secondary-light);
+        transform: translateY(-2px);
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Modern Buttons */
+    .btn {
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
+        color: white;
+    }
+
+    .btn-success {
+        background: linear-gradient(135deg, var(--success-color), var(--accent-green));
+        color: white;
+    }
+
+    .btn-secondary {
+        background: linear-gradient(135deg, #6c757d 0%, #adb5bd 100%);
+        color: white;
+    }
+
+    .btn-outline-primary {
+        background: white;
+        border: 2px solid var(--secondary-color);
+        color: var(--secondary-color);
+    }
+
+    .btn-outline-primary:hover {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .btn-outline-secondary {
+        background: white;
+        border: 2px solid #6c757d;
+        color: #6c757d;
+    }
+
+    .btn-outline-secondary:hover {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-outline-danger {
+        background: white;
+        border: 2px solid #dc3545;
+        color: #dc3545;
+    }
+
+    .btn-outline-danger:hover {
+        background: #dc3545;
+        color: white;
+    }
+
+    .btn-sm {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-lg {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    /* Alert Styling */
+    .alert {
+        border-radius: 15px;
+        border: none;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .alert-info {
+        background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+        color: #0c5460;
+        border-left: 4px solid #17a2b8;
+    }
+
+    .alert-warning {
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        color: #856404;
+        border-left: 4px solid #ffc107;
+    }
+
+    /* Card Styling for Selected Items */
+    .card.border-0.bg-light {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .card-body.p-3 {
+        padding: 1.5rem !important;
+    }
+
+    .card-title {
+        color: #2c3e50 !important;
+        font-weight: 700 !important;
+    }
+
+    .card-text {
+        color: #6c757d !important;
+    }
+
+    /* Input Group Styling */
+    .input-group-text {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
+        border: 2px solid var(--secondary-color);
+        color: white;
+        font-weight: 600;
+        border-radius: 15px 0 0 15px;
+    }
+
+    .input-group .form-control {
+        border-left: none;
+        border-radius: 0 15px 15px 0;
+    }
+
+    /* Booking Summary Styling */
+    .booking-summary {
+        background: linear-gradient(135deg, var(--light-color) 0%, var(--light-gray) 100%);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        border: 1px solid var(--light-gray);
+    }
+
+    .summary-item {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .summary-item:last-child {
+        border-bottom: none;
+    }
+
+    .summary-item .d-flex {
+        align-items: center;
+    }
+
+    .summary-item .badge {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-weight: 600;
+    }
+
+    .bg-info {
+        background: linear-gradient(135deg, var(--info-color), var(--accent-blue)) !important;
+    }
+
+    .bg-success {
+        background: linear-gradient(135deg, var(--success-color), var(--accent-green)) !important;
     }
 
     /* Responsivitas */
+    @media (max-width: 768px) {
+        .booking-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .time-slot {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+    }
+
     @media (max-width: 576px) {
         .time-slot {
             padding: 8px 12px;
             font-size: 0.9rem;
+        }
+        
+        .booking-card .card-body {
+            padding: 1rem;
         }
     }
 </style>
@@ -260,7 +600,7 @@
                     <!-- Pelanggan Card -->
                     <div class="card booking-card">
                         <div class="card-header">
-                            <h5><i class="fas fa-user"></i> Informasi Pelanggan</h5>
+                            <h5><i class="fas fa-user-circle"></i> Informasi Pelanggan</h5>
                         </div>
                         <div class="card-body">
                             <div class="search-customer">
@@ -297,7 +637,7 @@
                     <!-- Tanggal & Jam Card -->
                     <div class="card booking-card">
                         <div class="card-header">
-                            <h5><i class="fas fa-calendar-alt"></i> Tanggal & Jam</h5>
+                            <h5><i class="fas fa-calendar-check"></i> Tanggal & Jam</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-group mb-4">
@@ -353,13 +693,84 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Paket Card -->
+                    <div class="card booking-card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-cut"></i> Paket Layanan</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Button untuk membuka modal -->
+                            <a href="javascript:void(0);" class="btn btn-primary mb-3" id="btnSearchPaket">
+                                <i class="fas fa-search"></i> Pilih Paket
+                            </a>
+
+                            <div class="selected-paket">
+                                <div class="paket-card">
+                                    <h6>Paket Terpilih</h6>
+                                    <div id="selectedPaketInfo">
+                                        <div class="alert alert-warning">
+                                            <i class="fas fa-exclamation-triangle"></i> Belum ada paket yang dipilih. Silakan klik tombol "Pilih Paket" di atas.
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="idpaket" name="idpaket">
+                                    <input type="hidden" id="total" name="total">
+
+                                    <!-- Tombol untuk membuka modal kembali jika ingin mengganti paket -->
+                                    <div class="text-end mt-2">
+                                        <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" id="btnChangePaket" style="display: none;">
+                                            <i class="fas fa-exchange-alt"></i> Ganti
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pembayaran Card -->
+                    <div class="card booking-card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-credit-card"></i> Pembayaran</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="jenispembayaran">Jenis Pembayaran</label>
+                                <select class="form-control" id="jenispembayaran" name="jenispembayaran" required>
+                                    <option value="">-- Pilih Jenis Pembayaran --</option>
+                                    <option value="DP">DP (50%)</option>
+                                    <option value="Lunas">Lunas</option>
+                                </select>
+                            </div>
+
+                            <div class="payment-details mt-3">
+                                <div class="form-group">
+                                    <label for="jumlahbayar">Jumlah Bayar</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="jumlahbayar" name="jumlahbayar" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="metode_pembayaran">Metode Pembayaran</label>
+                                    <select class="form-control" id="metode_pembayaran" name="metode_pembayaran" required>
+                                        <option value="cash">Cash</option>
+                                        <option value="transfer">Transfer Bank</option>
+                                        <option value="qris">QRIS</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-4">
                     <!-- Karyawan Card -->
                     <div class="card booking-card">
                         <div class="card-header">
-                            <h5><i class="fas fa-user-tie"></i> Karyawan</h5>
+                            <h5><i class="fas fa-users"></i> Karyawan</h5>
                         </div>
                         <div class="card-body">
                             <div class="alert alert-info" id="karyawanAlert">
@@ -394,72 +805,31 @@
                         </div>
                     </div>
 
-                    <!-- Paket Card -->
+                    <!-- Ringkasan Booking Card -->
                     <div class="card booking-card">
                         <div class="card-header">
-                            <h5><i class="fas fa-list"></i> Paket Layanan</h5>
+                            <h5><i class="fas fa-clipboard-list"></i> Ringkasan Booking</h5>
                         </div>
                         <div class="card-body">
-                            <!-- Button untuk membuka modal -->
-                            <a href="javascript:void(0);" class="btn btn-primary mb-3" id="btnSearchPaket">
-                                <i class="fas fa-search"></i> Pilih Paket
-                            </a>
-
-                            <div class="selected-paket">
-                                <div class="paket-card">
-                                    <h6>Paket Terpilih</h6>
-                                    <div id="selectedPaketInfo">
-                                        <div class="alert alert-warning">
-                                            <i class="fas fa-exclamation-triangle"></i> Belum ada paket yang dipilih. Silakan klik tombol "Pilih Paket" di atas.
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="idpaket" name="idpaket">
-                                    <input type="hidden" id="total" name="total">
-
-                                    <!-- Tombol untuk membuka modal kembali jika ingin mengganti paket -->
-                                    <div class="text-end mt-2">
-                                        <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary" id="btnChangePaket" style="display: none;">
-                                            <i class="fas fa-exchange-alt"></i> Ganti
-                                        </a>
+                            <div class="booking-summary">
+                                <div class="summary-item mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-bold text-muted">Total Durasi:</span>
+                                        <span id="totalDurasi" class="badge bg-info">0 menit</span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pembayaran Card -->
-                    <div class="card booking-card">
-                        <div class="card-header">
-                            <h5><i class="fas fa-money-bill-wave"></i> Pembayaran</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="jenispembayaran">Jenis Pembayaran</label>
-                                <select class="form-control" id="jenispembayaran" name="jenispembayaran" required>
-                                    <option value="">-- Pilih Jenis Pembayaran --</option>
-                                    <option value="DP">DP (50%)</option>
-                                    <option value="Lunas">Lunas</option>
-                                </select>
-                            </div>
-
-                            <div class="payment-details mt-3">
-                                <div class="form-group">
-                                    <label for="jumlahbayar">Jumlah Bayar</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Rp</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="jumlahbayar" name="jumlahbayar" required>
+                                <div class="summary-item mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-bold text-muted">Total Harga:</span>
+                                        <span id="totalHarga" class="badge bg-success">Rp 0</span>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="metode_pembayaran">Metode Pembayaran</label>
-                                    <select class="form-control" id="metode_pembayaran" name="metode_pembayaran" required>
-                                        <option value="cash">Cash</option>
-                                        <option value="transfer">Transfer Bank</option>
-                                        <option value="qris">QRIS</option>
-                                    </select>
+                                <hr>
+                                <div class="text-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-info-circle"></i> 
+                                        Informasi akan diperbarui setelah memilih paket
+                                    </small>
                                 </div>
                             </div>
                         </div>
@@ -819,10 +1189,23 @@
             // Update jumlah bayar jika jenis pembayaran sudah dipilih
             updateJumlahBayar();
 
+            // Update ringkasan booking
+            updateBookingSummary(harga);
+
             // Tutup modal
             const paketModal = bootstrap.Modal.getInstance(document.getElementById('paketModal'));
             if (paketModal) paketModal.hide();
         });
+
+        // Fungsi untuk mengupdate ringkasan booking
+        function updateBookingSummary(harga) {
+            // Update total harga
+            $('#totalHarga').text('Rp ' + formatNumber(harga));
+            
+            // Estimasi durasi berdasarkan jenis paket (bisa disesuaikan)
+            let estimasiDurasi = 60; // default 60 menit
+            $('#totalDurasi').text(estimasiDurasi + ' menit');
+        }
 
         // Event untuk jenis pembayaran
         $('#jenispembayaran').on('change', function() {

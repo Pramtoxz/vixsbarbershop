@@ -6,7 +6,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Laporan Laba Rugi</h1>
-        <p class="mb-0 text-secondary">Laporan pendapatan, pengeluaran, dan laba bersih</p>
+        <p class="mb-0 text-black">Laporan pendapatan, pengeluaran, dan laba bersih</p>
     </div>
     <div>
         <a href="<?= site_url('admin/reports/laba-rugi/print') . '?tahun=' . $tahun ?>" target="_blank" class="btn btn-primary btn-sm">

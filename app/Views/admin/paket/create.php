@@ -5,7 +5,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Tambah Paket Baru</h1>
-        <p class="mb-0 text-secondary">Tambahkan paket baru ke dalam sistem</p>
+        <p class="mb-0 text-black">Tambahkan paket baru ke dalam sistem</p>
     </div>
     <a href="<?= base_url('admin/paket') ?>" class="btn btn-secondary">
         <i class="bi bi-arrow-left me-2"></i> Kembali

@@ -6,7 +6,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Laporan Uang Masuk dan Keluar</h1>
-        <p class="mb-0 text-secondary">Laporan keuangan bulanan</p>
+        <p class="mb-0 text-black">Laporan keuangan bulanan</p>
     </div>
     <div>
         <button id="btnPrint" class="btn btn-primary btn-sm" style="display: none;">

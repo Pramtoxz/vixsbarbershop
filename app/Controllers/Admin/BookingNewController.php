@@ -426,15 +426,23 @@ class BookingNewController extends BaseController
     {
         $keyword = $this->request->getGet('search');
 
-        if (empty($keyword)) {
+        $builder = $this->db->table('pelanggan');
+        $builder->select('pelanggan.idpelanggan, pelanggan.nama_lengkap, pelanggan.no_hp, users.email');
+        $builder->join('users', 'users.id = pelanggan.user_id', 'left');
 
-            $pelanggan = $this->pelangganModel->orderBy('created_at', 'DESC')->findAll(20);
+        if (!empty($keyword)) {
+            $builder->groupStart()
+                ->like('pelanggan.nama_lengkap', $keyword)
+                ->orLike('pelanggan.no_hp', $keyword)
+                ->groupEnd();
+            $builder->limit(10);
         } else {
-
-            $pelanggan = $this->pelangganModel->like('nama_lengkap', $keyword)
-                ->orLike('no_hp', $keyword)
-                ->findAll(10);
+            $builder->orderBy('pelanggan.created_at', 'DESC');
+            $builder->limit(20);
         }
+
+        $query = $builder->get();
+        $pelanggan = $query->getResultArray();
 
         $result = [];
         foreach ($pelanggan as $p) {

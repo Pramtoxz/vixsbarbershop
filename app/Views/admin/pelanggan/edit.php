@@ -5,7 +5,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Edit Pelanggan</h1>
-        <p class="mb-0 text-secondary">Edit data pelanggan dalam sistem</p>
+        <p class="mb-0 text-black">Edit data pelanggan dalam sistem</p>
     </div>
     <a href="<?= base_url('admin/pelanggan') ?>" class="btn btn-secondary">
         <i class="bi bi-arrow-left me-2"></i> Kembali

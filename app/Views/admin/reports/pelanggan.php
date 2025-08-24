@@ -6,7 +6,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Laporan Pelanggan</h1>
-        <p class="mb-0 text-secondary">Laporan data pelanggan lengkap</p>
+        <p class="mb-0 text-black">Laporan data pelanggan lengkap</p>
     </div>
     <div>
         <a href="<?= site_url('admin/reports/pelanggan/print') ?>" target="_blank" class="btn btn-primary btn-sm">

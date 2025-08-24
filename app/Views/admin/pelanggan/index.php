@@ -5,7 +5,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Manajemen Pelanggan</h1>
-        <p class="mb-0 text-secondary">Kelola data pelanggan yang terdaftar dalam sistem</p>
+        <p class="mb-0 text-black">Kelola data pelanggan yang terdaftar dalam sistem</p>
     </div>
     <a href="<?= base_url('admin/pelanggan/create') ?>" class="btn btn-primary">
         <i class="bi bi-person-plus me-2"></i> Tambah Pelanggan
@@ -107,8 +107,8 @@
                     data: null,
                     render: function(data, type, row) {
                         return '<div class="d-flex gap-1">' +
-                            '<a href="<?= base_url('admin/pelanggan/edit') ?>/' + row.id + '" class="btn btn-sm btn-info"><i class="bi bi-pencil"></i></a>' +
-                            '<button class="btn btn-sm btn-danger delete-btn" data-id="' + row.id + '"><i class="bi bi-trash"></i></button>' +
+                            '<a href="<?= base_url('admin/pelanggan/edit') ?>/' + row.id + '" class="btn btn-sm btn-info"><i class="bi bi-pencil-square"></i></a>' +
+                            '<button class="btn btn-sm btn-danger delete-btn" data-id="' + row.id + '"><i class="bi bi-trash3-fill"></i></button>' +
                             '</div>';
                     }
                 }
@@ -180,7 +180,7 @@
                 complete: function() {
                     // Re-enable button and restore label
                     $('#btnConfirmDelete').attr('disabled', false);
-                    $('#btnConfirmDelete').html('<i class="bi bi-trash me-1"></i> Hapus');
+                    $('#btnConfirmDelete').html('<i class="bi bi-trash3-fill me-1"></i> Hapus');
                 }
             });
         });
@@ -207,7 +207,7 @@
                     <i class="bi bi-x me-1"></i> Batal
                 </button>
                 <button type="button" class="btn btn-danger" id="btnConfirmDelete">
-                    <i class="bi bi-trash me-1"></i> Hapus
+                    <i class="bi bi-trash3-fill me-1"></i> Hapus
                 </button>
             </div>
         </div>

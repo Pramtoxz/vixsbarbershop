@@ -1,7 +1,7 @@
  <!-- jQuery -->
  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
  <!-- Bootstrap 5 JS -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
  <!-- DataTables -->
  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
  <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
@@ -9,9 +9,33 @@
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <!-- ApexCharts -->
  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+ <!-- AOS Animation Library -->
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
  <script>
      $(document).ready(function() {
+         // Initialize AOS Animations
+         AOS.init({
+             duration: 800,
+             easing: 'ease-in-out-sine',
+             delay: 100,
+             once: true,
+             mirror: false
+         });
+
+         // Modern Page Loading Effect
+         $('.main-content').addClass('animate__animated animate__fadeIn');
+         
+         // Enhanced Card Hover Effects
+         $('.card').on('mouseenter', function() {
+             $(this).addClass('animate__animated animate__pulse');
+         }).on('mouseleave', function() {
+             $(this).removeClass('animate__animated animate__pulse');
+         });
+
+         // Modern Topbar Enhancements
+         initTopbarFeatures();
+
          // Konfigurasi dropdown notifikasi dengan responsivitas
          function initNotificationDropdown() {
              var notificationDropdownEl = document.getElementById('notificationDropdown');
@@ -222,27 +246,25 @@
                      const readStatusClass = parseInt(notification.is_read) === 0 ? 'unread' : 'read';
                      const unreadIndicator = parseInt(notification.is_read) === 0 ? '<span class="notification-unread-indicator"></span>' : '';
 
-                     const notificationItem = `
-                         <a href="<?= site_url('admin/notifications/view') ?>/${notification.id}" 
-                            class="dropdown-item notification-item border-bottom ${readStatusClass}" 
-                            data-id="${notification.id}">
-                             <div class="d-flex align-items-start">
-                                 <div class="notification-icon me-3">
-                                     <span class="bg-light rounded-circle p-2 d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
-                                         <i class="bi ${iconClass} text-primary fs-5"></i>
-                                     </span>
-                                 </div>
-                                 <div class="flex-grow-1">
-                                     <h6 class="mb-1">
-                                         ${notification.title || 'Notifikasi'} 
-                                         ${unreadIndicator}
-                                     </h6>
-                                     <p class="mb-1 text-muted small">${notification.message || 'Tidak ada pesan'}</p>
-                                     <div class="text-muted small">${notification.time_ago || 'Baru saja'}</div>
-                                 </div>
-                             </div>
-                         </a>
-                     `;
+                                           const notificationItem = `
+                          <a href="<?= site_url('admin/notifications/view') ?>/${notification.id}" 
+                             class="dropdown-item notification-item border-bottom ${readStatusClass}" 
+                             data-id="${notification.id}">
+                              <div class="d-flex align-items-start">
+                                  <div class="notification-icon me-3">
+                                      <i class="bi ${iconClass}"></i>
+                                  </div>
+                                  <div class="flex-grow-1">
+                                      <h6 class="mb-1">
+                                          ${notification.title || 'Notifikasi'} 
+                                          ${unreadIndicator}
+                                      </h6>
+                                      <p class="mb-1 text-muted small">${notification.message || 'Tidak ada pesan'}</p>
+                                      <div class="text-muted small">${notification.time_ago || 'Baru saja'}</div>
+                                  </div>
+                              </div>
+                          </a>
+                      `;
 
                      notificationList.append(notificationItem);
                  });
@@ -308,5 +330,128 @@
 
          // Periksa notifikasi baru setiap 30 detik
          notificationCheckInterval = setInterval(loadNotifications, 30000);
+
+         // Modern Topbar Features
+         function initTopbarFeatures() {
+             // Theme Toggle
+             $('#themeToggle').on('click', function() {
+                 const icon = $(this).find('i');
+                 if (icon.hasClass('bi-sun-fill')) {
+                     icon.removeClass('bi-sun-fill').addClass('bi-moon-fill');
+                     // Add dark theme logic here if needed
+                 } else {
+                     icon.removeClass('bi-moon-fill').addClass('bi-sun-fill');
+                     // Add light theme logic here if needed
+                 }
+                 
+                 $(this).addClass('animate__animated animate__rotateIn');
+                 setTimeout(() => {
+                     $(this).removeClass('animate__animated animate__rotateIn');
+                 }, 600);
+             });
+
+             // Fullscreen Toggle
+             $('#fullscreenToggle').on('click', function() {
+                 const icon = $(this).find('i');
+                 
+                 if (!document.fullscreenElement) {
+                     document.documentElement.requestFullscreen().then(() => {
+                         icon.removeClass('bi-arrows-fullscreen').addClass('bi-fullscreen-exit');
+                     });
+                 } else {
+                     document.exitFullscreen().then(() => {
+                         icon.removeClass('bi-fullscreen-exit').addClass('bi-arrows-fullscreen');
+                     });
+                 }
+                 
+                 $(this).addClass('animate__animated animate__pulse');
+                 setTimeout(() => {
+                     $(this).removeClass('animate__animated animate__pulse');
+                 }, 600);
+             });
+
+             // Quick Search
+             let searchTimeout;
+             $('.quick-search-input').on('input', function() {
+                 const query = $(this).val();
+                 const suggestions = $('#searchSuggestions');
+                 
+                 clearTimeout(searchTimeout);
+                 
+                 if (query.length > 2) {
+                     searchTimeout = setTimeout(() => {
+                         // Mock search suggestions - replace with actual search logic
+                         const mockResults = [
+                             { title: 'Dashboard', url: '<?= site_url("admin") ?>', icon: 'bi-speedometer2' },
+                             { title: 'Pelanggan', url: '<?= site_url("admin/pelanggan") ?>', icon: 'bi-person-badge' },
+                             { title: 'Booking', url: '<?= site_url("admin/booking") ?>', icon: 'bi-calendar-check' },
+                             { title: 'Laporan', url: '<?= site_url("admin/reports") ?>', icon: 'bi-file-earmark-text' }
+                         ].filter(item => item.title.toLowerCase().includes(query.toLowerCase()));
+                         
+                         if (mockResults.length > 0) {
+                             let html = '<div class="search-results">';
+                             mockResults.forEach(result => {
+                                 html += `
+                                     <a href="${result.url}" class="search-result-item">
+                                         <i class="bi ${result.icon}"></i>
+                                         <span>${result.title}</span>
+                                     </a>
+                                 `;
+                             });
+                             html += '</div>';
+                             suggestions.html(html).show();
+                         } else {
+                             suggestions.hide();
+                         }
+                     }, 300);
+                 } else {
+                     suggestions.hide();
+                 }
+             });
+
+             // Hide search suggestions when clicking outside
+             $(document).on('click', function(e) {
+                 if (!$(e.target).closest('.quick-search-container').length) {
+                     $('#searchSuggestions').hide();
+                 }
+             });
+
+             // Enhanced navbar toggler animation
+             $('.modern-navbar-toggler').on('click', function() {
+                 $(this).addClass('animate__animated animate__pulse');
+                 setTimeout(() => {
+                     $(this).removeClass('animate__animated animate__pulse');
+                 }, 600);
+             });
+
+             // Action button hover effects
+             $('.action-btn').hover(
+                 function() {
+                     $(this).addClass('animate__animated animate__pulse');
+                 },
+                 function() {
+                     $(this).removeClass('animate__animated animate__pulse');
+                 }
+             );
+
+             // User profile button animation
+             $('.user-profile-btn').on('show.bs.dropdown', function() {
+                 $(this).addClass('animate__animated animate__pulse');
+                 setTimeout(() => {
+                     $(this).removeClass('animate__animated animate__pulse');
+                 }, 600);
+             });
+
+             // Notification button pulse effect when new notifications arrive
+             function animateNotificationButton() {
+                 $('.notification-btn').addClass('animate__animated animate__pulse');
+                 setTimeout(() => {
+                     $('.notification-btn').removeClass('animate__animated animate__pulse');
+                 }, 1000);
+             }
+
+             // Add notification animation to existing loadNotifications function
+             window.animateNotificationButton = animateNotificationButton;
+         }
      });
  </script>

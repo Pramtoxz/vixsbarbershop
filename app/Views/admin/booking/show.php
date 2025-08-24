@@ -2,470 +2,670 @@
 
 <?= $this->section('styles') ?>
 <style>
-    .booking-detail-container {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .info-card {
-        margin-bottom: 20px;
-        border-radius: 10px;
+    .booking-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem 0;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        position: relative;
         overflow: hidden;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
 
-    .info-card .card-header {
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #e9ecef;
-        padding: 15px 20px;
+    .booking-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
     }
 
-    .info-card .card-header h5 {
-        margin: 0;
-        color: #495057;
-        font-weight: 600;
+    .booking-header .container {
+        position: relative;
+        z-index: 1;
     }
 
-    .info-card .card-body {
-        padding: 20px;
+    .booking-id-badge {
+        font-size: 2rem;
+        font-weight: 800;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 0.5rem;
     }
 
-    .booking-id {
-        font-size: 24px;
-        font-weight: 700;
-        color: #007bff;
-        margin-bottom: 5px;
+    .booking-meta {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
-    .booking-date {
-        font-size: 16px;
-        color: #6c757d;
-        margin-bottom: 15px;
-    }
-
-    .booking-status {
-        display: inline-block;
-        padding: 5px 12px;
+    .modern-card {
+        background: white;
         border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .modern-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-header-modern {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 1.5rem 2rem;
+        border-bottom: none;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+    }
+
+    .card-header-modern h5 {
+        margin: 0;
+        color: #2c3e50;
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .card-body-modern {
+        padding: 2rem;
+    }
+
+    .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #f8f9fa;
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .info-value {
         font-weight: 500;
-        font-size: 14px;
+        color: #2c3e50;
+    }
+
+    .status-badge {
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
         text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .status-pending {
-        background-color: #ffc107;
+        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
         color: #212529;
     }
 
     .status-confirmed {
-        background-color: #0dcaf0;
-        color: #fff;
+        background: linear-gradient(135deg, #0dcaf0 0%, #0d6efd 100%);
+        color: white;
     }
 
     .status-completed {
-        background-color: #198754;
-        color: #fff;
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        color: white;
     }
 
-    .status-cancelled {
-        background-color: #dc3545;
-        color: #fff;
+    .status-cancelled,
+    .status-rejected {
+        background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+        color: white;
     }
 
     .status-no-show {
-        background-color: #6c757d;
-        color: #fff;
+        background: linear-gradient(135deg, #6c757d 0%, #adb5bd 100%);
+        color: white;
     }
 
-    .status-rejected {
-        background-color: #dc3545;
-        color: #fff;
+    .service-table {
+        margin: 0;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .detail-table th {
-        width: 35%;
+    .service-table thead {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+    }
+
+    .service-table th {
         font-weight: 600;
+        padding: 1.2rem 1rem;
+        border: none;
+        text-align: center;
     }
 
-    .service-table th,
     .service-table td {
+        padding: 1rem;
         vertical-align: middle;
+        border-color: #f8f9fa;
     }
 
-    .payment-info {
-        border-top: 1px solid #dee2e6;
-        margin-top: 20px;
-        padding-top: 20px;
+    .service-table tbody tr:hover {
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
     }
 
-    .payment-info h6 {
+    .payment-history {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .btn-modern {
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
         font-weight: 600;
-        margin-bottom: 15px;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary-modern {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .btn-warning-modern {
+        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+        color: #212529;
+    }
+
+    .btn-info-modern {
+        background: linear-gradient(135deg, #0dcaf0 0%, #0d6efd 100%);
+        color: white;
+    }
+
+    .btn-secondary-modern {
+        background: linear-gradient(135deg, #6c757d 0%, #adb5bd 100%);
+        color: white;
     }
 
     .total-section {
-        font-size: 18px;
-        font-weight: 700;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        margin-top: 1rem;
     }
 
-    .print-section {
-        margin: 30px 0;
+    .total-amount {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .company-info {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .company-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 1rem;
     }
 
     @media print {
         .no-print {
             display: none !important;
         }
-
-        .print-only {
-            display: inline-block !important;
-        }
-
-        body {
-            padding: 0;
-            margin: 0;
-        }
-
-        .booking-detail-container {
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .info-card {
+        .modern-card {
             box-shadow: none;
             border: 1px solid #ddd;
         }
+        .booking-header {
+            background: #667eea;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
     }
 
-    .invoice-header {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .invoice-header img {
-        max-width: 100px;
-        height: auto;
-    }
-
-    .invoice-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: #212529;
-        margin-bottom: 5px;
-        text-align: right;
-    }
-
-    .invoice-number {
-        font-size: 16px;
-        color: #6c757d;
-        text-align: right;
-    }
-
-    /* Style untuk Modal Bukti Pembayaran */
-    #buktiModal .modal-content {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #buktiModal .modal-header {
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #e9ecef;
-    }
-
-    #buktiModal .modal-body {
-        padding: 20px;
-    }
-
-    #buktiImage {
-        border-radius: 5px;
-        max-width: 100%;
-        transition: transform 0.3s ease, max-height 0.3s ease;
-        cursor: zoom-in;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    #buktiImage:hover {
-        transform: scale(1.02);
-    }
-
-    #buktiImage.zoomed {
-        cursor: zoom-out;
-        transform: scale(1);
-    }
-
-    #buktiImage.zoomed:hover {
-        transform: scale(1);
-    }
-
-    .view-bukti {
-        transition: all 0.2s ease;
-    }
-
-    .view-bukti:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .print-only {
-        display: none;
+    @media (max-width: 768px) {
+        .booking-meta {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .action-buttons {
+            flex-direction: column;
+        }
+        
+        .btn-modern {
+            justify-content: center;
+        }
     }
 </style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <!-- Back button and actions -->
-            <div class="mb-4 no-print">
-                <a href="<?= site_url('admin/booking') ?>" class="btn btn-secondary">
-                    <i class="bi bi-arrow-left"></i> Kembali
-                </a>
-                <a href="<?= site_url('admin/booking/edit/' . $booking['kdbooking']) ?>" class="btn btn-warning ms-2">
-                    <i class="bi bi-pencil-square"></i> Edit Booking
-                </a>
-                <button class="btn btn-primary ms-2" id="btnPrintInvoice">
-                    <i class="bi bi-printer"></i> Cetak Faktur
-                </button>
-
-                <!-- Status update dropdown for admin -->
-                <div class="dropdown d-inline-block ms-2">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-exchange-alt"></i> Ubah Status
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="statusDropdown">
-                        <li><a class="dropdown-item status-action" href="#" data-status="pending">Pending</a></li>
-                        <li><a class="dropdown-item status-action" href="#" data-status="confirmed">Konfirmasi</a></li>
-                        <li><a class="dropdown-item status-action" href="#" data-status="completed">Selesai</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item status-action" href="#" data-status="cancelled">Batalkan</a></li>
-                        <li><a class="dropdown-item status-action" href="#" data-status="no-show">Tidak Hadir</a></li>
-                        <li><a class="dropdown-item status-action" href="#" data-status="rejected">Tolak</a></li>
-                    </ul>
+    <!-- Header Section dengan Gradient -->
+    <div class="booking-header" id="invoice-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="booking-id-badge">#<?= $booking['kdbooking'] ?></div>
+                    <div class="booking-meta">
+                        <div>
+                            <i class="fas fa-calendar-alt me-2"></i>
+                            <?= date('d F Y', strtotime($booking['tanggal_booking'])) ?>
+                        </div>
+                        <div>
+                            <span class="status-badge status-<?= $booking['status'] ?>">
+                                <?php
+                                $statusMap = [
+                                    'pending' => 'Menunggu Konfirmasi',
+                                    'confirmed' => 'Terkonfirmasi',
+                                    'completed' => 'Selesai',
+                                    'cancelled' => 'Dibatalkan',
+                                    'no-show' => 'Tidak Hadir',
+                                    'rejected' => 'Ditolak'
+                                ];
+                                echo $statusMap[$booking['status']] ?? $booking['status'];
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <h5 class="mb-2">Vixs Barbershop</h5>
+                    <p class="mb-1">Jl. Dr. Moh. Hatta No.3kel, RT.01</p>
+                    <p class="mb-1">Cupak Tangah, Kec. Pauh</p>
+                    <p class="mb-0">Telp: 081234567890</p>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Faktur/Invoice -->
-            <div class="booking-detail-container" id="invoice">
-                <div class="invoice-header">
-                    <div>
-                        <img src="<?= base_url('assets/images/logo.png') ?>" alt="Vixs Barbershop" onerror="this.src='https://via.placeholder.com/100x50?text=LOGO'">
-                        <h4>Vixs Barbershop</h4>
-                        <p class="mb-0">Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127</p>
-                        <p class="mb-0">Telp: 081234567890</p>
+    <!-- Action Buttons -->
+    <div class="action-buttons no-print">
+        <a href="<?= site_url('admin/booking') ?>" class="btn btn-modern btn-secondary-modern">
+            <i class="fas fa-arrow-left"></i> Kembali
+        </a>
+        <a href="<?= site_url('admin/booking/edit/' . $booking['kdbooking']) ?>" class="btn btn-modern btn-warning-modern">
+            <i class="fas fa-edit"></i> Edit Booking
+        </a>
+        <button class="btn btn-modern btn-primary-modern" id="btnPrintInvoice">
+            <i class="fas fa-print"></i> Cetak Faktur
+        </button>
+        <div class="dropdown">
+            <button class="btn btn-modern btn-info-modern dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown">
+                <i class="fas fa-exchange-alt"></i> Ubah Status
+            </button>
+            <ul class="dropdown-menu shadow-lg" aria-labelledby="statusDropdown">
+                <li><a class="dropdown-item status-action" href="#" data-status="pending"><i class="fas fa-clock me-2"></i>Pending</a></li>
+                <li><a class="dropdown-item status-action" href="#" data-status="confirmed"><i class="fas fa-check me-2"></i>Konfirmasi</a></li>
+                <li><a class="dropdown-item status-action" href="#" data-status="completed"><i class="fas fa-check-circle me-2"></i>Selesai</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item status-action" href="#" data-status="cancelled"><i class="fas fa-times me-2"></i>Batalkan</a></li>
+                <li><a class="dropdown-item status-action" href="#" data-status="no-show"><i class="fas fa-user-times me-2"></i>Tidak Hadir</a></li>
+                <li><a class="dropdown-item status-action" href="#" data-status="rejected"><i class="fas fa-ban me-2"></i>Tolak</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row" id="invoice-content">
+
+        <!-- Informasi Booking dan Pelanggan -->
+        <div class="col-md-6">
+            <div class="modern-card">
+                <div class="card-header-modern">
+                    <h5><i class="fas fa-calendar-check"></i> Informasi Booking</h5>
+                </div>
+                <div class="card-body-modern">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-hashtag"></i> ID Booking
+                        </div>
+                        <div class="info-value"><?= $booking['kdbooking'] ?></div>
                     </div>
-                    <div>
-                        <div class="invoice-title">FAKTUR BOOKING</div>
-                        <div class="invoice-number">#<?= $booking['kdbooking'] ?></div>
-                        <div class="invoice-date">Tanggal: <?= date('d/m/Y', strtotime($booking['created_at'])) ?></div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-calendar"></i> Tanggal Booking
+                        </div>
+                        <div class="info-value"><?= date('d F Y', strtotime($booking['tanggal_booking'])) ?></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-clock"></i> Dibuat
+                        </div>
+                        <div class="info-value"><?= date('d/m/Y H:i', strtotime($booking['created_at'])) ?></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-credit-card"></i> Metode Pembayaran
+                        </div>
+                        <div class="info-value">
+                            <span class="badge bg-info"><?= ucfirst($booking['jenispembayaran']) ?></span>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="row">
-                    <!-- Informasi Booking -->
-                    <div class="col-md-6">
-                        <div class="info-card">
-                            <div class="card-header">
-                                <h5><i class="fas fa-info-circle"></i> Informasi Booking</h5>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-borderless detail-table">
+        <div class="col-md-6">
+            <div class="modern-card">
+                <div class="card-header-modern">
+                    <h5><i class="fas fa-user-circle"></i> Informasi Pelanggan</h5>
+                </div>
+                <div class="card-body-modern">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-user"></i> Nama Lengkap
+                        </div>
+                        <div class="info-value"><?= $booking['nama_lengkap'] ?? 'Data tidak tersedia' ?></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-phone"></i> No. HP
+                        </div>
+                        <div class="info-value">
+                            <?php if (!empty($booking['no_hp'])): ?>
+                                <a href="tel:<?= $booking['no_hp'] ?>" class="text-decoration-none">
+                                    <?= $booking['no_hp'] ?>
+                                </a>
+                            <?php else: ?>
+                                Data tidak tersedia
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-envelope"></i> Email
+                        </div>
+                        <div class="info-value">
+                            <?php if (!empty($booking['email'])): ?>
+                                <a href="mailto:<?= $booking['email'] ?>" class="text-decoration-none">
+                                    <?= $booking['email'] ?>
+                                </a>
+                            <?php else: ?>
+                                Data tidak tersedia
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <i class="fas fa-map-marker-alt"></i> Alamat
+                        </div>
+                        <div class="info-value"><?= $booking['alamat'] ?? 'Data tidak tersedia' ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Layanan -->
+    <div class="row">
+        <div class="col-12">
+            <div class="modern-card">
+                <div class="card-header-modern">
+                    <h5><i class="fas fa-cut"></i> Detail Layanan</h5>
+                </div>
+                <div class="card-body-modern">
+                    <div class="table-responsive">
+                        <table class="table service-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Paket Layanan</th>
+                                    <th>Deskripsi</th>
+                                    <th>Waktu</th>
+                                    <th>Karyawan</th>
+                                    <th class="text-end">Harga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $total = 0;
+                                $counter = 1; ?>
+                                <?php foreach ($details as $detail): ?>
                                     <tr>
-                                        <th>ID Booking</th>
-                                        <td><?= $booking['kdbooking'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tanggal Booking</th>
-                                        <td><?= date('d F Y', strtotime($booking['tanggal_booking'])) ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Status</th>
-                                        <td>
-                                            <span class="booking-status status-<?= $booking['status'] ?>">
-                                                <?php
-                                                $statusMap = [
-                                                    'pending' => 'Menunggu Konfirmasi',
-                                                    'confirmed' => 'Terkonfirmasi',
-                                                    'completed' => 'Selesai',
-                                                    'cancelled' => 'Dibatalkan',
-                                                    'no-show' => 'Tidak Hadir',
-                                                    'rejected' => 'Ditolak'
-                                                ];
-                                                echo $statusMap[$booking['status']] ?? $booking['status'];
-                                                ?>
-                                            </span>
+                                        <td class="text-center">
+                                            <span class="badge bg-primary"><?= $counter++ ?></span>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Jenis Pembayaran</th>
-                                        <td><?= $booking['jenispembayaran'] ?></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Informasi Pelanggan -->
-                    <div class="col-md-6">
-                        <div class="info-card">
-                            <div class="card-header">
-                                <h5><i class="fas fa-user"></i> Informasi Pelanggan</h5>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-borderless detail-table">
-                                    <tr>
-                                        <th>Nama</th>
-                                        <td><?= $booking['nama_lengkap'] ?? 'Data tidak tersedia' ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>No. HP</th>
-                                        <td><?= $booking['no_hp'] ?? 'Data tidak tersedia' ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th>
-                                        <td><?= $booking['email'] ?? 'Data tidak tersedia' ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Alamat</th>
-                                        <td><?= $booking['alamat'] ?? 'Data tidak tersedia' ?></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Detail Layanan -->
-                <div class="info-card">
-                    <div class="card-header">
-                        <h5><i class="fas fa-list"></i> Detail Layanan</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered service-table">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Paket</th>
-                                        <th>Deskripsi</th>
-                                        <th>Waktu</th>
-                                        <th>Karyawan</th>
-                                        <th class="text-end">Harga</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $total = 0;
-                                    $counter = 1; ?>
-                                    <?php foreach ($details as $detail): ?>
-                                        <tr>
-                                            <td><?= $counter++ ?></td>
-                                            <td><?= $detail['nama_paket'] ?></td>
-                                            <td><?= $detail['deskripsi'] ?></td>
-                                            <td><?= $detail['jamstart'] ?> - <?= $detail['jamend'] ?></td>
-                                            <td>
+                                        <td>
+                                            <div class="fw-bold text-primary"><?= $detail['nama_paket'] ?></div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted"><?= $detail['deskripsi'] ?></small>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-clock me-2 text-info"></i>
+                                                <span class="badge bg-light text-dark">
+                                                    <?= $detail['jamstart'] ?> - <?= $detail['jamend'] ?>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-user me-2 text-success"></i>
                                                 <?php
                                                 $karyawanModel = new \App\Models\KaryawanModel();
                                                 $karyawan = $karyawanModel->find($detail['idkaryawan']);
-                                                echo $karyawan ? $karyawan['namakaryawan'] : 'Belum ditentukan';
+                                                echo $karyawan ? $karyawan['namakaryawan'] : '<span class="text-muted">Belum ditentukan</span>';
                                                 ?>
-                                            </td>
-                                            <td class="text-end">Rp <?= number_format($detail['harga'], 0, ',', '.') ?></td>
-                                        </tr>
-                                        <?php $total += $detail['harga']; ?>
-                                    <?php endforeach; ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th colspan="5" class="text-end">Total</th>
-                                        <th class="text-end">Rp <?= number_format($booking['total'], 0, ',', '.') ?></th>
+                                            </div>
+                                        </td>
+                                        <td class="text-end">
+                                            <span class="fw-bold text-success">
+                                                Rp <?= number_format($detail['harga'], 0, ',', '.') ?>
+                                            </span>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-end">Jumlah Bayar</th>
-                                        <th class="text-end">Rp <?= number_format($booking['jumlahbayar'], 0, ',', '.') ?></th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-end">Sisa</th>
-                                        <th class="text-end">Rp <?= number_format($booking['total'] - $booking['jumlahbayar'], 0, ',', '.') ?></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                                    <?php $total += $detail['harga']; ?>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <!-- Payment History -->
-                        <?php if (!empty($pembayaran) && is_array($pembayaran)): ?>
-                            <div class="payment-info">
-                                <h6>Riwayat Pembayaran</h6>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-sm">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>Tanggal</th>
-                                                <th>Metode</th>
-                                                <th>Status</th>
-                                                <th>Jenis</th>
-                                                <th class="text-end">Jumlah</th>
-                                                <th>Bukti</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($pembayaran as $bayar): ?>
-                                                <tr>
-                                                    <td><?= date('d/m/Y H:i', strtotime($bayar['created_at'])) ?></td>
-                                                    <td><?= ucfirst($bayar['metode']) ?></td>
-                                                    <td>
-                                                        <span class="badge <?= $bayar['status'] == 'paid' ? 'bg-success' : 'bg-warning' ?>">
-                                                            <?= $bayar['status'] == 'paid' ? 'Dibayar' : 'Belum Dibayar' ?>
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge <?= ($bayar['jenis'] ?? '') == 'DP' ? 'bg-warning' : 'bg-info' ?>">
-                                                            <?= ($bayar['jenis'] ?? 'Lunas') ?>
-                                                        </span>
-                                                    </td>
-                                                    <td class="text-end">Rp <?= number_format($bayar['total_bayar'], 0, ',', '.') ?></td>
-                                                    <td>
-                                                        <?php if (!empty($bayar['bukti'])): ?>
-                                                            <button type="button" class="btn btn-sm btn-primary view-bukti no-print"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#buktiModal"
-                                                                data-bukti="<?= base_url('uploads/bukti_pembayaran/' . $bayar['bukti']) ?>"
-                                                                data-id="<?= $bayar['id'] ?>">
-                                                                Lihat Bukti
-                                                            </button>
-                                                            <span class="d-none print-only">Ada</span>
-                                                        <?php else: ?>
-                                                            <span class="badge bg-secondary">Tidak ada</span>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                    <!-- Total Section -->
+                    <div class="total-section">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6 class="mb-0">Total Booking</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="total-amount">Rp <?= number_format($booking['total'], 0, ',', '.') ?></div>
+                            </div>
+                        </div>
+                        <hr class="my-3" style="border-color: rgba(255,255,255,0.3);">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <h6 class="mb-1">Sudah Dibayar</h6>
+                                    <div class="h5">Rp <?= number_format($booking['jumlahbayar'], 0, ',', '.') ?></div>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-
-                <!-- Footer -->
-                <div class="row mt-4">
-                    <div class="col-md-8">
-                        <div class="mb-4">
-                            <h6>Catatan:</h6>
-                            <p>1. Harap datang 10 menit sebelum waktu yang dijadwalkan.</p>
-                            <p>2. Pembatalan harus dilakukan minimal 2 jam sebelum jadwal.</p>
-                            <p>3. Faktur ini sebagai bukti sah pembayaran.</p>
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <h6 class="mb-1">Sisa Pembayaran</h6>
+                                    <div class="h5 <?= ($booking['total'] - $booking['jumlahbayar']) > 0 ? 'text-warning' : 'text-success' ?>">
+                                        Rp <?= number_format($booking['total'] - $booking['jumlahbayar'], 0, ',', '.') ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 text-end">
-                        <p>Terima kasih atas kunjungan Anda!</p>
-                        <p class="mb-0">Vixs Barbershop</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Riwayat Pembayaran -->
+    <?php if (!empty($pembayaran) && is_array($pembayaran)): ?>
+    <div class="row">
+        <div class="col-12">
+            <div class="modern-card">
+                <div class="card-header-modern">
+                    <h5><i class="fas fa-credit-card"></i> Riwayat Pembayaran</h5>
+                </div>
+                <div class="card-body-modern">
+                    <div class="payment-history">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th><i class="fas fa-calendar me-2"></i>Tanggal</th>
+                                        <th><i class="fas fa-money-bill me-2"></i>Metode</th>
+                                        <th><i class="fas fa-check-circle me-2"></i>Status</th>
+                                        <th><i class="fas fa-tags me-2"></i>Jenis</th>
+                                        <th class="text-end"><i class="fas fa-dollar-sign me-2"></i>Jumlah</th>
+                                        <th><i class="fas fa-receipt me-2"></i>Bukti</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($pembayaran as $bayar): ?>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-clock me-2 text-muted"></i>
+                                                    <?= date('d/m/Y H:i', strtotime($bayar['created_at'])) ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-info"><?= ucfirst($bayar['metode']) ?></span>
+                                            </td>
+                                            <td>
+                                                <span class="badge <?= $bayar['status'] == 'paid' ? 'bg-success' : 'bg-warning text-dark' ?>">
+                                                    <i class="fas <?= $bayar['status'] == 'paid' ? 'fa-check' : 'fa-clock' ?> me-1"></i>
+                                                    <?= $bayar['status'] == 'paid' ? 'Dibayar' : 'Belum Dibayar' ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge <?= ($bayar['jenis'] ?? '') == 'DP' ? 'bg-warning text-dark' : 'bg-success' ?>">
+                                                    <?= ($bayar['jenis'] ?? 'Lunas') ?>
+                                                </span>
+                                            </td>
+                                            <td class="text-end">
+                                                <span class="fw-bold text-success">
+                                                    Rp <?= number_format($bayar['total_bayar'], 0, ',', '.') ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <?php if (!empty($bayar['bukti'])): ?>
+                                                    <button type="button" class="btn btn-sm btn-primary view-bukti no-print"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#buktiModal"
+                                                        data-bukti="<?= base_url('uploads/bukti_pembayaran/' . $bayar['bukti']) ?>"
+                                                        data-id="<?= $bayar['id'] ?>">
+                                                        <i class="fas fa-eye me-1"></i> Lihat Bukti
+                                                    </button>
+                                                    <span class="d-none print-only">
+                                                        <i class="fas fa-check text-success"></i> Ada
+                                                    </span>
+                                                <?php else: ?>
+                                                    <span class="badge bg-secondary">
+                                                        <i class="fas fa-times me-1"></i> Tidak ada
+                                                    </span>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <!-- Company Info & Notes -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="modern-card">
+                <div class="card-header-modern">
+                    <h5><i class="fas fa-sticky-note"></i> Catatan Penting</h5>
+                </div>
+                <div class="card-body-modern">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-clock text-warning me-3 mt-1"></i>
+                                <div>
+                                    <strong>Kedatangan</strong>
+                                    <p class="mb-0 text-muted">Harap datang 10 menit sebelum waktu yang dijadwalkan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-ban text-danger me-3 mt-1"></i>
+                                <div>
+                                    <strong>Pembatalan</strong>
+                                    <p class="mb-0 text-muted">Pembatalan harus dilakukan minimal 2 jam sebelum jadwal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-receipt text-info me-3 mt-1"></i>
+                                <div>
+                                    <strong>Bukti Pembayaran</strong>
+                                    <p class="mb-0 text-muted">Faktur ini sebagai bukti sah pembayaran dan layanan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="company-info">
+                <img src="<?= base_url('assets/images/logo.png') ?>" alt="Vixs Barbershop" class="company-logo" onerror="this.src='https://via.placeholder.com/100x100?text=LOGO'">
+                <h4 class="text-primary mb-3">Vixs Barbershop</h4>
+                <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Jl. Dr. Moh. Hatta No.3kel, RT.01</p>
+                <p class="mb-2"><i class="fas fa-phone me-2"></i>081234567890</p>
+                <p class="mb-3"><i class="fas fa-envelope me-2"></i>info@vixsbarbershop.com</p>
+                <div class="text-primary">
+                    <strong>Terima kasih atas kepercayaan Anda!</strong>
                 </div>
             </div>
         </div>
@@ -677,7 +877,10 @@
     // Fungsi untuk mencetak faktur ke halaman baru
     function cetakFaktur() {
         try {
-            var invoiceContent = document.getElementById('invoice').innerHTML;
+            // Gabungkan content dari header dan content
+            var headerContent = document.getElementById('invoice-header').innerHTML;
+            var mainContent = document.getElementById('invoice-content').innerHTML;
+            var invoiceContent = '<div class="booking-header">' + headerContent + '</div>' + mainContent;
             var printWindow = window.open('', '_blank', 'height=600,width=800');
 
             if (!printWindow) {

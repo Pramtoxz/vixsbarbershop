@@ -24,10 +24,10 @@
         <!-- Topbar -->
         <?= $this->include('admin/layouts/topbar') ?>
 
-        <!-- Page Content -->
-        <div class="container-fluid animate__animated animate__fadeIn">
-            <?= $this->renderSection('content') ?>
-        </div>
+                 <!-- Page Content -->
+         <div class="container-fluid animate__animated animate__fadeIn" data-aos="fade-up" data-aos-delay="200">
+             <?= $this->renderSection('content') ?>
+         </div>
     </div>
 
     <?= $this->include('admin/layouts/script') ?>

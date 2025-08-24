@@ -10,103 +10,159 @@
     }
 
     .booking-card {
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .booking-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     }
 
     .booking-card .card-header {
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #e9ecef;
-        padding: 15px 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-bottom: none;
+        padding: 1.5rem 2rem;
+        position: relative;
+        color: white;
     }
 
     .booking-card .card-header h5 {
         margin: 0;
-        color: #495057;
-        font-weight: 600;
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .booking-card .card-body {
-        padding: 20px;
+        padding: 2rem;
     }
 
     /* Styling untuk pemilihan jam */
     .time-slots-container {
         margin-top: 20px;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 15px;
     }
 
     .time-slot {
         display: block;
         width: 100%;
-        padding: 10px 15px;
-        margin-bottom: 5px;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #212529;
-        font-weight: 500;
+        padding: 12px 20px;
+        margin-bottom: 8px;
+        border: 2px solid #e9ecef;
+        border-radius: 50px;
+        background: white;
+        color: #495057;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.2s;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .time-slot::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .time-slot:hover::before {
+        left: 100%;
     }
 
     .time-slot:hover {
-        background-color: #f8f9fa;
-        border-color: #0d6efd;
+        background: linear-gradient(135deg, var(--light-color) 0%, var(--light-gray) 100%);
+        border-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--secondary-light);
     }
 
     .time-slot.active {
-        background-color: #0d6efd;
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
         color: white;
-        border-color: #0d6efd;
+        border-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px var(--secondary-light);
     }
 
     .time-slot.booked {
-        background-color: #dc3545;
+        background: linear-gradient(135deg, var(--danger-color), var(--accent-orange));
         color: white;
-        border-color: #dc3545;
+        border-color: var(--danger-color);
         cursor: not-allowed;
+        opacity: 0.8;
     }
 
     .time-slot.partial-booked {
-        background-color: #ffc107;
-        color: #212529;
-        border-color: #ffc107;
+        background: linear-gradient(135deg, var(--warning-color), var(--accent-orange));
+        color: var(--text-primary);
+        border-color: var(--warning-color);
         cursor: pointer;
     }
 
     .time-slot.disabled {
-        background-color: #f8f9fa;
+        background: #f8f9fa;
         color: #6c757d;
         border-color: #dee2e6;
         cursor: not-allowed;
+        opacity: 0.6;
     }
 
     .booking-date-display {
-        font-weight: bold;
-        color: #495057;
+        font-weight: 700;
+        color: var(--secondary-color);
         margin-bottom: 15px;
+        padding: 1rem;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        border-left: 4px solid var(--secondary-color);
     }
 
     .status-legend {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 1rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .legend-item {
         display: flex;
         align-items: center;
-        font-size: 0.85rem;
-        margin-right: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        background: #f8f9fa;
+        border-radius: 25px;
+        border: 1px solid #e9ecef;
     }
 
     .legend-color {
-        width: 15px;
-        height: 15px;
-        border-radius: 3px;
-        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin-right: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .date-picker-container {
@@ -114,60 +170,109 @@
     }
 
     .date-picker-container .form-control {
-        background-color: #fff;
-        border: 1px solid #ced4da;
-        padding-left: 40px;
-        height: calc(2.5rem + 2px);
+        background: white;
+        border: 2px solid #e9ecef;
+        border-radius: 15px;
+        padding: 1rem 1rem 1rem 3rem;
+        height: auto;
         font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .date-picker-container .form-control:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 4px 20px var(--secondary-light);
+        transform: translateY(-2px);
     }
 
     .date-picker-container .calendar-icon {
         position: absolute;
-        left: 10px;
+        left: 15px;
         top: 50%;
         transform: translateY(-50%);
-        color: #0d6efd;
+        color: var(--secondary-color);
         z-index: 4;
+        font-size: 1.2rem;
     }
 
     .form-section-title {
-        font-weight: 600;
-        color: #495057;
-        margin-top: 20px;
-        margin-bottom: 15px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #e9ecef;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding: 1rem 0 0.5rem 0;
+        border-bottom: 2px solid #667eea;
+        position: relative;
+    }
+
+    .form-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
     .customer-info-display {
-        background-color: #f8f9fa;
-        border-radius: 5px;
-        padding: 15px;
-        margin-bottom: 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
     .customer-info-display p {
-        margin-bottom: 8px;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .customer-info-display strong {
-        color: #495057;
+        color: #2c3e50;
+        font-weight: 600;
+        min-width: 100px;
     }
 
     .switch-container {
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 
     .form-switch {
-        padding-left: 2.5em;
+        padding-left: 3em;
+        position: relative;
     }
 
     .form-switch .form-check-input {
-        width: 2em;
+        width: 3em;
+        height: 1.5em;
+        background-color: #e9ecef;
+        border: none;
+        border-radius: 2em;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .form-switch .form-check-input:checked {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
+        border-color: var(--secondary-color);
+    }
+
+    .form-switch .form-check-input:focus {
+        box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
     }
 
     .form-check-label {
-        font-weight: 500;
+        font-weight: 600;
+        color: #2c3e50;
+        cursor: pointer;
     }
 
     .loading-overlay {
@@ -176,33 +281,177 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 5;
+        z-index: 10;
+        border-radius: 15px;
     }
 
     .legend-available {
-        background-color: #fff;
-        border: 1px solid #dee2e6;
+        background: white;
+        border: 2px solid #e9ecef;
     }
 
     .legend-selected {
-        background-color: #0d6efd;
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
     }
 
     .legend-booked {
-        background-color: #dc3545;
+        background: linear-gradient(135deg, var(--danger-color), var(--accent-orange));
     }
 
     .legend-partial {
-        background-color: #ffc107;
+        background: linear-gradient(135deg, var(--warning-color), var(--accent-orange));
     }
 
     .legend-disabled {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
+        background: #f8f9fa;
+        border: 2px solid #dee2e6;
+    }
+
+    /* Modern Form Controls */
+    .form-control, .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 15px;
+        padding: 0.8rem 1.2rem;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 4px 20px var(--secondary-light);
+        transform: translateY(-2px);
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Modern Buttons */
+    .btn {
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-purple));
+        color: white;
+    }
+
+    .btn-warning {
+        background: linear-gradient(135deg, var(--warning-color), var(--accent-orange));
+        color: var(--text-primary);
+    }
+
+    .btn-outline-secondary {
+        background: white;
+        border: 2px solid #6c757d;
+        color: #6c757d;
+    }
+
+    .btn-outline-secondary:hover {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-sm {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-lg {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    /* Alert Styling */
+    .alert {
+        border-radius: 15px;
+        border: none;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .alert-warning {
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        color: #856404;
+        border-left: 4px solid #ffc107;
+    }
+
+    /* Card Styling for Selected Items */
+    .card.border-0.bg-light {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .card-body.p-3 {
+        padding: 1.5rem !important;
+    }
+
+    .card-title {
+        color: #2c3e50 !important;
+        font-weight: 700 !important;
+    }
+
+    .card-text {
+        color: #6c757d !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .booking-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .time-slot {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .switch-container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
     }
 </style>
 <?= $this->endSection() ?>
@@ -219,7 +468,7 @@
                     <!-- Pelanggan Info Card -->
                     <div class="card booking-card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5><i class="bi bi-person"></i> Informasi Pelanggan</h5>
+                            <h5><i class="fas fa-user-circle"></i> Informasi Pelanggan</h5>
                         </div>
                         <div class="card-body">
                             <div class="customer-info-display">
@@ -234,7 +483,7 @@
                     <!-- Detail Booking Card -->
                     <div class="card booking-card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5><i class="bi bi-calendar-check"></i> Detail Booking</h5>
+                            <h5><i class="fas fa-calendar-check"></i> Detail Booking</h5>
                             <div class="form-check form-switch switch-container">
                                 <input class="form-check-input" type="checkbox" id="editDetailsSwitch" name="update_details" value="yes">
                                 <label class="form-check-label" for="editDetailsSwitch">Edit Detail</label>
@@ -426,7 +675,7 @@
                     <!-- Pembayaran Card -->
                     <div class="card booking-card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5><i class="bi bi-credit-card"></i> Pembayaran</h5>
+                            <h5><i class="fas fa-credit-card"></i> Pembayaran</h5>
                             <div class="form-check form-switch switch-container">
                                 <input class="form-check-input" type="checkbox" id="editPaymentSwitch" name="update_payment" value="yes">
                                 <label class="form-check-label" for="editPaymentSwitch">Edit Pembayaran</label>
@@ -485,7 +734,7 @@
                     <!-- Status Card -->
                     <div class="card booking-card">
                         <div class="card-header">
-                            <h5><i class="bi bi-info-circle"></i> Status Booking</h5>
+                            <h5><i class="fas fa-info-circle"></i> Status Booking</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-group mb-3">
@@ -505,10 +754,10 @@
                     <div class="card booking-card">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnSubmit">
-                                <i class="bi bi-save"></i> Simpan Perubahan
+                                <i class="fas fa-save"></i> Simpan Perubahan
                             </button>
                             <a href="<?= site_url('admin/booking/show/' . $booking['kdbooking']) ?>" class="btn btn-outline-secondary btn-block mt-2">
-                                <i class="bi bi-x-circle"></i> Batal
+                                <i class="fas fa-times-circle"></i> Batal
                             </a>
                         </div>
                     </div>

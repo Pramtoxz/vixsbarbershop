@@ -44,10 +44,10 @@ class PengeluaranController extends BaseController
             $row[] = 'Rp ' . number_format($p['jumlah'], 0, ',', '.');
 
             $actions = '<a href="javascript:void(0)" class="btn btn-warning btn-sm btn-edit" data-id="' . $p['idpengeluaran'] . '">
-                            <i class="bi bi-pencil"></i> Edit
+                            <i class="bi bi-pencil-square"></i> Edit
                         </a> ';
             $actions .= '<a href="javascript:void(0)" class="btn btn-danger btn-sm btn-delete" data-id="' . $p['idpengeluaran'] . '">
-                            <i class="bi bi-trash"></i> Hapus
+                            <i class="bi bi-trash3-fill"></i> Hapus
                         </a>';
 
             $row[] = $actions;
