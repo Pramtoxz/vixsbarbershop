@@ -57,7 +57,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Karyawan',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -134,7 +134,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Paket',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -210,7 +210,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Pelanggan',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -397,7 +397,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Booking',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -579,7 +579,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Pembayaran',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -876,7 +876,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Pendapatan Bulanan',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -1112,7 +1112,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Pendapatan Bulanan',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -1342,7 +1342,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Pengeluaran',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
@@ -2669,7 +2669,7 @@ class ReportsController extends BaseController
         $headerData = [
             'title' => 'Cetak Laporan Uang Masuk dan Keluar',
             'nama_perusahaan' => 'Vixs Barbershop',
-            'alamat_perusahaan' => 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',

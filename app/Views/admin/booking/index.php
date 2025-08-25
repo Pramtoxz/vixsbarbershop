@@ -30,8 +30,8 @@
     }
 
     .btn-add {
-        background-color: #A27B5C;
-        border-color: #A27B5C;
+        background-color: #7677EA;
+        border-color: #7677EA;
         border-radius: 6px;
         padding: 8px 16px;
         font-weight: 500;
@@ -327,8 +327,8 @@
     }
 
     .btn-modal-save {
-        background-color: #A27B5C;
-        border-color: #A27B5C;
+        background-color: #7677EA;
+        border-color: #7677EA;
     }
 
     .btn-modal-save:hover {

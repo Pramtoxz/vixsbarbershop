@@ -1193,7 +1193,7 @@ class BookingNewController extends BaseController
                 <div>
                     <img src="<?= base_url('assets/images/logo.png') ?>" alt="Vixs Barbershop" onerror="this.src='https://via.placeholder.com/100x50?text=LOGO'">
                     <h4>Vixs Barbershop</h4>
-                    <p class="mb-0">Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127</p>
+                    <p class="mb-0">Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586</p>
                     <p class="mb-0">Telp: 081234567890</p>
                 </div>
                 <div>

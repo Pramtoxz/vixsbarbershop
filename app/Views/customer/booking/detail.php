@@ -70,7 +70,7 @@
                                 </div>
                                 <div>
                                     <h2 class="text-lg sm:text-xl font-bold text-black">Vixs Barbershop</h2>
-                                    <p class="text-xs sm:text-sm text-gray-700">Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127</p>
+                                    <p class="text-xs sm:text-sm text-gray-700">Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586</p>
                                     <p class="text-xs sm:text-sm text-gray-700">Telp: (021) 123-4567</p>
                                 </div>
                             </div>

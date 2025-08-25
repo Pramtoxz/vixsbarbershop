@@ -209,6 +209,107 @@
     </div>
 <?php endif; ?>
 
+<?php if (session('role') == 'karyawan'): ?>
+    <div class="sidebar" id="sidebar">
+        <!-- Brand Section -->
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <div class="logo-container">
+                    <img src="<?= base_url('assets/images/logo.png') ?>" alt="Vixs Barbershop" onerror="this.src='https://ui-avatars.com/api/?name=V&background=667eea&color=fff&bold=true&size=128'">
+                    <div class="logo-overlay">
+                        <i class="bi bi-scissors"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="brand-text">
+                <h3 class="brand-name">VIXS</h3>
+                <p class="brand-subtitle">Barbershop</p>
+                <div class="brand-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="sidebar-nav">
+            <!-- Dashboard -->
+            <div class="nav-section">
+                <a href="<?= site_url('karyawan') ?>" class="nav-item <?= $title == 'Dashboard Karyawan' ? 'active' : '' ?>">
+                    <div class="nav-icon dashboard-icon">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                    </div>
+                    <span class="nav-text">Dashboard</span>
+                    <div class="nav-indicator"></div>
+                </a>
+            </div>
+
+            <!-- Jadwal Section -->
+            <div class="nav-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="bi bi-calendar-week"></i>
+                    </div>
+                    <span class="section-title">Jadwal Kerja</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <a href="<?= site_url('karyawan/jadwal') ?>" class="nav-item <?= $title == 'Jadwal Kerja' ? 'active' : '' ?>">
+                    <div class="nav-icon booking-icon">
+                        <i class="bi bi-calendar-event-fill"></i>
+                    </div>
+                    <span class="nav-text">Jadwal Saya</span>
+                    <div class="nav-indicator"></div>
+                </a>
+            </div>
+
+            <!-- Profil Section -->
+            <div class="nav-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <span class="section-title">Akun</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <a href="<?= site_url('karyawan/profile') ?>" class="nav-item <?= $title == 'Profil Saya' ? 'active' : '' ?>">
+                    <div class="nav-icon users-icon">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <span class="nav-text">Profil</span>
+                    <div class="nav-indicator"></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="footer-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-person-workspace"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-number">Karyawan</span>
+                        <span class="stat-label"><?= esc(session('name')) ?></span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="javascript:void(0)" class="logout-btn" id="btn-logout">
+                <div class="logout-icon">
+                    <i class="bi bi-power"></i>
+                </div>
+                <span class="logout-text">Logout</span>
+                <div class="logout-arrow">
+                    <i class="bi bi-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>
+
 <!-- Sidebar Scripts -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {

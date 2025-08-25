@@ -37,7 +37,7 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #A27B5C;
+            border-bottom: 2px solid #7677EA;
         }
 
         .logo-container {
@@ -60,7 +60,7 @@
 
         .header h2 {
             margin-bottom: 5px;
-            color: #A27B5C;
+            color: #7677EA;
             font-weight: 700;
             font-size: 24px;
         }
@@ -98,7 +98,7 @@
             position: absolute;
             width: 70%;
             height: 2px;
-            background-color: #A27B5C;
+            background-color: #7677EA;
             bottom: 0;
             left: 15%;
         }
@@ -179,8 +179,8 @@
         }
 
         .btn-print {
-            background-color: #A27B5C;
-            border-color: #A27B5C;
+            background-color: #7677EA;
+            border-color: #7677EA;
             color: white;
         }
 

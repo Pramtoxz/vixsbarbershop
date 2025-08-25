@@ -1,31 +1,56 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vixs Barbershop - Tempat Cukur Rambut Terbaik</title>
-    <!-- Include jQuery first -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title><?= isset($title) ? $title . ' - ' : '' ?>Vixs Barbershop - Modern Grooming Experience</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Vixs Barbershop - Pengalaman grooming modern dengan layanan profesional. Potong rambut, styling, dan perawatan rambut terbaik di kota.">
+    <meta name="keywords" content="barbershop, potong rambut, styling, grooming, perawatan rambut, vixs barbershop">
+    <meta name="author" content="Vixs Barbershop">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Vixs Barbershop - Modern Grooming Experience">
+    <meta property="og:description" content="Pengalaman grooming modern dengan layanan profesional untuk penampilan terbaik Anda.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= base_url() ?>">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="<?= base_url('public/favicon.ico') ?>">
+    <link rel="apple-touch-icon" href="<?= base_url('assets/images/logo.png') ?>">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <?= $this->include('templates/style') ?>
+    
+    <!-- Custom CSS Section -->
     <?= $this->renderSection('custom_css') ?>
     <?= $this->renderSection('custom_style') ?>
 </head>
 
-<body class="bg-gradient-to-b from-[#1E293B] to-[#334155]">
+<body>
+    <!-- Navigation -->
     <?= $this->include('templates/navbar') ?>
 
-    <?= $this->renderSection('content') ?>
+    <!-- Main Content -->
+    <main>
+        <?= $this->renderSection('content') ?>
+    </main>
 
+    <!-- Footer -->
     <?= $this->include('templates/footer') ?>
 
+    <!-- Scripts -->
     <?= $this->include('templates/script') ?>
+    
+    <!-- Custom JavaScript Section -->
     <?= $this->renderSection('custom_script') ?>
-
+    <?= $this->renderSection('custom_js') ?>
 </body>
-
 </html>

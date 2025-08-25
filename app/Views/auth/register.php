@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi - Vixs Barbershop</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    <title>Registrasi Admin - Vixs Barbershop</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Include main styles -->
+    <?= $this->include('templates/style') ?>
 
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-</head>
-
-<body class="bg-gradient-to-br from-[#2C3E50] to-[#3498DB] min-h-screen flex items-center justify-center p-4">
+<body>
+    <div class="auth-container">
     <div class="bg-white/10 backdrop-blur-md w-full max-w-md p-8 rounded-2xl shadow-xl">
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-white mb-2">Registrasi</h1>
@@ -107,6 +104,10 @@
             });
         });
     </script>
-</body>
+    </div>
 
+    <script>
+        console.log('🎉 Admin Register - Modern Design Loaded! ✨');
+    </script>
+</body>
 </html>

@@ -191,7 +191,19 @@ class Auth extends BaseController
                     $this->setRememberMeCookie($user['id']);
                 }
 
-                $redirect = $user['role'] === 'pelanggan' ? site_url() : site_url('admin');
+                // Determine redirect based on role
+                switch ($user['role']) {
+                    case 'pelanggan':
+                        $redirect = site_url();
+                        break;
+                    case 'karyawan':
+                        $redirect = site_url('karyawan');
+                        break;
+                    default:
+                        $redirect = site_url('admin');
+                        break;
+                }
+                
                 return $this->response->setJSON([
                     'status' => 'success',
                     'message' => 'Login berhasil',

@@ -42,6 +42,20 @@ class RoleFilter implements FilterInterface
             return redirect()->to('admin/reports')->with('error', 'Anda hanya memiliki akses ke halaman laporan');
         }
 
+        // Khusus untuk karyawan
+        if ($userRole === 'karyawan') {
+            // Dapatkan URI path saat ini
+            $segments = $request->uri->getSegments();
+
+            // Izinkan akses ke semua URL karyawan/*
+            if (count($segments) >= 1 && $segments[0] === 'karyawan') {
+                return;
+            }
+
+            // Redirect ke dashboard karyawan jika mencoba akses halaman lain
+            return redirect()->to('karyawan')->with('error', 'Anda hanya memiliki akses ke dashboard karyawan');
+        }
+
         // Untuk role lain yang tidak memiliki akses
         return redirect()->back()->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
     }

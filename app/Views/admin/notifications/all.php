@@ -20,7 +20,7 @@
 
     .notification-unread {
         background-color: rgba(13, 110, 253, 0.05);
-        border-left: 4px solid #A27B5C;
+        border-left: 4px solid #7677EA;
     }
 
     .notification-read {
@@ -40,7 +40,7 @@
 
     .notification-icon i {
         font-size: 1.5rem;
-        color: #A27B5C;
+        color: #7677EA;
     }
 
     .notification-title {
@@ -61,7 +61,7 @@
     .notification-unread-dot {
         width: 10px;
         height: 10px;
-        background-color: #A27B5C;
+        background-color: #7677EA;
         border-radius: 50%;
         display: inline-block;
         margin-left: 5px;

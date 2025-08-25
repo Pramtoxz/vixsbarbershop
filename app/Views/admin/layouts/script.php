@@ -153,7 +153,7 @@
                  text: "Anda akan keluar dari sistem",
                  icon: 'warning',
                  showCancelButton: true,
-                 confirmButtonColor: '#A27B5C',
+                 confirmButtonColor: '#7677EA',
                  cancelButtonColor: '#6c757d',
                  confirmButtonText: 'Ya, Keluar!',
                  cancelButtonText: 'Batal'

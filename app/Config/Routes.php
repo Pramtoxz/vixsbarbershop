@@ -150,6 +150,16 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->get('getPengeluaran', 'Admin\PengeluaranController::getPengeluaran');
     });
 
+    // Galeri Routes
+    $routes->group('galeri', ['filter' => 'role:admin,manager'], function ($routes) {
+        $routes->get('/', 'Admin\GaleriController::index');
+        $routes->get('create', 'Admin\GaleriController::create');
+        $routes->post('store', 'Admin\GaleriController::store');
+        $routes->get('edit/(:segment)', 'Admin\GaleriController::edit/$1');
+        $routes->post('update/(:segment)', 'Admin\GaleriController::update/$1');
+        $routes->delete('delete/(:segment)', 'Admin\GaleriController::delete/$1');
+    });
+
     // Laporan (accessible by admin and pimpinan)
     $routes->group('reports', ['filter' => 'role:admin,pimpinan'], function ($routes) {
         $routes->get('/', 'Admin\ReportsController::index');
@@ -182,6 +192,25 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->get('uang-masuk-keluar/data', 'Admin\ReportsController::getUangMasukKeluarData');
         $routes->get('uang-masuk-keluar/print', 'Admin\ReportsController::printUangMasukKeluar');
     });
+});
+
+// Karyawan Routes
+$routes->group('karyawan', ['filter' => 'auth'], function ($routes) {
+    // Main routes - using stable simple controllers
+    $routes->get('/', 'KaryawanSimple::index', ['filter' => 'role:karyawan']);
+    $routes->get('dashboard', 'KaryawanSimple::index', ['filter' => 'role:karyawan']);
+    $routes->get('jadwal', 'KaryawanSimple::jadwal', ['filter' => 'role:karyawan']);
+    $routes->get('profile', 'KaryawanSimple::profile', ['filter' => 'role:karyawan']);
+    
+    // Alternative routes (with more complex SQL - may have issues)
+    $routes->get('advanced', 'KaryawanDashboard::index', ['filter' => 'role:karyawan']);
+    $routes->get('advanced/jadwal', 'KaryawanDashboard::jadwal', ['filter' => 'role:karyawan']);
+    $routes->get('advanced/profile', 'KaryawanDashboard::profile', ['filter' => 'role:karyawan']);
+    $routes->get('getJadwal', 'KaryawanDashboard::getJadwal', ['filter' => 'role:karyawan']);
+    
+    // Testing routes (can be removed in production)
+    $routes->get('test', 'KaryawanTest::index', ['filter' => 'role:karyawan']);
+    $routes->get('info', 'KaryawanTest::info', ['filter' => 'role:karyawan']);
 });
 
 // Customer Booking Routes

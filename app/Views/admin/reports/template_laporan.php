@@ -37,7 +37,7 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #A27B5C;
+            border-bottom: 2px solid #7677EA;
         }
 
         .logo-container {
@@ -60,7 +60,7 @@
 
         .header h2 {
             margin-bottom: 5px;
-            color: #A27B5C;
+            color: #7677EA;
             font-weight: 700;
             font-size: 24px;
         }
@@ -98,7 +98,7 @@
             position: absolute;
             width: 70%;
             height: 2px;
-            background-color: #A27B5C;
+            background-color: #7677EA;
             bottom: 0;
             left: 15%;
         }
@@ -179,8 +179,8 @@
         }
 
         .btn-print {
-            background-color: #A27B5C;
-            border-color: #A27B5C;
+            background-color: #7677EA;
+            border-color: #7677EA;
             color: white;
         }
 
@@ -233,7 +233,7 @@
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 16px;
-            color: #A27B5C;
+            color: #7677EA;
         }
 
         .summary-box .value {
@@ -267,7 +267,7 @@
                 <img src="<?= base_url('assets/images/logo.png') ?>" alt="Vixs Barbershop" class="logo" onerror="this.src='https://via.placeholder.com/80x80?text=LOGO'">
                 <div class="header-text">
                     <h2><?= $nama_perusahaan ?? 'Vixs Barbershop' ?></h2>
-                    <p><?= $alamat_perusahaan ?? 'Jl. Dr. Moh. Hatta No.3kel, RT.01, Cupak Tangah, Kec. Pauh, Kota Padang, Sumatera Barat 25127' ?> | Telp: <?= $telepon ?? '081234567890' ?></p>
+                    <p><?= $alamat_perusahaan ?? 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586' ?> | Telp: <?= $telepon ?? '081234567890' ?></p>
                     <p>Email: <?= $email ?? 'info@awanbarbershop.com' ?> | Website: <?= $website ?? 'www.awanbarbershop.com' ?></p>
                 </div>
             </div>

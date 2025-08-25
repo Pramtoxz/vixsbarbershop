@@ -13,7 +13,7 @@ class KaryawanModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['idkaryawan', 'namakaryawan', 'jenkel', 'alamat', 'nohp', 'status'];
+    protected $allowedFields    = ['idkaryawan', 'namakaryawan', 'jenkel', 'alamat', 'nohp', 'status', 'user_id'];
 
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
@@ -131,5 +131,145 @@ class KaryawanModel extends Model
         return $this->where('status', 'aktif')
             ->whereNotIn('idkaryawan', $subQuery)
             ->findAll();
+    }
+
+    /**
+     * Mendapatkan karyawan dengan informasi user
+     *
+     * @param string|null $idkaryawan
+     * @return array
+     */
+    public function getKaryawanWithUser($idkaryawan = null)
+    {
+        $builder = $this->db->table('karyawan k')
+            ->select('k.*, u.username, u.email, u.status as user_status')
+            ->join('users u', 'k.user_id = u.id', 'left');
+
+        if ($idkaryawan) {
+            $builder->where('k.idkaryawan', $idkaryawan);
+            return $builder->get()->getRowArray();
+        }
+
+        return $builder->get()->getResultArray();
+    }
+
+    /**
+     * Mendapatkan karyawan berdasarkan user_id
+     *
+     * @param int $userId
+     * @return array|null
+     */
+    public function getKaryawanByUserId($userId)
+    {
+        return $this->where('user_id', $userId)->first();
+    }
+
+    /**
+     * Mendapatkan jadwal karyawan berdasarkan user_id
+     *
+     * @param int $userId
+     * @param string|null $tanggal
+     * @return array
+     */
+    public function getJadwalKaryawan($userId, $tanggal = null)
+    {
+        $karyawan = $this->getKaryawanByUserId($userId);
+        if (!$karyawan) {
+            return [];
+        }
+
+        $db = \Config\Database::connect();
+        $builder = $db->table('detail_booking db')
+            ->select('db.*, b.kdbooking, b.idpelanggan, p.nama_lengkap as namapelanggan, pk.namapaket, CASE WHEN db.status = "1" THEN "Pending" WHEN db.status = "2" THEN "Dikonfirmasi" WHEN db.status = "3" THEN "Selesai" WHEN db.status = "4" THEN "Dibatalkan" ELSE "Unknown" END as status_text')
+            ->join('booking b', 'db.kdbooking = b.kdbooking')
+            ->join('pelanggan p', 'b.idpelanggan = p.idpelanggan')
+            ->join('paket pk', 'db.kdpaket = pk.idpaket')
+            ->where('db.idkaryawan', $karyawan['idkaryawan'])
+            ->where('db.status !=', '4'); // Exclude cancelled bookings
+
+        if ($tanggal) {
+            $builder->where('db.tgl', $tanggal);
+        } else {
+            // Default show current week
+            $startOfWeek = date('Y-m-d', strtotime('monday this week'));
+            $endOfWeek = date('Y-m-d', strtotime('sunday this week'));
+            $builder->where('db.tgl >=', $startOfWeek)
+                   ->where('db.tgl <=', $endOfWeek);
+        }
+
+        return $builder->orderBy('db.tgl', 'ASC')
+                      ->orderBy('db.jamstart', 'ASC')
+                      ->get()
+                      ->getResultArray();
+    }
+
+    /**
+     * Create user account for karyawan
+     *
+     * @param array $karyawanData
+     * @param array $userData
+     * @return bool
+     */
+    public function createKaryawanWithUser($karyawanData, $userData)
+    {
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        try {
+            // Create user first
+            $userModel = new \App\Models\UserModel();
+            $userData['role'] = 'karyawan';
+            $userData['status'] = 'active';
+            
+            if ($userModel->insert($userData)) {
+                $userId = $userModel->getInsertID();
+                
+                // Create karyawan with user_id
+                $karyawanData['user_id'] = $userId;
+                $this->insert($karyawanData);
+                
+                $db->transComplete();
+                return $db->transStatus();
+            }
+            
+            $db->transRollback();
+            return false;
+            
+        } catch (\Exception $e) {
+            $db->transRollback();
+            return false;
+        }
+    }
+
+    /**
+     * Update karyawan with user info
+     *
+     * @param string $idkaryawan
+     * @param array $karyawanData
+     * @param array $userData
+     * @return bool
+     */
+    public function updateKaryawanWithUser($idkaryawan, $karyawanData, $userData = null)
+    {
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        try {
+            // Update karyawan
+            $this->update($idkaryawan, $karyawanData);
+            
+            // Update user if provided and user_id exists
+            if ($userData && isset($karyawanData['user_id']) && $karyawanData['user_id']) {
+                $userModel = new \App\Models\UserModel();
+                $userModel->update($karyawanData['user_id'], $userData);
+            }
+            
+            $db->transComplete();
+            return $db->transStatus();
+            
+        } catch (\Exception $e) {
+            $db->transRollback();
+            return false;
+        }
     }
 }
