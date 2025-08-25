@@ -359,7 +359,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="<?= site_url('customer/auth/login') ?>" method="post" id="loginForm">
+                    <form action="<?= site_url('customer/login') ?>" method="post" id="loginForm">
                         <?= csrf_field() ?>
                         
                         <!-- Email Field -->
@@ -427,6 +427,7 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
         // Toggle password visibility
@@ -448,14 +449,78 @@
             }
         }
 
-        // Form submission with loading state
-        document.getElementById('loginForm').addEventListener('submit', function() {
+        // Form submission with SweetAlert2
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const submitBtn = document.getElementById('submitBtn');
             const submitText = document.getElementById('submitText');
+            const formData = new FormData(this);
             
+            // Show loading state
             submitBtn.style.pointerEvents = 'none';
             submitBtn.style.opacity = '0.8';
             submitText.textContent = 'Memproses...';
+            
+            // Submit form via AJAX
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Login Berhasil!',
+                            text: response.message,
+                            confirmButtonColor: '#00d2aa',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (response.redirect) {
+                                window.location.href = response.redirect;
+                            }
+                        });
+                    } else if (response.status === 'pending_verification') {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Verifikasi Diperlukan',
+                            text: response.message,
+                            confirmButtonColor: '#ff9800',
+                            confirmButtonText: 'Verifikasi Sekarang'
+                        }).then((result) => {
+                            if (response.redirect) {
+                                window.location.href = response.redirect;
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Login Gagal',
+                            text: response.message,
+                            confirmButtonColor: '#f44336',
+                            confirmButtonText: 'Coba Lagi'
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Terjadi Kesalahan',
+                        text: 'Tidak dapat terhubung ke server. Silakan coba lagi.',
+                        confirmButtonColor: '#f44336',
+                        confirmButtonText: 'OK'
+                    });
+                },
+                complete: function() {
+                    // Reset button state
+                    submitBtn.style.pointerEvents = 'auto';
+                    submitBtn.style.opacity = '1';
+                    submitText.textContent = 'Masuk';
+                }
+            });
         });
 
         // Enhanced form interactions

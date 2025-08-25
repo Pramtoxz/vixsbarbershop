@@ -1,124 +1,171 @@
 <?= $this->extend('templates/main') ?>
 <?= $this->section('content') ?>
-<!-- Profile Section -->
-<section class="pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-14 lg:pb-16">
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 sm:mb-10 lg:mb-12" data-aos="fade-up">
-            <h1 class="text-2xl sm:text-3xl font-bold gradient-text mb-2">Profil Saya</h1>
-            <p class="text-sm sm:text-base text-gray-600">Kelola informasi profil Anda</p>
+<!-- Hero Section -->
+<section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 6rem 0 4rem; position: relative; overflow: hidden;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'10\' r=\'1\'/%3E%3Ccircle cx=\'10\' cy=\'30\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+    
+    <div class="container">
+        <div class="text-center text-white">
+            <h1 class="section-title" style="color: white; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">
+                👤 Profil Saya
+            </h1>
+            <p class="section-description" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem;">
+                Kelola informasi profil dan data pribadi Anda dengan mudah
+            </p>
         </div>
+    </div>
+</section>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            <!-- Profile Card -->
-            <div class="lg:col-span-1" data-aos="fade-right">
-                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 card-hover">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-[#E74C3C] to-[#F1C40F] p-1">
-                            <div class="w-full h-full rounded-full overflow-hidden bg-white">
-                                <img src="<?= base_url('assets/images/default-avatar.jpg') ?>" alt="Foto Profil"
-                                    class="w-full h-full object-cover"
-                                    onerror="this.src='https://ui-avatars.com/api/?name=<?= urlencode($pelanggan['nama_lengkap']) ?>&background=E74C3C&color=fff&size=256'">
+<!-- Main Content -->
+<section class="section-padding">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+            <!-- Profile Cards Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <!-- Profile Card -->
+                <div class="card animate-fade-in-up" style="padding: 2rem; text-align: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <!-- Avatar with modern styling -->
+                        <div style="width: 150px; height: 150px; margin-bottom: 1.5rem; position: relative;">
+                            <div style="width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 4px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                                <div style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: white;">
+                                    <img src="<?= base_url('assets/images/default-avatar.jpg') ?>" alt="Foto Profil"
+                                        style="width: 100%; height: 100%; object-fit: cover;"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=<?= urlencode($pelanggan['nama_lengkap']) ?>&background=667eea&color=fff&size=256'">
+                                </div>
                             </div>
+                            <!-- Online indicator -->
+                            <div style="position: absolute; bottom: 10px; right: 10px; width: 20px; height: 20px; background: var(--success-color); border: 3px solid white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
                         </div>
-                        <h2 class="text-lg sm:text-xl font-bold text-gray-800 mt-2" id="profile-name"><?= $pelanggan['nama_lengkap'] ?></h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mb-2">ID: <?= isset($pelanggan['idpelanggan']) ? $pelanggan['idpelanggan'] : 'Belum tersedia' ?></p>
-                        <p class="text-xs sm:text-sm text-gray-500">Member sejak: <?= date('d F Y', strtotime($pelanggan['created_at'])) ?></p>
+                        
+                        <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;" id="profile-name">
+                            <?= $pelanggan['nama_lengkap'] ?>
+                        </h2>
+                        
+                        <div style="background: linear-gradient(135deg, var(--gray-100), var(--gray-50)); padding: 0.75rem 1.5rem; border-radius: 50px; margin-bottom: 1rem;">
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 0.875rem; font-weight: 500;">
+                                🆔 <?= isset($pelanggan['idpelanggan']) ? $pelanggan['idpelanggan'] : 'Belum tersedia' ?>
+                            </p>
+                        </div>
+                        
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.875rem;">
+                            📅 Member sejak: <strong><?= date('d F Y', strtotime($pelanggan['created_at'])) ?></strong>
+                        </p>
 
-                        <div class="w-full mt-4 sm:mt-6 border-t border-gray-200 pt-3 sm:pt-4">
-                            <a href="<?= base_url('customer/booking') ?>" class="w-full btn-primary px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg inline-flex items-center justify-center transform hover:scale-105 transition-all duration-300 mb-2 sm:mb-3 text-sm sm:text-base">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                <span>Riwayat Booking</span>
+                        <!-- Action Buttons -->
+                        <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+                            <a href="<?= base_url('customer/booking') ?>" class="btn btn-primary btn-enhanced" style="text-decoration: none; padding: 1rem 2rem; border-radius: 50px;">
+                                <span class="btn-text">📋 Riwayat Booking</span>
+                                <span class="btn-shine"></span>
                             </a>
-                            <a href="<?= base_url('customer/change-password') ?>" class="w-full bg-gray-100 hover:bg-gray-200 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg inline-flex items-center justify-center transition-all duration-300 text-sm sm:text-base">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                                <span>Ubah Password</span>
+                            <a href="<?= base_url('customer/change-password') ?>" class="btn btn-outline" style="text-decoration: none; padding: 1rem 2rem; border-radius: 50px;">
+                                <span>🔒 Ubah Password</span>
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Profile Form -->
-            <div class="lg:col-span-2" data-aos="fade-left">
-                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 card-hover">
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-gray-200">Informasi Pribadi</h3>
-
-                    <!-- Alert untuk success & error akan ditampilkan di sini -->
-                    <div id="alert-success" class="p-3 sm:p-4 mb-4 sm:mb-6 text-xs sm:text-sm text-green-700 bg-green-100 rounded-lg hidden" role="alert">
-                        <div class="flex items-center">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                
+                <!-- Profile Form -->
+                <div class="card animate-fade-in-up" style="padding: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--gray-200);">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), #FFD23F); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg style="width: 24px; height: 24px; color: var(--text-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                             </svg>
-                            <span id="success-message"></span>
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary);">
+                            📝 Informasi Pribadi
+                        </h3>
+                    </div>
+
+                    <!-- Alert Messages -->
+                    <div id="alert-success" style="display: none; margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #D1FAE5, #A7F3D0); border: 1px solid #10B981; border-radius: 1rem;" role="alert">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; background: #065F46; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg style="width: 20px; height: 20px; color: #D1FAE5;" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #065F46; margin-bottom: 0.25rem;">✅ Berhasil!</h4>
+                                <span id="success-message" style="color: #047857; font-size: 0.875rem;"></span>
+                            </div>
                         </div>
                     </div>
 
-                    <div id="alert-error" class="p-3 sm:p-4 mb-4 sm:mb-6 text-xs sm:text-sm text-red-700 bg-red-100 rounded-lg hidden" role="alert">
-                        <div class="flex">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                            </svg>
-                            <div id="error-message-container">
-                                <ul class="list-disc pl-4 sm:pl-5 space-y-1" id="error-messages">
-                                </ul>
+                    <div id="alert-error" style="display: none; margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #FEE2E2, #FECACA); border: 1px solid #EF4444; border-radius: 1rem;" role="alert">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; background: #991B1B; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg style="width: 20px; height: 20px; color: #FEE2E2;" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #991B1B; margin-bottom: 0.5rem;">❌ Terjadi Kesalahan!</h4>
+                                <ul id="error-messages" style="list-style: disc; margin-left: 1rem; color: #7F1D1D; font-size: 0.875rem;"></ul>
                             </div>
                         </div>
                     </div>
 
                     <form id="profileForm">
                         <?= csrf_field() ?>
-                        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                            <div class="col-span-full">
-                                <label for="nama_lengkap" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Nama Lengkap</label>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                            <div style="grid-column: 1 / -1;">
+                                <label for="nama_lengkap" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">👤 Nama Lengkap</label>
                                 <input type="text" id="nama_lengkap" name="nama_lengkap" value="<?= $pelanggan['nama_lengkap'] ?>" required
-                                    class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent">
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;"
+                                    onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
+                                    onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'">
                             </div>
 
                             <div>
-                                <label for="jeniskelamin" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Jenis Kelamin</label>
+                                <label for="jeniskelamin" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">⚧️ Jenis Kelamin</label>
                                 <select id="jeniskelamin" name="jeniskelamin"
-                                    class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent">
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;"
+                                    onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
+                                    onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'">
                                     <option value="">-- Pilih Jenis Kelamin --</option>
-                                    <option value="Laki-laki" <?= isset($pelanggan['jeniskelamin']) && $pelanggan['jeniskelamin'] === 'Laki-laki' ? 'selected' : '' ?>>Laki-laki</option>
-                                    <option value="Perempuan" <?= isset($pelanggan['jeniskelamin']) && $pelanggan['jeniskelamin'] === 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
+                                    <option value="Laki-laki" <?= isset($pelanggan['jeniskelamin']) && $pelanggan['jeniskelamin'] === 'Laki-laki' ? 'selected' : '' ?>>🚹 Laki-laki</option>
+                                    <option value="Perempuan" <?= isset($pelanggan['jeniskelamin']) && $pelanggan['jeniskelamin'] === 'Perempuan' ? 'selected' : '' ?>>🚺 Perempuan</option>
                                 </select>
                             </div>
 
                             <div>
-                                <label for="tanggal_lahir" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Tanggal Lahir</label>
+                                <label for="tanggal_lahir" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">🎂 Tanggal Lahir</label>
                                 <input type="date" id="tanggal_lahir" name="tanggal_lahir" value="<?= isset($pelanggan['tanggal_lahir']) ? $pelanggan['tanggal_lahir'] : '' ?>"
-                                    class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent">
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;"
+                                    onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
+                                    onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'">
                             </div>
 
                             <div>
-                                <label for="email" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email</label>
+                                <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">📧 Email</label>
                                 <input type="email" id="email" value="<?= $pelanggan['email'] ?>" disabled
-                                    class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded-lg border border-gray-300 bg-gray-50">
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-300); border-radius: 0.75rem; background: var(--gray-100); color: var(--text-secondary); font-size: 1rem;">
                             </div>
 
                             <div>
-                                <label for="no_hp" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">No. HP</label>
+                                <label for="no_hp" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">📱 No. HP</label>
                                 <input type="text" id="no_hp" name="no_hp" value="<?= isset($pelanggan['no_hp']) ? $pelanggan['no_hp'] : '' ?>"
-                                    class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent">
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;"
+                                    onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
+                                    onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'">
                             </div>
 
-                            <div class="col-span-full">
-                                <label for="alamat" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Alamat</label>
-                                <textarea id="alamat" name="alamat" rows="3"
-                                    class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent resize-none"><?= isset($pelanggan['alamat']) ? $pelanggan['alamat'] : '' ?></textarea>
+                            <div style="grid-column: 1 / -1;">
+                                <label for="alamat" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">🏠 Alamat</label>
+                                <textarea id="alamat" name="alamat" rows="4"
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; resize: none; transition: all 0.3s ease;"
+                                    onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
+                                    onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'"><?= isset($pelanggan['alamat']) ? $pelanggan['alamat'] : '' ?></textarea>
                             </div>
                         </div>
 
-                        <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-end">
-                            <button type="submit" id="saveButton" class="w-full sm:w-auto btn-primary px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg inline-flex items-center justify-center transform hover:scale-105 transition-all duration-300">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Simpan Perubahan</span>
+                        <div style="margin-top: 3rem; text-align: center;">
+                            <button type="submit" id="saveButton" class="btn btn-primary btn-enhanced" style="padding: 1rem 3rem; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem;">
+                                <span class="btn-text">💾 Simpan Perubahan</span>
+                                <span class="btn-shine"></span>
                             </button>
                         </div>
                     </form>
@@ -145,16 +192,19 @@
             // Tampilkan loading state
             saveButton.disabled = true;
             saveButton.innerHTML = `
-                <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span>Menyimpan...</span>
+                <span class="btn-text">
+                    <svg style="width: 20px; height: 20px; margin-right: 8px; animation: spin 1s linear infinite;" fill="none" viewBox="0 0 24 24">
+                        <circle style="opacity: 0.25;" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path style="opacity: 0.75;" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    ⏳ Menyimpan...
+                </span>
+                <span class="btn-shine"></span>
             `;
 
             // Sembunyikan alert
-            alertSuccess.classList.add('hidden');
-            alertError.classList.add('hidden');
+            alertSuccess.style.display = 'none';
+            alertError.style.display = 'none';
 
             const formData = new FormData(profileForm);
 
@@ -170,15 +220,13 @@
                     // Kembalikan status button
                     saveButton.disabled = false;
                     saveButton.innerHTML = `
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Simpan Perubahan</span>
-                `;
+                        <span class="btn-text">💾 Simpan Perubahan</span>
+                        <span class="btn-shine"></span>
+                    `;
 
                     if (data.status === 'success') {
                         // Tampilkan success alert
-                        alertSuccess.classList.remove('hidden');
+                        alertSuccess.style.display = 'block';
                         successMessage.textContent = data.message;
 
                         // Update nama di profile card
@@ -192,11 +240,11 @@
 
                         // Sembunyikan alert setelah 5 detik
                         setTimeout(() => {
-                            alertSuccess.classList.add('hidden');
+                            alertSuccess.style.display = 'none';
                         }, 5000);
                     } else {
                         // Tampilkan error alert
-                        alertError.classList.remove('hidden');
+                        alertError.style.display = 'block';
                         errorMessages.innerHTML = '';
 
                         // Tambahkan semua pesan error
@@ -223,14 +271,12 @@
                     // Kembalikan status button
                     saveButton.disabled = false;
                     saveButton.innerHTML = `
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Simpan Perubahan</span>
-                `;
+                        <span class="btn-text">💾 Simpan Perubahan</span>
+                        <span class="btn-shine"></span>
+                    `;
 
                     // Tampilkan error
-                    alertError.classList.remove('hidden');
+                    alertError.style.display = 'block';
                     errorMessages.innerHTML = '';
                     const li = document.createElement('li');
                     li.textContent = 'Terjadi kesalahan koneksi. Silakan coba lagi.';
@@ -246,6 +292,16 @@
                 });
         });
     });
+
+    // Add CSS for spinner animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
 </script>
 <?= $this->endSection() ?>
 

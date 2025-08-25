@@ -1,110 +1,156 @@
 <?= $this->extend('templates/main') ?>
 
 <?= $this->section('content') ?>
-<div class="py-12 sm:py-16">
-    <div class="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <div>
-                <h1 class="text-2xl sm:text-3xl font-bold gradient-text">Riwayat Booking</h1>
-                <p class="text-gray-300 mt-2 text-sm sm:text-base">Daftar booking Anda</p>
-            </div>
-            <a href="<?= site_url('customer/booking/create') ?>" class="btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center justify-center transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                <span class="hidden sm:inline">Booking Baru</span>
-                <span class="sm:hidden">Booking</span>
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+<!-- Hero Section -->
+<section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 6rem 0 4rem; position: relative; overflow: hidden;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'10\' r=\'1\'/%3E%3Ccircle cx=\'10\' cy=\'30\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+    
+    <div class="container">
+        <div class="text-center text-white">
+            <h1 class="section-title" style="color: white; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">
+                📋 Riwayat Booking Anda
+            </h1>
+            <p class="section-description" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem;">
+                Kelola semua booking Anda dengan mudah dan lacak status layanan yang telah Anda pesan
+            </p>
+            <a href="<?= site_url('customer/booking/create') ?>" class="btn btn-primary btn-enhanced" style="background: var(--accent-color); color: var(--text-primary); padding: 1rem 2rem; border-radius: 50px;">
+                <span class="btn-text">✨ Booking Baru</span>
+                <svg class="btn-icon" style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                 </svg>
+                <span class="btn-shine"></span>
             </a>
         </div>
+    </div>
+</section>
 
-        <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
+<!-- Main Content -->
+<section class="section-padding">
+    <div class="container">
+        <div class="card animate-fade-in-up" style="max-width: none; padding: 2rem;">
             <?php if (empty($bookings)) : ?>
-                <div id="empty-state" class="text-center py-8 sm:py-10">
-                    <img src="<?= base_url('assets/images/imgnotfound.jpg') ?>" alt="Belum ada booking" class="w-40 h-40 sm:w-60 sm:h-60 mx-auto mb-4 opacity-75 object-cover rounded-lg">
-                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">Belum Ada Riwayat Booking</h3>
-                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0">Anda belum memiliki riwayat booking. Silakan buat booking baru untuk memulai.</p>
-                    <a href="<?= site_url('customer/booking/create') ?>" class="btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center text-sm sm:text-base">
-                        <span class="hidden sm:inline">Buat Booking Sekarang</span>
-                        <span class="sm:hidden">Booking Sekarang</span>
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                <div id="empty-state" class="text-center" style="padding: 4rem 0;">
+                    <div style="max-width: 400px; margin: 0 auto;">
+                        <svg style="width: 120px; height: 120px; margin: 0 auto 2rem auto; color: var(--gray-300);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                         </svg>
-                    </a>
+                        <h3 style="font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">
+                            📋 Belum Ada Booking
+                        </h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.125rem;">
+                            Anda belum memiliki riwayat booking. Mari mulai dengan membuat booking pertama Anda!
+                        </p>
+                        <a href="<?= site_url('customer/booking/create') ?>" class="btn btn-primary btn-enhanced">
+                            <span class="btn-text">✨ Buat Booking Sekarang</span>
+                            <svg class="btn-icon" style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            <span class="btn-shine"></span>
+                        </a>
+                    </div>
                 </div>
             <?php else : ?>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left" id="booking-table">
+                <div style="margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                        📊 Riwayat Booking Anda
+                    </h2>
+                    <p style="color: var(--text-secondary);">
+                        Berikut adalah daftar semua booking yang pernah Anda lakukan
+                    </p>
+                </div>
+                
+                <div class="table-container" style="overflow-x: auto; border-radius: 1rem; border: 1px solid var(--gray-200);">
+                    <table class="modern-table" id="booking-table" style="width: 100%; border-collapse: collapse;">
                         <thead>
-                            <tr class="bg-gray-50 text-gray-700">
-                                <th class="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">No. Booking</th>
-                                <th class="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">Tanggal</th>
-                                <th class="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm hidden sm:table-cell">Layanan</th>
-                                <th class="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">Status</th>
-                                <th class="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">Total</th>
-                                <th class="py-2 sm:py-3 px-2 sm:px-4 font-medium text-center text-xs sm:text-sm">Aksi</th>
+                            <tr style="background: linear-gradient(135deg, var(--gray-50), var(--gray-100));">
+                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 2px solid var(--gray-200);">📋 No. Booking</th>
+                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 2px solid var(--gray-200);">📅 Tanggal</th>
+                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 2px solid var(--gray-200);">💇‍♂️ Layanan</th>
+                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 2px solid var(--gray-200);">📊 Status</th>
+                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 2px solid var(--gray-200);">💰 Total</th>
+                                <th style="padding: 1rem; text-align: center; font-weight: 600; color: var(--text-primary); border-bottom: 2px solid var(--gray-200);">⚡ Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($bookings as $booking) : ?>
-                                <tr class="border-b hover:bg-gray-50">
-                                    <td class="py-2 sm:py-3 px-2 sm:px-4">
-                                        <span class="font-medium text-gray-800 text-xs sm:text-sm"><?= $booking['kdbooking'] ?></span>
-                                    </td>
-                                    <td class="py-2 sm:py-3 px-2 sm:px-4">
-                                        <span class="text-gray-800 text-xs sm:text-sm"><?= date('d M Y', strtotime($booking['tanggal_booking'])) ?></span><br class="hidden sm:block">
-                                        <span class="text-xs text-gray-600">
-                                            <?= $booking['jamstart'] ?? '-' ?> - <?= $booking['jamend'] ?? '-' ?>
-                                        </span>
-                                    </td>
-                                    <td class="py-2 sm:py-3 px-2 sm:px-4 hidden sm:table-cell">
-                                        <div>
-                                            <span class="font-medium text-gray-800 text-sm"><?= $booking['nama_paket'] ?? 'Paket tidak ditemukan' ?></span><br>
-                                            <span class="text-xs text-gray-600">Karyawan: <?= $booking['namakaryawan'] ?? 'Belum ditentukan' ?></span>
+                                <tr style="border-bottom: 1px solid var(--gray-200); transition: all 0.3s ease;" 
+                                    onmouseover="this.style.background='var(--gray-50)'" 
+                                    onmouseout="this.style.background='transparent'">
+                                    <td style="padding: 1rem;">
+                                        <div style="font-weight: 600; color: var(--primary-color); font-size: 0.875rem;">
+                                            <?= $booking['kdbooking'] ?>
                                         </div>
                                     </td>
-                                    <td class="py-2 sm:py-3 px-2 sm:px-4">
+                                    <td style="padding: 1rem;">
+                                        <div style="font-weight: 500; color: var(--text-primary); margin-bottom: 0.25rem;">
+                                            <?= date('d M Y', strtotime($booking['tanggal_booking'])) ?>
+                                        </div>
+                                        <div style="font-size: 0.75rem; color: var(--text-secondary);">
+                                            🕐 <?= $booking['jamstart'] ?? '-' ?> - <?= $booking['jamend'] ?? '-' ?>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <div style="font-weight: 500; color: var(--text-primary); margin-bottom: 0.25rem;">
+                                            <?= $booking['nama_paket'] ?? 'Paket tidak ditemukan' ?>
+                                        </div>
+                                        <div style="font-size: 0.75rem; color: var(--text-secondary);">
+                                            👨‍💼 <?= $booking['namakaryawan'] ?? 'Belum ditentukan' ?>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem;">
                                         <?php
-                                        $badgeClass = '';
+                                        $statusStyle = '';
+                                        $statusEmoji = '';
                                         switch ($booking['status']) {
                                             case 'pending':
-                                                $badgeClass = 'bg-yellow-100 text-yellow-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #92400E; border: 1px solid #F59E0B;';
+                                                $statusEmoji = '⏳';
                                                 break;
                                             case 'confirmed':
-                                                $badgeClass = 'bg-blue-100 text-blue-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #DBEAFE, #BFDBFE); color: #1E40AF; border: 1px solid #3B82F6;';
+                                                $statusEmoji = '✅';
                                                 break;
                                             case 'completed':
-                                                $badgeClass = 'bg-green-100 text-green-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #D1FAE5, #A7F3D0); color: #065F46; border: 1px solid #10B981;';
+                                                $statusEmoji = '🎉';
                                                 break;
                                             case 'cancelled':
-                                                $badgeClass = 'bg-red-100 text-red-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #991B1B; border: 1px solid #EF4444;';
+                                                $statusEmoji = '❌';
                                                 break;
                                             case 'expired':
-                                                $badgeClass = 'bg-red-100 text-red-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #991B1B; border: 1px solid #EF4444;';
+                                                $statusEmoji = '⏰';
                                                 break;
                                             case 'no-show':
-                                                $badgeClass = 'bg-gray-100 text-gray-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #F3F4F6, #E5E7EB); color: #374151; border: 1px solid #6B7280;';
+                                                $statusEmoji = '👻';
                                                 break;
                                             case 'rejected':
-                                                $badgeClass = 'bg-rose-100 text-rose-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #FCE7F3, #FBCFE8); color: #BE185D; border: 1px solid #EC4899;';
+                                                $statusEmoji = '🚫';
                                                 break;
                                             default:
-                                                $badgeClass = 'bg-gray-100 text-gray-800';
+                                                $statusStyle = 'background: linear-gradient(135deg, #F3F4F6, #E5E7EB); color: #374151; border: 1px solid #6B7280;';
+                                                $statusEmoji = '❓';
                                         }
                                         ?>
-                                        <span class="inline-block py-1 px-2 <?= $badgeClass ?> text-xs font-medium rounded-full w-20 sm:w-32 text-center">
-                                            <?= $booking['status_text'] ?>
-                                        </span>
+                                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; <?= $statusStyle ?>">
+                                            <span><?= $statusEmoji ?></span>
+                                            <span><?= $booking['status_text'] ?></span>
+                                        </div>
                                     </td>
-                                    <td class="py-2 sm:py-3 px-2 sm:px-4">
-                                        <span class="font-medium text-gray-800 text-xs sm:text-sm"><?= $booking['total_formatted'] ?></span>
+                                    <td style="padding: 1rem;">
+                                        <div style="font-weight: 700; color: var(--primary-color); font-size: 1rem;">
+                                            <?= $booking['total_formatted'] ?>
+                                        </div>
                                     </td>
-                                    <td class="py-2 sm:py-3 px-2 sm:px-4 text-center">
+                                    <td style="padding: 1rem; text-align: center;">
                                         <a href="<?= site_url('customer/booking/detail/' . $booking['kdbooking']) ?>"
-                                            class="inline-flex items-center justify-center p-1 sm:p-2 bg-blue-50 text-blue-700 rounded-full hover:bg-blue-100 transition-colors">
-                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                            </svg>
+                                           class="btn btn-primary" 
+                                           style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                            <span>👁️ Detail</span>
                                         </a>
                                     </td>
                                 </tr>
@@ -114,42 +160,41 @@
                 </div>
             <?php endif; ?>
 
-            <div class="mt-8 text-sm text-gray-700">
-                <h3 class="text-lg font-semibold mb-2">Informasi Status Booking:</h3>
-                <ul class="space-y-2">
-                    <li class="flex items-center">
-                        <span class="inline-block w-30 py-1 px-2 bg-yellow-100 text-yellow-800 text-xs font-medium text-center rounded-full">Menunggu Konfirmasi</span>
-                        <span class="ml-2 text-gray-700">Booking Anda sedang menunggu konfirmasi dari kami</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="inline-block w-24 py-1 px-2 bg-blue-100 text-blue-800 text-xs font-medium text-center rounded-full">Terkonfirmasi</span>
-                        <span class="ml-2 text-gray-700">Booking Anda telah dikonfirmasi</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="inline-block w-24 py-1 px-2 bg-green-100 text-green-800 text-xs font-medium text-center rounded-full">Selesai</span>
-                        <span class="ml-2 text-gray-700">Layanan telah selesai diberikan</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="inline-block w-24 py-1 px-2 bg-red-100 text-red-800 text-xs font-medium text-center rounded-full">Dibatalkan</span>
-                        <span class="ml-2 text-gray-700">Booking telah dibatalkan</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="inline-block w-40 py-1 px-2 bg-red-100 text-red-800 text-xs font-medium text-center rounded-full">Batal (Waktu Habis)</span>
-                        <span class="ml-2 text-gray-700">Booking dibatalkan karena waktu pembayaran telah habis</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="inline-block w-24 py-1 px-2 bg-gray-100 text-gray-800 text-xs font-medium text-center rounded-full">Tidak Hadir</span>
-                        <span class="ml-2 text-gray-700">Anda tidak hadir pada waktu yang telah ditentukan</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="inline-block w-24 py-1 px-2 bg-rose-100 text-rose-800 text-xs font-medium text-center rounded-full">Ditolak</span>
-                        <span class="ml-2 text-gray-700">Booking Anda telah ditolak oleh admin</span>
-                    </li>
-                </ul>
+            <!-- Status Information -->
+            <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--gray-50), var(--white)); border-radius: 1rem; border: 1px solid var(--gray-200);">
+                <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                    📚 Informasi Status Booking
+                </h3>
+                <div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem;">
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #92400E; border: 1px solid #F59E0B;">
+                            <span>⏳</span><span>Menunggu Konfirmasi</span>
+                        </div>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Booking sedang menunggu konfirmasi</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem;">
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: linear-gradient(135deg, #DBEAFE, #BFDBFE); color: #1E40AF; border: 1px solid #3B82F6;">
+                            <span>✅</span><span>Terkonfirmasi</span>
+                        </div>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Booking telah dikonfirmasi</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem;">
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: linear-gradient(135deg, #D1FAE5, #A7F3D0); color: #065F46; border: 1px solid #10B981;">
+                            <span>🎉</span><span>Selesai</span>
+                        </div>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Layanan telah selesai diberikan</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem;">
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #991B1B; border: 1px solid #EF4444;">
+                            <span>❌</span><span>Dibatalkan</span>
+                        </div>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Booking telah dibatalkan</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>

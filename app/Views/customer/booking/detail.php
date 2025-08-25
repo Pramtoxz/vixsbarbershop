@@ -1,19 +1,22 @@
 <?= $this->extend('templates/main') ?>
 
 <?= $this->section('content') ?>
-<div class="py-12 sm:py-16">
-    <div class="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-6 sm:mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-                <h1 class="text-2xl sm:text-3xl font-bold gradient-text">Detail Booking</h1>
-                <p class="text-white mt-2 text-sm sm:text-base">Kode Booking: <?= $booking['kdbooking'] ?></p>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                <a href="<?= site_url('customer/booking') ?>" class="btn-secondary px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center justify-center text-sm sm:text-base">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                    <span>Kembali</span>
+<!-- Hero Section -->
+<section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 6rem 0 4rem; position: relative; overflow: hidden;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'10\' r=\'1\'/%3E%3Ccircle cx=\'10\' cy=\'30\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+    
+    <div class="container">
+        <div class="text-center text-white">
+            <h1 class="section-title" style="color: white; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">
+                📋 Detail Booking
+            </h1>
+            <p class="section-description" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem;">
+                Kode Booking: <strong><?= $booking['kdbooking'] ?></strong>
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="<?= site_url('customer/booking') ?>" class="btn btn-outline" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; backdrop-filter: blur(10px);">
+                    ← Kembali ke Riwayat
                 </a>
                 <?php
                 // Cek apakah booking expired berdasarkan field expired_at
@@ -22,35 +25,38 @@
 
                 if ($needsPayment && !$isExpired && $booking['status'] !== 'expired'):
                 ?>
-                    <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center justify-center text-sm sm:text-base">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z" />
-                        </svg>
-                        <span class="hidden sm:inline">Lanjutkan Pembayaran</span>
-                        <span class="sm:hidden">Bayar</span>
+                    <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="btn btn-primary btn-enhanced" style="background: var(--accent-color); color: var(--text-primary); padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none;">
+                        <span class="btn-text">💳 Lanjutkan Pembayaran</span>
+                        <span class="btn-shine"></span>
                     </a>
                 <?php endif; ?>
-                <button id="btnPrint" class="btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center justify-center text-sm sm:text-base" onclick="printFaktur()">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
-                    </svg>
-                    <span class="hidden sm:inline">Cetak Faktur</span>
-                    <span class="sm:hidden">Cetak</span>
+                <button id="btnPrint" class="btn btn-primary btn-enhanced" style="padding: 0.75rem 1.5rem; border-radius: 50px; border: none; cursor: pointer;" onclick="printFaktur()">
+                    <span class="btn-text">🖨️ Cetak Faktur</span>
+                    <span class="btn-shine"></span>
                 </button>
             </div>
         </div>
+    </div>
+</section>
 
+<!-- Main Content -->
+<section class="section-padding">
+    <div class="container">
         <?php if ($isExpired || $booking['status'] === 'expired'): ?>
-            <div class="mb-6 bg-red-50 border-l-4 border-red-500 p-4">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            <div class="card animate-fade-in-up" style="margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #FEE2E2, #FECACA); border: 1px solid #EF4444;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 50px; height: 50px; background: #991B1B; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg style="width: 24px; height: 24px; color: #FEE2E2;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <div class="ml-3">
-                        <p class="text-sm text-red-700">
-                            <span class="font-medium">Booking Dibatalkan!</span> Waktu pembayaran telah habis. Silakan <a href="<?= site_url('customer/booking/create') ?>" class="font-medium underline text-red-700 hover:text-red-600">buat booking baru</a>.
+                    <div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #991B1B; margin-bottom: 0.5rem;">
+                            ⏰ Booking Telah Expired
+                        </h3>
+                        <p style="color: #7F1D1D; margin: 0; font-size: 0.875rem;">
+                            Waktu pembayaran telah habis dan booking otomatis dibatalkan. 
+                            <a href="<?= site_url('customer/booking/create') ?>" style="font-weight: 600; text-decoration: underline;">Buat booking baru</a>
                         </p>
                     </div>
                 </div>

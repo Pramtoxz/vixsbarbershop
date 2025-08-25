@@ -242,12 +242,19 @@ class CustomerAuth extends BaseController
 
     public function login()
     {
-        $username = $this->request->getPost('username');
+        $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $remember = $this->request->getPost('remember') == 'on';
 
-        $user = $this->userModel->where('username', $username)
-            ->orWhere('email', $username)
+        // Validasi input
+        if (empty($email) || empty($password)) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Email dan password harus diisi'
+            ]);
+        }
+
+        $user = $this->userModel->where('email', $email)
             ->where('role', 'pelanggan')
             ->first();
 
