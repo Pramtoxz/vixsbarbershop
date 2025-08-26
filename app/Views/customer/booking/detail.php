@@ -40,30 +40,40 @@
 </section>
 
 <!-- Main Content -->
-<section class="section-padding">
-    <div class="container">
+<section class="py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <?php if ($isExpired || $booking['status'] === 'expired'): ?>
-            <div class="card animate-fade-in-up" style="margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #FEE2E2, #FECACA); border: 1px solid #EF4444;">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <div style="width: 50px; height: 50px; background: #991B1B; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <svg style="width: 24px; height: 24px; color: #FEE2E2;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-red-50 p-4 rounded-lg border border-red-200 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #991B1B; margin-bottom: 0.5rem;">
-                            ⏰ Booking Telah Expired
-                        </h3>
-                        <p style="color: #7F1D1D; margin: 0; font-size: 0.875rem;">
+                        <h3 class="text-lg font-medium text-red-800 mb-1">Booking Telah Expired</h3>
+                        <p class="text-red-700 text-sm">
                             Waktu pembayaran telah habis dan booking otomatis dibatalkan. 
-                            <a href="<?= site_url('customer/booking/create') ?>" style="font-weight: 600; text-decoration: underline;">Buat booking baru</a>
+                            <a href="<?= site_url('customer/booking/create') ?>" class="font-medium underline">Buat booking baru</a>
                         </p>
                     </div>
                 </div>
             </div>
         <?php endif; ?>
 
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Detail Booking Card -->
+        <div class="bg-white rounded-lg border border-gray-200 mb-6">
+            <div class="p-6">
+                <div class="flex items-center mb-5">
+                    <div class="rounded-full bg-gray-100 p-2 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-medium text-gray-800">Detail Booking</h2>
+                </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div class="p-4 sm:p-6">
                 <div id="printArea">
                     <!-- Faktur untuk dicetak -->
@@ -141,156 +151,180 @@
                             <div class="faktur-watermark belum-lunas text-red-500 font-bold">BELUM LUNAS</div>
                         <?php endif; ?>
 
-                        <!-- Content -->
-                        <div class="py-6">
-                            <!-- Customer & Booking Info -->
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-                                <div>
-                                    <h4 class="text-xs sm:text-sm uppercase text-gray-600 font-medium mb-2">Informasi Pelanggan</h4>
-                                    <p class="font-medium text-gray-800 text-sm sm:text-base"><?= $booking['nama_lengkap'] ?></p>
-                                    <p class="text-gray-700 text-sm sm:text-base"><?= $booking['no_hp'] ?></p>
-                                    <p class="text-gray-700 text-sm sm:text-base"><?= $booking['email'] ?? '-' ?></p>
-                                    <p class="text-gray-700 text-sm sm:text-base"><?= $booking['alamat'] ?? '-' ?></p>
+                <!-- Informasi Booking -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- Info Pelanggan -->
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            <h4 class="text-sm font-medium text-gray-800">Informasi Pelanggan</h4>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">Nama:</span>
+                                <span class="text-gray-800 text-sm font-medium"><?= $booking['nama_lengkap'] ?></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">No HP:</span>
+                                <span class="text-gray-800 text-sm"><?= $booking['no_hp'] ?></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">Email:</span>
+                                <span class="text-gray-800 text-sm"><?= $booking['email'] ?? '-' ?></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Booking -->
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <h4 class="text-sm font-medium text-gray-800">Informasi Booking</h4>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">Kode:</span>
+                                <span class="text-gray-800 text-sm font-medium"><?= $booking['kdbooking'] ?></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">Tanggal:</span>
+                                <span class="text-gray-800 text-sm"><?= date('d F Y', strtotime($booking['tanggal_booking'])) ?></span>
+                            </div>
+                            <?php if (!empty($details) && isset($details[0])): ?>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600 text-sm">Waktu:</span>
+                                    <span class="text-gray-800 text-sm"><?= $details[0]['jamstart'] ?> - <?= $details[0]['jamend'] ?></span>
                                 </div>
-                                <div>
-                                    <h4 class="text-xs sm:text-sm uppercase text-gray-600 font-medium mb-2">Informasi Booking</h4>
-                                    <p class="text-gray-700 text-sm sm:text-base"><span class="font-medium text-gray-800">Tanggal:</span> <?= date('d F Y', strtotime($booking['tanggal_booking'])) ?></p>
-                                    <?php if (!empty($details) && isset($details[0])): ?>
-                                        <p class="text-gray-700 text-sm sm:text-base"><span class="font-medium text-gray-800">Waktu:</span> <?= $details[0]['jamstart'] ?> - <?= $details[0]['jamend'] ?></p>
-                                        <p class="text-gray-700 text-sm sm:text-base"><span class="font-medium text-gray-800">Karyawan:</span> <?= $details[0]['idkaryawan'] ? ($details[0]['nama_karyawan'] ?? 'Unknown') : 'Belum ditentukan' ?></p>
-                                    <?php endif; ?>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600 text-sm">Karyawan:</span>
+                                    <span class="text-gray-800 text-sm"><?= $details[0]['idkaryawan'] ? ($details[0]['nama_karyawan'] ?? 'Unknown') : 'Belum ditentukan' ?></span>
+                                </div>
+                            <?php endif; ?>
 
-                                    <!-- Status Pembayaran -->
-                                    <p class="text-gray-700 mt-2">
-                                        <span class="font-medium text-gray-800">Status Pembayaran:</span>
-                                        <?php if ($booking['jenispembayaran'] == 'Belum Bayar'): ?>
-                                            <span class="inline-block py-1 px-2 rounded-full text-xs bg-red-100 text-red-800">Belum Bayar</span>
-                                        <?php elseif ($booking['jenispembayaran'] == 'DP' && $booking['total'] > $booking['jumlahbayar']): ?>
-                                            <span class="inline-block py-1 px-2 rounded-full text-xs bg-yellow-100 text-yellow-800">DP (<?= round(($booking['jumlahbayar'] / $booking['total']) * 100) ?>%)</span>
-                                        <?php elseif ($booking['total'] <= $booking['jumlahbayar']): ?>
-                                            <span class="inline-block py-1 px-2 rounded-full text-xs bg-green-100 text-green-800">Lunas</span>
-                                        <?php else: ?>
-                                            <span class="inline-block py-1 px-2 rounded-full text-xs bg-red-100 text-red-800">Belum Bayar</span>
-                                        <?php endif; ?>
-                                    </p>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">Status Bayar:</span>
+                                <?php if ($booking['jenispembayaran'] == 'Belum Bayar'): ?>
+                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-red-100 text-red-800">Belum Bayar</span>
+                                <?php elseif ($booking['jenispembayaran'] == 'DP' && $booking['total'] > $booking['jumlahbayar']): ?>
+                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-yellow-100 text-yellow-800">DP (<?= round(($booking['jumlahbayar'] / $booking['total']) * 100) ?>%)</span>
+                                <?php elseif ($booking['total'] <= $booking['jumlahbayar']): ?>
+                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-green-100 text-green-800">Lunas</span>
+                                <?php else: ?>
+                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-red-100 text-red-800">Belum Bayar</span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 text-sm">Status:</span>
+                                <span class="inline-block py-1 px-2 rounded-full text-xs 
+                                <?php
+                                // Cek apakah booking expired berdasarkan field expired_at
+                                $isExpired = isset($booking['expired_at']) && strtotime($booking['expired_at']) < time() && $booking['jenispembayaran'] == 'Belum Bayar';
 
-                                    <!-- Status Booking -->
-                                    <p class="text-gray-700 mt-1">
-                                        <span class="font-medium text-gray-800">Status Booking:</span>
-                                        <span class="inline-block py-1 px-2 rounded-full text-xs 
-                                        <?php
-                                        // Cek apakah booking expired berdasarkan field expired_at
-                                        $isExpired = isset($booking['expired_at']) && strtotime($booking['expired_at']) < time() && $booking['jenispembayaran'] == 'Belum Bayar';
-
-                                        if ($isExpired) {
+                                if ($isExpired) {
+                                    echo 'bg-red-100 text-red-800';
+                                } else {
+                                    switch ($booking['status']) {
+                                        case 'pending':
+                                            echo 'bg-yellow-100 text-yellow-800';
+                                            break;
+                                        case 'confirmed':
+                                            echo 'bg-blue-100 text-blue-800';
+                                            break;
+                                        case 'completed':
+                                            echo 'bg-green-100 text-green-800';
+                                            break;
+                                        case 'cancelled':
                                             echo 'bg-red-100 text-red-800';
-                                        } else {
-                                            switch ($booking['status']) {
-                                                case 'pending':
-                                                    echo 'bg-yellow-100 text-yellow-800';
-                                                    break;
-                                                case 'confirmed':
-                                                    echo 'bg-blue-100 text-blue-800';
-                                                    break;
-                                                case 'completed':
-                                                    echo 'bg-green-100 text-green-800';
-                                                    break;
-                                                case 'cancelled':
-                                                    echo 'bg-red-100 text-red-800';
-                                                    break;
-                                                case 'expired':
-                                                    echo 'bg-red-100 text-red-800';
-                                                    break;
-                                                case 'no-show':
-                                                    echo 'bg-gray-100 text-gray-800';
-                                                    break;
-                                                default:
-                                                    echo 'bg-gray-100 text-gray-800';
-                                            }
+                                            break;
+                                        case 'expired':
+                                            echo 'bg-red-100 text-red-800';
+                                            break;
+                                        case 'no-show':
+                                            echo 'bg-gray-100 text-gray-800';
+                                            break;
+                                        default:
+                                            echo 'bg-gray-100 text-gray-800';
+                                    }
+                                }
+                                ?>">
+                                    <?php
+                                    if ($isExpired) {
+                                        echo 'Expired';
+                                    } else {
+                                        switch ($booking['status']) {
+                                            case 'pending':
+                                                echo 'Pending';
+                                                break;
+                                            case 'confirmed':
+                                                echo 'Terkonfirmasi';
+                                                break;
+                                            case 'completed':
+                                                echo 'Selesai';
+                                                break;
+                                            case 'cancelled':
+                                                echo 'Dibatalkan';
+                                                break;
+                                            case 'expired':
+                                                echo 'Expired';
+                                                break;
+                                            case 'no-show':
+                                                echo 'Tidak Hadir';
+                                                break;
+                                            default:
+                                                echo $booking['status'];
                                         }
-                                        ?>">
-                                            <?php
-                                            if ($isExpired) {
-                                                echo 'Batal (Waktu Habis)';
-                                            } else {
-                                                switch ($booking['status']) {
-                                                    case 'pending':
-                                                        echo 'Menunggu Konfirmasi';
-                                                        break;
-                                                    case 'confirmed':
-                                                        echo 'Terkonfirmasi';
-                                                        break;
-                                                    case 'completed':
-                                                        echo 'Selesai';
-                                                        break;
-                                                    case 'cancelled':
-                                                        echo 'Dibatalkan';
-                                                        break;
-                                                    case 'expired':
-                                                        echo 'Batal (Waktu Habis)';
-                                                        break;
-                                                    case 'no-show':
-                                                        echo 'Tidak Hadir';
-                                                        break;
-                                                    default:
-                                                        echo $booking['status'];
-                                                }
-                                            }
-                                            ?>
-                                        </span>
-                                    </p>
-                                </div>
+                                    }
+                                    ?>
+                                </span>
                             </div>
+                        </div>
+                    </div>
+                </div>
 
-                            <!-- Services -->
-                            <div class="mb-6 sm:mb-8">
-                                <h4 class="text-xs sm:text-sm uppercase text-gray-600 font-medium mb-2">Detail Layanan</h4>
-                                <div class="bg-gray-50 rounded-lg overflow-hidden">
-                                    <div class="overflow-x-auto">
-                                        <table class="min-w-full divide-y divide-gray-200">
-                                            <thead>
-                                                <tr class="bg-gray-100">
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-left text-xs font-medium text-gray-700 uppercase">Layanan</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-left text-xs font-medium text-gray-700 uppercase hidden sm:table-cell">Deskripsi</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right text-xs font-medium text-gray-700 uppercase">Harga</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="divide-y divide-gray-200">
-                                                <?php if (!empty($details)): ?>
-                                                    <?php foreach ($details as $detail): ?>
-                                                        <tr>
-                                                            <td class="py-2 sm:py-3 px-2 sm:px-4 text-gray-800 text-sm sm:text-base"><?= $detail['nama_paket'] ?></td>
-                                                            <td class="py-2 sm:py-3 px-2 sm:px-4 text-gray-700 text-sm sm:text-base hidden sm:table-cell"><?= $detail['deskripsi'] ?></td>
-                                                            <td class="py-2 sm:py-3 px-2 sm:px-4 text-right text-gray-800 text-sm sm:text-base">Rp <?= number_format($detail['harga'], 0, ',', '.') ?></td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                <?php else: ?>
-                                                    <tr>
-                                                        <td colspan="3" class="py-4 px-4 text-center text-gray-600">Tidak ada data layanan</td>
-                                                    </tr>
-                                                <?php endif; ?>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr class="bg-gray-50">
-                                                    <th colspan="2" class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base hidden sm:table-cell">Total</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base sm:hidden">Total</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base">Rp <?= number_format($booking['total'] ?? 0, 0, ',', '.') ?></th>
-                                                </tr>
-                                                <tr class="bg-gray-50">
-                                                    <th colspan="2" class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base hidden sm:table-cell">Dibayar</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base sm:hidden">Dibayar</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-green-700 text-sm sm:text-base">Rp <?= number_format($booking['jumlahbayar'] ?? 0, 0, ',', '.') ?></th>
-                                                </tr>
-                                                <tr class="bg-gray-50">
-                                                    <th colspan="2" class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base hidden sm:table-cell">Sisa</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium text-gray-800 text-sm sm:text-base sm:hidden">Sisa</th>
-                                                    <th class="py-2 sm:py-3 px-2 sm:px-4 text-right font-medium <?= (($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0) > 0) ? 'text-red-700' : 'text-green-700' ?> text-sm sm:text-base">Rp <?= number_format(($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0), 0, ',', '.') ?></th>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
+                <!-- Detail Layanan -->
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        <h4 class="text-sm font-medium text-gray-800">Detail Layanan</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <?php if (!empty($details)): ?>
+                            <?php foreach ($details as $detail): ?>
+                                <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0">
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-800"><?= $detail['nama_paket'] ?></div>
+                                        <div class="text-xs text-gray-600"><?= $detail['deskripsi'] ?></div>
                                     </div>
+                                    <div class="text-sm font-medium text-gray-800">Rp <?= number_format($detail['harga'], 0, ',', '.') ?></div>
                                 </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="text-center text-gray-600 py-4">Tidak ada data layanan</div>
+                        <?php endif; ?>
+                        
+                        <!-- Total -->
+                        <div class="border-t border-gray-300 pt-3 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-gray-800">Total:</span>
+                                <span class="text-sm font-bold text-gray-800">Rp <?= number_format($booking['total'] ?? 0, 0, ',', '.') ?></span>
                             </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-gray-800">Dibayar:</span>
+                                <span class="text-sm font-medium text-green-600">Rp <?= number_format($booking['jumlahbayar'] ?? 0, 0, ',', '.') ?></span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-gray-800">Sisa:</span>
+                                <span class="text-sm font-medium <?= (($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0) > 0) ? 'text-red-600' : 'text-green-600' ?>">Rp <?= number_format(($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0), 0, ',', '.') ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                             <!-- Ringkasan Status Pembayaran -->
                             <div class="mb-8">
@@ -460,26 +494,51 @@
                                 </div>
                             <?php elseif (($isExpired || $booking['status'] === 'expired') && $booking['jenispembayaran'] == 'Belum Bayar'): ?>
                                 <!-- Expired Payment Warning -->
-                                <div class="mb-8 no-print">
-                                    <div class="bg-red-50 p-5 rounded-lg border border-red-200 text-center">
-                                        <div class="flex items-center justify-center mb-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            <h4 class="text-lg font-medium text-red-800">Waktu Pembayaran Habis</h4>
-                                        </div>
-                                        <p class="text-red-700 mb-4">Booking ini telah dibatalkan karena melewati batas waktu pembayaran.</p>
-                                        <a href="<?= site_url('customer/booking/create') ?>" class="inline-block bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-md">
-                                            <div class="flex items-center justify-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                                </svg>
-                                                Buat Booking Baru
-                                            </div>
-                                        </a>
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-200 text-center mb-6">
+                                    <div class="flex items-center justify-center mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <h4 class="text-lg font-medium text-red-800">Waktu Pembayaran Habis</h4>
                                     </div>
+                                    <p class="text-red-700 mb-4">Booking ini telah dibatalkan karena melewati batas waktu pembayaran.</p>
+                                    <a href="<?= site_url('customer/booking/create') ?>" class="inline-block bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition-all">
+                                        <div class="flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                            </svg>
+                                            Buat Booking Baru
+                                        </div>
+                                    </a>
                                 </div>
                             <?php endif; ?>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                                <button id="btnPrint" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-all flex items-center justify-center" onclick="printFaktur()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H3a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z" />
+                                    </svg>
+                                    Cetak Faktur
+                                </button>
+                                <a href="<?= site_url('customer/booking') ?>" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-all flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                                    </svg>
+                                    Kembali ke Riwayat
+                                </a>
+                                <?php if ($booking['jenispembayaran'] == 'Belum Bayar' && $booking['status'] !== 'expired' && !$isExpired): ?>
+                                    <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition-all flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                        Bayar Sekarang
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         </div>
 
                         <!-- Footer -->

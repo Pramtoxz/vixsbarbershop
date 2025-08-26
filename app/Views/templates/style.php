@@ -71,6 +71,7 @@
         font-size: 16px;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        padding-top: 80px; /* Memberikan ruang untuk fixed navbar */
     }
 
     /* Typography */
@@ -113,7 +114,7 @@
     /* Hero Section - Amazing Design */
     .hero {
         background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-        min-height: 100vh;
+        min-height: calc(100vh - 80px); /* Mengurangi tinggi navbar */
         display: flex;
         align-items: center;
         position: relative;
@@ -534,81 +535,64 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.875rem 2rem;
-        border-radius: var(--radius-lg);
-        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-md);
+        font-weight: 500;
         font-size: 1rem;
         text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
         border: none;
         cursor: pointer;
-        position: relative;
-        overflow: hidden;
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+        background: var(--primary-color);
         color: white;
-        box-shadow: var(--shadow-md);
     }
 
     .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-xl);
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        background: var(--primary-dark);
     }
 
     .btn-secondary {
         background: var(--white);
         color: var(--primary-color);
-        border: 2px solid var(--primary-color);
-        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-300);
     }
 
     .btn-secondary:hover {
-        background: var(--primary-color);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
+        background: var(--gray-50);
+        border-color: var(--primary-color);
     }
 
     .btn-outline {
         background: transparent;
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
     }
 
     .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.5);
+        background: var(--primary-color);
+        color: white;
     }
 
     /* Cards */
     .card {
         background: var(--white);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-md);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: var(--radius-lg);
         border: 1px solid var(--gray-200);
         overflow: hidden;
+        transition: all 0.2s ease;
     }
 
     .card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
-        border-color: var(--primary-color);
+        border-color: var(--gray-300);
     }
 
     .card-image {
         width: 100%;
         height: 200px;
         object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .card:hover .card-image {
-        transform: scale(1.05);
     }
 
     .card-content {
@@ -787,27 +771,21 @@
 
     .gallery-item {
         position: relative;
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         overflow: hidden;
-        box-shadow: var(--shadow-md);
-        transition: all 0.3s ease;
+        border: 1px solid var(--gray-200);
         background: var(--white);
+        transition: all 0.2s ease;
     }
 
     .gallery-item:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
+        border-color: var(--gray-300);
     }
 
     .gallery-image {
         width: 100%;
         height: 300px;
         object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover .gallery-image {
-        transform: scale(1.1);
     }
 
     .gallery-overlay {
@@ -841,20 +819,15 @@
     }
 
     .about-image {
-        border-radius: var(--radius-2xl);
-        box-shadow: var(--shadow-xl);
+        border-radius: var(--radius-lg);
         overflow: hidden;
+        border: 1px solid var(--gray-200);
     }
 
     .about-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .about-image:hover img {
-        transform: scale(1.05);
     }
 
     .stats-grid {
@@ -905,21 +878,19 @@
         padding: var(--space-md);
         background: var(--white);
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-sm);
         border: 1px solid var(--gray-200);
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
     }
 
     .contact-item:hover {
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
+        border-color: var(--gray-300);
     }
 
     .contact-icon {
         width: 48px;
         height: 48px;
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-        border-radius: var(--radius-lg);
+        background: var(--primary-color);
+        border-radius: var(--radius-md);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -940,9 +911,9 @@
 
     /* Map Container */
     .map-container {
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         overflow: hidden;
-        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--gray-200);
         height: 400px;
     }
 
@@ -1005,11 +976,11 @@
     .form-select,
     .form-textarea {
         width: 100%;
-        padding: 0.875rem 1rem;
-        border: 2px solid var(--gray-200);
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--gray-300);
         border-radius: var(--radius-md);
         font-size: 1rem;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         background: var(--white);
     }
 
@@ -1018,7 +989,7 @@
     .form-textarea:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
     }
 
     /* Mobile Responsive */

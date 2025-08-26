@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <!-- Hero Section -->
-<section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 6rem 0 4rem; position: relative; overflow: hidden;">
+<section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem 0 4rem; position: relative; overflow: hidden;">
     <!-- Decorative Elements -->
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'10\' r=\'1\'/%3E%3Ccircle cx=\'10\' cy=\'30\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
     
@@ -131,7 +131,7 @@
         </div>
 
         <div class="card animate-fade-in-up" style="padding: 2rem;">
-            <div id="booking-alert" style="display: none; margin-bottom: 2rem; padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--gray-300);"></div>
+            <!-- Alert element sudah tidak digunakan - menggunakan SweetAlert2 -->
 
             <form id="bookingForm" style="display: flex; flex-direction: column; gap: 2rem;" enctype="multipart/form-data">
                 <!-- Data Pelanggan -->
@@ -292,7 +292,6 @@
                                                                 data-paket-nama="<?= $paket['namapaket'] ?>"
                                                                 data-paket-harga="<?= $paket['harga'] ?>"
                                                                 data-paket-durasi="<?= $paket['durasi'] ?? 60 ?>"
-                                                                onclick="handleAddPaket(this)"
                                                                 style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
                                                                 onmouseover="this.style.transform='scale(1.1)'"
                                                                 onmouseout="this.style.transform='scale(1)'">
@@ -336,7 +335,7 @@
                 </div>
 
                 <!-- Pilihan Waktu -->
-                <div id="timeSlotContainer" style="display: none;">
+                <div id="timeSlotContainer" style="display: none; opacity: 1; visibility: visible;">
                     <div class="card animate-fade-in-up" style="padding: 2rem; margin-bottom: 2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                             <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), #FFD23F); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
@@ -357,37 +356,37 @@
                                 </p>
                             </div>
 
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;" id="timeSlotGrid">
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="09:00">09:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="10:00">10:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="11:00">11:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="12:00">12:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="13:00">13:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="14:00">14:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="15:00">15:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="16:00">16:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="17:00">17:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="18:00">18:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="19:00">19:00</div>
-                                <div class="time-slot" style="padding: 1rem 0.5rem; text-align: center; border: 2px solid var(--gray-200); border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--text-primary);" data-time="20:00">20:00</div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.75rem; max-width: 600px;" id="timeSlotGrid">
+                                <div class="time-slot" data-time="09:00">09:00</div>
+                                <div class="time-slot" data-time="10:00">10:00</div>
+                                <div class="time-slot" data-time="11:00">11:00</div>
+                                <div class="time-slot" data-time="12:00">12:00</div>
+                                <div class="time-slot" data-time="13:00">13:00</div>
+                                <div class="time-slot" data-time="14:00">14:00</div>
+                                <div class="time-slot" data-time="15:00">15:00</div>
+                                <div class="time-slot" data-time="16:00">16:00</div>
+                                <div class="time-slot" data-time="17:00">17:00</div>
+                                <div class="time-slot" data-time="18:00">18:00</div>
+                                <div class="time-slot" data-time="19:00">19:00</div>
+                                <div class="time-slot" data-time="20:00">20:00</div>
                             </div>
 
-                            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 1.5rem; padding: 1.5rem; background: var(--white); border-radius: 1rem; border: 1px solid var(--gray-200); font-size: 0.875rem;">
+                            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: var(--radius-md); font-size: 0.875rem;">
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <div style="width: 16px; height: 16px; background: var(--white); border: 2px solid var(--gray-300); border-radius: 4px;"></div>
-                                    <span style="color: var(--text-primary);">✅ Tersedia</span>
+                                    <div style="width: 16px; height: 16px; background: var(--white); border: 1px solid var(--gray-300); border-radius: 3px;"></div>
+                                    <span style="color: var(--text-secondary);">Tersedia</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <div style="width: 16px; height: 16px; background: var(--success-color); border-radius: 4px;"></div>
-                                    <span style="color: var(--text-primary);">🎯 Dipilih</span>
+                                    <div style="width: 16px; height: 16px; background: var(--success-color); border-radius: 3px;"></div>
+                                    <span style="color: var(--text-secondary);">Dipilih</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <div style="width: 16px; height: 16px; background: #FCA5A5; border-radius: 4px;"></div>
-                                    <span style="color: var(--text-primary);">❌ Tidak tersedia</span>
+                                    <div style="width: 16px; height: 16px; background: var(--error-color); border-radius: 3px;"></div>
+                                    <span style="color: var(--text-secondary);">Tidak tersedia</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <div style="width: 16px; height: 16px; background: var(--gray-200); border-radius: 4px;"></div>
-                                    <span style="color: var(--text-primary);">⏰ Waktu sudah lewat</span>
+                                    <div style="width: 16px; height: 16px; background: var(--gray-100); border: 1px solid var(--gray-300); border-radius: 3px; opacity: 0.7;"></div>
+                                    <span style="color: var(--text-secondary);">Waktu sudah lewat</span>
                                 </div>
                             </div>
                             <input type="hidden" id="jamstart" name="jamstart" required>
@@ -473,7 +472,7 @@
                         <span>← Kembali ke Beranda</span>
                     </a>
                     
-                    <button type="submit" id="btnSubmit" class="btn btn-primary btn-enhanced" style="padding: 1rem 3rem; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;" disabled>
+                    <button type="submit" id="btnSubmit" class="btn btn-primary btn-enhanced" style="padding: 1rem 3rem; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
                         <span class="btn-text">
                             <svg style="width: 20px; height: 20px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -505,12 +504,18 @@
     function tambahPaketKeSelected(id, nama, harga, durasi) {
         console.log('🔵 tambahPaketKeSelected dipanggil:', {id, nama, harga, durasi});
         
-        // Periksa apakah paket sudah dipilih
-        if ($(`#selected-paket-${id}`).length) {
-            console.log('⚠️ Paket sudah dipilih sebelumnya');
-            alert('Paket "' + nama + '" sudah dipilih!');
-            return;
-        }
+        // // Periksa apakah paket sudah dipilih
+        // if ($(`#selected-paket-${id}`).length) {
+        //     console.log('⚠️ Paket sudah dipilih sebelumnya');
+        //     Swal.fire({
+        //         icon: 'warning',
+        //         title: 'Paket Sudah Dipilih!',
+        //         text: `Paket "${nama}" sudah ada dalam daftar pilihan Anda.`,
+        //         confirmButtonText: 'OK',
+        //         confirmButtonColor: '#3B82F6'
+        //     });
+        //     return;
+        // }
 
         // Bersihkan nama paket dari karakter tidak perlu
         const cleanedNama = nama.replace(/\d+\s*menit\s*Opsi Pembayaran/g, '').trim();
@@ -562,14 +567,94 @@
         $('#selectedPaketsContainer').append(paketHTML).show();
         
         console.log('✅ Paket berhasil ditambahkan:', {id, nama: cleanedNama, harga, durasi});
+        
+        // SweetAlert2 success notification
+        Swal.fire({
+            icon: 'success',
+            title: 'Paket Berhasil Ditambahkan!',
+            html: `
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <h3 style="margin: 0; font-size: 1.125rem; font-weight: 600;">${cleanedNama}</h3>
+                        <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Rp ${formattedHarga} • ${durasi} menit</p>
+                    </div>
+                    <p style="color: #6B7280; margin: 0;">Paket telah ditambahkan ke daftar pilihan Anda</p>
+                </div>
+            `,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top-end',
+            showClass: {
+                popup: 'animate__animated animate__fadeInRight'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutRight'
+            }
+        });
+        
         hitungTotal();
     }
 
     // Fungsi global untuk menghapus paket
     function removePaket(id) {
         console.log('🗑️ Menghapus paket:', id);
+        
+        // Ambil nama paket sebelum dihapus untuk alert
+        const paketNama = $(`#selected-paket-${id}`).find('h4').text();
+        
         $(`#selected-paket-${id}`).remove();
         hitungTotal();
+        
+        // SweetAlert2 success notification untuk penghapusan
+        Swal.fire({
+            icon: 'info',
+            title: 'Paket Dihapus',
+            text: `"${paketNama}" telah dihapus dari daftar pilihan`,
+            showConfirmButton: false,
+            timer: 1500,
+            toast: true,
+            position: 'top-end',
+            showClass: {
+                popup: 'animate__animated animate__fadeInRight'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutRight'
+            }
+        });
+    }
+
+    // Fungsi untuk mengecek dan mengaktifkan/menonaktifkan tombol submit
+    function checkSubmitButton() {
+        const paketSelected = $('#selectedPakets').length && $('#selectedPakets').val() || 
+                             $('.selected-paket-item').length > 0 ||
+                             $('#selectedPaketIds').val();
+        const tanggalSelected = $('#tanggal_booking').val();
+        const jamSelected = $('#jamstart').val();
+        const karyawanSelected = $('#idkaryawan').val();
+        
+        const allConditionsMet = paketSelected && tanggalSelected && jamSelected && karyawanSelected;
+        
+        console.log('🔍 Checking submit button conditions:', {
+            paketSelected: !!paketSelected,
+            tanggalSelected: !!tanggalSelected,
+            jamSelected: !!jamSelected,
+            karyawanSelected: !!karyawanSelected,
+            allConditionsMet: allConditionsMet
+        });
+        
+        if (allConditionsMet) {
+            $('#btnSubmit').prop('disabled', false)
+                          .removeClass('opacity-50 cursor-not-allowed')
+                          .addClass('cursor-pointer');
+            console.log('✅ Submit button ENABLED!');
+        } else {
+            $('#btnSubmit').prop('disabled', true)
+                          .addClass('opacity-50 cursor-not-allowed')
+                          .removeClass('cursor-pointer');
+            console.log('⚠️ Submit button disabled - missing conditions');
+        }
     }
 
     // Fungsi global untuk menghitung total
@@ -615,56 +700,29 @@
         if (selectedPakets.length > 0) {
             const selectedIds = selectedPakets.map(p => p.id);
             $('#selectedPaketIds').val(JSON.stringify(selectedIds));
-            
-            const tanggalSelected = $('#tanggal_booking').val();
-            console.log('🔍 Checking button state:', {
-                selectedPakets: selectedPakets.length,
-                tanggalSelected: tanggalSelected,
-                shouldEnable: tanggalSelected && selectedPakets.length > 0
-            });
-            
-            if (tanggalSelected) {
-                $('#btnSubmit').prop('disabled', false);
-                console.log('✅ Button enabled!');
-            } else {
-                console.log('⚠️ Button tetap disabled - tanggal belum dipilih');
-            }
         } else {
             $('#selectedPaketIds').val('');
-            $('#btnSubmit').prop('disabled', true);
-            console.log('⚠️ Button disabled - tidak ada paket dipilih');
         }
 
         console.log('💰 Total dihitung:', {totalHarga, totalDurasi, selectedPakets});
+        
+        // Check submit button after calculating total
+        checkSubmitButton();
     }
 
-    // Fungsi global untuk handle add paket (dipanggil dari onclick)
-    function handleAddPaket(button) {
-        console.log('🔵 handleAddPaket dipanggil!');
-        
-        const id = button.getAttribute('data-paket-id');
-        const nama = button.getAttribute('data-paket-nama');
-        const harga = parseFloat(button.getAttribute('data-paket-harga'));
-        const durasi = parseInt(button.getAttribute('data-paket-durasi')) || 60;
-        
-        console.log('📊 Data dari button:', {id, nama, harga, durasi});
-        
-        if (id && nama && !isNaN(harga)) {
-            console.log('✅ Data valid, menambahkan paket...');
-            tambahPaketKeSelected(id, nama, harga, durasi);
-        } else {
-            console.error('❌ Data tidak valid');
-            alert('Error: Data paket tidak valid! ID: ' + id + ', Nama: ' + nama + ', Harga: ' + harga);
-        }
-    }
+    // Fungsi handleAddPaket dihapus - menggunakan jQuery event handler saja
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Inisialisasi AOS
+        // Inisialisasi AOS dengan error handling
+        if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
             once: true
         });
+        } else {
+            console.warn('⚠️ AOS library not loaded, skipping initialization');
+        }
 
         // Variabel sudah didefinisikan di scope global
 
@@ -714,14 +772,36 @@
                 updateDurasiInfo(true);
             }, 500);
 
-            // Pastikan tombol Submit aktif jika paket sudah dipilih
-            if (!$('#tanggal_booking').val()) {
-                $('#btnSubmit').prop('disabled', true);
+            // Check submit button setelah paket dipilih
+            checkSubmitButton();
+            
+            // Show success notification untuk paket yang sudah dipilih dari URL
+            if (paketId && paketHarga) {
+                setTimeout(function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Paket Terpilih!',
+                        html: `
+                            <div style="text-align: center; padding: 1rem;">
+                                <div style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                                    <h3 style="margin: 0; font-size: 1.125rem; font-weight: 600;">Paket sudah dipilih dari halaman sebelumnya</h3>
+                                    <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Rp ${formatNumber(paketHarga)} • ${paketDurasi} menit</p>
+                                </div>
+                                <p style="color: #6B7280; margin: 0;">Silakan lanjutkan dengan memilih tanggal dan waktu</p>
+                            </div>
+                        `,
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        toast: true,
+                        position: 'top-end'
+                    });
+                }, 1000);
             }
         }
 
         // Event handler untuk tombol tambah paket
-        $(document).off('click', '#addPaket, #addMorePaket, .paket-card, .add-paket-btn, .remove-selected-paket, #btnSubmit');
+        $(document).off('click', '#addPaket, #addMorePaket, .add-paket-btn, .remove-selected-paket, #btnSubmit');
 
         // Tombol tambah paket lebih
         $(document).on('click', '#addPaket, #addMorePaket', function(e) {
@@ -736,30 +816,7 @@
             return false;
         });
 
-        // Event handler untuk klik pada paket card
-        $(document).on('click', '.paket-card', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Jangan trigger jika yang diklik adalah tombol add
-            if ($(e.target).closest('.add-paket-btn').length) {
-                return;
-            }
-
-            const $card = $(this);
-            const id = $card.data('id');
-            const nama = $card.find('h3').text().trim();
-            const harga = parseFloat($card.data('harga'));
-            const durasi = parseInt($card.data('durasi')) || 60;
-
-            console.log('Paket card diklik:', {id, nama, harga, durasi});
-            
-            if (id && nama && !isNaN(harga)) {
-                tambahPaketKeSelected(id, nama, harga, durasi);
-            } else {
-                console.error('Data paket tidak lengkap:', {id, nama, harga, durasi});
-            }
-        });
+        // Event handler untuk paket card dihapus - hanya menggunakan tombol add
 
         // Event handler untuk tombol add pada paket card
         $(document).on('click', '.add-paket-btn', function(e) {
@@ -795,13 +852,41 @@
                 cardDataDurasi: $card.attr('data-durasi')
             });
             
+            // Periksa apakah paket sudah dipilih sebelumnya
+            if ($(`#selected-paket-${id}`).length > 0) {
+                console.log('⚠️ Paket sudah dipilih sebelumnya');
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Paket Sudah Dipilih!',
+                    text: `Paket "${nama}" sudah ada dalam daftar pilihan Anda.`,
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#F59E0B',
+                    timer: 2000,
+                    timerProgressBar: true
+                });
+                return;
+            }
+            
             if (id && nama && !isNaN(harga)) {
                 console.log('✅ Data valid, menambahkan paket...');
                 tambahPaketKeSelected(id, nama, harga, durasi);
             } else {
                 console.error('❌ Data paket tidak lengkap:', {id, nama, harga, durasi});
-                // Tambahkan alert untuk debugging
-                alert('Data paket tidak lengkap! ID: ' + id + ', Nama: ' + nama + ', Harga: ' + harga);
+                // SweetAlert untuk debugging
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Data Paket Tidak Lengkap!',
+                    html: `
+                        <div style="text-align: left; padding: 1rem;">
+                            <p><strong>ID:</strong> ${id || 'Tidak ada'}</p>
+                            <p><strong>Nama:</strong> ${nama || 'Tidak ada'}</p>
+                            <p><strong>Harga:</strong> ${harga || 'Tidak ada'}</p>
+                            <p><strong>Durasi:</strong> ${durasi || 'Tidak ada'}</p>
+                        </div>
+                    `,
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#EF4444'
+                });
             }
         });
 
@@ -813,23 +898,62 @@
             hitungTotal();
         });
 
-        // Event handler untuk tombol submit - tambahan untuk memastikan event ter-trigger
+        // Event handler untuk tombol submit button
         $(document).on('click', '#btnSubmit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             console.log('🚀 TOMBOL SUBMIT DIKLIK!');
             console.log('Button disabled:', $(this).prop('disabled'));
+            console.log('Button classes:', $(this).attr('class'));
             
-            if ($(this).prop('disabled')) {
+            if ($(this).prop('disabled') || $(this).hasClass('cursor-not-allowed')) {
                 console.log('⚠️ Button disabled, submit dibatalkan');
-                e.preventDefault();
+                
+                // Tampilkan pesan error untuk user
+                let missingConditions = [];
+                if (!($('#selectedPakets').length && $('#selectedPakets').val() || $('.selected-paket-item').length > 0 || $('#selectedPaketIds').val())) {
+                    missingConditions.push('Pilih paket layanan');
+                }
+                if (!$('#tanggal_booking').val()) {
+                    missingConditions.push('Pilih tanggal booking');
+                }
+                if (!$('#jamstart').val()) {
+                    missingConditions.push('Pilih jam booking');
+                }
+                if (!$('#idkaryawan').val()) {
+                    missingConditions.push('Pilih karyawan');
+                }
+                
+                // Gunakan SweetAlert2 untuk pesan yang lebih baik
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Lengkapi Data Booking',
+                    html: `
+                        <div style="text-align: left; padding: 1rem;">
+                            <p style="margin-bottom: 1rem; color: #6B7280;">Silakan lengkapi data berikut untuk melanjutkan:</p>
+                            <ul style="list-style: none; padding: 0;">
+                                ${missingConditions.map(condition => 
+                                    `<li style="padding: 0.5rem; background: #FEF3C7; margin: 0.25rem 0; border-radius: 0.5rem; border-left: 4px solid #F59E0B;">
+                                        <span style="color: #92400E; font-weight: 500;">• ${condition}</span>
+                                    </li>`
+                                ).join('')}
+                            </ul>
+                        </div>
+                    `,
+                    confirmButtonText: 'OK, Saya Mengerti',
+                    confirmButtonColor: '#F59E0B'
+                });
+                
                 return false;
             }
             
-            // Trigger form submit jika button tidak disabled
+            // Trigger form submit
             console.log('✅ Triggering form submit...');
             $('#bookingForm').trigger('submit');
         });
 
-        // Event handler untuk tombol booking
+        // Event handler untuk form submit - single handler untuk mencegah konflik
         $('#bookingForm').on('submit', function(e) {
             console.log('🚀 FORM SUBMIT EVENT TRIGGERED!');
             e.preventDefault();
@@ -847,11 +971,14 @@
             let paketSelected = false;
 
             // Cek jika ada paket yang dipilih
-            if ($('#selectedPakets').length) {
-                // Jika menggunakan UI lama
+            if ($('#selectedPakets').length && $('#selectedPakets').val()) {
+                // Jika menggunakan paket dari URL parameter
                 paketSelected = true;
             } else if ($('.selected-paket-item').length > 0) {
-                // Jika menggunakan UI baru
+                // Jika menggunakan paket yang dipilih manual
+                paketSelected = true;
+            } else if ($('#selectedPaketIds').val()) {
+                // Jika ada paket IDs tersimpan
                 paketSelected = true;
             }
 
@@ -887,35 +1014,36 @@
                     scrollTop: $('#bookingForm').offset().top - 100
                 }, 500);
 
-                let messageHTML = `
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                            </svg>
+                // Gunakan SweetAlert2 untuk error validation
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Form Tidak Lengkap!',
+                    html: `
+                        <div style="text-align: left; padding: 1rem;">
+                            <p style="margin-bottom: 1rem; color: #6B7280;">Field yang harus diisi:</p>
+                            <ul style="list-style: disc; margin-left: 1.5rem; color: #991B1B;">
+                                ${missingFields.map(field => `<li>${field}</li>`).join('')}
+                            </ul>
                         </div>
-                        <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">Harap isi semua field yang diperlukan</h3>
-                            <p class="mt-1 text-xs text-red-700">Field yang harus diisi: ${missingFields.join(', ')}</p>
-                        </div>
-                    </div>
-                `;
-
-                $('#booking-alert')
-                    .removeClass('hidden bg-green-100 text-green-800 border-green-200')
-                    .addClass('bg-red-100 text-red-800 border-red-200')
-                    .html(messageHTML)
-                    .fadeIn();
+                    `,
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#EF4444',
+                    customClass: {
+                        popup: 'swal2-validation-error'
+                    }
+                });
                 return;
             }
 
             // Disable tombol submit untuk mencegah double submit
             $('#btnSubmit').prop('disabled', true).html(`
-                <svg class="animate-spin mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <span class="btn-text">
+                    <svg style="width: 20px; height: 20px; margin-right: 8px; animation: spin 1s linear infinite;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"></circle>
+                        <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" opacity="0.75"></path>
                 </svg>
-                Memproses...
+                    Memproses Booking...
+                </span>
             `);
 
             // Scroll ke bagian atas form
@@ -948,69 +1076,59 @@
                 processData: false,
                 success: function(response) {
                     if (response.status === 'success') {
-                        // Hapus alert lama jika ada
-                        $('#booking-alert').hide();
+                        // Alert lama sudah tidak digunakan (menggunakan SweetAlert2)
 
                         // Tampilkan modal sukses yang sudah ada di HTML
                         showSuccessModal(response.kdbooking);
                     } else {
-                        let errorHTML = `
-                            <div class="flex">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="ml-3">
-                                    <h3 class="text-sm font-medium text-red-800">Gagal membuat booking</h3>
-                                    <p class="mt-2 text-sm text-red-700">${response.message}</p>
-                                    ${response.debug ? `<pre class="mt-2 text-xs bg-gray-100 p-2 overflow-auto">${JSON.stringify(response.debug, null, 2)}</pre>` : ''}
-                                </div>
-                            </div>
-                        `;
-
-                        $('#booking-alert')
-                            .removeClass('hidden bg-green-100 text-green-800 border-green-200')
-                            .addClass('bg-red-100 text-red-800 border-red-200')
-                            .html(errorHTML)
-                            .fadeIn();
+                        // Gunakan SweetAlert2 untuk error booking
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal Membuat Booking',
+                            text: response.message,
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#EF4444',
+                            customClass: {
+                                popup: 'swal2-booking-error'
+                            }
+                        });
 
                         // Re-enable tombol submit
                         $('#btnSubmit').prop('disabled', false).html(`
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <span class="btn-text">
+                                <svg style="width: 20px; height: 20px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            Booking Sekarang
+                                🚀 Booking Sekarang
+                            </span>
+                            <span class="btn-shine"></span>
                         `);
                     }
                 },
-                error: function() {
-                    let errorHTML = `
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <h3 class="text-sm font-medium text-red-800">Terjadi kesalahan</h3>
-                                <p class="mt-2 text-sm text-red-700">Sistem tidak dapat memproses booking Anda. Silakan coba lagi.</p>
-                            </div>
-                        </div>
-                    `;
-
-                    $('#booking-alert')
-                        .removeClass('hidden bg-green-100 text-green-800 border-green-200')
-                        .addClass('bg-red-100 text-red-800 border-red-200')
-                        .html(errorHTML)
-                        .fadeIn();
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', {xhr, status, error});
+                    
+                    // Gunakan SweetAlert2 untuk error AJAX
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Terjadi Kesalahan',
+                        text: 'Sistem tidak dapat memproses booking Anda. Silakan coba lagi.',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#EF4444',
+                        customClass: {
+                            popup: 'swal2-ajax-error'
+                        }
+                    });
 
                     // Re-enable tombol submit
                     $('#btnSubmit').prop('disabled', false).html(`
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <span class="btn-text">
+                            <svg style="width: 20px; height: 20px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        Booking Sekarang
+                            🚀 Booking Sekarang
+                        </span>
+                        <span class="btn-shine"></span>
                     `);
                 }
             });
@@ -1121,28 +1239,30 @@
         }
 
         // Ketika tanggal dipilih
-        $('#tanggal_booking').on('change', function() {
+        $(document).on('change', '#tanggal_booking', function() {
+            try {
             const selectedDate = $(this).val();
             console.log('📅 Tanggal dipilih:', selectedDate);
+                console.log('📅 Time slot container exists:', $('#timeSlotContainer').length);
+                console.log('📅 Time slot container current display:', $('#timeSlotContainer').css('display'));
 
-            // Jika tanggal dipilih, hilangkan alert
+            // Jika tanggal dipilih (alert sudah menggunakan SweetAlert2)
             if (selectedDate) {
-                $('#booking-alert').fadeOut();
                 $(this).removeClass('border-yellow-400 ring-2 ring-yellow-200');
                 
-                // Cek apakah sudah ada paket dipilih untuk enable button
-                if (selectedPakets.length > 0 || $('.selected-paket-item').length > 0) {
-                    $('#btnSubmit').prop('disabled', false);
-                    console.log('✅ Submit button enabled karena tanggal dan paket sudah dipilih!');
-                }
+                // Check submit button setelah tanggal dipilih
+                checkSubmitButton();
             }
 
             if (selectedDate) {
                 // Format tanggal untuk tampilan
                 $('#bookingDateDisplay').html(`<strong>${formatTanggal(selectedDate)}</strong>`);
 
-                // Tampilkan container time slot
-                $('#timeSlotContainer').fadeIn(500);
+                // Tampilkan container time slot dengan animasi modern
+                console.log('🕐 Menampilkan time slot container...');
+                $('#timeSlotContainer').css('display', 'block').addClass('show');
+                console.log('🕐 Time slot container visible:', $('#timeSlotContainer').is(':visible'));
+                console.log('🕐 Time slot container CSS:', $('#timeSlotContainer').attr('style'));
 
                 // Reset semua slot waktu
                 $('.time-slot').removeClass('active bg-green-500 text-white booked bg-red-200 text-gray-500 disabled bg-gray-200 text-gray-400 cursor-not-allowed');
@@ -1177,31 +1297,48 @@
 
                 // Periksa ketersediaan slot waktu
                 checkAvailability();
+                
+                // Fallback untuk memastikan time slot container muncul
+                setTimeout(function() {
+                    if (!$('#timeSlotContainer').hasClass('show')) {
+                        console.log('⚠️ Time slot container masih tersembunyi, forcing show...');
+                        $('#timeSlotContainer').css('display', 'block').addClass('show');
+                    }
+                }, 100);
 
                 // Hide karyawan dan summary containers ketika tanggal berubah
                 $('#karyawanContainer').hide();
                 $('#summaryContainer').hide();
-                $('#btnSubmit').prop('disabled', true);
 
                 // Reset input
                 $('#jamstart').val('');
                 $('#jamend').val('');
                 $('#idkaryawan').val('');
+                
+                // Check submit button setelah reset
+                checkSubmitButton();
             } else {
                 $('#bookingDateDisplay').html(`
                     <i class="bi bi-info-circle"></i> Silakan pilih tanggal terlebih dahulu
                 `);
 
                 // Sembunyikan container time slot, karyawan dan summary
-                $('#timeSlotContainer').hide();
+                $('#timeSlotContainer').removeClass('show').hide();
                 $('#karyawanContainer').hide();
                 $('#summaryContainer').hide();
-                $('#btnSubmit').prop('disabled', true);
 
                 // Reset input
                 $('#jamstart').val('');
                 $('#jamend').val('');
                 $('#idkaryawan').val('');
+                
+                // Check submit button setelah reset
+                checkSubmitButton();
+            }
+            } catch (error) {
+                console.error('❌ Error dalam event handler tanggal:', error);
+                // Fallback - force show time slot container
+                $('#timeSlotContainer').attr('style', 'display: block !important;');
             }
         });
 
@@ -1210,7 +1347,7 @@
             const tanggal = $('#tanggal_booking').val();
 
             if (!tanggal) {
-                showAlert('warning', 'Silakan pilih tanggal terlebih dahulu');
+                showAlert('Silakan pilih tanggal terlebih dahulu', 'warning');
                 return;
             }
 
@@ -1276,9 +1413,7 @@
                         });
 
                         $('#bookingDateDisplay').html(`
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
+                           
                             Ketersediaan untuk <span class="font-semibold">${formattedDate}</span>
                         `);
 
@@ -1299,11 +1434,11 @@
                             }
                         });
                     } else {
-                        showAlert('error', response.message || 'Terjadi kesalahan saat memeriksa ketersediaan');
+                        showAlert(response.message || 'Terjadi kesalahan saat memeriksa ketersediaan', 'error');
                     }
                 },
                 error: function() {
-                    showAlert('error', 'Terjadi kesalahan saat memeriksa ketersediaan');
+                    showAlert('Terjadi kesalahan saat memeriksa ketersediaan', 'error');
                 }
             });
         }
@@ -1386,7 +1521,7 @@
                     }
                 },
                 error: function() {
-                    showAlert('error', 'Terjadi kesalahan saat memuat data karyawan');
+                    showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
                 }
             });
         }
@@ -1414,6 +1549,9 @@
 
             // Update summary
             updateSummary();
+            
+            // Check submit button setelah jam dipilih
+            checkSubmitButton();
         });
 
         // Load daftar karyawan yang tersedia
@@ -1459,8 +1597,8 @@
                                 </div>
                             `;
 
-                            // Disable tombol submit karena tidak ada karyawan tersedia
-                            $('#btnSubmit').prop('disabled', true);
+                            // Check submit button karena tidak ada karyawan tersedia
+                            checkSubmitButton();
                         } else {
                             response.data.forEach(function(karyawan, index) {
                                 karyawanHTML += `
@@ -1497,26 +1635,18 @@
                                 $('#idkaryawan').val(response.data[0].id);
                                 console.log('Default karyawan set:', response.data[0].id);
 
-                                // Enable tombol submit
-                                $('#btnSubmit').prop('disabled', false);
+                                // Check submit button setelah karyawan dipilih
+                                checkSubmitButton();
                             }
                         }
 
                         $('#karyawanList').html(karyawanHTML);
                     } else {
-                        $('#booking-alert')
-                            .removeClass('hidden bg-green-100 text-green-800')
-                            .addClass('bg-red-100 text-red-800')
-                            .html('Terjadi kesalahan saat memuat data karyawan')
-                            .fadeIn();
+                        showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
                     }
                 },
                 error: function() {
-                    $('#booking-alert')
-                        .removeClass('hidden bg-green-100 text-green-800')
-                        .addClass('bg-red-100 text-red-800')
-                        .html('Terjadi kesalahan saat memuat data karyawan')
-                        .fadeIn();
+                    showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
                 }
             });
         }
@@ -1534,13 +1664,12 @@
 
             // Update summary
             updateSummary();
+            
+            // Check submit button setelah karyawan dipilih
+            checkSubmitButton();
 
             // Tampilkan ringkasan booking
             $('#summaryContainer').fadeIn(500);
-
-            // Enable tombol submit
-            $('#btnSubmit').prop('disabled', false);
-            console.log('✅ Submit button enabled setelah karyawan dipilih!');
         });
 
         // Update ringkasan booking
@@ -1610,20 +1739,22 @@
         // Ketika paket layanan berubah (hanya jika menggunakan select dropdown)
         $('select#idpaket').on('change', function() {
             // Reset form untuk meminta pelanggan memilih ulang tanggal, jam, dan karyawan
-            $('#timeSlotContainer').hide();
+            $('#timeSlotContainer').removeClass('show').hide();
             $('#karyawanContainer').hide();
             $('#summaryContainer').hide();
-            $('#btnSubmit').prop('disabled', true);
 
             // Jika tanggal sudah dipilih, tampilkan time slot container
             if ($('#tanggal_booking').val()) {
-                $('#timeSlotContainer').fadeIn(500);
+                $('#timeSlotContainer').css('display', 'block').addClass('show');
             }
 
             // Reset input
             $('#jamstart').val('');
             $('#jamend').val('');
             $('#idkaryawan').val('');
+            
+            // Check submit button setelah reset
+            checkSubmitButton();
 
             // Update summary
             updateSummary();
@@ -1631,212 +1762,7 @@
 
         // Fungsi pembayaran dipindahkan ke halaman payment.php
 
-        // Form submit
-        $('#bookingForm').on('submit', function(e) {
-            e.preventDefault();
-            console.log('Form submit triggered');
-
-            // Reset semua validasi visual
-            $('.form-control-error').removeClass('form-control-error');
-
-            // Validasi khusus untuk tanggal booking
-            if (!$('#tanggal_booking').val()) {
-                console.log('Tanggal booking tidak diisi');
-
-                // Tampilkan alert khusus untuk tanggal yang belum dipilih
-                let dateAlertHTML = `
-                    <div class="flex bg-yellow-100 rounded-lg p-4 mb-4 text-sm text-yellow-700 border border-yellow-200">
-                        <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                        <div>
-                            <span class="font-medium">Perhatian!</span> Silakan pilih tanggal booking terlebih dahulu.
-                        </div>
-                    </div>
-                `;
-
-                $('#booking-alert')
-                    .removeClass('hidden')
-                    .removeClass('bg-red-100 text-red-800 border-red-200 bg-green-100 text-green-800 border-green-200')
-                    .addClass('bg-yellow-100 text-yellow-800 border-yellow-200')
-                    .html(dateAlertHTML)
-                    .show();
-
-                // Scroll ke input tanggal dan berikan efek highlight
-                $('html, body').animate({
-                    scrollTop: $('#tanggal_booking').offset().top - 120
-                }, 500);
-
-                $('#tanggal_booking').addClass('border-yellow-400 ring-2 ring-yellow-200');
-
-                // Hapus highlight setelah beberapa detik
-                setTimeout(function() {
-                    $('#tanggal_booking').removeClass('border-yellow-400 ring-2 ring-yellow-200');
-                }, 3000);
-
-                return false;
-            }
-
-            // Validasi paket dipilih
-            let paketSelected = false;
-
-            // Cek jika ada paket yang dipilih
-            if ($('#selectedPakets').length) {
-                // Jika menggunakan UI lama
-                paketSelected = true;
-            } else if ($('.selected-paket-item').length > 0) {
-                // Jika menggunakan UI baru
-                paketSelected = true;
-            }
-
-            if (!paketSelected) {
-                isValid = false;
-                missingFields.push('paket layanan');
-            }
-
-            // Validasi tanggal booking
-            if (!$('#tanggal_booking').val()) {
-                isValid = false;
-                missingFields.push('tanggal booking');
-            }
-
-            // Validasi jam mulai
-            if (!$('#jamstart').val()) {
-                isValid = false;
-                missingFields.push('jam booking');
-            }
-
-            // Validasi karyawan
-            const karyawanId = $('#idkaryawan').val();
-            console.log('Validasi karyawan:', karyawanId); // Log untuk debugging
-
-            if (!karyawanId) {
-                isValid = false;
-                missingFields.push('karyawan');
-            }
-
-            if (!isValid) {
-                // Scroll ke bagian atas form
-                $('html, body').animate({
-                    scrollTop: $('#bookingForm').offset().top - 100
-                }, 500);
-
-                let messageHTML = `
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">Harap isi semua field yang diperlukan</h3>
-                            <p class="mt-1 text-xs text-red-700">Field yang harus diisi: ${missingFields.join(', ')}</p>
-                        </div>
-                    </div>
-                `;
-
-                $('#booking-alert')
-                    .removeClass('hidden bg-green-100 text-green-800 border-green-200')
-                    .addClass('bg-red-100 text-red-800 border-red-200')
-                    .html(messageHTML)
-                    .fadeIn();
-                return;
-            }
-
-            // Kode existing setelahnya tetap sama...
-
-            // Disable tombol submit untuk mencegah double submit
-            $('#btnSubmit').prop('disabled', true).html(`
-                <svg class="animate-spin mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Memproses...
-            `);
-
-            // Scroll ke bagian atas form
-            $('html, body').animate({
-                scrollTop: $('#bookingForm').offset().top - 100
-            }, 500);
-
-            // Buat form data untuk upload file
-            var formData = new FormData(this);
-
-            $.ajax({
-                url: '<?= site_url('customer/booking/store') ?>',
-                type: 'POST',
-                data: formData,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    if (response.status === 'success') {
-                        // Hapus alert lama jika ada
-                        $('#booking-alert').hide();
-
-                        // Tampilkan modal sukses yang sudah ada di HTML
-                        showSuccessModal(response.kdbooking);
-                    } else {
-                        let errorHTML = `
-                            <div class="flex">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="ml-3">
-                                    <h3 class="text-sm font-medium text-red-800">Gagal membuat booking</h3>
-                                    <p class="mt-2 text-sm text-red-700">${response.message}</p>
-                                </div>
-                            </div>
-                        `;
-
-                        $('#booking-alert')
-                            .removeClass('hidden bg-green-100 text-green-800 border-green-200')
-                            .addClass('bg-red-100 text-red-800 border-red-200')
-                            .html(errorHTML)
-                            .fadeIn();
-
-                        // Re-enable tombol submit
-                        $('#btnSubmit').prop('disabled', false).html(`
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            Booking Sekarang
-                        `);
-                    }
-                },
-                error: function() {
-                    let errorHTML = `
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <h3 class="text-sm font-medium text-red-800">Terjadi kesalahan</h3>
-                                <p class="mt-2 text-sm text-red-700">Sistem tidak dapat memproses booking Anda. Silakan coba lagi.</p>
-                            </div>
-                        </div>
-                    `;
-
-                    $('#booking-alert')
-                        .removeClass('hidden bg-green-100 text-green-800 border-green-200')
-                        .addClass('bg-red-100 text-red-800 border-red-200')
-                        .html(errorHTML)
-                        .fadeIn();
-
-                    // Re-enable tombol submit
-                    $('#btnSubmit').prop('disabled', false).html(`
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        Booking Sekarang
-                    `);
-                }
-            });
-        });
+        // Duplikasi form submit handler dihapus - sudah ada handler di atas
 
         // Preview bukti pembayaran
         $('#bukti_pembayaran').on('change', function(e) {
@@ -1876,41 +1802,32 @@
             $('#buktiPreviewContainer').addClass('hidden');
         });
 
-        // Fungsi untuk menampilkan alert
+        // Fungsi untuk menampilkan alert menggunakan SweetAlert2
         function showAlert(message, type = 'error') {
-            const alertClass = type === 'error' ?
-                'bg-red-100 text-red-800 border-red-200' :
-                'bg-green-100 text-green-800 border-green-200';
+            const icon = type === 'error' ? 'error' : 
+                        type === 'warning' ? 'warning' : 'success';
+            
+            const color = type === 'error' ? '#EF4444' : 
+                         type === 'warning' ? '#F59E0B' : '#10B981';
 
-            const iconSvg = type === 'error' ?
-                `<svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                </svg>` :
-                `<svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>`;
-
-            let messageHTML = `
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        ${iconSvg}
-                    </div>
-                    <div class="ml-3">
-                        <p class="text-sm font-medium">${message}</p>
-                    </div>
-                </div>
-            `;
-
-            $('#booking-alert')
-                .removeClass('hidden bg-green-100 text-green-800 border-green-200 bg-red-100 text-red-800 border-red-200')
-                .addClass(alertClass)
-                .html(messageHTML)
-                .fadeIn();
-
-            // Auto hide setelah 5 detik
-            setTimeout(function() {
-                $('#booking-alert').fadeOut();
-            }, 5000);
+            Swal.fire({
+                icon: icon,
+                title: message,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'swal2-toast-custom'
+                },
+                showClass: {
+                    popup: 'animate__animated animate__fadeInRight'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutRight'
+                }
+            });
         }
 
         // Fungsi untuk menampilkan modal sukses booking
@@ -2051,6 +1968,14 @@
 
         // Inisialisasi perhitungan total saat halaman dimuat
         hitungTotal();
+        
+        // Inisialisasi tombol submit
+        $('#btnSubmit').prop('disabled', true).addClass('opacity-50 cursor-not-allowed');
+        
+        // Check submit button setelah inisialisasi
+        setTimeout(function() {
+            checkSubmitButton();
+        }, 100);
 
         // Fungsi untuk memperbarui jam selesai berdasarkan jam mulai dan durasi
         function updateJamEnd() {
@@ -2215,31 +2140,92 @@
         background-color: #f9fafb;
     }
 
-    /* Styling untuk time slots modern */
+    /* Styling untuk time slots - desain sederhana dan clean */
+    .time-slot {
+        padding: 0.75rem 1rem;
+        text-align: center;
+        border: 1px solid var(--gray-300);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        color: var(--text-primary);
+        background: var(--white);
+        min-width: 80px;
+        font-size: 0.875rem;
+        box-shadow: none;
+    }
+
     .time-slot:hover {
-        border-color: var(--primary-color) !important;
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
-        color: white !important;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 102, 204, 0.2);
+        border-color: var(--primary-color);
+        background: var(--white);
+        color: var(--primary-color);
     }
 
     .time-slot.active,
     .time-slot.selected {
-        border-color: var(--success-color) !important;
-        background: linear-gradient(135deg, var(--success-color), #10B981) !important;
-        color: white !important;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+        border-color: var(--success-color);
+        background: var(--success-color);
+        color: white;
     }
 
-    .time-slot.booked,
+    .time-slot.booked {
+        background: var(--error-color);
+        border-color: var(--error-color);
+        color: white;
+        cursor: not-allowed;
+    }
+
     .time-slot.disabled {
-        background: #FCA5A5 !important;
-        border-color: #EF4444 !important;
-        color: #991B1B !important;
-        cursor: not-allowed !important;
+        background: var(--gray-100);
+        border-color: var(--gray-300);
+        color: var(--text-light);
+        cursor: not-allowed;
         opacity: 0.7;
+    }
+
+    .time-slot.booked:hover,
+    .time-slot.disabled:hover {
+        border-color: var(--gray-300);
+        background: var(--gray-100);
+        color: var(--text-light);
+    }
+
+    /* Responsive time slot grid */
+    @media (max-width: 768px) {
+        #timeSlotGrid {
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+            gap: 0.5rem !important;
+        }
+        
+        .time-slot {
+            padding: 0.5rem 0.75rem !important;
+            font-size: 0.8rem !important;
+            min-width: 75px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #timeSlotGrid {
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 0.5rem !important;
+        }
+        
+        .time-slot {
+            padding: 0.5rem 0.25rem !important;
+            font-size: 0.75rem !important;
+            min-width: 70px !important;
+        }
+    }
+
+    /* Time slot container simple styling */
+    #timeSlotContainer {
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    #timeSlotContainer.show {
+        opacity: 1;
     }
 
     /* Karyawan selection styling */
@@ -2266,14 +2252,7 @@
         box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1) !important;
     }
 
-    /* Alert styling modern */
-    #booking-alert {
-        border-radius: 1rem;
-        padding: 1.5rem;
-        font-size: 0.875rem;
-        line-height: 1.6;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+    /* Alert styling sudah tidak digunakan - menggunakan SweetAlert2 */
 
     /* Modal dan animasi styling */
     @keyframes fadeInUp {
@@ -2337,6 +2316,56 @@
         background: #FEE2E2;
         color: #DC2626;
         transform: scale(1.1);
+    }
+
+    /* Animasi untuk loading spinner */
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-spin {
+        animation: spin 1s linear infinite;
+    }
+
+    /* Animasi untuk SweetAlert2 Toast */
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeOutRight {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    .animate__animated {
+        animation-duration: 0.5s;
+        animation-fill-mode: both;
+    }
+
+    .animate__fadeInRight {
+        animation-name: fadeInRight;
+    }
+
+    .animate__fadeOutRight {
+        animation-name: fadeOutRight;
     }
 </style>
 <?= $this->endSection() ?>
