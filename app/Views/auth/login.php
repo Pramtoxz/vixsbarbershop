@@ -390,9 +390,7 @@
                 <!-- Header -->
                 <div class="auth-header">
                     <div class="auth-logo">
-                        <svg style="width: 40px; height: 40px; color: var(--primary-color);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                        </svg>
+                        <span style="font-size: 2.5rem; color: var(--primary-color);">✂️</span>
                     </div>
                     <h1 class="auth-title">Admin Login</h1>
                     <p class="auth-subtitle">Kelola sistem barbershop dengan mudah</p>
@@ -403,27 +401,21 @@
                     <!-- Flash Messages -->
                     <?php if (session()->getFlashdata('success')): ?>
                         <div class="alert alert-success">
-                            <svg style="width: 20px; height: 20px; display: inline; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
+                            <span style="font-size: 1.25rem; margin-right: 8px;">✅</span>
                             <?= session()->getFlashdata('success') ?>
                         </div>
                     <?php endif; ?>
 
                     <?php if (session()->getFlashdata('error')): ?>
                         <div class="alert alert-danger">
-                            <svg style="width: 20px; height: 20px; display: inline; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
+                            <span style="font-size: 1.25rem; margin-right: 8px;">❌</span>
                             <?= session()->getFlashdata('error') ?>
                         </div>
                     <?php endif; ?>
 
                     <?php if (session()->getFlashdata('message')): ?>
                         <div class="alert alert-info">
-                            <svg style="width: 20px; height: 20px; display: inline; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
+                            <span style="font-size: 1.25rem; margin-right: 8px;">ℹ️</span>
                             <?= session()->getFlashdata('message') ?>
                         </div>
                     <?php endif; ?>
@@ -436,9 +428,7 @@
                             <label for="username" class="form-label">Username</label>
                             <div style="position: relative;">
                                 <div class="input-icon">
-                                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                    </svg>
+                                    <span style="font-size: 1.25rem;">👤</span>
                                 </div>
                                 <input type="text" 
                                        id="username" 
@@ -460,9 +450,7 @@
                             <label for="password" class="form-label">Password</label>
                             <div style="position: relative;">
                                 <div class="input-icon">
-                                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
+                                    <span style="font-size: 1.25rem;">🔒</span>
                                 </div>
                                 <input type="password" 
                                        id="password" 
@@ -473,10 +461,7 @@
                                 <button type="button" 
                                         onclick="togglePassword()" 
                                         style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--gray-400); cursor: pointer;">
-                                    <svg id="eyeIcon" style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                                    </svg>
+                                    <span id="eyeIcon" style="font-size: 1.25rem;">👁️</span>
                                 </button>
                             </div>
                             <?php if (isset($validation) && $validation->hasError('password')): ?>
@@ -500,14 +485,6 @@
                         </button>
                     </form>
                 </div>
-
-                <!-- Footer -->
-                <div class="auth-footer">
-                    <p>Belum punya akun admin? <a href="<?= site_url('auth/register') ?>">Daftar di sini</a></p>
-                    <p style="margin-top: 0.5rem;">
-                        <a href="<?= site_url('/') ?>">← Kembali ke Beranda</a>
-                    </p>
-                </div>
             </div>
         </div>
     </div>
@@ -524,25 +501,95 @@
             
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                eyeIcon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
-                `;
+                eyeIcon.textContent = '🙈'; // Hide emoji
             } else {
                 passwordInput.type = 'password';
-                eyeIcon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                `;
+                eyeIcon.textContent = '👁️'; // Show emoji
             }
         }
 
-        // Form submission with loading state
-        document.getElementById('loginForm').addEventListener('submit', function() {
+        // Enhanced Form submission with AJAX
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
             const submitBtn = document.getElementById('submitBtn');
             const submitText = document.getElementById('submitText');
+            const form = this;
             
+            // Set loading state
             submitBtn.classList.add('loading');
             submitText.textContent = 'Memproses...';
+            submitBtn.disabled = true;
+            
+            // Prepare form data
+            const formData = new FormData(form);
+            
+            // Send AJAX request
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Reset loading state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                submitText.textContent = 'Masuk ke Dashboard';
+                
+                if (data.status === 'success') {
+                    // Show success message
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Berhasil!',
+                        text: data.message,
+                        timer: 1500,
+                        showConfirmButton: false,
+                        timerProgressBar: true
+                    }).then(() => {
+                        // Redirect to dashboard
+                        window.location.href = data.redirect;
+                    });
+                } else if (data.status === 'pending_verification') {
+                    // Handle pending verification
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Verifikasi Diperlukan',
+                        text: data.message,
+                        confirmButtonText: 'Verifikasi Sekarang'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = data.redirect;
+                        }
+                    });
+                } else {
+                    // Show error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Gagal',
+                        text: data.message,
+                        confirmButtonColor: '#ef4444'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Reset loading state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                submitText.textContent = 'Masuk ke Dashboard';
+                
+                // Show error message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Terjadi Kesalahan',
+                    text: 'Gagal menghubungi server. Silakan coba lagi.',
+                    confirmButtonColor: '#ef4444'
+                });
+            });
         });
 
         // Enhanced form interactions

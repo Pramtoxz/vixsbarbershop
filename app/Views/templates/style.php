@@ -9,8 +9,17 @@
         --secondary-color: #00D4AA;
         --accent-color: #FFD23F;
         --success-color: #10B981;
+        --success-light: #D1FAE5;
+        --success-dark: #065F46;
         --warning-color: #F59E0B;
+        --warning-light: #FEF3C7;
+        --warning-dark: #92400E;
         --error-color: #EF4444;
+        --error-light: #FEE2E2;
+        --error-dark: #991B1B;
+        --info-color: #3B82F6;
+        --info-light: #DBEAFE;
+        --info-dark: #1E40AF;
         
         /* Neutral Colors */
         --white: #FFFFFF;
@@ -111,10 +120,531 @@
         padding: 6rem 0;
     }
 
-    /* Hero Section - Amazing Design */
+    /* Enhanced Elegant Barbershop Hero Section */
+    .hero-barbershop {
+        position: relative;
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.9) 100%);
+    }
+
+    /* Hero Background Image */
+    .hero-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .hero-background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.7) contrast(1.1);
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(20, 20, 20, 0.6) 30%,
+            rgba(40, 40, 40, 0.4) 70%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+        z-index: 2;
+    }
+
+    /* Barbershop Decorative Elements */
+    .barbershop-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    /* Animated Barber Poles */
+    .barber-pole {
+        position: absolute;
+        width: 8px;
+        height: 120px;
+        background: linear-gradient(45deg, 
+            #ff0000 0%, #ffffff 25%, 
+            #0000ff 50%, #ffffff 75%, 
+            #ff0000 100%);
+        border-radius: 4px;
+        animation: barberPoleRotate 3s linear infinite;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .barber-pole-1 {
+        top: 15%;
+        left: 5%;
+        animation-delay: 0s;
+    }
+
+    .barber-pole-2 {
+        top: 60%;
+        right: 8%;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes barberPoleRotate {
+        0% { 
+            transform: rotate(0deg) scale(1);
+            opacity: 0.8;
+        }
+        50% { 
+            transform: rotate(180deg) scale(1.1);
+            opacity: 1;
+        }
+        100% { 
+            transform: rotate(360deg) scale(1);
+            opacity: 0.8;
+        }
+    }
+
+    /* Floating Scissors */
+    .scissors-decoration {
+        position: absolute;
+        font-size: 2rem;
+        animation: scissorsFloat 6s ease-in-out infinite;
+        opacity: 0.6;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+
+    .scissors-1 {
+        top: 25%;
+        right: 12%;
+        animation-delay: 0s;
+    }
+
+    .scissors-2 {
+        bottom: 30%;
+        left: 8%;
+        animation-delay: 3s;
+    }
+
+    @keyframes scissorsFloat {
+        0%, 100% { 
+            transform: translateY(0px) rotate(-15deg) scale(1);
+        }
+        25% { 
+            transform: translateY(-15px) rotate(0deg) scale(1.1);
+        }
+        50% { 
+            transform: translateY(-10px) rotate(15deg) scale(1);
+        }
+        75% { 
+            transform: translateY(-20px) rotate(0deg) scale(1.05);
+        }
+    }
+
+    /* Mustache Decoration */
+    .mustache-decoration {
+        position: absolute;
+        top: 40%;
+        left: 15%;
+        font-size: 1.5rem;
+        animation: mustacheFloat 8s ease-in-out infinite;
+        opacity: 0.4;
+    }
+
+    @keyframes mustacheFloat {
+        0%, 100% { transform: translateX(0px) scale(1); }
+        50% { transform: translateX(10px) scale(1.1); }
+    }
+
+    /* Hero Content */
+    .hero-barbershop-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .hero-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* Hero Badge */
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        padding: 0.75rem 1.5rem;
+        align-self: flex-start;
+        animation: badgeGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes badgeGlow {
+        0%, 100% { 
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        50% { 
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .badge-icon {
+        font-size: 1.2rem;
+        animation: badgeIconRotate 4s ease-in-out infinite;
+    }
+
+    @keyframes badgeIconRotate {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(15deg); }
+    }
+
+    .badge-text {
+        color: var(--white);
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.5px;
+    }
+
+    .badge-year {
+        color: var(--accent-color);
+        font-weight: 700;
+        font-size: 0.75rem;
+        background: rgba(255, 210, 63, 0.2);
+        padding: 0.25rem 0.5rem;
+        border-radius: 20px;
+    }
+
+    /* Main Title */
+    .hero-barbershop-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 0;
+        text-align: left;
+    }
+
+    .title-line-1 {
+        font-size: 4.5rem;
+        font-weight: 900;
+        color: var(--white);
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        letter-spacing: -2px;
+        line-height: 0.9;
+    }
+
+    .title-line-2 {
+        font-size: 4.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--accent-color) 0%, #FFE55C  50%, var(--accent-color) 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titleGradientShift 4s ease-in-out infinite;
+        text-shadow: 0 4px 20px rgba(255, 210, 63, 0.3);
+        letter-spacing: -2px;
+        line-height: 0.9;
+    }
+
+    @keyframes titleGradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .title-subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        font-style: italic;
+        letter-spacing: 1px;
+        margin-top: 0.5rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Description */
+    .hero-barbershop-description {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 600px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        margin: 0;
+    }
+
+    /* Features List */
+    .hero-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+        font-size: 1.2rem;
+    }
+
+    .feature-text {
+        color: var(--white);
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    /* CTA Buttons */
+    .hero-barbershop-cta {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .barbershop-btn-primary {
+        background: linear-gradient(135deg, var(--accent-color) 0%, #FFE55C 100%);
+        color: var(--text-primary);
+        border: none;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 25px rgba(255, 210, 63, 0.3);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .barbershop-btn-primary:hover {
+        background: linear-gradient(135deg, #FFE55C 0%, var(--accent-color) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(255, 210, 63, 0.4);
+    }
+
+    .barbershop-btn-outline {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        border-radius: var(--radius-lg);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .barbershop-btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero Stats */
+    .hero-barbershop-stats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        position: relative;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--accent-color);
+        display: block;
+        text-shadow: 0 2px 10px rgba(255, 210, 63, 0.3);
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+        margin-top: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        opacity: 0.6;
+        margin-top: 0.5rem;
+        display: block;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator-barbershop {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    .scroll-text {
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .scroll-arrow {
+        font-size: 1.5rem;
+        animation: arrowFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    @keyframes arrowFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(5px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .title-line-1, .title-line-2 {
+            font-size: 3.5rem;
+        }
+        
+        .hero-barbershop-stats {
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+        
+        .barbershop-btn-primary,
+        .barbershop-btn-outline {
+            padding: 0.875rem 1.75rem;
+            font-size: 0.95rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .title-line-1, .title-line-2 {
+            font-size: 2.8rem;
+            letter-spacing: -1px;
+        }
+        
+        .title-subtitle {
+            font-size: 1rem;
+        }
+        
+        .hero-barbershop-description {
+            font-size: 1rem;
+        }
+        
+        .hero-barbershop-stats {
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+        
+        .stat-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        
+        .hero-features {
+            justify-content: center;
+        }
+        
+        .hero-barbershop-cta {
+            justify-content: center;
+        }
+        
+        .barbershop-btn-primary,
+        .barbershop-btn-outline {
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+        
+        /* Hide decorative elements on mobile */
+        .barber-pole,
+        .scissors-decoration,
+        .mustache-decoration {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .title-line-1, .title-line-2 {
+            font-size: 2.2rem;
+        }
+        
+        .hero-badge {
+            align-self: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+        }
+    }
+
+    /* Legacy Hero Styles (for backward compatibility) */
     .hero {
         background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-        min-height: calc(100vh - 80px); /* Mengurangi tinggi navbar */
+        min-height: calc(100vh - 80px);
         display: flex;
         align-items: center;
         position: relative;
@@ -677,7 +1207,7 @@
         line-height: 1.7;
     }
 
-    /* Navigation */
+    /* Enhanced Navigation System */
     .navbar {
         position: fixed;
         top: 0;
@@ -687,34 +1217,98 @@
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--gray-200);
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         padding: 1rem 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-enhanced {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .navbar-transparent {
-        background: rgba(15, 23, 42, 0.9);
+        background: rgba(15, 23, 42, 0.92);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(25px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     }
 
     .navbar-fixed {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         border-bottom: 1px solid var(--gray-200);
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(25px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     }
 
+    /* Navigation Content Layout */
     .nav-content {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: var(--space-sm) 0;
+        padding: 0.75rem 0;
+        position: relative;
+    }
+
+    /* Logo Section */
+    .nav-logo-section {
+        flex-shrink: 0;
+        z-index: 10;
     }
 
     .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .logo-icon {
+        font-size: 1.8rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        animation: logoFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-2px) rotate(2deg); }
+    }
+
+    .logo-text {
+        font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 1.5rem;
         font-weight: 800;
         color: var(--primary-color);
-        text-decoration: none;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.5px;
+    }
+
+    .navbar-transparent .logo-text {
+        color: white;
+        background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.8));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .nav-logo:hover .logo-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Navigation Links Container */
+    .nav-links-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex: 1;
+        justify-content: center;
+        position: relative;
     }
 
     .nav-links {
@@ -722,44 +1316,411 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        gap: var(--space-lg);
+        gap: 2rem;
+        align-items: center;
     }
 
     .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         color: var(--text-primary);
         text-decoration: none;
         font-weight: 500;
+        font-size: 0.9rem;
         position: relative;
-        transition: color 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-md);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: transparent;
     }
 
     .navbar-transparent .nav-link {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-link:hover {
+        color: var(--primary-color);
+        background: rgba(0, 102, 204, 0.08);
+        transform: translateY(-1px);
+    }
+
+    .navbar-transparent .nav-link:hover {
         color: white;
+        background: rgba(255, 255, 255, 0.1);
     }
 
-    .navbar-transparent .nav-logo {
-        color: white;
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-link:hover,
     .nav-link.active {
+        color: var(--primary-color);
+        background: rgba(0, 102, 204, 0.1);
+        font-weight: 600;
+    }
+
+    .navbar-transparent .nav-link.active {
+        color: white;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Navigation Actions */
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+
+    /* Enhanced Booking Button */
+    .nav-btn-booking,
+    .nav-btn-login {
+        position: relative;
+        overflow: hidden;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: var(--radius-md);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
+
+    .nav-btn-booking:hover,
+    .nav-btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+    }
+
+    /* User Menu */
+    .user-menu-wrapper {
+        position: relative;
+    }
+
+    .user-menu-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: none;
+        border: none;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+
+    .navbar-transparent .user-menu-trigger {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .user-menu-trigger:hover {
+        background: rgba(0, 102, 204, 0.08);
         color: var(--primary-color);
     }
 
-    .nav-link:hover::after,
-    .nav-link.active::after {
+    .navbar-transparent .user-menu-trigger:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .user-avatar {
+        font-size: 1.25rem;
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .user-text {
+        font-size: 0.9rem;
+    }
+
+    .dropdown-arrow {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+
+    .user-menu-trigger:hover .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Enhanced User Menu Dropdown */
+    .user-menu {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--gray-200);
+        min-width: 220px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px) scale(0.95);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow: hidden;
+    }
+
+    .user-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    .user-menu-header {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .user-greeting {
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .user-menu-items {
+        padding: 0.5rem 0;
+    }
+
+    .user-menu-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .user-menu-item:hover {
+        background: var(--gray-50);
+        color: var(--primary-color);
+        transform: translateX(4px);
+    }
+
+    .logout-item {
+        color: var(--error-color);
+    }
+
+    .logout-item:hover {
+        background: var(--error-light);
+        color: var(--error-color);
+    }
+
+    .menu-icon {
+        font-size: 1rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    .menu-divider {
+        height: 1px;
+        background: var(--gray-200);
+        margin: 0.5rem 0;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: var(--radius-md);
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+
+    .navbar-transparent .mobile-menu-toggle {
+        color: white;
+    }
+
+    .mobile-menu-toggle:hover {
+        background: rgba(0, 102, 204, 0.1);
+        transform: scale(1.1);
+    }
+
+    .hamburger-icon {
+        font-size: 1.5rem;
+        display: block;
+    }
+
+    /* Enhanced Mobile Menu */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-overlay.show {
+        opacity: 1;
+    }
+
+    .mobile-menu-content {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 320px;
+        background: var(--white);
+        z-index: 1000;
+        padding: 0;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow-y: auto;
+    }
+
+    .mobile-menu-content.show {
+        transform: translateX(0);
+    }
+
+    /* Mobile Menu Header */
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        color: white;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .mobile-logo-icon {
+        font-size: 1.5rem;
+    }
+
+    .mobile-logo-text {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .mobile-close-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+    }
+
+    .mobile-close-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    /* Mobile Navigation Sections */
+    .mobile-nav-section,
+    .mobile-actions-section {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .mobile-section-title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .mobile-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+        font-weight: 500;
+    }
+
+    .mobile-nav-link:hover {
+        background: var(--gray-50);
+        color: var(--primary-color);
+        transform: translateX(4px);
+    }
+
+    .mobile-nav-icon {
+        font-size: 1.125rem;
+        width: 24px;
+        text-align: center;
+    }
+
+    /* Mobile Action Buttons */
+    .mobile-action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .mobile-action-btn {
         width: 100%;
+        justify-content: center;
+        padding: 1rem;
+        font-weight: 600;
+    }
+
+    .mobile-logout-section {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .mobile-logout-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        color: var(--error-color);
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+    }
+
+    .mobile-logout-link:hover {
+        background: var(--error-light);
     }
 
     /* Gallery Section */
@@ -992,7 +1953,22 @@
         box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
     }
 
-    /* Mobile Responsive */
+    /* Mobile & Responsive Design */
+    @media (max-width: 1024px) {
+        .nav-links {
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+        }
+        
+        .nav-actions {
+            gap: 0.75rem;
+        }
+    }
+
     @media (max-width: 768px) {
         .about-grid,
         .contact-grid {
@@ -1003,8 +1979,19 @@
             grid-template-columns: 1fr;
         }
         
-        .nav-links {
+        /* Hide desktop navigation on mobile */
+        .nav-links-container {
             display: none;
+        }
+        
+        /* Show mobile menu toggle */
+        .mobile-menu-toggle {
+            display: block;
+        }
+        
+        /* Adjust navbar content for mobile */
+        .nav-content {
+            justify-content: space-between;
         }
         
         .hero-title {
@@ -1013,6 +2000,64 @@
         
         .section-title {
             font-size: 2rem;
+        }
+        
+        /* Logo adjustments for mobile */
+        .logo-text {
+            font-size: 1.25rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .mobile-menu-content {
+            width: 100%;
+            right: 0;
+        }
+        
+        .logo-text {
+            font-size: 1.1rem;
+        }
+        
+        .mobile-section-title {
+            font-size: 0.8rem;
+        }
+        
+        .mobile-nav-link,
+        .user-menu-item {
+            padding: 1rem 0.75rem;
+        }
+    }
+
+    /* Enhanced Mobile Menu Animations */
+    @media (max-width: 768px) {
+        .mobile-menu-overlay.show {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .mobile-menu-content.show {
+            display: block;
+            animation: slideInRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { 
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to { 
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
     }
 

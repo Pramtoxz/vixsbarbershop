@@ -1,71 +1,120 @@
 <?= $this->extend('templates/main') ?>
 <?= $this->section('content') ?>
 
-<!-- Hero Section - Amazing Design -->
-<section class="hero" id="beranda">
-    <!-- Floating Decorations -->
-    <div class="hero-decoration hero-circle-1"></div>
-    <div class="hero-decoration hero-circle-2"></div>
-    <div class="hero-decoration hero-circle-3"></div>
+<!-- Hero Section - Elegant Barbershop Design -->
+<section class="hero-barbershop" id="beranda">
+    <!-- Hero Background Image -->
+    <div class="hero-image-container">
+        <img src="<?= base_url('assets/images/hero.jpg') ?>" 
+             alt="Vixs Barbershop Interior" 
+             class="hero-background-image">
+        <div class="hero-overlay"></div>
+    </div>
     
-    <!-- Animated Particles -->
-    <div class="particles" id="particles"></div>
+    <!-- Barbershop Decorative Elements -->
+    <div class="barbershop-elements">
+        <div class="barber-pole barber-pole-1">
+            <div class="pole-stripe"></div>
+        </div>
+        <div class="barber-pole barber-pole-2">
+            <div class="pole-stripe"></div>
+        </div>
+        <div class="scissors-decoration scissors-1">✂️</div>
+        <div class="scissors-decoration scissors-2">✂️</div>
+        <div class="mustache-decoration">👨‍🦲</div>
+    </div>
     
+    <!-- Hero Content -->
     <div class="container">
-        <div class="hero-content">
-            <!-- Main Title with Enhanced Typography -->
-            <h1 class="hero-title animate-fade-in-up">
-                <span class="hero-word" data-text="Transformasi">Transformasi</span> 
-                <span class="hero-word" data-text="Gaya">Gaya</span><br>
-                <span class="gradient-accent hero-word" data-text="Untuk Kepercayaan Diri">Untuk Kepercayaan Diri</span>
-            </h1>
-            
-            <!-- Enhanced Subtitle -->
-            <p class="hero-subtitle animate-fade-in-up">
-                ✨ Vixs Barbershop menghadirkan pengalaman grooming premium dengan sentuhan modern dan pelayanan profesional untuk penampilan terbaik Anda. ✨
-            </p>
-            
-            <!-- Enhanced CTA Buttons -->
-            <div class="hero-cta" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
-                <a href="#layanan" class="btn btn-primary btn-enhanced animate-fade-in-up" data-delay="0.2s">
-                    <span class="btn-text">Jelajahi Layanan</span>
-                    <svg class="btn-icon" style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                    <span class="btn-shine"></span>
-                </a>
-                <a href="#kontak" class="btn btn-outline btn-enhanced animate-fade-in-up" data-delay="0.4s">
-                    <span class="btn-text">Hubungi Kami</span>
-                    <svg class="btn-icon" style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <span class="btn-shine"></span>
-                </a>
+        <div class="hero-barbershop-content">
+            <div class="hero-content-wrapper">
+                <!-- Badge -->
+                <div class="hero-badge animate-fade-in-up">
+                    <span class="badge-icon">✂️</span>
+                    <span class="badge-text">Premium Barbershop</span>
+                    <span class="badge-year">EST. 2020</span>
+                </div>
+                
+                <!-- Main Title -->
+                <h1 class="hero-barbershop-title animate-fade-in-up">
+                    <span class="title-line-1">VIXS</span>
+                    <span class="title-line-2">BARBERSHOP</span>
+                    <span class="title-subtitle">Masterpiece in Every Cut</span>
+                </h1>
+                
+                <!-- Description -->
+                <p class="hero-barbershop-description animate-fade-in-up">
+                    Rasakan pengalaman grooming kelas dunia dengan sentuhan tradisional dan teknik modern. 
+                    Tim master barber kami menghadirkan gaya yang sesuai dengan kepribadian Anda.
+                </p>
+                
+                <!-- Features List -->
+                <div class="hero-features animate-fade-in-up">
+                    <div class="feature-item">
+                        <span class="feature-icon">🏆</span>
+                        <span class="feature-text">Master Barber Certified</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <span class="feature-text">Premium Products</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text">Modern Techniques</span>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="hero-barbershop-cta animate-fade-in-up">
+                    <?php if (session()->get('logged_in') && session()->get('role') == 'pelanggan'): ?>
+                        <a href="<?= site_url('customer/booking/create') ?>" class="btn btn-primary btn-enhanced barbershop-btn-primary">
+                            <span class="btn-icon">📅</span>
+                            <span class="btn-text">Book Appointment</span>
+                            <span class="btn-shine"></span>
+                        </a>
+                    <?php else: ?>
+                        <a href="<?= site_url('customer/login') ?>" class="btn btn-primary btn-enhanced barbershop-btn-primary">
+                            <span class="btn-icon">📅</span>
+                            <span class="btn-text">Book Appointment</span>
+                            <span class="btn-shine"></span>
+                        </a>
+                    <?php endif; ?>
+                    
+                    <a href="#layanan" class="btn btn-outline btn-enhanced barbershop-btn-outline">
+                        <span class="btn-icon">👁️</span>
+                        <span class="btn-text">View Services</span>
+                        <span class="btn-shine"></span>
+                    </a>
+                </div>
             </div>
             
             <!-- Hero Stats -->
-            <div class="hero-stats" style="margin-top: 4rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-                <div class="hero-stat animate-fade-in-up" data-delay="0.6s">
-                    <div class="stat-number" style="font-size: 2.5rem; font-weight: 800; color: #FFD700;">4+</div>
-                    <div class="stat-label" style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">Tahun Pengalaman</div>
+            <!-- <div class="hero-barbershop-stats animate-fade-in-up">
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Excellence</div>
+                    <div class="stat-icon">📅</div>
                 </div>
-                <div class="hero-stat animate-fade-in-up" data-delay="0.8s">
-                    <div class="stat-number" style="font-size: 2.5rem; font-weight: 800; color: #4ECDC4;">1500+</div>
-                    <div class="stat-label" style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">Pelanggan Puas</div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">1500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                    <div class="stat-icon">😊</div>
                 </div>
-                <div class="hero-stat animate-fade-in-up" data-delay="1s">
-                    <div class="stat-number" style="font-size: 2.5rem; font-weight: 800; color: #FF6B6B;">5+</div>
-                    <div class="stat-label" style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">Kapster Ahli</div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Master Barbers</div>
+                    <div class="stat-icon">✂️</div>
                 </div>
-            </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
-                <svg style="width: 24px; height: 24px; color: rgba(255, 255, 255, 0.7);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
-            </div>
+            </div> -->
         </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator-barbershop">
+        <div class="scroll-text">Scroll to Explore</div>
+        <div class="scroll-arrow">⬇️</div>
     </div>
 </section>
 
@@ -138,9 +187,7 @@
                         <div class="gallery-overlay">
                             <h3 class="gallery-title"><?= esc($item['nama']) ?></h3>
                             <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem; margin: 0;">
-                                <svg style="width: 16px; height: 16px; display: inline; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
+                                <span style="font-size: 1rem; margin-right: 8px;">📸</span>
                                 Galeri Vixs Barbershop
                             </p>
                         </div>
@@ -155,18 +202,14 @@
                             class="btn btn-primary" 
                             id="loadMoreBtn">
                         <span>Lihat Lebih Banyak</span>
-                        <svg style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
+                        <span style="font-size: 1.25rem; margin-left: 8px;">⬇️</span>
                     </button>
                 </div>
             <?php endif; ?>
         <?php else: ?>
             <div class="text-center" style="padding: 4rem 0;">
                 <div style="max-width: 400px; margin: 0 auto;">
-                    <svg style="width: 80px; height: 80px; margin: 0 auto 2rem auto; color: var(--gray-300);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
+                    <div style="font-size: 5rem; text-align: center; margin-bottom: 2rem; opacity: 0.3;">🖼️</div>
                     <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 1rem;">
                         Galeri Sedang Dipersiapkan
                     </h3>
@@ -235,10 +278,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
+                        <span style="font-size: 1.5rem;">📍</span>
                     </div>
                     <div class="contact-details">
                         <h4>Alamat Lokasi</h4>
@@ -248,9 +288,7 @@
 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
+                        <span style="font-size: 1.5rem;">📞</span>
                     </div>
                     <div class="contact-details">
                         <h4>Nomor Telepon</h4>
@@ -260,9 +298,7 @@
 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                        <span style="font-size: 1.5rem;">🕐</span>
                     </div>
                     <div class="contact-details">
                         <h4>Jam Operasional</h4>
@@ -272,9 +308,7 @@
 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
+                        <span style="font-size: 1.5rem;">📧</span>
                     </div>
                     <div class="contact-details">
                         <h4>Email</h4>
@@ -305,10 +339,7 @@ function loadMoreGaleri() {
     
     loadMoreBtn.innerHTML = `
         <span style="display: flex; align-items: center;">
-            <svg style="width: 20px; height: 20px; margin-right: 8px; animation: spin 1s linear infinite;" fill="none" viewBox="0 0 24 24">
-                <circle style="opacity: 0.25;" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path style="opacity: 0.75;" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
+            <span style="font-size: 1.25rem; margin-right: 8px; animation: spin 1s linear infinite;">⏳</span>
             Memuat...
         </span>
     `;
@@ -333,9 +364,7 @@ function loadMoreGaleri() {
                         <div class="gallery-overlay">
                             <h3 class="gallery-title">${item.nama}</h3>
                             <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem; margin: 0;">
-                                <svg style="width: 16px; height: 16px; display: inline; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
+                                <span style="font-size: 1rem; margin-right: 8px;">📸</span>
                                 Galeri Vixs Barbershop
                             </p>
                         </div>

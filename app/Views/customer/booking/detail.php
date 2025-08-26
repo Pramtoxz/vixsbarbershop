@@ -2,20 +2,24 @@
 
 <?= $this->section('content') ?>
 <!-- Hero Section -->
-<section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 6rem 0 4rem; position: relative; overflow: hidden;">
+<section class="hero-simple" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); padding: 6rem 0 4rem; position: relative; overflow: hidden;">
     <!-- Decorative Elements -->
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'10\' r=\'1\'/%3E%3Ccircle cx=\'10\' cy=\'30\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1;">
+        <div style="position: absolute; top: 20%; left: 10%; width: 100px; height: 100px; background: var(--white); border-radius: 50%; opacity: 0.1;"></div>
+        <div style="position: absolute; top: 60%; right: 15%; width: 60px; height: 60px; background: var(--white); border-radius: 50%; opacity: 0.1;"></div>
+        <div style="position: absolute; bottom: 30%; left: 20%; width: 80px; height: 80px; background: var(--white); border-radius: 50%; opacity: 0.1;"></div>
+    </div>
     
     <div class="container">
-        <div class="text-center text-white">
-            <h1 class="section-title" style="color: white; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">
+        <div style="text-align: center; color: var(--white);">
+            <h1 style="color: var(--white); font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
                 📋 Detail Booking
             </h1>
-            <p class="section-description" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem;">
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
                 Kode Booking: <strong><?= $booking['kdbooking'] ?></strong>
             </p>
             <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <a href="<?= site_url('customer/booking') ?>" class="btn btn-outline" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; backdrop-filter: blur(10px);">
+                <a href="<?= site_url('customer/booking') ?>" class="btn btn-outline" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; backdrop-filter: blur(10px); transition: all 0.3s ease;">
                     ← Kembali ke Riwayat
                 </a>
                 <?php
@@ -40,21 +44,19 @@
 </section>
 
 <!-- Main Content -->
-<section class="py-8">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="section-padding">
+    <div class="container">
         <?php if ($isExpired || $booking['status'] === 'expired'): ?>
-            <div class="bg-red-50 p-4 rounded-lg border border-red-200 mb-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+            <div class="card animate-fade-in-up" style="background: var(--error-light); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--error-color); margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: var(--error-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <span style="font-size: 1.25rem; color: var(--white);">⚠️</span>
                     </div>
                     <div>
-                        <h3 class="text-lg font-medium text-red-800 mb-1">Booking Telah Expired</h3>
-                        <p class="text-red-700 text-sm">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--error-dark); margin-bottom: 0.5rem;">Booking Telah Expired</h3>
+                        <p style="color: var(--error-color); font-size: 0.875rem;">
                             Waktu pembayaran telah habis dan booking otomatis dibatalkan. 
-                            <a href="<?= site_url('customer/booking/create') ?>" class="font-medium underline">Buat booking baru</a>
+                            <a href="<?= site_url('customer/booking/create') ?>" style="font-weight: 600; text-decoration: underline; color: var(--error-dark);">Buat booking baru</a>
                         </p>
                     </div>
                 </div>
@@ -62,16 +64,13 @@
         <?php endif; ?>
 
         <!-- Detail Booking Card -->
-        <div class="bg-white rounded-lg border border-gray-200 mb-6">
-            <div class="p-6">
-                <div class="flex items-center mb-5">
-                    <div class="rounded-full bg-gray-100 p-2 mr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                    </div>
-                    <h2 class="text-xl font-medium text-gray-800">Detail Booking</h2>
+        <div class="card animate-fade-in-up" style="padding: 2rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 1.5rem; color: white;">📋</span>
                 </div>
+                <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary);">📋 Detail Booking</h2>
+            </div>
 
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div class="p-4 sm:p-6">
@@ -81,9 +80,9 @@
                         <!-- Header -->
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 sm:pb-6 border-b gap-4">
                             <div class="flex flex-col sm:flex-row items-start sm:items-center w-full sm:w-auto">
-                                <div class="mr-0 sm:mr-4 mb-2 sm:mb-0">
-                                    <img src="<?= base_url('assets/images/logo.png') ?>" alt="Logo" class="h-12 sm:h-16">
-                                </div>
+                                <!-- <div class="mr-0 sm:mr-4 mb-2 sm:mb-0">
+                                    <img src="<?= base_url('assets/images/logo.png') ?>" alt="Logo" class="h-8 sm:h-10">
+                                </div> -->
                                 <div>
                                     <h2 class="text-lg sm:text-xl font-bold text-black">Vixs Barbershop</h2>
                                     <p class="text-xs sm:text-sm text-gray-700">Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586</p>
@@ -152,102 +151,98 @@
                         <?php endif; ?>
 
                 <!-- Informasi Booking -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                     <!-- Info Pelanggan -->
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                        <div class="flex items-center mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            <h4 class="text-sm font-medium text-gray-800">Informasi Pelanggan</h4>
+                    <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.25rem; color: var(--primary-color);">👤</span>
+                            <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">👤 Informasi Pelanggan</h4>
                         </div>
-                        <div class="space-y-2">
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">Nama:</span>
-                                <span class="text-gray-800 text-sm font-medium"><?= $booking['nama_lengkap'] ?></span>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Nama:</span>
+                                <span style="color: var(--text-primary); font-size: 0.875rem; font-weight: 600;"><?= $booking['nama_lengkap'] ?></span>
                             </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">No HP:</span>
-                                <span class="text-gray-800 text-sm"><?= $booking['no_hp'] ?></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">No HP:</span>
+                                <span style="color: var(--text-primary); font-size: 0.875rem;"><?= $booking['no_hp'] ?></span>
                             </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">Email:</span>
-                                <span class="text-gray-800 text-sm"><?= $booking['email'] ?? '-' ?></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Email:</span>
+                                <span style="color: var(--text-primary); font-size: 0.875rem;"><?= $booking['email'] ?? '-' ?></span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Info Booking -->
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                        <div class="flex items-center mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <h4 class="text-sm font-medium text-gray-800">Informasi Booking</h4>
+                    <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.25rem; color: var(--primary-color);">📅</span>
+                            <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">📅 Informasi Booking</h4>
                         </div>
-                        <div class="space-y-2">
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">Kode:</span>
-                                <span class="text-gray-800 text-sm font-medium"><?= $booking['kdbooking'] ?></span>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Kode:</span>
+                                <span style="color: var(--text-primary); font-size: 0.875rem; font-weight: 600;"><?= $booking['kdbooking'] ?></span>
                             </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">Tanggal:</span>
-                                <span class="text-gray-800 text-sm"><?= date('d F Y', strtotime($booking['tanggal_booking'])) ?></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Tanggal:</span>
+                                <span style="color: var(--text-primary); font-size: 0.875rem;"><?= date('d F Y', strtotime($booking['tanggal_booking'])) ?></span>
                             </div>
                             <?php if (!empty($details) && isset($details[0])): ?>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-600 text-sm">Waktu:</span>
-                                    <span class="text-gray-800 text-sm"><?= $details[0]['jamstart'] ?> - <?= $details[0]['jamend'] ?></span>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: var(--text-secondary); font-size: 0.875rem;">Waktu:</span>
+                                    <span style="color: var(--text-primary); font-size: 0.875rem;"><?= $details[0]['jamstart'] ?> - <?= $details[0]['jamend'] ?></span>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-600 text-sm">Karyawan:</span>
-                                    <span class="text-gray-800 text-sm"><?= $details[0]['idkaryawan'] ? ($details[0]['nama_karyawan'] ?? 'Unknown') : 'Belum ditentukan' ?></span>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: var(--text-secondary); font-size: 0.875rem;">Karyawan:</span>
+                                    <span style="color: var(--text-primary); font-size: 0.875rem;"><?= $details[0]['idkaryawan'] ? ($details[0]['nama_karyawan'] ?? 'Unknown') : 'Belum ditentukan' ?></span>
                                 </div>
                             <?php endif; ?>
 
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">Status Bayar:</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Status Bayar:</span>
                                 <?php if ($booking['jenispembayaran'] == 'Belum Bayar'): ?>
-                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-red-100 text-red-800">Belum Bayar</span>
+                                    <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; background: var(--error-light); color: var(--error-dark);">Belum Bayar</span>
                                 <?php elseif ($booking['jenispembayaran'] == 'DP' && $booking['total'] > $booking['jumlahbayar']): ?>
-                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-yellow-100 text-yellow-800">DP (<?= round(($booking['jumlahbayar'] / $booking['total']) * 100) ?>%)</span>
+                                    <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; background: var(--warning-light); color: var(--warning-dark);">DP (<?= round(($booking['jumlahbayar'] / $booking['total']) * 100) ?>%)</span>
                                 <?php elseif ($booking['total'] <= $booking['jumlahbayar']): ?>
-                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-green-100 text-green-800">Lunas</span>
+                                    <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; background: var(--success-light); color: var(--success-dark);">Lunas</span>
                                 <?php else: ?>
-                                    <span class="inline-block py-1 px-2 rounded-full text-xs bg-red-100 text-red-800">Belum Bayar</span>
+                                    <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; background: var(--error-light); color: var(--error-dark);">Belum Bayar</span>
                                 <?php endif; ?>
                             </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600 text-sm">Status:</span>
-                                <span class="inline-block py-1 px-2 rounded-full text-xs 
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Status:</span>
+                                <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; 
                                 <?php
                                 // Cek apakah booking expired berdasarkan field expired_at
                                 $isExpired = isset($booking['expired_at']) && strtotime($booking['expired_at']) < time() && $booking['jenispembayaran'] == 'Belum Bayar';
 
                                 if ($isExpired) {
-                                    echo 'bg-red-100 text-red-800';
+                                    echo 'background: var(--error-light); color: var(--error-dark);';
                                 } else {
                                     switch ($booking['status']) {
                                         case 'pending':
-                                            echo 'bg-yellow-100 text-yellow-800';
+                                            echo 'background: var(--warning-light); color: var(--warning-dark);';
                                             break;
                                         case 'confirmed':
-                                            echo 'bg-blue-100 text-blue-800';
+                                            echo 'background: var(--info-light); color: var(--info-dark);';
                                             break;
                                         case 'completed':
-                                            echo 'bg-green-100 text-green-800';
+                                            echo 'background: var(--success-light); color: var(--success-dark);';
                                             break;
                                         case 'cancelled':
-                                            echo 'bg-red-100 text-red-800';
+                                            echo 'background: var(--error-light); color: var(--error-dark);';
                                             break;
                                         case 'expired':
-                                            echo 'bg-red-100 text-red-800';
+                                            echo 'background: var(--error-light); color: var(--error-dark);';
                                             break;
                                         case 'no-show':
-                                            echo 'bg-gray-100 text-gray-800';
+                                            echo 'background: var(--gray-200); color: var(--text-secondary);';
                                             break;
                                         default:
-                                            echo 'bg-gray-100 text-gray-800';
+                                            echo 'background: var(--gray-200); color: var(--text-secondary);';
                                     }
                                 }
                                 ?>">
@@ -286,78 +281,62 @@
                 </div>
 
                 <!-- Detail Layanan -->
-                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-                    <div class="flex items-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                        </svg>
-                        <h4 class="text-sm font-medium text-gray-800">Detail Layanan</h4>
+                <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 1.25rem; color: var(--primary-color);">✂️</span>
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">✂️ Detail Layanan</h4>
                     </div>
-                    <div class="space-y-3">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
                         <?php if (!empty($details)): ?>
                             <?php foreach ($details as $detail): ?>
-                                <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0">
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
                                     <div>
-                                        <div class="text-sm font-medium text-gray-800"><?= $detail['nama_paket'] ?></div>
-                                        <div class="text-xs text-gray-600"><?= $detail['deskripsi'] ?></div>
+                                        <div style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);"><?= $detail['nama_paket'] ?></div>
+                                        <div style="font-size: 0.75rem; color: var(--text-secondary);"><?= $detail['deskripsi'] ?></div>
                                     </div>
-                                    <div class="text-sm font-medium text-gray-800">Rp <?= number_format($detail['harga'], 0, ',', '.') ?></div>
+                                    <div style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Rp <?= number_format($detail['harga'], 0, ',', '.') ?></div>
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <div class="text-center text-gray-600 py-4">Tidak ada data layanan</div>
+                            <div style="text-align: center; color: var(--text-secondary); padding: 1.5rem;">Tidak ada data layanan</div>
                         <?php endif; ?>
                         
                         <!-- Total -->
-                        <div class="border-t border-gray-300 pt-3 space-y-2">
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-medium text-gray-800">Total:</span>
-                                <span class="text-sm font-bold text-gray-800">Rp <?= number_format($booking['total'] ?? 0, 0, ',', '.') ?></span>
+                        <div style="border-top: 1px solid var(--gray-300); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Total:</span>
+                                <span style="font-size: 0.875rem; font-weight: 700; color: var(--text-primary);">Rp <?= number_format($booking['total'] ?? 0, 0, ',', '.') ?></span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-medium text-gray-800">Dibayar:</span>
-                                <span class="text-sm font-medium text-green-600">Rp <?= number_format($booking['jumlahbayar'] ?? 0, 0, ',', '.') ?></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Dibayar:</span>
+                                <span style="font-size: 0.875rem; font-weight: 600; color: var(--success-color);">Rp <?= number_format($booking['jumlahbayar'] ?? 0, 0, ',', '.') ?></span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-medium text-gray-800">Sisa:</span>
-                                <span class="text-sm font-medium <?= (($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0) > 0) ? 'text-red-600' : 'text-green-600' ?>">Rp <?= number_format(($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0), 0, ',', '.') ?></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Sisa:</span>
+                                <span style="font-size: 0.875rem; font-weight: 600; color: <?= (($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0) > 0) ? 'var(--error-color)' : 'var(--success-color)' ?>;">Rp <?= number_format(($booking['total'] ?? 0) - ($booking['jumlahbayar'] ?? 0), 0, ',', '.') ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                             <!-- Ringkasan Status Pembayaran -->
-                            <div class="mb-8">
-                                <h4 class="text-sm uppercase text-gray-600 font-medium mb-2">Status Pembayaran</h4>
-                                <div class="bg-gray-50 p-5 rounded-lg">
-                                    <div class="flex flex-col md:flex-row gap-4">
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.75rem;">💳 Status Pembayaran</h4>
+                                <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200);">
+                                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                                         <!-- Status -->
-                                        <div class="flex-1">
-                                            <div class="flex items-center mb-2">
-                                                <div class="rounded-full p-1 mr-2 
-                                                <?php if ($booking['total'] <= $booking['jumlahbayar']): ?>
-                                                    bg-green-100 text-green-700
-                                                <?php elseif ($booking['jenispembayaran'] == 'DP'): ?>
-                                                    bg-yellow-100 text-yellow-700
-                                                <?php else: ?>
-                                                    bg-red-100 text-red-700
-                                                <?php endif; ?>
-                                                ">
+                                        <div style="flex: 1;">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                                <div style="border-radius: 50%; padding: 0.5rem; <?php if ($booking['total'] <= $booking['jumlahbayar']): ?>background: var(--success-light); color: var(--success-color);<?php elseif ($booking['jenispembayaran'] == 'DP'): ?>background: var(--warning-light); color: var(--warning-color);<?php else: ?>background: var(--error-light); color: var(--error-color);<?php endif; ?>">
                                                     <?php if ($booking['total'] <= $booking['jumlahbayar']): ?>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
+                                                        <span style="font-size: 1.25rem;">✅</span>
                                                     <?php elseif ($booking['jenispembayaran'] == 'DP'): ?>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
+                                                        <span style="font-size: 1.25rem;">⏰</span>
                                                     <?php else: ?>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
+                                                        <span style="font-size: 1.25rem;">💰</span>
                                                     <?php endif; ?>
                                                 </div>
-                                                <h3 class="text-lg font-medium text-gray-800">
+                                                <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary);">
                                                     <?php if ($booking['total'] <= $booking['jumlahbayar']): ?>
                                                         Pembayaran Lunas
                                                     <?php elseif ($booking['jenispembayaran'] == 'DP'): ?>
@@ -367,7 +346,7 @@
                                                     <?php endif; ?>
                                                 </h3>
                                             </div>
-                                            <p class="text-gray-600 ml-8">
+                                            <p style="color: var(--text-secondary); margin-left: 2.5rem;">
                                                 <?php if ($booking['total'] <= $booking['jumlahbayar']): ?>
                                                     Anda telah melunasi seluruh pembayaran untuk booking ini.
                                                 <?php elseif ($booking['jenispembayaran'] == 'DP'): ?>
@@ -380,11 +359,11 @@
                                         </div>
 
                                         <!-- Progress Bar -->
-                                        <div class="flex-1">
-                                            <div class="mb-2">
-                                                <div class="flex justify-between mb-1">
-                                                    <span class="text-sm font-medium text-gray-700">Progress Pembayaran</span>
-                                                    <span class="text-sm font-medium text-gray-700">
+                                        <div style="flex: 1;">
+                                            <div style="margin-bottom: 0.75rem;">
+                                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                                    <span style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">📊 Progress Pembayaran</span>
+                                                    <span style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">
                                                         <?php
                                                         $percentage = $booking['total'] > 0 ?
                                                             round(($booking['jumlahbayar'] / $booking['total']) * 100) : 0;
@@ -392,19 +371,11 @@
                                                         ?>
                                                     </span>
                                                 </div>
-                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                                    <div class="
-                                                    <?php if ($booking['total'] <= $booking['jumlahbayar']): ?>
-                                                        bg-green-500
-                                                    <?php elseif ($booking['jenispembayaran'] == 'DP'): ?>
-                                                        bg-yellow-500
-                                                    <?php else: ?>
-                                                        bg-red-500
-                                                    <?php endif; ?>
-                                                    h-2.5 rounded-full" style="width: <?= $percentage ?>%"></div>
+                                                <div style="width: 100%; background: var(--gray-200); border-radius: 50px; height: 0.75rem; overflow: hidden;">
+                                                    <div style="<?php if ($booking['total'] <= $booking['jumlahbayar']): ?>background: var(--success-color);<?php elseif ($booking['jenispembayaran'] == 'DP'): ?>background: var(--warning-color);<?php else: ?>background: var(--error-color);<?php endif; ?> height: 100%; border-radius: 50px; transition: width 0.3s ease; width: <?= $percentage ?>%;"></div>
                                                 </div>
                                             </div>
-                                            <div class="flex justify-between text-sm text-gray-600">
+                                            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-secondary);">
                                                 <span>Rp 0</span>
                                                 <span>Rp <?= number_format($booking['total'], 0, ',', '.') ?></span>
                                             </div>
@@ -415,35 +386,35 @@
 
                             <?php if (!empty($pembayaran)): ?>
                                 <!-- Payment History -->
-                                <div class="mb-8">
-                                    <h4 class="text-sm uppercase text-gray-600 font-medium mb-2">Riwayat Pembayaran</h4>
-                                    <div class="bg-gray-50 rounded-lg overflow-hidden">
-                                        <table class="min-w-full divide-y divide-gray-200">
+                                <div style="margin-bottom: 2rem;">
+                                    <h4 style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.75rem;">💰 Riwayat Pembayaran</h4>
+                                    <div style="background: var(--gray-50); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200);">
+                                        <table style="width: 100%; border-collapse: collapse;">
                                             <thead>
-                                                <tr class="bg-gray-100">
-                                                    <th class="py-3 px-4 text-left text-xs font-medium text-gray-700 uppercase">Tanggal</th>
-                                                    <th class="py-3 px-4 text-left text-xs font-medium text-gray-700 uppercase">Metode</th>
-                                                    <th class="py-3 px-4 text-left text-xs font-medium text-gray-700 uppercase">Status</th>
-                                                    <th class="py-3 px-4 text-left text-xs font-medium text-gray-700 uppercase">Jenis</th>
-                                                    <th class="py-3 px-4 text-right text-xs font-medium text-gray-700 uppercase">Jumlah</th>
+                                                <tr style="background: var(--gray-100);">
+                                                    <th style="padding: 0.75rem 1rem; text-align: left; font-size: 0.75rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase;">Tanggal</th>
+                                                    <th style="padding: 0.75rem 1rem; text-align: left; font-size: 0.75rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase;">Metode</th>
+                                                    <th style="padding: 0.75rem 1rem; text-align: left; font-size: 0.75rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase;">Status</th>
+                                                    <th style="padding: 0.75rem 1rem; text-align: left; font-size: 0.75rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase;">Jenis</th>
+                                                    <th style="padding: 0.75rem 1rem; text-align: right; font-size: 0.75rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase;">Jumlah</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="divide-y divide-gray-200">
+                                            <tbody>
                                                 <?php foreach ($pembayaran as $bayar): ?>
-                                                    <tr>
-                                                        <td class="py-3 px-4 text-gray-800"><?= date('d/m/Y H:i', strtotime($bayar['created_at'])) ?></td>
-                                                        <td class="py-3 px-4 text-gray-800"><?= ucfirst($bayar['metode']) ?></td>
-                                                        <td class="py-3 px-4">
-                                                            <span class="inline-block py-1 px-2 rounded-full text-xs <?= $bayar['status'] == 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' ?>">
+                                                    <tr style="border-top: 1px solid var(--gray-200);">
+                                                        <td style="padding: 0.75rem 1rem; color: var(--text-primary);"><?= date('d/m/Y H:i', strtotime($bayar['created_at'])) ?></td>
+                                                        <td style="padding: 0.75rem 1rem; color: var(--text-primary);"><?= ucfirst($bayar['metode']) ?></td>
+                                                        <td style="padding: 0.75rem 1rem;">
+                                                            <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; <?= $bayar['status'] == 'paid' ? 'background: var(--success-light); color: var(--success-dark);' : 'background: var(--warning-light); color: var(--warning-dark);' ?>">
                                                                 <?= $bayar['status'] == 'paid' ? 'Dibayar' : 'Belum Dibayar' ?>
                                                             </span>
                                                         </td>
-                                                        <td class="py-3 px-4">
-                                                            <span class="inline-block py-1 px-2 rounded-full text-xs <?= ($bayar['jenis'] ?? '') == 'DP' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800' ?>">
+                                                        <td style="padding: 0.75rem 1rem;">
+                                                            <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.75rem; <?= ($bayar['jenis'] ?? '') == 'DP' ? 'background: var(--warning-light); color: var(--warning-dark);' : 'background: var(--info-light); color: var(--info-dark);' ?>">
                                                                 <?= ($bayar['jenis'] ?? 'Lunas') ?>
                                                             </span>
                                                         </td>
-                                                        <td class="py-3 px-4 text-right text-gray-800">Rp <?= number_format($bayar['total_bayar'], 0, ',', '.') ?></td>
+                                                        <td style="padding: 0.75rem 1rem; text-align: right; color: var(--text-primary);">Rp <?= number_format($bayar['total_bayar'], 0, ',', '.') ?></td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -453,10 +424,10 @@
                             <?php endif; ?>
 
                             <!-- Notes -->
-                            <div class="mb-8">
-                                <h4 class="text-sm uppercase text-gray-600 font-medium mb-2">Catatan</h4>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <p class="text-sm text-gray-700">
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="font-size: 0.875rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.75rem;">📝 Catatan</h4>
+                                <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200);">
+                                    <p style="font-size: 0.875rem; color: var(--text-primary); line-height: 1.6;">
                                         1. Harap datang 10 menit sebelum jadwal yang ditentukan.<br>
                                         2. Jika tidak datang maka dp akan hangus<br>
                                         3. Pelanggan tidak dapat membatalkan booking<br>
@@ -478,60 +449,43 @@
                             if ($booking['jenispembayaran'] == 'Belum Bayar' && $booking['status'] !== 'expired' && !$isExpired):
                             ?>
                                 <!-- Payment Action -->
-                                <div class="mb-8 no-print">
-                                    <div class="bg-blue-50 p-5 rounded-lg border border-blue-200 text-center">
-                                        <h4 class="text-lg font-medium text-blue-800 mb-2">Lanjutkan Pembayaran</h4>
-                                        <p class="text-blue-700 mb-4">Silahkan melakukan pembayaran sebesar <span class="font-bold">Rp <?= number_format($booking['total'], 0, ',', '.') ?></span></p>
-                                        <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="inline-block bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-md">
-                                            <div class="flex items-center justify-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z" />
-                                                </svg>
-                                                Bayar Sekarang
-                                            </div>
-                                        </a>
-                                    </div>
+                                <div class="card animate-fade-in-up no-print" style="background: var(--info-light); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--info-color); text-align: center; margin-bottom: 2rem;">
+                                    <h4 style="font-size: 1.125rem; font-weight: 600; color: var(--info-dark); margin-bottom: 0.75rem;">💳 Lanjutkan Pembayaran</h4>
+                                    <p style="color: var(--info-color); margin-bottom: 1.5rem;">Silahkan melakukan pembayaran sebesar <span style="font-weight: 700;">Rp <?= number_format($booking['total'], 0, ',', '.') ?></span></p>
+                                    <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="btn btn-primary btn-enhanced" style="display: inline-block; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: var(--white); font-weight: 600; padding: 0.75rem 1.5rem; border-radius: var(--radius-lg); text-decoration: none; transition: all 0.3s ease; transform: scale(1); box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);">
+                                        <span class="btn-text" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                            <span style="font-size: 1.25rem;">💰</span>
+                                            Bayar Sekarang
+                                        </span>
+                                        <span class="btn-shine"></span>
+                                    </a>
                                 </div>
                             <?php elseif (($isExpired || $booking['status'] === 'expired') && $booking['jenispembayaran'] == 'Belum Bayar'): ?>
                                 <!-- Expired Payment Warning -->
-                                <div class="bg-red-50 p-4 rounded-lg border border-red-200 text-center mb-6">
-                                    <div class="flex items-center justify-center mb-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <h4 class="text-lg font-medium text-red-800">Waktu Pembayaran Habis</h4>
+                                <div class="card animate-fade-in-up" style="background: var(--error-light); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--error-color); text-align: center; margin-bottom: 2rem;">
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                        <span style="font-size: 1.5rem; color: var(--error-color);">⚠️</span>
+                                        <h4 style="font-size: 1.125rem; font-weight: 600; color: var(--error-dark);">Waktu Pembayaran Habis</h4>
                                     </div>
-                                    <p class="text-red-700 mb-4">Booking ini telah dibatalkan karena melewati batas waktu pembayaran.</p>
-                                    <a href="<?= site_url('customer/booking/create') ?>" class="inline-block bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition-all">
-                                        <div class="flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                            </svg>
+                                    <p style="color: var(--error-color); margin-bottom: 1.5rem;">Booking ini telah dibatalkan karena melewati batas waktu pembayaran.</p>
+                                    <a href="<?= site_url('customer/booking/create') ?>" class="btn btn-secondary" style="display: inline-block; background: var(--error-color); color: var(--white); font-weight: 600; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s ease;">
+                                        <span style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                            <span style="font-size: 1.25rem;">➕</span>
                                             Buat Booking Baru
-                                        </div>
+                                        </span>
                                     </a>
                                 </div>
                             <?php endif; ?>
 
                             <!-- Action Buttons -->
-                            <div class="flex flex-col sm:flex-row gap-3 mt-6">
-                                <button id="btnPrint" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-all flex items-center justify-center" onclick="printFaktur()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H3a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z" />
-                                    </svg>
-                                    Cetak Faktur
-                                </button>
-                                <a href="<?= site_url('customer/booking') ?>" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-all flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                                    </svg>
+                            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;" class="sm:flex-row">
+                                <a href="<?= site_url('customer/booking') ?>" class="btn btn-secondary" style="background: var(--gray-200); color: var(--text-primary); font-weight: 600; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.25rem;">←</span>
                                     Kembali ke Riwayat
                                 </a>
                                 <?php if ($booking['jenispembayaran'] == 'Belum Bayar' && $booking['status'] !== 'expired' && !$isExpired): ?>
-                                    <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition-all flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                                        </svg>
+                                    <a href="<?= site_url('customer/booking/payment/' . $booking['kdbooking']) ?>" class="btn btn-enhanced" style="background: var(--success-color); color: var(--white); font-weight: 600; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                        <span style="font-size: 1.25rem;">💳</span>
                                         Bayar Sekarang
                                     </a>
                                 <?php endif; ?>
@@ -700,8 +654,8 @@
                         }
                         
                         /* Kurangi ukuran logo */
-                        img.h-16 {
-                            height: 40px !important;
+                        img.h-8 {
+                            height: 30px !important;
                         }
                         
                         /* Kurangi spasi pada header dan footer */
