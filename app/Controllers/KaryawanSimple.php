@@ -140,7 +140,7 @@ class KaryawanSimple extends BaseController
                 // Fallback: cari berdasarkan user_id langsung jika field user_id tidak ada
                 $db = \Config\Database::connect();
                 $karyawanFallback = $db->table('karyawan')
-                    ->where('idkaryawan', 'KRW' . str_pad($userId, 4, '0', STR_PAD_LEFT))
+                    ->where('idkaryawan', 'BRM' . str_pad($userId, 4, '0', STR_PAD_LEFT))
                     ->get()
                     ->getRowArray();
                 

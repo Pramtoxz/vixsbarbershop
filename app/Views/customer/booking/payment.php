@@ -412,7 +412,7 @@
                             <!-- Placeholder untuk QRIS -->
                             <div style="width: 280px; height: 280px; background: var(--gray-100); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
                                 <div style="text-align: center;">
-                                    <img src="<?= base_url('assets/images/payment/qris-placeholder.jpg') ?>" alt="QRIS Code" style="height: 280px; width: 280px; object-fit: cover; border-radius: var(--radius-md);">
+                                    <img src="<?= base_url('assets/images/payment/qrisku.jpg') ?>" alt="QRIS Code" style="height: 280px; width: 280px; object-fit: cover; border-radius: var(--radius-md);">
                                     <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-light);">QRIS Vixs Barbershop</p>
                                 </div>
                             </div>

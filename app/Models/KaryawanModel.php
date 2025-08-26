@@ -82,7 +82,7 @@ class KaryawanModel extends Model
 
     public function generateId()
     {
-        $prefix = 'KRW';
+        $prefix = 'BRM';
         $lastId = $this->select('idkaryawan')
             ->orderBy('idkaryawan', 'DESC')
             ->limit(1)
