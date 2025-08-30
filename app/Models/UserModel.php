@@ -43,11 +43,11 @@ class UserModel extends Model
         $this->validationRules = [
             'id' => 'permit_empty|is_natural_no_zero',
             'username' => [
-                'rules' => 'required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,{id}]',
+                'rules' => 'required|min_length[3]|max_length[100]|is_unique[users.username,id,{id}]',
                 'errors' => [
                     'required' => 'Username harus diisi',
-                    'alpha_numeric_space' => 'Username hanya boleh berisi huruf, angka dan spasi',
                     'min_length' => 'Username minimal 3 karakter',
+                    'max_length' => 'Username maksimal 100 karakter',
                     'is_unique' => 'Username sudah digunakan'
                 ]
             ],

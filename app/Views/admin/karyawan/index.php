@@ -28,6 +28,8 @@
                                 <th>Jenis Kelamin</th>
                                 <th>Alamat</th>
                                 <th>No HP</th>
+                                <th>Email</th>
+                                <th>Status User</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -162,6 +164,53 @@
         font-weight: 600;
         padding: 0.35rem 0.65rem;
     }
+
+    /* User account section styling */
+    .user-account-section {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border: 1px solid #dee2e6;
+    }
+
+    .user-account-section h6 {
+        color: #495057;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    /* Password field styling */
+    .password-field {
+        position: relative;
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        border: none;
+        background: transparent;
+        padding: 0.375rem 0.75rem;
+        z-index: 10;
+    }
+
+    .password-toggle:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Form validation styling */
+    .form-control.is-invalid {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    .invalid-feedback {
+        display: block;
+        font-size: 0.875rem;
+        color: #dc3545;
+    }
 </style>
 
 
@@ -203,6 +252,24 @@
                 },
                 {
                     data: 'nohp'
+                },
+                {
+                    data: 'email',
+                    render: function(data, type, row) {
+                        return data || '<span class="text-muted">-</span>';
+                    }
+                },
+                {
+                    data: 'user_status',
+                    render: function(data, type, row) {
+                        if (data === 'active') {
+                            return '<span class="badge bg-success">Aktif</span>';
+                        } else if (data === 'inactive') {
+                            return '<span class="badge bg-danger">Nonaktif</span>';
+                        } else {
+                            return '<span class="badge bg-warning">Belum Ada Akun</span>';
+                        }
+                    }
                 },
                 {
                     data: null,
@@ -269,6 +336,12 @@
             $('.is-invalid').removeClass('is-invalid');
             $('.invalid-feedback').empty();
             $('#generalError').hide().find('ul').empty();
+
+            // Reset password fields for new karyawan
+            $('#password').prop('required', true);
+            $('#confirm_password').prop('required', true);
+            $('#password').attr('placeholder', 'Password');
+            $('#confirm_password').attr('placeholder', 'Konfirmasi Password');
         }
 
         // Display validation errors
@@ -348,6 +421,24 @@
                         $('#jenkel').val(data.jenkel);
                         $('#alamat').val(data.alamat);
                         $('#nohp').val(data.nohp);
+
+                        // Handle user account fields
+                        if (data.email) {
+                            $('#email').val(data.email);
+                            $('#password').prop('required', false);
+                            $('#confirm_password').prop('required', false);
+                            $('#password').attr('placeholder', 'Kosongkan jika tidak ingin mengubah password');
+                            $('#confirm_password').attr('placeholder', 'Kosongkan jika tidak ingin mengubah password');
+                            $('#email').prop('readonly', false);
+                        } else {
+                            $('#email').val('');
+                            $('#password').prop('required', true);
+                            $('#confirm_password').prop('required', true);
+                            $('#password').attr('placeholder', 'Password');
+                            $('#confirm_password').attr('placeholder', 'Konfirmasi Password');
+                            $('#email').prop('readonly', false);
+                        }
+
                         $('#modalKaryawan').modal('show');
                     } else {
                         Swal.fire({
@@ -484,6 +575,60 @@
                 $('.dataTables_length select').removeClass('form-select-sm');
             }
         }).trigger('resize');
+
+        // Password toggle functionality
+        $('#togglePassword').on('click', function() {
+            const passwordField = $('#password');
+            const icon = $(this).find('i');
+
+            if (passwordField.attr('type') === 'password') {
+                passwordField.attr('type', 'text');
+                icon.removeClass('bi-eye').addClass('bi-eye-slash');
+            } else {
+                passwordField.attr('type', 'password');
+                icon.removeClass('bi-eye-slash').addClass('bi-eye');
+            }
+        });
+
+        $('#toggleConfirmPassword').on('click', function() {
+            const confirmPasswordField = $('#confirm_password');
+            const icon = $(this).find('i');
+
+            if (confirmPasswordField.attr('type') === 'password') {
+                confirmPasswordField.attr('type', 'text');
+                icon.removeClass('bi-eye').addClass('bi-eye-slash');
+            } else {
+                confirmPasswordField.attr('type', 'password');
+                icon.removeClass('bi-eye-slash').addClass('bi-eye');
+            }
+        });
+
+        // Password confirmation validation
+        $('#confirm_password').on('input', function() {
+            const password = $('#password').val();
+            const confirmPassword = $(this).val();
+
+            if (confirmPassword && password !== confirmPassword) {
+                $(this).addClass('is-invalid');
+                $('#confirm_passwordError').text('Konfirmasi password tidak cocok');
+            } else {
+                $(this).removeClass('is-invalid');
+                $('#confirm_passwordError').text('');
+            }
+        });
+
+        $('#password').on('input', function() {
+            const password = $(this).val();
+            const confirmPassword = $('#confirm_password').val();
+
+            if (confirmPassword && password !== confirmPassword) {
+                $('#confirm_password').addClass('is-invalid');
+                $('#confirm_passwordError').text('Konfirmasi password tidak cocok');
+            } else {
+                $('#confirm_password').removeClass('is-invalid');
+                $('#confirm_passwordError').text('');
+            }
+        });
     });
 </script>
 
@@ -553,6 +698,51 @@
                                 <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
                                 <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                                 <div class="invalid-feedback" id="alamatError"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Account Section -->
+                    <div class="user-account-section">
+                        <h6 class="text-primary mb-3">
+                            <i class="bi bi-person-badge me-2"></i>Informasi Akun User
+                        </h6>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="invalid-feedback" id="emailError"></div>
+                                </div>
+                                <small class="form-text text-muted">Email akan digunakan sebagai username untuk login</small>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <div class="invalid-feedback" id="passwordError"></div>
+                                </div>
+                                <small class="form-text text-muted">Minimal 6 karakter</small>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="confirm_password" class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <div class="invalid-feedback" id="confirm_passwordError"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

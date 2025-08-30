@@ -70,10 +70,12 @@ class KaryawanModel extends Model
                     'required' => 'Nomor HP harus diisi'
                 ]
             ],
-
-
-
-
+            'user_id' => [
+                'rules' => 'permit_empty|is_natural_no_zero',
+                'errors' => [
+                    'is_natural_no_zero' => 'User ID tidak valid'
+                ]
+            ]
 
 
 
@@ -194,13 +196,13 @@ class KaryawanModel extends Model
             $startOfWeek = date('Y-m-d', strtotime('monday this week'));
             $endOfWeek = date('Y-m-d', strtotime('sunday this week'));
             $builder->where('db.tgl >=', $startOfWeek)
-                   ->where('db.tgl <=', $endOfWeek);
+                ->where('db.tgl <=', $endOfWeek);
         }
 
         return $builder->orderBy('db.tgl', 'ASC')
-                      ->orderBy('db.jamstart', 'ASC')
-                      ->get()
-                      ->getResultArray();
+            ->orderBy('db.jamstart', 'ASC')
+            ->get()
+            ->getResultArray();
     }
 
     /**
@@ -208,7 +210,7 @@ class KaryawanModel extends Model
      *
      * @param array $karyawanData
      * @param array $userData
-     * @return bool
+     * @return array|bool Returns array with errors on failure, true on success
      */
     public function createKaryawanWithUser($karyawanData, $userData)
     {
@@ -216,28 +218,50 @@ class KaryawanModel extends Model
         $db->transStart();
 
         try {
+            // Validate karyawan data first
+            if (!$this->validate($karyawanData)) {
+                log_message('error', 'Karyawan validation failed: ' . json_encode($this->errors()));
+                $db->transRollback();
+                return ['karyawan_errors' => $this->errors()];
+            }
+
             // Create user first
             $userModel = new \App\Models\UserModel();
             $userData['role'] = 'karyawan';
             $userData['status'] = 'active';
-            
+
+            // Validate user data
+            if (!$userModel->validate($userData)) {
+                log_message('error', 'User validation failed: ' . json_encode($userModel->errors()));
+                $db->transRollback();
+                return ['user_errors' => $userModel->errors()];
+            }
+
             if ($userModel->insert($userData)) {
                 $userId = $userModel->getInsertID();
-                
+
                 // Create karyawan with user_id
                 $karyawanData['user_id'] = $userId;
-                $this->insert($karyawanData);
-                
-                $db->transComplete();
-                return $db->transStatus();
+
+                if ($this->insert($karyawanData)) {
+                    $db->transComplete();
+                    return $db->transStatus();
+                } else {
+                    log_message('error', 'Karyawan insertion failed: ' . json_encode($this->errors()));
+                    $db->transRollback();
+                    return ['karyawan_errors' => $this->errors()];
+                }
+            } else {
+                // Log user creation errors
+                log_message('error', 'User creation failed: ' . json_encode($userModel->errors()));
+                $db->transRollback();
+                return ['user_errors' => $userModel->errors()];
             }
-            
-            $db->transRollback();
-            return false;
-            
         } catch (\Exception $e) {
+            log_message('error', 'Exception in createKaryawanWithUser: ' . $e->getMessage());
+            log_message('error', 'Stack trace: ' . $e->getTraceAsString());
             $db->transRollback();
-            return false;
+            return ['system_error' => $e->getMessage()];
         }
     }
 
@@ -255,19 +279,55 @@ class KaryawanModel extends Model
         $db->transStart();
 
         try {
-            // Update karyawan
-            $this->update($idkaryawan, $karyawanData);
-            
-            // Update user if provided and user_id exists
-            if ($userData && isset($karyawanData['user_id']) && $karyawanData['user_id']) {
-                $userModel = new \App\Models\UserModel();
-                $userModel->update($karyawanData['user_id'], $userData);
+            // Get existing karyawan data
+            $existingKaryawan = $this->find($idkaryawan);
+
+            if (!$existingKaryawan) {
+                log_message('error', 'Karyawan not found: ' . $idkaryawan);
+                $db->transRollback();
+                return false;
             }
-            
+
+            // Update karyawan
+            if (!$this->update($idkaryawan, $karyawanData)) {
+                log_message('error', 'Failed to update karyawan: ' . json_encode($this->errors()));
+                $db->transRollback();
+                return false;
+            }
+
+            // Handle user data
+            if ($userData) {
+                $userModel = new \App\Models\UserModel();
+
+                if (!empty($existingKaryawan['user_id'])) {
+                    // Update existing user
+                    if (!$userModel->update($existingKaryawan['user_id'], $userData)) {
+                        log_message('error', 'Failed to update user: ' . json_encode($userModel->errors()));
+                        $db->transRollback();
+                        return false;
+                    }
+                } else {
+                    // Create new user
+                    $userData['role'] = 'karyawan';
+                    $userData['status'] = 'active';
+
+                    if ($userModel->insert($userData)) {
+                        $userId = $userModel->getInsertID();
+                        // Update karyawan with user_id
+                        $this->update($idkaryawan, ['user_id' => $userId]);
+                    } else {
+                        log_message('error', 'Failed to create user: ' . json_encode($userModel->errors()));
+                        $db->transRollback();
+                        return false;
+                    }
+                }
+            }
+
             $db->transComplete();
             return $db->transStatus();
-            
         } catch (\Exception $e) {
+            log_message('error', 'Exception in updateKaryawanWithUser: ' . $e->getMessage());
+            log_message('error', 'Stack trace: ' . $e->getTraceAsString());
             $db->transRollback();
             return false;
         }
