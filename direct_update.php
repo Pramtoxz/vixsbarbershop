@@ -36,7 +36,7 @@ if ($argc > 1) {
 $hostname = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'db_awanbarbershop';
+$database = '';
 
 $conn = new mysqli($hostname, $username, $password, $database);
 
