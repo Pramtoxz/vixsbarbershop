@@ -101,6 +101,13 @@
                     <span class="nav-text">Booking</span>
                     <div class="nav-indicator"></div>
                 </a>
+                <a href="<?= site_url('admin/pengeluaran') ?>" class="nav-item <?= ($title == 'Kelola Pengeluaran' || $title == 'Tambah Pengeluaran Baru' || $title == 'Detail Pengeluaran') ? 'active' : '' ?>">
+                    <div class="nav-icon booking-icon">
+                        <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <span class="nav-text">Pengeluaran</span>
+                    <div class="nav-indicator"></div>
+                </a>
             </div>
 
             <!-- Laporan Section -->
@@ -312,128 +319,128 @@
 
 <!-- Sidebar Scripts -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Load sidebar stats
-    loadSidebarStats();
-    
-    // Initialize sidebar interactions
-    initSidebarInteractions();
-    
-    // Auto update stats every 30 seconds
-    setInterval(loadSidebarStats, 30000);
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load sidebar stats
+        loadSidebarStats();
 
-function loadSidebarStats() {
-    // Load customer count
-    fetch('<?= site_url('admin/getCustomerCount') ?>')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('customerCount').textContent = data.count;
-            }
-        })
-        .catch(() => {
-            document.getElementById('customerCount').textContent = '0';
-        });
+        // Initialize sidebar interactions
+        initSidebarInteractions();
 
-    // Load staff count
-    fetch('<?= site_url('admin/getStaffCount') ?>')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('staffCount').textContent = data.count;
-            }
-        })
-        .catch(() => {
-            document.getElementById('staffCount').textContent = '0';
-        });
+        // Auto update stats every 30 seconds
+        setInterval(loadSidebarStats, 30000);
+    });
 
-    // Load service count
-    fetch('<?= site_url('admin/getServiceCount') ?>')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('serviceCount').textContent = data.count;
-            }
-        })
-        .catch(() => {
-            document.getElementById('serviceCount').textContent = '0';
-        });
-
-    // Load today's booking count
-    fetch('<?= site_url('admin/getTodayBookingCount') ?>')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const count = data.count;
-                document.getElementById('todayBookingCount').textContent = count;
-                
-                // Update footer booking count if exists
-                const footerBooking = document.getElementById('todayBookings');
-                if (footerBooking) {
-                    footerBooking.textContent = count;
+    function loadSidebarStats() {
+        // Load customer count
+        fetch('<?= site_url('admin/getCustomerCount') ?>')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('customerCount').textContent = data.count;
                 }
-                
-                // Add pulse effect for new bookings
-                if (count > 0) {
-                    document.querySelector('.booking-badge').classList.add('has-notifications');
+            })
+            .catch(() => {
+                document.getElementById('customerCount').textContent = '0';
+            });
+
+        // Load staff count
+        fetch('<?= site_url('admin/getStaffCount') ?>')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('staffCount').textContent = data.count;
                 }
-            }
-        })
-        .catch(() => {
-            document.getElementById('todayBookingCount').textContent = '0';
-        });
-}
+            })
+            .catch(() => {
+                document.getElementById('staffCount').textContent = '0';
+            });
 
-function initSidebarInteractions() {
-    // Add hover effects to nav items
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.classList.add('hovered');
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.classList.remove('hovered');
-        });
-    });
+        // Load service count
+        fetch('<?= site_url('admin/getServiceCount') ?>')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('serviceCount').textContent = data.count;
+                }
+            })
+            .catch(() => {
+                document.getElementById('serviceCount').textContent = '0';
+            });
 
-    // Add click ripple effect
-    const clickableItems = document.querySelectorAll('.nav-item, .quick-action-btn');
-    clickableItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Create ripple effect
-            const ripple = document.createElement('div');
-            ripple.classList.add('ripple-effect');
-            
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
+        // Load today's booking count
+        fetch('<?= site_url('admin/getTodayBookingCount') ?>')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const count = data.count;
+                    document.getElementById('todayBookingCount').textContent = count;
 
-    // Animate on scroll for better UX
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    });
+                    // Update footer booking count if exists
+                    const footerBooking = document.getElementById('todayBookings');
+                    if (footerBooking) {
+                        footerBooking.textContent = count;
+                    }
 
-    document.querySelectorAll('.nav-section').forEach(section => {
-        observer.observe(section);
-    });
-}
+                    // Add pulse effect for new bookings
+                    if (count > 0) {
+                        document.querySelector('.booking-badge').classList.add('has-notifications');
+                    }
+                }
+            })
+            .catch(() => {
+                document.getElementById('todayBookingCount').textContent = '0';
+            });
+    }
+
+    function initSidebarInteractions() {
+        // Add hover effects to nav items
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.classList.add('hovered');
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.classList.remove('hovered');
+            });
+        });
+
+        // Add click ripple effect
+        const clickableItems = document.querySelectorAll('.nav-item, .quick-action-btn');
+        clickableItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                ripple.classList.add('ripple-effect');
+
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Animate on scroll for better UX
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        });
+
+        document.querySelectorAll('.nav-section').forEach(section => {
+            observer.observe(section);
+        });
+    }
 </script>

@@ -5,7 +5,7 @@
 <section class="hero-simple" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem 0 4rem; position: relative; overflow: hidden;">
     <!-- Decorative Elements -->
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3Ccircle cx=\'30\' cy=\'10\' r=\'1\'/%3E%3Ccircle cx=\'10\' cy=\'30\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
-    
+
     <div class="container">
         <div class="text-center text-white">
             <h1 class="section-title" style="color: white; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">
@@ -30,7 +30,7 @@
             <div style="text-align: center; margin-bottom: 2rem;">
                 <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FEF3C7, #FDE68A); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
                     <svg style="width: 40px; height: 40px; color: #92400E;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                 </div>
                 <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">
@@ -92,7 +92,7 @@
                 <div style="display: flex; align-items: center; gap: 1.5rem;">
                     <div style="width: 60px; height: 60px; background: #92400E; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 15px rgba(146, 64, 14, 0.3);">
                         <svg style="width: 30px; height: 30px; color: #FEF3C7;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
                     </div>
                     <div style="flex: 1;">
@@ -115,7 +115,7 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div style="width: 50px; height: 50px; background: #92400E; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg style="width: 24px; height: 24px; color: #FEF3C7;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
                 <div>
@@ -123,7 +123,7 @@
                         ⏰ Perhatian: Batas Waktu Pembayaran
                     </h3>
                     <p style="color: #78350F; margin: 0; font-size: 0.875rem;">
-                        Setelah booking berhasil dibuat, Anda memiliki waktu <strong>5 menit</strong> untuk menyelesaikan pembayaran. 
+                        Setelah booking berhasil dibuat, Anda memiliki waktu <strong>5 menit</strong> untuk menyelesaikan pembayaran.
                         Jika melewati batas waktu, booking akan otomatis dibatalkan.
                     </p>
                 </div>
@@ -139,7 +139,7 @@
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                         <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                             <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
                         <h2 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">
@@ -149,17 +149,17 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
                         <div>
                             <label style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">📝 Nama Lengkap</label>
-                            <input type="text" 
-                                   style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--gray-100); color: var(--text-secondary); font-size: 1rem;" 
-                                   value="<?= $pelanggan['nama_lengkap'] ?>" 
-                                   readonly>
+                            <input type="text"
+                                style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--gray-100); color: var(--text-secondary); font-size: 1rem;"
+                                value="<?= $pelanggan['nama_lengkap'] ?>"
+                                readonly>
                         </div>
                         <div>
                             <label style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">📱 No. HP</label>
-                            <input type="text" 
-                                   style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--gray-100); color: var(--text-secondary); font-size: 1rem;" 
-                                   value="<?= $pelanggan['no_hp'] ?>" 
-                                   readonly>
+                            <input type="text"
+                                style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--gray-100); color: var(--text-secondary); font-size: 1rem;"
+                                value="<?= $pelanggan['no_hp'] ?>"
+                                readonly>
                         </div>
                     </div>
                 </div>
@@ -184,22 +184,22 @@
                                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                                     <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), #FFD23F); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                         <svg style="width: 24px; height: 24px; color: var(--text-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
                                     <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">
                                         ✅ Paket Dipilih
                                     </h3>
                                 </div>
-                                
+
                                 <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
                                     <div style="flex-shrink: 0;">
                                         <?php if (!empty($selectedPaket['gambar'])): ?>
-                                            <img src="<?= base_url('uploads/paket/' . $selectedPaket['gambar']) ?>" alt="<?= $selectedPaket['namapaket'] ?>" 
-                                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                                            <img src="<?= base_url('uploads/paket/' . $selectedPaket['gambar']) ?>" alt="<?= $selectedPaket['namapaket'] ?>"
+                                                style="width: 120px; height: 120px; object-fit: cover; border-radius: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
                                         <?php elseif (!empty($selectedPaket['image'])): ?>
-                                            <img src="<?= base_url('uploads/paket/' . $selectedPaket['image']) ?>" alt="<?= $selectedPaket['namapaket'] ?>" 
-                                                 style="width: 120px; height: 120px; object-fit: cover; border-radius: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                                            <img src="<?= base_url('uploads/paket/' . $selectedPaket['image']) ?>" alt="<?= $selectedPaket['namapaket'] ?>"
+                                                style="width: 120px; height: 120px; object-fit: cover; border-radius: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
                                         <?php else: ?>
                                             <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--gray-200), var(--gray-100)); border-radius: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
                                                 <svg style="width: 48px; height: 48px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    
+
                                     <div style="flex: 1;">
                                         <h4 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
                                             <?= $selectedPaket['namapaket'] ?>
@@ -216,7 +216,7 @@
                                         <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
                                             <?= $selectedPaket['deskripsi'] ?? 'Layanan premium dengan kualitas terbaik' ?>
                                         </p>
-                                        
+
                                         <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
                                             <div style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); padding: 0.75rem 1.5rem; border-radius: 50px; color: white; font-weight: 600; font-size: 1.125rem;">
                                                 💰 Rp. <?= number_format($selectedPaket['harga'], 0, ',', '.') ?>
@@ -225,7 +225,7 @@
                                                 ⏱️ <?= $selectedPaket['durasi'] ?? 60 ?> menit
                                             </div>
                                         </div>
-                                        
+
                                         <div style="margin-top: 1.5rem;">
                                             <button type="button" id="addMorePaket" class="btn btn-outline" style="padding: 0.75rem 1.5rem; border-radius: 50px;">
                                                 <span>➕ Tambah Paket Lain</span>
@@ -243,7 +243,7 @@
                                         🛍️ Pilih Paket Layanan
                                     </h4>
                                 </div>
-                                
+
                                 <div id="paketContainer">
                                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
                                         <?php foreach ($paketList as $paket): ?>
@@ -253,14 +253,14 @@
                                                 data-durasi="<?= $paket['durasi'] ?? 60 ?>"
                                                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'; this.style.borderColor='var(--primary-color)'"
                                                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)'; this.style.borderColor='var(--gray-200)'">
-                                                
+
                                                 <div style="position: relative; height: 200px; background: var(--gray-100);">
                                                     <?php if (!empty($paket['gambar'])): ?>
                                                         <img src="<?= base_url('uploads/paket/' . $paket['gambar']) ?>" alt="<?= $paket['namapaket'] ?>"
-                                                             style="width: 100%; height: 100%; object-fit: cover;">
+                                                            style="width: 100%; height: 100%; object-fit: cover;">
                                                     <?php elseif (!empty($paket['image'])): ?>
                                                         <img src="<?= base_url('uploads/paket/' . $paket['image']) ?>" alt="<?= $paket['namapaket'] ?>"
-                                                             style="width: 100%; height: 100%; object-fit: cover;">
+                                                            style="width: 100%; height: 100%; object-fit: cover;">
                                                     <?php else: ?>
                                                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--gray-200), var(--gray-100));">
                                                             <svg style="width: 64px; height: 64px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,13 +268,13 @@
                                                             </svg>
                                                         </div>
                                                     <?php endif; ?>
-                                                    
+
                                                     <!-- Durasi Badge -->
                                                     <div style="position: absolute; bottom: 10px; right: 10px; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                                                         ⏱️ <?= $paket['durasi'] ?? 60 ?> menit
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div style="padding: 1.5rem;">
                                                     <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
                                                         <?= $paket['namapaket'] ?>
@@ -282,19 +282,19 @@
                                                     <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5; font-size: 0.875rem;">
                                                         <?= $paket['deskripsi'] ?? 'Layanan berkualitas dengan pelayanan terbaik' ?>
                                                     </p>
-                                                    
+
                                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                                         <div style="background: linear-gradient(135deg, var(--accent-color), #FFD23F); padding: 0.5rem 1rem; border-radius: 50px; color: var(--text-primary); font-weight: 600; font-size: 1rem;">
                                                             💰 Rp. <?= number_format($paket['harga'], 0, ',', '.') ?>
                                                         </div>
-                                                        <button type="button" class="add-paket-btn" 
-                                                                data-paket-id="<?= $paket['idpaket'] ?>"
-                                                                data-paket-nama="<?= $paket['namapaket'] ?>"
-                                                                data-paket-harga="<?= $paket['harga'] ?>"
-                                                                data-paket-durasi="<?= $paket['durasi'] ?? 60 ?>"
-                                                                style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
-                                                                onmouseover="this.style.transform='scale(1.1)'"
-                                                                onmouseout="this.style.transform='scale(1)'">
+                                                        <button type="button" class="add-paket-btn"
+                                                            data-paket-id="<?= $paket['idpaket'] ?>"
+                                                            data-paket-nama="<?= $paket['namapaket'] ?>"
+                                                            data-paket-harga="<?= $paket['harga'] ?>"
+                                                            data-paket-durasi="<?= $paket['durasi'] ?? 60 ?>"
+                                                            style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
+                                                            onmouseover="this.style.transform='scale(1.1)'"
+                                                            onmouseout="this.style.transform='scale(1)'">
                                                             <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                                                             </svg>
@@ -322,13 +322,13 @@
                                     📅 Pilih Tanggal Booking
                                 </h3>
                             </div>
-                            
+
                             <div style="position: relative;">
-                                <input type="date" id="tanggal_booking" name="tanggal_booking" 
-                                       style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;" 
-                                       min="<?= date('Y-m-d') ?>" required
-                                       onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
-                                       onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'">
+                                <input type="date" id="tanggal_booking" name="tanggal_booking"
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--gray-200); border-radius: 0.75rem; background: var(--white); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;"
+                                    min="<?= date('Y-m-d') ?>" required
+                                    onfocus="this.style.borderColor='var(--primary-color)'; this.style.boxShadow='0 0 0 4px rgba(0, 102, 204, 0.1)'"
+                                    onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none'">
                             </div>
                         </div>
                     </div>
@@ -356,19 +356,79 @@
                                 </p>
                             </div>
 
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.75rem; max-width: 600px;" id="timeSlotGrid">
-                                <div class="time-slot" data-time="09:00">09:00</div>
-                                <div class="time-slot" data-time="10:00">10:00</div>
-                                <div class="time-slot" data-time="11:00">11:00</div>
-                                <div class="time-slot" data-time="12:00">12:00</div>
-                                <div class="time-slot" data-time="13:00">13:00</div>
-                                <div class="time-slot" data-time="14:00">14:00</div>
-                                <div class="time-slot" data-time="15:00">15:00</div>
-                                <div class="time-slot" data-time="16:00">16:00</div>
-                                <div class="time-slot" data-time="17:00">17:00</div>
-                                <div class="time-slot" data-time="18:00">18:00</div>
-                                <div class="time-slot" data-time="19:00">19:00</div>
-                                <div class="time-slot" data-time="20:00">20:00</div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; max-width: 800px;" id="timeSlotGrid">
+                                <div class="time-slot" data-time="09:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">09:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Pagi</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="10:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">10:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Pagi</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="11:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">11:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Pagi</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="12:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">12:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Siang</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="13:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">13:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Siang</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="14:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">14:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Siang</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="15:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">15:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Sore</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="16:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">16:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Sore</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="17:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">17:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Sore</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="18:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">18:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Malam</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="19:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">19:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Malam</span>
+                                    </div>
+                                </div>
+                                <div class="time-slot" data-time="20:00">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                                        <span style="font-size: 1.125rem; font-weight: 600;">20:00</span>
+                                        <span style="font-size: 0.75rem; opacity: 0.7;">Malam</span>
+                                    </div>
+                                </div>
                             </div>
 
                             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: var(--radius-md); font-size: 0.875rem;">
@@ -398,23 +458,36 @@
                 <!-- Pilihan Karyawan -->
                 <div id="karyawanContainer" style="display: none;">
                     <div class="card animate-fade-in-up" style="padding: 2rem; margin-bottom: 2rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                             <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--success-color), #10B981); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                 <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </div>
-                            <h2 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">👨‍💼 Pilih Karyawan</h2>
+                            <h2 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">
+                                👨‍💼 Pilih Karyawan
+                            </h2>
                         </div>
 
-                        <p style="color: var(--text-secondary); margin-bottom: 2rem; background: linear-gradient(135deg, var(--gray-50), var(--white)); padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--gray-200); display: flex; align-items: center; gap: 0.5rem;">
-                            <svg style="width: 20px; height: 20px; color: var(--success-color);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Silakan pilih salah satu karyawan yang tersedia
-                        </p>
+                        <div style="background: linear-gradient(135deg, var(--gray-50), var(--white)); padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--gray-200); margin-bottom: 2rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--success-color), #10B981); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg style="width: 20px; height: 20px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">
+                                        Karyawan Tersedia
+                                    </h3>
+                                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.875rem;">
+                                        Silakan pilih salah satu karyawan yang tersedia untuk melayani Anda
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div id="karyawanList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div id="karyawanList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                             <!-- Karyawan akan ditambahkan melalui JavaScript -->
                         </div>
                         <input type="hidden" id="idkaryawan" name="idkaryawan" required>
@@ -471,7 +544,7 @@
                         </svg>
                         <span>← Kembali ke Beranda</span>
                     </a>
-                    
+
                     <button type="submit" id="btnSubmit" class="btn btn-primary btn-enhanced" style="padding: 1rem 3rem; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
                         <span class="btn-text">
                             <svg style="width: 20px; height: 20px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -485,53 +558,58 @@
             </form>
         </div>
     </div>
-</div>
-<?= $this->endSection() ?>
+    </div>
+    <?= $this->endSection() ?>
 
-<?= $this->section('custom_script') ?>
-<script>
-    // Variabel global
-    let totalHarga = 0;
-    let totalDurasi = 0;
-    let selectedPakets = [];
+    <?= $this->section('custom_script') ?>
+    <script>
+        // Variabel global
+        let totalHarga = 0;
+        let totalDurasi = 0;
+        let selectedPakets = [];
 
-    // Fungsi global untuk memformat angka sebagai mata uang
-    function formatNumber(num) {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    }
-
-    // Fungsi global untuk menambahkan paket ke daftar yang dipilih
-    function tambahPaketKeSelected(id, nama, harga, durasi) {
-        console.log('🔵 tambahPaketKeSelected dipanggil:', {id, nama, harga, durasi});
-        
-        // // Periksa apakah paket sudah dipilih
-        // if ($(`#selected-paket-${id}`).length) {
-        //     console.log('⚠️ Paket sudah dipilih sebelumnya');
-        //     Swal.fire({
-        //         icon: 'warning',
-        //         title: 'Paket Sudah Dipilih!',
-        //         text: `Paket "${nama}" sudah ada dalam daftar pilihan Anda.`,
-        //         confirmButtonText: 'OK',
-        //         confirmButtonColor: '#3B82F6'
-        //     });
-        //     return;
-        // }
-
-        // Bersihkan nama paket dari karakter tidak perlu
-        const cleanedNama = nama.replace(/\d+\s*menit\s*Opsi Pembayaran/g, '').trim();
-        const formattedHarga = formatNumber(harga);
-
-        // Cari gambar paket dari card
-        let imageSrc = '';
-        const paketCard = $(`.paket-card[data-id="${id}"]`);
-        if (paketCard.length) {
-            const cardImage = paketCard.find('img');
-            if (cardImage.length) {
-                imageSrc = cardImage.attr('src');
-            }
+        // Fungsi global untuk memformat angka sebagai mata uang
+        function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
         }
 
-        const paketHTML = `
+        // Fungsi global untuk menambahkan paket ke daftar yang dipilih
+        function tambahPaketKeSelected(id, nama, harga, durasi) {
+            console.log('🔵 tambahPaketKeSelected dipanggil:', {
+                id,
+                nama,
+                harga,
+                durasi
+            });
+
+            // // Periksa apakah paket sudah dipilih
+            // if ($(`#selected-paket-${id}`).length) {
+            //     console.log('⚠️ Paket sudah dipilih sebelumnya');
+            //     Swal.fire({
+            //         icon: 'warning',
+            //         title: 'Paket Sudah Dipilih!',
+            //         text: `Paket "${nama}" sudah ada dalam daftar pilihan Anda.`,
+            //         confirmButtonText: 'OK',
+            //         confirmButtonColor: '#3B82F6'
+            //     });
+            //     return;
+            // }
+
+            // Bersihkan nama paket dari karakter tidak perlu
+            const cleanedNama = nama.replace(/\d+\s*menit\s*Opsi Pembayaran/g, '').trim();
+            const formattedHarga = formatNumber(harga);
+
+            // Cari gambar paket dari card
+            let imageSrc = '';
+            const paketCard = $(`.paket-card[data-id="${id}"]`);
+            if (paketCard.length) {
+                const cardImage = paketCard.find('img');
+                if (cardImage.length) {
+                    imageSrc = cardImage.attr('src');
+                }
+            }
+
+            const paketHTML = `
             <div id="selected-paket-${id}" class="selected-paket-item" 
                  style="background: var(--white); border: 2px solid var(--gray-200); border-radius: 1rem; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(0,0,0,0.08); animation: slideInUp 0.3s ease; margin-bottom: 1rem;"
                  data-id="${id}" data-harga="${harga}" data-durasi="${durasi}">
@@ -564,15 +642,20 @@
             </div>
         `;
 
-        $('#selectedPaketsContainer').append(paketHTML).show();
-        
-        console.log('✅ Paket berhasil ditambahkan:', {id, nama: cleanedNama, harga, durasi});
-        
-        // SweetAlert2 success notification
-        Swal.fire({
-            icon: 'success',
-            title: 'Paket Berhasil Ditambahkan!',
-            html: `
+            $('#selectedPaketsContainer').append(paketHTML).show();
+
+            console.log('✅ Paket berhasil ditambahkan:', {
+                id,
+                nama: cleanedNama,
+                harga,
+                durasi
+            });
+
+            // SweetAlert2 success notification
+            Swal.fire({
+                icon: 'success',
+                title: 'Paket Berhasil Ditambahkan!',
+                html: `
                 <div style="text-align: center; padding: 1rem;">
                     <div style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem;">
                         <h3 style="margin: 0; font-size: 1.125rem; font-weight: 600;">${cleanedNama}</h3>
@@ -581,207 +664,219 @@
                     <p style="color: #6B7280; margin: 0;">Paket telah ditambahkan ke daftar pilihan Anda</p>
                 </div>
             `,
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            toast: true,
-            position: 'top-end',
-            showClass: {
-                popup: 'animate__animated animate__fadeInRight'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutRight'
-            }
-        });
-        
-        hitungTotal();
-    }
-
-    // Fungsi global untuk menghapus paket
-    function removePaket(id) {
-        console.log('🗑️ Menghapus paket:', id);
-        
-        // Ambil nama paket sebelum dihapus untuk alert
-        const paketNama = $(`#selected-paket-${id}`).find('h4').text();
-        
-        $(`#selected-paket-${id}`).remove();
-        hitungTotal();
-        
-        // SweetAlert2 success notification untuk penghapusan
-        Swal.fire({
-            icon: 'info',
-            title: 'Paket Dihapus',
-            text: `"${paketNama}" telah dihapus dari daftar pilihan`,
-            showConfirmButton: false,
-            timer: 1500,
-            toast: true,
-            position: 'top-end',
-            showClass: {
-                popup: 'animate__animated animate__fadeInRight'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutRight'
-            }
-        });
-    }
-
-    // Fungsi untuk mengecek dan mengaktifkan/menonaktifkan tombol submit
-    function checkSubmitButton() {
-        const paketSelected = $('#selectedPakets').length && $('#selectedPakets').val() || 
-                             $('.selected-paket-item').length > 0 ||
-                             $('#selectedPaketIds').val();
-        const tanggalSelected = $('#tanggal_booking').val();
-        const jamSelected = $('#jamstart').val();
-        const karyawanSelected = $('#idkaryawan').val();
-        
-        const allConditionsMet = paketSelected && tanggalSelected && jamSelected && karyawanSelected;
-        
-        console.log('🔍 Checking submit button conditions:', {
-            paketSelected: !!paketSelected,
-            tanggalSelected: !!tanggalSelected,
-            jamSelected: !!jamSelected,
-            karyawanSelected: !!karyawanSelected,
-            allConditionsMet: allConditionsMet
-        });
-        
-        if (allConditionsMet) {
-            $('#btnSubmit').prop('disabled', false)
-                          .removeClass('opacity-50 cursor-not-allowed')
-                          .addClass('cursor-pointer');
-            console.log('✅ Submit button ENABLED!');
-        } else {
-            $('#btnSubmit').prop('disabled', true)
-                          .addClass('opacity-50 cursor-not-allowed')
-                          .removeClass('cursor-pointer');
-            console.log('⚠️ Submit button disabled - missing conditions');
-        }
-    }
-
-    // Fungsi global untuk menghitung total
-    function hitungTotal() {
-        totalHarga = 0;
-        totalDurasi = 0;
-        selectedPakets = [];
-
-        // Jika ada paket yang dipilih dari URL parameter
-        if ($('#selectedPakets').length) {
-            const paketId = $('#selectedPakets').val();
-            const harga = parseFloat($('#selectedPakets').data('harga'));
-            const durasi = parseInt($('#selectedPakets').data('durasi')) || 60;
-
-            if (paketId && !isNaN(harga)) {
-                totalHarga = harga;
-                totalDurasi = durasi;
-                selectedPakets.push({id: paketId, harga: harga, durasi: durasi});
-            }
-        }
-
-        // Ambil semua paket yang dipilih di UI cards
-        $('.selected-paket-item').each(function() {
-            const $item = $(this);
-            const paketId = $item.data('id');
-            const harga = parseFloat($item.data('harga'));
-            const durasi = parseInt($item.data('durasi'));
-
-            if (paketId && !isNaN(harga)) {
-                totalHarga += harga;
-                totalDurasi += durasi;
-                selectedPakets.push({id: paketId, harga: harga, durasi: durasi});
-            }
-        });
-
-        // Update tampilan
-        $('#totalHarga').text('Rp. ' + formatNumber(totalHarga));
-        $('#totalDurasi').text(totalDurasi + ' menit');
-        $('#total').val(totalHarga);
-        $('#durasi_total').val(totalDurasi);
-
-        // Update selected paket IDs
-        if (selectedPakets.length > 0) {
-            const selectedIds = selectedPakets.map(p => p.id);
-            $('#selectedPaketIds').val(JSON.stringify(selectedIds));
-        } else {
-            $('#selectedPaketIds').val('');
-        }
-
-        console.log('💰 Total dihitung:', {totalHarga, totalDurasi, selectedPakets});
-        
-        // Check submit button after calculating total
-        checkSubmitButton();
-    }
-
-    // Fungsi handleAddPaket dihapus - menggunakan jQuery event handler saja
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Inisialisasi AOS dengan error handling
-        if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        } else {
-            console.warn('⚠️ AOS library not loaded, skipping initialization');
-        }
-
-        // Variabel sudah didefinisikan di scope global
-
-        // Debug mode untuk membantu pencarian bug
-        const DEBUG = true;
-
-        function debug(message, data) {
-            if (DEBUG) console.log(message, data || '');
-        }
-
-        // Ketika paket dipilih dari landing page, langsung update summary
-        if ($('#selectedPakets').length) {
-            // Ambil data paket yang sudah dipilih
-            const paketId = $('#selectedPakets').val();
-            const paketHarga = parseFloat($('#selectedPakets').data('harga'));
-            const paketDurasi = parseInt($('#selectedPakets').data('durasi') || 60);
-
-            debug('Paket dari URL detected', {
-                id: paketId,
-                harga: paketHarga,
-                durasi: paketDurasi
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                toast: true,
+                position: 'top-end',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInRight'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutRight'
+                }
             });
 
-            // Inisialisasi nilai awal
-            totalHarga = paketHarga;
-            totalDurasi = paketDurasi;
+            hitungTotal();
+        }
+
+        // Fungsi global untuk menghapus paket
+        function removePaket(id) {
+            console.log('🗑️ Menghapus paket:', id);
+
+            // Ambil nama paket sebelum dihapus untuk alert
+            const paketNama = $(`#selected-paket-${id}`).find('h4').text();
+
+            $(`#selected-paket-${id}`).remove();
+            hitungTotal();
+
+            // SweetAlert2 success notification untuk penghapusan
+            Swal.fire({
+                icon: 'info',
+                title: 'Paket Dihapus',
+                text: `"${paketNama}" telah dihapus dari daftar pilihan`,
+                showConfirmButton: false,
+                timer: 1500,
+                toast: true,
+                position: 'top-end',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInRight'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutRight'
+                }
+            });
+        }
+
+        // Fungsi untuk mengecek dan mengaktifkan/menonaktifkan tombol submit
+        function checkSubmitButton() {
+            const paketSelected = $('#selectedPakets').length && $('#selectedPakets').val() ||
+                $('.selected-paket-item').length > 0 ||
+                $('#selectedPaketIds').val();
+            const tanggalSelected = $('#tanggal_booking').val();
+            const jamSelected = $('#jamstart').val();
+            const karyawanSelected = $('#idkaryawan').val();
+
+            const allConditionsMet = paketSelected && tanggalSelected && jamSelected && karyawanSelected;
+
+            console.log('🔍 Checking submit button conditions:', {
+                paketSelected: !!paketSelected,
+                tanggalSelected: !!tanggalSelected,
+                jamSelected: !!jamSelected,
+                karyawanSelected: !!karyawanSelected,
+                allConditionsMet: allConditionsMet
+            });
+
+            if (allConditionsMet) {
+                $('#btnSubmit').prop('disabled', false)
+                    .removeClass('opacity-50 cursor-not-allowed')
+                    .addClass('cursor-pointer');
+                console.log('✅ Submit button ENABLED!');
+            } else {
+                $('#btnSubmit').prop('disabled', true)
+                    .addClass('opacity-50 cursor-not-allowed')
+                    .removeClass('cursor-pointer');
+                console.log('⚠️ Submit button disabled - missing conditions');
+            }
+        }
+
+        // Fungsi global untuk menghitung total
+        function hitungTotal() {
+            totalHarga = 0;
+            totalDurasi = 0;
+            selectedPakets = [];
+
+            // Jika ada paket yang dipilih dari URL parameter
+            if ($('#selectedPakets').length) {
+                const paketId = $('#selectedPakets').val();
+                const harga = parseFloat($('#selectedPakets').data('harga'));
+                const durasi = parseInt($('#selectedPakets').data('durasi')) || 60;
+
+                if (paketId && !isNaN(harga)) {
+                    totalHarga = harga;
+                    totalDurasi = durasi;
+                    selectedPakets.push({
+                        id: paketId,
+                        harga: harga,
+                        durasi: durasi
+                    });
+                }
+            }
+
+            // Ambil semua paket yang dipilih di UI cards
+            $('.selected-paket-item').each(function() {
+                const $item = $(this);
+                const paketId = $item.data('id');
+                const harga = parseFloat($item.data('harga'));
+                const durasi = parseInt($item.data('durasi'));
+
+                if (paketId && !isNaN(harga)) {
+                    totalHarga += harga;
+                    totalDurasi += durasi;
+                    selectedPakets.push({
+                        id: paketId,
+                        harga: harga,
+                        durasi: durasi
+                    });
+                }
+            });
 
             // Update tampilan
             $('#totalHarga').text('Rp. ' + formatNumber(totalHarga));
             $('#totalDurasi').text(totalDurasi + ' menit');
-
-            // Update hidden input untuk total
             $('#total').val(totalHarga);
             $('#durasi_total').val(totalDurasi);
 
-            // Log untuk debugging
-            debug('Inisialisasi paket dari URL', {
-                id: paketId,
-                harga: paketHarga,
-                durasi: paketDurasi,
-                totalHarga: totalHarga,
-                totalDurasi: totalDurasi
+            // Update selected paket IDs
+            if (selectedPakets.length > 0) {
+                const selectedIds = selectedPakets.map(p => p.id);
+                $('#selectedPaketIds').val(JSON.stringify(selectedIds));
+            } else {
+                $('#selectedPaketIds').val('');
+            }
+
+            console.log('💰 Total dihitung:', {
+                totalHarga,
+                totalDurasi,
+                selectedPakets
             });
 
-            // Tampilkan informasi durasi
-            setTimeout(function() {
-                updateDurasiInfo(true);
-            }, 500);
-
-            // Check submit button setelah paket dipilih
+            // Check submit button after calculating total
             checkSubmitButton();
-            
-            // Show success notification untuk paket yang sudah dipilih dari URL
-            if (paketId && paketHarga) {
+        }
+
+        // Fungsi handleAddPaket dihapus - menggunakan jQuery event handler saja
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inisialisasi AOS dengan error handling
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true
+                });
+            } else {
+                console.warn('⚠️ AOS library not loaded, skipping initialization');
+            }
+
+            // Variabel sudah didefinisikan di scope global
+
+            // Debug mode untuk membantu pencarian bug
+            const DEBUG = true;
+
+            function debug(message, data) {
+                if (DEBUG) console.log(message, data || '');
+            }
+
+            // Ketika paket dipilih dari landing page, langsung update summary
+            if ($('#selectedPakets').length) {
+                // Ambil data paket yang sudah dipilih
+                const paketId = $('#selectedPakets').val();
+                const paketHarga = parseFloat($('#selectedPakets').data('harga'));
+                const paketDurasi = parseInt($('#selectedPakets').data('durasi') || 60);
+
+                debug('Paket dari URL detected', {
+                    id: paketId,
+                    harga: paketHarga,
+                    durasi: paketDurasi
+                });
+
+                // Inisialisasi nilai awal
+                totalHarga = paketHarga;
+                totalDurasi = paketDurasi;
+
+                // Update tampilan
+                $('#totalHarga').text('Rp. ' + formatNumber(totalHarga));
+                $('#totalDurasi').text(totalDurasi + ' menit');
+
+                // Update hidden input untuk total
+                $('#total').val(totalHarga);
+                $('#durasi_total').val(totalDurasi);
+
+                // Log untuk debugging
+                debug('Inisialisasi paket dari URL', {
+                    id: paketId,
+                    harga: paketHarga,
+                    durasi: paketDurasi,
+                    totalHarga: totalHarga,
+                    totalDurasi: totalDurasi
+                });
+
+                // Tampilkan informasi durasi
                 setTimeout(function() {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Paket Terpilih!',
-                        html: `
+                    updateDurasiInfo(true);
+                }, 500);
+
+                // Check submit button setelah paket dipilih
+                checkSubmitButton();
+
+                // Show success notification untuk paket yang sudah dipilih dari URL
+                if (paketId && paketHarga) {
+                    setTimeout(function() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Paket Terpilih!',
+                            html: `
                             <div style="text-align: center; padding: 1rem;">
                                 <div style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem;">
                                     <h3 style="margin: 0; font-size: 1.125rem; font-weight: 600;">Paket sudah dipilih dari halaman sebelumnya</h3>
@@ -790,93 +885,98 @@
                                 <p style="color: #6B7280; margin: 0;">Silakan lanjutkan dengan memilih tanggal dan waktu</p>
                             </div>
                         `,
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        toast: true,
-                        position: 'top-end'
-                    });
-                }, 1000);
-            }
-        }
-
-        // Event handler untuk tombol tambah paket
-        $(document).off('click', '#addPaket, #addMorePaket, .add-paket-btn, .remove-selected-paket, #btnSubmit');
-
-        // Tombol tambah paket lebih
-        $(document).on('click', '#addPaket, #addMorePaket', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Tambah paket diklik');
-            tambahPaket();
-
-            if ($('#tanggal_booking').val()) {
-                $('#tanggal_booking').trigger('change');
-            }
-            return false;
-        });
-
-        // Event handler untuk paket card dihapus - hanya menggunakan tombol add
-
-        // Event handler untuk tombol add pada paket card
-        $(document).on('click', '.add-paket-btn', function(e) {
-            console.log('🔵 Tombol + diklik!');
-            e.preventDefault();
-            e.stopPropagation();
-
-            const $button = $(this);
-            const $card = $button.closest('.paket-card');
-            
-            console.log('🔍 Button element:', $button);
-            console.log('🔍 Card element:', $card);
-            console.log('🔍 Card length:', $card.length);
-            
-            if ($card.length === 0) {
-                console.error('❌ Card tidak ditemukan!');
-                return;
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            toast: true,
+                            position: 'top-end'
+                        });
+                    }, 1000);
+                }
             }
 
-            const id = $card.data('id');
-            const nama = $card.find('h3').text().trim();
-            const harga = parseFloat($card.data('harga'));
-            const durasi = parseInt($card.data('durasi')) || 60;
+            // Event handler untuk tombol tambah paket
+            $(document).off('click', '#addPaket, #addMorePaket, .add-paket-btn, .remove-selected-paket, #btnSubmit');
 
-            console.log('📊 Data paket:', {
-                id: id,
-                nama: nama,
-                harga: harga,
-                durasi: durasi,
-                isValidHarga: !isNaN(harga),
-                cardDataId: $card.attr('data-id'),
-                cardDataHarga: $card.attr('data-harga'),
-                cardDataDurasi: $card.attr('data-durasi')
+            // Tombol tambah paket lebih
+            $(document).on('click', '#addPaket, #addMorePaket', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Tambah paket diklik');
+                tambahPaket();
+
+                if ($('#tanggal_booking').val()) {
+                    $('#tanggal_booking').trigger('change');
+                }
+                return false;
             });
-            
-            // Periksa apakah paket sudah dipilih sebelumnya
-            if ($(`#selected-paket-${id}`).length > 0) {
-                console.log('⚠️ Paket sudah dipilih sebelumnya');
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Paket Sudah Dipilih!',
-                    text: `Paket "${nama}" sudah ada dalam daftar pilihan Anda.`,
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#F59E0B',
-                    timer: 2000,
-                    timerProgressBar: true
+
+            // Event handler untuk paket card dihapus - hanya menggunakan tombol add
+
+            // Event handler untuk tombol add pada paket card
+            $(document).on('click', '.add-paket-btn', function(e) {
+                console.log('🔵 Tombol + diklik!');
+                e.preventDefault();
+                e.stopPropagation();
+
+                const $button = $(this);
+                const $card = $button.closest('.paket-card');
+
+                console.log('🔍 Button element:', $button);
+                console.log('🔍 Card element:', $card);
+                console.log('🔍 Card length:', $card.length);
+
+                if ($card.length === 0) {
+                    console.error('❌ Card tidak ditemukan!');
+                    return;
+                }
+
+                const id = $card.data('id');
+                const nama = $card.find('h3').text().trim();
+                const harga = parseFloat($card.data('harga'));
+                const durasi = parseInt($card.data('durasi')) || 60;
+
+                console.log('📊 Data paket:', {
+                    id: id,
+                    nama: nama,
+                    harga: harga,
+                    durasi: durasi,
+                    isValidHarga: !isNaN(harga),
+                    cardDataId: $card.attr('data-id'),
+                    cardDataHarga: $card.attr('data-harga'),
+                    cardDataDurasi: $card.attr('data-durasi')
                 });
-                return;
-            }
-            
-            if (id && nama && !isNaN(harga)) {
-                console.log('✅ Data valid, menambahkan paket...');
-                tambahPaketKeSelected(id, nama, harga, durasi);
-            } else {
-                console.error('❌ Data paket tidak lengkap:', {id, nama, harga, durasi});
-                // SweetAlert untuk debugging
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Data Paket Tidak Lengkap!',
-                    html: `
+
+                // Periksa apakah paket sudah dipilih sebelumnya
+                if ($(`#selected-paket-${id}`).length > 0) {
+                    console.log('⚠️ Paket sudah dipilih sebelumnya');
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Paket Sudah Dipilih!',
+                        text: `Paket "${nama}" sudah ada dalam daftar pilihan Anda.`,
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#F59E0B',
+                        timer: 2000,
+                        timerProgressBar: true
+                    });
+                    return;
+                }
+
+                if (id && nama && !isNaN(harga)) {
+                    console.log('✅ Data valid, menambahkan paket...');
+                    tambahPaketKeSelected(id, nama, harga, durasi);
+                } else {
+                    console.error('❌ Data paket tidak lengkap:', {
+                        id,
+                        nama,
+                        harga,
+                        durasi
+                    });
+                    // SweetAlert untuk debugging
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Data Paket Tidak Lengkap!',
+                        html: `
                         <div style="text-align: left; padding: 1rem;">
                             <p><strong>ID:</strong> ${id || 'Tidak ada'}</p>
                             <p><strong>Nama:</strong> ${nama || 'Tidak ada'}</p>
@@ -884,52 +984,52 @@
                             <p><strong>Durasi:</strong> ${durasi || 'Tidak ada'}</p>
                         </div>
                     `,
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#EF4444'
-                });
-            }
-        });
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#EF4444'
+                    });
+                }
+            });
 
-        // Event handler untuk menghapus paket yang dipilih
-        $(document).on('click', '.remove-selected-paket', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            $(this).closest('.selected-paket-item').remove();
-            hitungTotal();
-        });
+            // Event handler untuk menghapus paket yang dipilih
+            $(document).on('click', '.remove-selected-paket', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).closest('.selected-paket-item').remove();
+                hitungTotal();
+            });
 
-        // Event handler untuk tombol submit button
-        $(document).on('click', '#btnSubmit', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log('🚀 TOMBOL SUBMIT DIKLIK!');
-            console.log('Button disabled:', $(this).prop('disabled'));
-            console.log('Button classes:', $(this).attr('class'));
-            
-            if ($(this).prop('disabled') || $(this).hasClass('cursor-not-allowed')) {
-                console.log('⚠️ Button disabled, submit dibatalkan');
-                
-                // Tampilkan pesan error untuk user
-                let missingConditions = [];
-                if (!($('#selectedPakets').length && $('#selectedPakets').val() || $('.selected-paket-item').length > 0 || $('#selectedPaketIds').val())) {
-                    missingConditions.push('Pilih paket layanan');
-                }
-                if (!$('#tanggal_booking').val()) {
-                    missingConditions.push('Pilih tanggal booking');
-                }
-                if (!$('#jamstart').val()) {
-                    missingConditions.push('Pilih jam booking');
-                }
-                if (!$('#idkaryawan').val()) {
-                    missingConditions.push('Pilih karyawan');
-                }
-                
-                // Gunakan SweetAlert2 untuk pesan yang lebih baik
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Lengkapi Data Booking',
-                    html: `
+            // Event handler untuk tombol submit button
+            $(document).on('click', '#btnSubmit', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                console.log('🚀 TOMBOL SUBMIT DIKLIK!');
+                console.log('Button disabled:', $(this).prop('disabled'));
+                console.log('Button classes:', $(this).attr('class'));
+
+                if ($(this).prop('disabled') || $(this).hasClass('cursor-not-allowed')) {
+                    console.log('⚠️ Button disabled, submit dibatalkan');
+
+                    // Tampilkan pesan error untuk user
+                    let missingConditions = [];
+                    if (!($('#selectedPakets').length && $('#selectedPakets').val() || $('.selected-paket-item').length > 0 || $('#selectedPaketIds').val())) {
+                        missingConditions.push('Pilih paket layanan');
+                    }
+                    if (!$('#tanggal_booking').val()) {
+                        missingConditions.push('Pilih tanggal booking');
+                    }
+                    if (!$('#jamstart').val()) {
+                        missingConditions.push('Pilih jam booking');
+                    }
+                    if (!$('#idkaryawan').val()) {
+                        missingConditions.push('Pilih karyawan');
+                    }
+
+                    // Gunakan SweetAlert2 untuk pesan yang lebih baik
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Lengkapi Data Booking',
+                        html: `
                         <div style="text-align: left; padding: 1rem;">
                             <p style="margin-bottom: 1rem; color: #6B7280;">Silakan lengkapi data berikut untuk melanjutkan:</p>
                             <ul style="list-style: none; padding: 0;">
@@ -941,84 +1041,84 @@
                             </ul>
                         </div>
                     `,
-                    confirmButtonText: 'OK, Saya Mengerti',
-                    confirmButtonColor: '#F59E0B'
-                });
-                
-                return false;
-            }
-            
-            // Trigger form submit
-            console.log('✅ Triggering form submit...');
-            $('#bookingForm').trigger('submit');
-        });
+                        confirmButtonText: 'OK, Saya Mengerti',
+                        confirmButtonColor: '#F59E0B'
+                    });
 
-        // Event handler untuk form submit - single handler untuk mencegah konflik
-        $('#bookingForm').on('submit', function(e) {
-            console.log('🚀 FORM SUBMIT EVENT TRIGGERED!');
-            e.preventDefault();
+                    return false;
+                }
 
-            // Debug form data sebelum submit
-            console.log('Form data before submit:');
-            console.log('Total:', $('#total').val(), 'Type:', typeof $('#total').val());
-            console.log('Selected pakets:', $('#selectedPaketIds').val());
-            console.log('Karyawan ID:', $('#idkaryawan').val());
+                // Trigger form submit
+                console.log('✅ Triggering form submit...');
+                $('#bookingForm').trigger('submit');
+            });
 
-            let isValid = true;
-            let missingFields = [];
+            // Event handler untuk form submit - single handler untuk mencegah konflik
+            $('#bookingForm').on('submit', function(e) {
+                console.log('🚀 FORM SUBMIT EVENT TRIGGERED!');
+                e.preventDefault();
 
-            // Validasi paket dipilih
-            let paketSelected = false;
+                // Debug form data sebelum submit
+                console.log('Form data before submit:');
+                console.log('Total:', $('#total').val(), 'Type:', typeof $('#total').val());
+                console.log('Selected pakets:', $('#selectedPaketIds').val());
+                console.log('Karyawan ID:', $('#idkaryawan').val());
 
-            // Cek jika ada paket yang dipilih
-            if ($('#selectedPakets').length && $('#selectedPakets').val()) {
-                // Jika menggunakan paket dari URL parameter
-                paketSelected = true;
-            } else if ($('.selected-paket-item').length > 0) {
-                // Jika menggunakan paket yang dipilih manual
-                paketSelected = true;
-            } else if ($('#selectedPaketIds').val()) {
-                // Jika ada paket IDs tersimpan
-                paketSelected = true;
-            }
+                let isValid = true;
+                let missingFields = [];
 
-            if (!paketSelected) {
-                isValid = false;
-                missingFields.push('paket layanan');
-            }
+                // Validasi paket dipilih
+                let paketSelected = false;
 
-            // Validasi tanggal booking
-            if (!$('#tanggal_booking').val()) {
-                isValid = false;
-                missingFields.push('tanggal booking');
-            }
+                // Cek jika ada paket yang dipilih
+                if ($('#selectedPakets').length && $('#selectedPakets').val()) {
+                    // Jika menggunakan paket dari URL parameter
+                    paketSelected = true;
+                } else if ($('.selected-paket-item').length > 0) {
+                    // Jika menggunakan paket yang dipilih manual
+                    paketSelected = true;
+                } else if ($('#selectedPaketIds').val()) {
+                    // Jika ada paket IDs tersimpan
+                    paketSelected = true;
+                }
 
-            // Validasi jam mulai
-            if (!$('#jamstart').val()) {
-                isValid = false;
-                missingFields.push('jam booking');
-            }
+                if (!paketSelected) {
+                    isValid = false;
+                    missingFields.push('paket layanan');
+                }
 
-            // Validasi karyawan
-            const karyawanId = $('#idkaryawan').val();
-            console.log('Validasi karyawan:', karyawanId); // Log untuk debugging
+                // Validasi tanggal booking
+                if (!$('#tanggal_booking').val()) {
+                    isValid = false;
+                    missingFields.push('tanggal booking');
+                }
 
-            if (!karyawanId) {
-                isValid = false;
-                missingFields.push('karyawan');
-            }
+                // Validasi jam mulai
+                if (!$('#jamstart').val()) {
+                    isValid = false;
+                    missingFields.push('jam booking');
+                }
 
-            if (!isValid) {
-                // Scroll ke bagian atas form
-                $('html, body').animate({
-                    scrollTop: $('#bookingForm').offset().top - 100
-                }, 500);
+                // Validasi karyawan
+                const karyawanId = $('#idkaryawan').val();
+                console.log('Validasi karyawan:', karyawanId); // Log untuk debugging
 
-                // Gunakan SweetAlert2 untuk error validation
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Form Tidak Lengkap!',
-                    html: `
+                if (!karyawanId) {
+                    isValid = false;
+                    missingFields.push('karyawan');
+                }
+
+                if (!isValid) {
+                    // Scroll ke bagian atas form
+                    $('html, body').animate({
+                        scrollTop: $('#bookingForm').offset().top - 100
+                    }, 500);
+
+                    // Gunakan SweetAlert2 untuk error validation
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Form Tidak Lengkap!',
+                        html: `
                         <div style="text-align: left; padding: 1rem;">
                             <p style="margin-bottom: 1rem; color: #6B7280;">Field yang harus diisi:</p>
                             <ul style="list-style: disc; margin-left: 1.5rem; color: #991B1B;">
@@ -1026,17 +1126,17 @@
                             </ul>
                         </div>
                     `,
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#EF4444',
-                    customClass: {
-                        popup: 'swal2-validation-error'
-                    }
-                });
-                return;
-            }
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#EF4444',
+                        customClass: {
+                            popup: 'swal2-validation-error'
+                        }
+                    });
+                    return;
+                }
 
-            // Disable tombol submit untuk mencegah double submit
-            $('#btnSubmit').prop('disabled', true).html(`
+                // Disable tombol submit untuk mencegah double submit
+                $('#btnSubmit').prop('disabled', true).html(`
                 <span class="btn-text">
                     <svg style="width: 20px; height: 20px; margin-right: 8px; animation: spin 1s linear infinite;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"></circle>
@@ -1046,55 +1146,55 @@
                 </span>
             `);
 
-            // Scroll ke bagian atas form
-            $('html, body').animate({
-                scrollTop: $('#bookingForm').offset().top - 100
-            }, 500);
+                // Scroll ke bagian atas form
+                $('html, body').animate({
+                    scrollTop: $('#bookingForm').offset().top - 100
+                }, 500);
 
-            // Ensure total is a number before submitting
-            const totalValue = parseInt($('#total').val()) || 0;
-            $('#total').val(totalValue);
+                // Ensure total is a number before submitting
+                const totalValue = parseInt($('#total').val()) || 0;
+                $('#total').val(totalValue);
 
-            // Buat form data untuk upload file
-            var formData = new FormData(this);
+                // Buat form data untuk upload file
+                var formData = new FormData(this);
 
-            // Log form data untuk debugging
-            console.log('Form data:');
-            for (var pair of formData.entries()) {
-                console.log(pair[0] + ': ' + pair[1]);
-            }
+                // Log form data untuk debugging
+                console.log('Form data:');
+                for (var pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
 
-            // Double check total value after FormData creation
-            console.log('Final total value:', formData.get('total'));
+                // Double check total value after FormData creation
+                console.log('Final total value:', formData.get('total'));
 
-            $.ajax({
-                url: '<?= site_url('customer/booking/store') ?>',
-                type: 'POST',
-                data: formData,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    if (response.status === 'success') {
-                        // Alert lama sudah tidak digunakan (menggunakan SweetAlert2)
+                $.ajax({
+                    url: '<?= site_url('customer/booking/store') ?>',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Alert lama sudah tidak digunakan (menggunakan SweetAlert2)
 
-                        // Tampilkan modal sukses yang sudah ada di HTML
-                        showSuccessModal(response.kdbooking);
-                    } else {
-                        // Gunakan SweetAlert2 untuk error booking
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Gagal Membuat Booking',
-                            text: response.message,
-                            confirmButtonText: 'OK',
-                            confirmButtonColor: '#EF4444',
-                            customClass: {
-                                popup: 'swal2-booking-error'
-                            }
-                        });
+                            // Tampilkan modal sukses yang sudah ada di HTML
+                            showSuccessModal(response.kdbooking);
+                        } else {
+                            // Gunakan SweetAlert2 untuk error booking
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal Membuat Booking',
+                                text: response.message,
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#EF4444',
+                                customClass: {
+                                    popup: 'swal2-booking-error'
+                                }
+                            });
 
-                        // Re-enable tombol submit
-                        $('#btnSubmit').prop('disabled', false).html(`
+                            // Re-enable tombol submit
+                            $('#btnSubmit').prop('disabled', false).html(`
                             <span class="btn-text">
                                 <svg style="width: 20px; height: 20px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -1103,25 +1203,29 @@
                             </span>
                             <span class="btn-shine"></span>
                         `);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error:', {xhr, status, error});
-                    
-                    // Gunakan SweetAlert2 untuk error AJAX
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Terjadi Kesalahan',
-                        text: 'Sistem tidak dapat memproses booking Anda. Silakan coba lagi.',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#EF4444',
-                        customClass: {
-                            popup: 'swal2-ajax-error'
                         }
-                    });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', {
+                            xhr,
+                            status,
+                            error
+                        });
 
-                    // Re-enable tombol submit
-                    $('#btnSubmit').prop('disabled', false).html(`
+                        // Gunakan SweetAlert2 untuk error AJAX
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Terjadi Kesalahan',
+                            text: 'Sistem tidak dapat memproses booking Anda. Silakan coba lagi.',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#EF4444',
+                            customClass: {
+                                popup: 'swal2-ajax-error'
+                            }
+                        });
+
+                        // Re-enable tombol submit
+                        $('#btnSubmit').prop('disabled', false).html(`
                         <span class="btn-text">
                             <svg style="width: 20px; height: 20px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -1130,155 +1234,250 @@
                         </span>
                         <span class="btn-shine"></span>
                     `);
-                }
-            });
-        });
-
-        // Setup custom radio buttons
-        function setupCustomRadios() {
-            // Setup jenis pembayaran radios
-            $('.payment-radio').each(function() {
-                const $radio = $(this);
-                const $label = $('label[for="' + $radio.attr('id') + '"]');
-                const $circle = $label.find('.radio-circle');
-                const $dot = $circle.find('.radio-dot');
-
-                // Initial state
-                if ($radio.is(':checked')) {
-                    $label.addClass('border-blue-500');
-                    $circle.addClass('border-blue-600');
-                    $dot.removeClass('hidden');
-                }
-
-                // Click handler for label
-                $label.on('click', function() {
-                    // Uncheck all radios in the group
-                    $('.payment-radio').prop('checked', false);
-                    $('.payment-radio').each(function() {
-                        const $r = $(this);
-                        const $l = $('label[for="' + $r.attr('id') + '"]');
-                        $l.removeClass('border-blue-500');
-                        $l.find('.radio-circle').removeClass('border-blue-600');
-                        $l.find('.radio-dot').addClass('hidden');
-                    });
-
-                    // Check the clicked radio
-                    $radio.prop('checked', true);
-                    $label.addClass('border-blue-500');
-                    $circle.addClass('border-blue-600');
-                    $dot.removeClass('hidden');
-
-                    // Trigger change event
-                    $radio.trigger('change');
+                    }
                 });
             });
 
-            // Setup metode pembayaran radios
-            $('.method-radio').each(function() {
-                const $radio = $(this);
-                const $label = $('label[for="' + $radio.attr('id') + '"]');
-                const $circle = $label.find('.radio-circle');
-                const $dot = $circle.find('.radio-dot');
+            // Setup custom radio buttons
+            function setupCustomRadios() {
+                // Setup jenis pembayaran radios
+                $('.payment-radio').each(function() {
+                    const $radio = $(this);
+                    const $label = $('label[for="' + $radio.attr('id') + '"]');
+                    const $circle = $label.find('.radio-circle');
+                    const $dot = $circle.find('.radio-dot');
 
-                // Initial state
-                if ($radio.is(':checked')) {
-                    $label.addClass('border-blue-500');
-                    $circle.addClass('border-blue-600');
-                    $dot.removeClass('hidden');
-                }
+                    // Initial state
+                    if ($radio.is(':checked')) {
+                        $label.addClass('border-blue-500');
+                        $circle.addClass('border-blue-600');
+                        $dot.removeClass('hidden');
+                    }
 
-                // Click handler for label
-                $label.on('click', function() {
-                    // Uncheck all radios in the group
-                    $('.method-radio').prop('checked', false);
-                    $('.method-radio').each(function() {
-                        const $r = $(this);
-                        const $l = $('label[for="' + $r.attr('id') + '"]');
-                        $l.removeClass('border-blue-500');
-                        $l.find('.radio-circle').removeClass('border-blue-600');
-                        $l.find('.radio-dot').addClass('hidden');
+                    // Click handler for label
+                    $label.on('click', function() {
+                        // Uncheck all radios in the group
+                        $('.payment-radio').prop('checked', false);
+                        $('.payment-radio').each(function() {
+                            const $r = $(this);
+                            const $l = $('label[for="' + $r.attr('id') + '"]');
+                            $l.removeClass('border-blue-500');
+                            $l.find('.radio-circle').removeClass('border-blue-600');
+                            $l.find('.radio-dot').addClass('hidden');
+                        });
+
+                        // Check the clicked radio
+                        $radio.prop('checked', true);
+                        $label.addClass('border-blue-500');
+                        $circle.addClass('border-blue-600');
+                        $dot.removeClass('hidden');
+
+                        // Trigger change event
+                        $radio.trigger('change');
                     });
-
-                    // Check the clicked radio
-                    $radio.prop('checked', true);
-                    $label.addClass('border-blue-500');
-                    $circle.addClass('border-blue-600');
-                    $dot.removeClass('hidden');
-
-                    // Trigger change event
-                    $radio.trigger('change');
                 });
-            });
-        }
 
-        // Initialize custom radios
-        setupCustomRadios();
+                // Setup metode pembayaran radios
+                $('.method-radio').each(function() {
+                    const $radio = $(this);
+                    const $label = $('label[for="' + $radio.attr('id') + '"]');
+                    const $circle = $label.find('.radio-circle');
+                    const $dot = $circle.find('.radio-dot');
 
-        // Initialize form with no payment options selected
-        // Hiding min payment info initially - will only show when payment type is selected
+                    // Initial state
+                    if ($radio.is(':checked')) {
+                        $label.addClass('border-blue-500');
+                        $circle.addClass('border-blue-600');
+                        $dot.removeClass('hidden');
+                    }
 
-        // Format tanggal untuk tampilan
-        function formatTanggal(tanggal) {
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            };
-            return new Date(tanggal).toLocaleDateString('id-ID', options);
-        }
+                    // Click handler for label
+                    $label.on('click', function() {
+                        // Uncheck all radios in the group
+                        $('.method-radio').prop('checked', false);
+                        $('.method-radio').each(function() {
+                            const $r = $(this);
+                            const $l = $('label[for="' + $r.attr('id') + '"]');
+                            $l.removeClass('border-blue-500');
+                            $l.find('.radio-circle').removeClass('border-blue-600');
+                            $l.find('.radio-dot').addClass('hidden');
+                        });
 
-        // Format angka ke format Rupiah
-        function formatRupiah(angka) {
-            return new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(angka);
-        }
+                        // Check the clicked radio
+                        $radio.prop('checked', true);
+                        $label.addClass('border-blue-500');
+                        $circle.addClass('border-blue-600');
+                        $dot.removeClass('hidden');
 
-        // Ketika tanggal dipilih
-        $(document).on('change', '#tanggal_booking', function() {
-            try {
-            const selectedDate = $(this).val();
-            console.log('📅 Tanggal dipilih:', selectedDate);
-                console.log('📅 Time slot container exists:', $('#timeSlotContainer').length);
-                console.log('📅 Time slot container current display:', $('#timeSlotContainer').css('display'));
-
-            // Jika tanggal dipilih (alert sudah menggunakan SweetAlert2)
-            if (selectedDate) {
-                $(this).removeClass('border-yellow-400 ring-2 ring-yellow-200');
-                
-                // Check submit button setelah tanggal dipilih
-                checkSubmitButton();
+                        // Trigger change event
+                        $radio.trigger('change');
+                    });
+                });
             }
 
-            if (selectedDate) {
-                // Format tanggal untuk tampilan
-                $('#bookingDateDisplay').html(`<strong>${formatTanggal(selectedDate)}</strong>`);
+            // Initialize custom radios
+            setupCustomRadios();
 
-                // Tampilkan container time slot dengan animasi modern
-                console.log('🕐 Menampilkan time slot container...');
-                $('#timeSlotContainer').css('display', 'block').addClass('show');
-                console.log('🕐 Time slot container visible:', $('#timeSlotContainer').is(':visible'));
-                console.log('🕐 Time slot container CSS:', $('#timeSlotContainer').attr('style'));
+            // Initialize form with no payment options selected
+            // Hiding min payment info initially - will only show when payment type is selected
 
-                // Reset semua slot waktu
-                $('.time-slot').removeClass('active bg-green-500 text-white booked bg-red-200 text-gray-500 disabled bg-gray-200 text-gray-400 cursor-not-allowed');
-                $('.time-slot').removeAttr('title');
-                $('.time-slot').removeClass('cursor-not-allowed').addClass('cursor-pointer');
+            // Format tanggal untuk tampilan
+            function formatTanggal(tanggal) {
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+                return new Date(tanggal).toLocaleDateString('id-ID', options);
+            }
 
-                // Periksa jam saat ini jika tanggal yang dipilih adalah hari ini
+            // Format angka ke format Rupiah
+            function formatRupiah(angka) {
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(angka);
+            }
+
+            // Ketika tanggal dipilih
+            $(document).on('change', '#tanggal_booking', function() {
+                try {
+                    const selectedDate = $(this).val();
+                    console.log('📅 Tanggal dipilih:', selectedDate);
+                    console.log('📅 Time slot container exists:', $('#timeSlotContainer').length);
+                    console.log('📅 Time slot container current display:', $('#timeSlotContainer').css('display'));
+
+                    // Jika tanggal dipilih (alert sudah menggunakan SweetAlert2)
+                    if (selectedDate) {
+                        $(this).removeClass('border-yellow-400 ring-2 ring-yellow-200');
+
+                        // Check submit button setelah tanggal dipilih
+                        checkSubmitButton();
+                    }
+
+                    if (selectedDate) {
+                        // Format tanggal untuk tampilan
+                        $('#bookingDateDisplay').html(`<strong>${formatTanggal(selectedDate)}</strong>`);
+
+                        // Tampilkan container time slot dengan animasi modern
+                        console.log('🕐 Menampilkan time slot container...');
+                        $('#timeSlotContainer').css('display', 'block').addClass('show');
+                        console.log('🕐 Time slot container visible:', $('#timeSlotContainer').is(':visible'));
+                        console.log('🕐 Time slot container CSS:', $('#timeSlotContainer').attr('style'));
+
+                        // Reset semua slot waktu
+                        $('.time-slot').removeClass('active bg-green-500 text-white booked bg-red-200 text-gray-500 disabled bg-gray-200 text-gray-400 cursor-not-allowed');
+                        $('.time-slot').removeAttr('title');
+                        $('.time-slot').removeClass('cursor-not-allowed').addClass('cursor-pointer');
+
+                        // Periksa jam saat ini jika tanggal yang dipilih adalah hari ini
+                        const today = new Date();
+                        const selectedDateObj = new Date(selectedDate);
+
+                        // Format tanggal untuk perbandingan (tanpa waktu)
+                        const todayStr = today.toISOString().split('T')[0];
+                        const selectedDateStr = selectedDate;
+
+                        // Jika tanggal yang dipilih adalah hari ini, nonaktifkan slot waktu yang sudah lewat
+                        if (todayStr === selectedDateStr) {
+                            const currentHour = today.getHours();
+                            const currentMinute = today.getMinutes();
+
+                            // Nonaktifkan semua slot waktu yang sudah lewat
+                            $('.time-slot').each(function() {
+                                const slotTime = $(this).data('time');
+                                const [slotHour, slotMinute] = slotTime.split(':').map(Number);
+
+                                // Jika jam slot lebih kecil dari jam sekarang, atau jam sama tapi menit slot lebih kecil dari menit sekarang
+                                if (slotHour < currentHour || (slotHour === currentHour && slotMinute <= currentMinute)) {
+                                    $(this).addClass('disabled bg-gray-200 text-gray-400 cursor-not-allowed');
+                                    $(this).attr('title', 'Waktu sudah lewat');
+                                }
+                            });
+                        }
+
+                        // Periksa ketersediaan slot waktu
+                        checkAvailability();
+
+                        // Fallback untuk memastikan time slot container muncul
+                        setTimeout(function() {
+                            if (!$('#timeSlotContainer').hasClass('show')) {
+                                console.log('⚠️ Time slot container masih tersembunyi, forcing show...');
+                                $('#timeSlotContainer').css('display', 'block').addClass('show');
+                            }
+                        }, 100);
+
+                        // Hide karyawan dan summary containers ketika tanggal berubah
+                        $('#karyawanContainer').hide();
+                        $('#summaryContainer').hide();
+
+                        // Reset input
+                        $('#jamstart').val('');
+                        $('#jamend').val('');
+                        $('#idkaryawan').val('');
+
+                        // Check submit button setelah reset
+                        checkSubmitButton();
+                    } else {
+                        $('#bookingDateDisplay').html(`
+                    <i class="bi bi-info-circle"></i> Silakan pilih tanggal terlebih dahulu
+                `);
+
+                        // Sembunyikan container time slot, karyawan dan summary
+                        $('#timeSlotContainer').removeClass('show').hide();
+                        $('#karyawanContainer').hide();
+                        $('#summaryContainer').hide();
+
+                        // Reset input
+                        $('#jamstart').val('');
+                        $('#jamend').val('');
+                        $('#idkaryawan').val('');
+
+                        // Check submit button setelah reset
+                        checkSubmitButton();
+                    }
+                } catch (error) {
+                    console.error('❌ Error dalam event handler tanggal:', error);
+                    // Fallback - force show time slot container
+                    $('#timeSlotContainer').attr('style', 'display: block !important;');
+                }
+            });
+
+            // Fungsi untuk memeriksa ketersediaan
+            function checkAvailability() {
+                const tanggal = $('#tanggal_booking').val();
+
+                if (!tanggal) {
+                    showAlert('Silakan pilih tanggal terlebih dahulu', 'warning');
+                    return;
+                }
+
+                // Tampilkan loading
+                $('#timeSlotContainer').removeClass('hidden');
+                $('#bookingDateDisplay').html(`
+                <div class="flex items-center">
+                    <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Memeriksa ketersediaan...</span>
+                </div>
+            `);
+
+                // Reset semua time slot
+                $('.time-slot').removeClass('bg-green-500 text-white border-green-500 bg-red-200 text-red-800 border-red-300 cursor-not-allowed')
+                    .addClass('border-gray-200 hover:border-indigo-300 cursor-pointer')
+                    .removeAttr('disabled')
+                    .data('karyawan', []);
+
+                // Periksa kembali jam yang sudah lewat jika tanggal adalah hari ini
                 const today = new Date();
-                const selectedDateObj = new Date(selectedDate);
-
-                // Format tanggal untuk perbandingan (tanpa waktu)
                 const todayStr = today.toISOString().split('T')[0];
-                const selectedDateStr = selectedDate;
 
-                // Jika tanggal yang dipilih adalah hari ini, nonaktifkan slot waktu yang sudah lewat
-                if (todayStr === selectedDateStr) {
+                if (tanggal === todayStr) {
                     const currentHour = today.getHours();
                     const currentMinute = today.getMinutes();
 
@@ -1295,165 +1494,70 @@
                     });
                 }
 
-                // Periksa ketersediaan slot waktu
-                checkAvailability();
-                
-                // Fallback untuk memastikan time slot container muncul
-                setTimeout(function() {
-                    if (!$('#timeSlotContainer').hasClass('show')) {
-                        console.log('⚠️ Time slot container masih tersembunyi, forcing show...');
-                        $('#timeSlotContainer').css('display', 'block').addClass('show');
-                    }
-                }, 100);
+                // Ambil durasi total dari paket yang dipilih
+                const durasiTotal = $('#durasi_total').val() || 60;
 
-                // Hide karyawan dan summary containers ketika tanggal berubah
-                $('#karyawanContainer').hide();
-                $('#summaryContainer').hide();
+                // Kirim request ke server
+                $.ajax({
+                    url: '<?= base_url('customer/booking/check-availability') ?>',
+                    type: 'GET',
+                    data: {
+                        tanggal: tanggal,
+                        durasi: durasiTotal
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Format tanggal untuk display
+                            const formattedDate = new Date(tanggal).toLocaleDateString('id-ID', {
+                                weekday: 'long',
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            });
 
-                // Reset input
-                $('#jamstart').val('');
-                $('#jamend').val('');
-                $('#idkaryawan').val('');
-                
-                // Check submit button setelah reset
-                checkSubmitButton();
-            } else {
-                $('#bookingDateDisplay').html(`
-                    <i class="bi bi-info-circle"></i> Silakan pilih tanggal terlebih dahulu
-                `);
-
-                // Sembunyikan container time slot, karyawan dan summary
-                $('#timeSlotContainer').removeClass('show').hide();
-                $('#karyawanContainer').hide();
-                $('#summaryContainer').hide();
-
-                // Reset input
-                $('#jamstart').val('');
-                $('#jamend').val('');
-                $('#idkaryawan').val('');
-                
-                // Check submit button setelah reset
-                checkSubmitButton();
-            }
-            } catch (error) {
-                console.error('❌ Error dalam event handler tanggal:', error);
-                // Fallback - force show time slot container
-                $('#timeSlotContainer').attr('style', 'display: block !important;');
-            }
-        });
-
-        // Fungsi untuk memeriksa ketersediaan
-        function checkAvailability() {
-            const tanggal = $('#tanggal_booking').val();
-
-            if (!tanggal) {
-                showAlert('Silakan pilih tanggal terlebih dahulu', 'warning');
-                return;
-            }
-
-            // Tampilkan loading
-            $('#timeSlotContainer').removeClass('hidden');
-            $('#bookingDateDisplay').html(`
-                <div class="flex items-center">
-                    <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span>Memeriksa ketersediaan...</span>
-                </div>
-            `);
-
-            // Reset semua time slot
-            $('.time-slot').removeClass('bg-green-500 text-white border-green-500 bg-red-200 text-red-800 border-red-300 cursor-not-allowed')
-                .addClass('border-gray-200 hover:border-indigo-300 cursor-pointer')
-                .removeAttr('disabled')
-                .data('karyawan', []);
-
-            // Periksa kembali jam yang sudah lewat jika tanggal adalah hari ini
-            const today = new Date();
-            const todayStr = today.toISOString().split('T')[0];
-
-            if (tanggal === todayStr) {
-                const currentHour = today.getHours();
-                const currentMinute = today.getMinutes();
-
-                // Nonaktifkan semua slot waktu yang sudah lewat
-                $('.time-slot').each(function() {
-                    const slotTime = $(this).data('time');
-                    const [slotHour, slotMinute] = slotTime.split(':').map(Number);
-
-                    // Jika jam slot lebih kecil dari jam sekarang, atau jam sama tapi menit slot lebih kecil dari menit sekarang
-                    if (slotHour < currentHour || (slotHour === currentHour && slotMinute <= currentMinute)) {
-                        $(this).addClass('disabled bg-gray-200 text-gray-400 cursor-not-allowed');
-                        $(this).attr('title', 'Waktu sudah lewat');
-                    }
-                });
-            }
-
-            // Ambil durasi total dari paket yang dipilih
-            const durasiTotal = $('#durasi_total').val() || 60;
-
-            // Kirim request ke server
-            $.ajax({
-                url: '<?= base_url('customer/booking/check-availability') ?>',
-                type: 'GET',
-                data: {
-                    tanggal: tanggal,
-                    durasi: durasiTotal
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        // Format tanggal untuk display
-                        const formattedDate = new Date(tanggal).toLocaleDateString('id-ID', {
-                            weekday: 'long',
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric'
-                        });
-
-                        $('#bookingDateDisplay').html(`
+                            $('#bookingDateDisplay').html(`
                            
                             Ketersediaan untuk <span class="font-semibold">${formattedDate}</span>
                         `);
 
-                        // Update status setiap time slot
-                        response.data.forEach(function(slot) {
-                            const $slot = $(`.time-slot[data-time="${slot.time}"]`);
+                            // Update status setiap time slot
+                            response.data.forEach(function(slot) {
+                                const $slot = $(`.time-slot[data-time="${slot.time}"]`);
 
-                            // Jangan override slot yang sudah dinonaktifkan karena waktu sudah lewat
-                            if (!$slot.hasClass('disabled')) {
-                                if (slot.status === 'available') {
-                                    $slot.data('karyawan', slot.availableKaryawan);
-                                    $slot.data('endTime', slot.endTime);
-                                } else {
-                                    $slot.addClass('bg-red-200 text-red-800 border-red-300 cursor-not-allowed')
-                                        .removeClass('border-gray-200 hover:border-indigo-300 cursor-pointer')
-                                        .attr('disabled', true);
+                                // Jangan override slot yang sudah dinonaktifkan karena waktu sudah lewat
+                                if (!$slot.hasClass('disabled')) {
+                                    if (slot.status === 'available') {
+                                        $slot.data('karyawan', slot.availableKaryawan);
+                                        $slot.data('endTime', slot.endTime);
+                                    } else {
+                                        $slot.addClass('bg-red-200 text-red-800 border-red-300 cursor-not-allowed')
+                                            .removeClass('border-gray-200 hover:border-indigo-300 cursor-pointer')
+                                            .attr('disabled', true);
+                                    }
                                 }
-                            }
-                        });
-                    } else {
-                        showAlert(response.message || 'Terjadi kesalahan saat memeriksa ketersediaan', 'error');
+                            });
+                        } else {
+                            showAlert(response.message || 'Terjadi kesalahan saat memeriksa ketersediaan', 'error');
+                        }
+                    },
+                    error: function() {
+                        showAlert('Terjadi kesalahan saat memeriksa ketersediaan', 'error');
                     }
-                },
-                error: function() {
-                    showAlert('Terjadi kesalahan saat memeriksa ketersediaan', 'error');
-                }
-            });
-        }
-
-        // Fungsi untuk mendapatkan karyawan yang tersedia
-        function getAvailableKaryawan(jamstart) {
-            const tanggal = $('#tanggal_booking').val();
-            const durasiTotal = $('#durasi_total').val() || 60;
-
-            if (!tanggal || !jamstart) {
-                return;
+                });
             }
 
-            // Tampilkan loading
-            $('#karyawanContainer').html(`
+            // Fungsi untuk mendapatkan karyawan yang tersedia
+            function getAvailableKaryawan(jamstart) {
+                const tanggal = $('#tanggal_booking').val();
+                const durasiTotal = $('#durasi_total').val() || 60;
+
+                if (!tanggal || !jamstart) {
+                    return;
+                }
+
+                // Tampilkan loading
+                $('#karyawanContainer').html(`
                 <div class="flex items-center justify-center p-4">
                     <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -1463,23 +1567,23 @@
                 </div>
             `);
 
-            // Kirim request ke server
-            $.ajax({
-                url: '<?= base_url('customer/booking/get-available-karyawan') ?>',
-                type: 'GET',
-                data: {
-                    tanggal: tanggal,
-                    jamstart: jamstart,
-                    durasi: durasiTotal
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success' && response.data.length > 0) {
-                        let html = '';
+                // Kirim request ke server
+                $.ajax({
+                    url: '<?= base_url('customer/booking/get-available-karyawan') ?>',
+                    type: 'GET',
+                    data: {
+                        tanggal: tanggal,
+                        jamstart: jamstart,
+                        durasi: durasiTotal
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'success' && response.data.length > 0) {
+                            let html = '';
 
-                        response.data.forEach(function(karyawan, index) {
-                            const isChecked = index === 0 ? 'checked' : '';
-                            html += `
+                            response.data.forEach(function(karyawan, index) {
+                                const isChecked = index === 0 ? 'checked' : '';
+                                html += `
                                 <div class="karyawan-option">
                                     <input type="radio" id="karyawan_${karyawan.id}" name="idkaryawan" value="${karyawan.id}" ${isChecked} class="hidden peer">
                                     <label for="karyawan_${karyawan.id}" class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer transition-all peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50">
@@ -1494,17 +1598,17 @@
                                     </label>
                                 </div>
                             `;
-                        });
+                            });
 
-                        $('#karyawanContainer').html(html);
-                        $('#karyawanSection').removeClass('hidden');
+                            $('#karyawanContainer').html(html);
+                            $('#karyawanSection').removeClass('hidden');
 
-                        // Set nilai karyawan pertama sebagai default
-                        if (response.data.length > 0) {
-                            $('input[name="idkaryawan"]:first').prop('checked', true);
-                        }
-                    } else {
-                        $('#karyawanContainer').html(`
+                            // Set nilai karyawan pertama sebagai default
+                            if (response.data.length > 0) {
+                                $('input[name="idkaryawan"]:first').prop('checked', true);
+                            }
+                        } else {
+                            $('#karyawanContainer').html(`
                             <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
                                 <div class="flex">
                                     <div class="flex-shrink-0">
@@ -1518,384 +1622,476 @@
                                 </div>
                             </div>
                         `);
+                        }
+                    },
+                    error: function() {
+                        showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
                     }
-                },
-                error: function() {
-                    showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
-                }
-            });
-        }
-
-        // Delegasi event untuk slot waktu
-        $('#timeSlotGrid').on('click', '.time-slot', function() {
-            if ($(this).hasClass('booked') || $(this).hasClass('disabled')) {
-                return;
+                });
             }
 
-            $('.time-slot').removeClass('active bg-green-500 text-white');
-            $(this).addClass('active bg-green-500 text-white');
+            // Delegasi event untuk slot waktu
+            $('#timeSlotGrid').on('click', '.time-slot', function() {
+                if ($(this).hasClass('booked') || $(this).hasClass('disabled')) {
+                    return;
+                }
 
-            // Set jam mulai & selesai
-            const startTime = $(this).data('time');
-            const [startHour, startMinute] = startTime.split(':');
-            const endHour = parseInt(startHour) + 1;
-            const endTime = `${endHour.toString().padStart(2, '0')}:${startMinute}`;
+                $('.time-slot').removeClass('active bg-green-500 text-white');
+                $(this).addClass('active bg-green-500 text-white');
 
-            $('#jamstart').val(startTime);
-            $('#jamend').val(endTime);
+                // Set jam mulai & selesai
+                const startTime = $(this).data('time');
+                const [startHour, startMinute] = startTime.split(':');
+                const endHour = parseInt(startHour) + 1;
+                const endTime = `${endHour.toString().padStart(2, '0')}:${startMinute}`;
 
-            // Load karyawan yang tersedia
-            loadAvailableKaryawan();
+                $('#jamstart').val(startTime);
+                $('#jamend').val(endTime);
 
-            // Update summary
-            updateSummary();
-            
-            // Check submit button setelah jam dipilih
-            checkSubmitButton();
-        });
+                // Load karyawan yang tersedia
+                loadAvailableKaryawan();
 
-        // Load daftar karyawan yang tersedia
-        function loadAvailableKaryawan() {
-            const tanggal = $('#tanggal_booking').val();
-            const jamstart = $('#jamstart').val();
+                // Update summary
+                updateSummary();
 
-            if (!tanggal || !jamstart) return;
+                // Check submit button setelah jam dipilih
+                checkSubmitButton();
+            });
 
-            // Reset nilai karyawan yang dipilih sebelumnya
-            $('#idkaryawan').val('');
+            // Load daftar karyawan yang tersedia
+            function loadAvailableKaryawan() {
+                const tanggal = $('#tanggal_booking').val();
+                const jamstart = $('#jamstart').val();
 
-            // Tampilkan container karyawan
-            $('#karyawanContainer').removeClass('hidden').fadeIn(500);
+                if (!tanggal || !jamstart) return;
 
-            // Tampilkan indikator loading
-            $('#karyawanList').html(`
-                <div class="col-span-full flex justify-center items-center py-8">
-                    <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-indigo-500"></div>
+                // Reset nilai karyawan yang dipilih sebelumnya
+                $('#idkaryawan').val('');
+
+                // Tampilkan container karyawan
+                $('#karyawanContainer').removeClass('hidden').fadeIn(500);
+
+                // Tampilkan indikator loading
+                $('#karyawanList').html(`
+                <div style="grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; padding: 3rem 2rem;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+                        <div style="position: relative;">
+                            <div style="width: 80px; height: 80px; border: 4px solid var(--gray-200); border-top: 4px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite;">
+                                <svg style="width: 20px; height: 20px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <h3 style="color: var(--text-primary); font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Memuat Data Karyawan</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0;">Mohon tunggu sebentar...</p>
+                        </div>
+                    </div>
                 </div>
             `);
 
-            $.ajax({
-                url: '<?= site_url('customer/booking/getAvailableKaryawan') ?>',
-                type: 'GET',
-                data: {
-                    tanggal: tanggal,
-                    jamstart: jamstart
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        let karyawanHTML = '';
+                $.ajax({
+                    url: '<?= site_url('customer/booking/getAvailableKaryawan') ?>',
+                    type: 'GET',
+                    data: {
+                        tanggal: tanggal,
+                        jamstart: jamstart
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            let karyawanHTML = '';
 
-                        if (response.data.length === 0) {
-                            karyawanHTML = `
-                                <div class="col-span-full text-center py-6 bg-yellow-50 border border-yellow-100 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-yellow-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                    </svg>
-                                    <p class="text-lg font-medium text-gray-700">Jadwal sudah penuh</p>
-                                    <p class="text-gray-500 mt-1">Silakan pilih waktu lain</p>
+                            if (response.data.length === 0) {
+                                karyawanHTML = `
+                                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, #FEF3C7, #FDE68A); border: 2px solid #F59E0B; border-radius: 1rem; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);">
+                                    <div style="width: 80px; height: 80px; background: #92400E; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(146, 64, 14, 0.3);">
+                                        <svg style="width: 40px; height: 40px; color: #FEF3C7;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #92400E; margin-bottom: 0.5rem;">
+                                        ⚠️ Jadwal Sudah Penuh
+                                    </h3>
+                                    <p style="color: #78350F; margin: 0; line-height: 1.6;">
+                                        Maaf, tidak ada karyawan yang tersedia pada waktu ini.<br>
+                                        Silakan pilih waktu lain yang tersedia.
+                                    </p>
                                 </div>
                             `;
 
-                            // Check submit button karena tidak ada karyawan tersedia
-                            checkSubmitButton();
-                        } else {
-                            response.data.forEach(function(karyawan, index) {
-                                karyawanHTML += `
-                                    <div class="karyawan-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-all hover:border-green-300 ${index === 0 ? 'border-green-500 ring-2 ring-green-500' : ''}" data-id="${karyawan.id}">
-                                        <div class="p-4">
-                                            <div class="flex items-center">
-                                                <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden mr-3 flex-shrink-0 shadow-sm">
-                                                    ${karyawan.foto 
-                                                        ? `<img src="<?= base_url('uploads/karyawan/') ?>${karyawan.foto}" class="w-full h-full object-cover" alt="${karyawan.nama}">`
-                                                        : `<div class="w-full h-full bg-gradient-to-r from-gray-300 to-gray-200 flex items-center justify-center text-gray-500">
-                                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                        </div>`
-                                                    }
-                                                </div>
-                                                <div>
-                                                    <div class="font-medium text-gray-800">${karyawan.nama}</div>
-                                                    <div class="text-sm text-green-600 flex items-center">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                // Check submit button karena tidak ada karyawan tersedia
+                                checkSubmitButton();
+                            } else {
+                                response.data.forEach(function(karyawan, index) {
+                                    karyawanHTML += `
+                                    <div class="karyawan-item" style="background: var(--white); border: 2px solid var(--gray-200); border-radius: 1rem; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); ${index === 0 ? 'border-color: var(--success-color); background: linear-gradient(135deg, var(--white), #F0FDF4); box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);' : ''}" data-id="${karyawan.id}">
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <div style="width: 70px; height: 70px; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                                                ${karyawan.foto 
+                                                    ? `<img src="<?= base_url('uploads/karyawan/') ?>${karyawan.foto}" style="width: 100%; height: 100%; object-fit: cover;" alt="${karyawan.nama}">`
+                                                    : `<div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--gray-200), var(--gray-100)); display: flex; align-items: center; justify-content: center;">
+                                                        <svg style="width: 32px; height: 32px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                                         </svg>
+                                                    </div>`
+                                                }
+                                            </div>
+                                            <div style="flex: 1;">
+                                                <h4 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                                                    ${karyawan.nama}
+                                                </h4>
+                                                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                                                    <div style="width: 8px; height: 8px; background: var(--success-color); border-radius: 50%;"></div>
+                                                    <span style="color: var(--success-color); font-weight: 500; font-size: 0.875rem;">
                                                         Tersedia
-                                                    </div>
+                                                    </span>
                                                 </div>
+                                                <div style="background: linear-gradient(135deg, var(--gray-50), var(--white)); padding: 0.75rem; border-radius: 0.5rem; border: 1px solid var(--gray-200);">
+                                                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.875rem; line-height: 1.4;">
+                                                        Klik untuk memilih ${karyawan.nama} sebagai karyawan yang akan melayani Anda
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="check-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: linear-gradient(135deg, var(--success-color), #10B981); border-radius: 50%; flex-shrink: 0; opacity: ${index === 0 ? '1' : '0'}; transition: opacity 0.3s ease;">
+                                                <svg style="width: 20px; height: 20px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                </svg>
                                             </div>
                                         </div>
                                     </div>
                                 `;
-                            });
+                                });
 
-                            // Set nilai karyawan pertama sebagai default
-                            if (response.data.length > 0) {
-                                $('#idkaryawan').val(response.data[0].id);
-                                console.log('Default karyawan set:', response.data[0].id);
+                                // Set nilai karyawan pertama sebagai default
+                                if (response.data.length > 0) {
+                                    $('#idkaryawan').val(response.data[0].id);
+                                    console.log('Default karyawan set:', response.data[0].id);
 
-                                // Check submit button setelah karyawan dipilih
-                                checkSubmitButton();
+                                    // Check submit button setelah karyawan dipilih
+                                    checkSubmitButton();
+                                }
                             }
+
+                            $('#karyawanList').html(karyawanHTML);
+                        } else {
+                            $('#karyawanList').html(`
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, #FEE2E2, #FECACA); border: 2px solid #EF4444; border-radius: 1rem; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);">
+                            <div style="width: 80px; height: 80px; background: #DC2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);">
+                                <svg style="width: 40px; height: 40px; color: #FEE2E2;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: 1.25rem; font-weight: 600; color: #DC2626; margin-bottom: 0.5rem;">
+                                ⚠️ Terjadi Kesalahan
+                            </h3>
+                            <p style="color: #991B1B; margin: 0; line-height: 1.6;">
+                                Gagal memuat data karyawan.<br>
+                                Silakan coba lagi atau pilih waktu lain.
+                            </p>
+                        </div>
+                    `);
                         }
-
-                        $('#karyawanList').html(karyawanHTML);
-                    } else {
-                        showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
+                    },
+                    error: function() {
+                        $('#karyawanList').html(`
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, #FEE2E2, #FECACA); border: 2px solid #EF4444; border-radius: 1rem; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);">
+                        <div style="width: 80px; height: 80px; background: #DC2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);">
+                            <svg style="width: 40px; height: 40px; color: #FEE2E2;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: #DC2626; margin-bottom: 0.5rem;">
+                            ⚠️ Terjadi Kesalahan
+                        </h3>
+                        <p style="color: #991B1B; margin: 0; line-height: 1.6;">
+                            Gagal memuat data karyawan.<br>
+                            Silakan coba lagi atau pilih waktu lain.
+                        </p>
+                    </div>
+                `);
                     }
-                },
-                error: function() {
-                    showAlert('Terjadi kesalahan saat memuat data karyawan', 'error');
-                }
+                });
+            }
+
+            // Delegasi event untuk pilihan karyawan
+            $('#karyawanList').on('click', '.karyawan-item', function() {
+                // Reset semua karyawan item
+                $('.karyawan-item').css({
+                    'border-color': 'var(--gray-200)',
+                    'background': 'var(--white)',
+                    'box-shadow': '0 4px 15px rgba(0,0,0,0.08)'
+                });
+                $('.karyawan-item .check-icon').css('opacity', '0');
+
+                // Set karyawan yang dipilih
+                $(this).css({
+                    'border-color': 'var(--success-color)',
+                    'background': 'linear-gradient(135deg, var(--white), #F0FDF4)',
+                    'box-shadow': '0 0 0 4px rgba(34, 197, 94, 0.1)'
+                });
+                $(this).find('.check-icon').css('opacity', '1');
+
+                // Set nilai karyawan ke input hidden
+                const karyawanId = $(this).data('id');
+                const karyawanNama = $(this).find('h4').text();
+                $('#idkaryawan').val(karyawanId);
+
+                console.log('Karyawan dipilih:', karyawanId, karyawanNama); // Log untuk debugging
+
+                // Tampilkan notifikasi sukses
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Karyawan Dipilih!',
+
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    toast: true,
+                    position: 'top-end',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInRight'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutRight'
+                    }
+                });
+
+                // Update summary
+                updateSummary();
+
+                // Check submit button setelah karyawan dipilih
+                checkSubmitButton();
+
+                // Tampilkan ringkasan booking
+                $('#summaryContainer').fadeIn(500);
             });
-        }
 
-        // Delegasi event untuk pilihan karyawan
-        $('#karyawanList').on('click', '.karyawan-item', function() {
-            $('.karyawan-item').removeClass('border-green-500 ring-2 ring-green-500');
-            $(this).addClass('border-green-500 ring-2 ring-green-500');
+            // Update ringkasan booking
+            function updateSummary() {
+                const paketId = $('#idpaket').val();
+                let paketText = '';
+                let harga = 0;
 
-            // Set nilai karyawan ke input hidden
-            const karyawanId = $(this).data('id');
-            $('#idkaryawan').val(karyawanId);
-
-            console.log('Karyawan dipilih:', karyawanId); // Log untuk debugging
-
-            // Update summary
-            updateSummary();
-            
-            // Check submit button setelah karyawan dipilih
-            checkSubmitButton();
-
-            // Tampilkan ringkasan booking
-            $('#summaryContainer').fadeIn(500);
-        });
-
-        // Update ringkasan booking
-        function updateSummary() {
-            const paketId = $('#idpaket').val();
-            let paketText = '';
-            let harga = 0;
-
-            // Cek apakah paket dipilih dari landing page (hidden input) atau dari dropdown
-            if ($('#idpaket').is('input[type="hidden"]')) {
-                // Jika paket dari landing page
-                paketText = $('.bg-gradient-to-r.from-purple-50 h3').text();
-                harga = $('#idpaket').data('harga');
-            } else {
-                // Jika paket dari dropdown
-                paketText = $('#idpaket option:selected').text();
-                harga = $('#idpaket option:selected').data('harga') || 0;
-            }
-
-            const tanggal = $('#tanggal_booking').val();
-            const jamstart = $('#jamstart').val();
-            const jamend = $('#jamend').val();
-            const karyawanId = $('#idkaryawan').val();
-
-            // Set nilai ringkasan
-            if (paketId) $('#summary_paket').text(paketText);
-            if (tanggal) $('#summary_tanggal').text(formatTanggal(tanggal));
-            if (jamstart && jamend) $('#summary_waktu').text(`${jamstart} - ${jamend}`);
-
-            // Set total harga
-            $('#summary_total').text(formatRupiah(harga));
-            $('#total').val(harga);
-
-            // Set nama karyawan jika sudah dipilih
-            if (karyawanId) {
-                const karyawanName = $(`.karyawan-item[data-id="${karyawanId}"]`).find('.font-medium').text();
-                $('#summary_karyawan').text(karyawanName);
-            }
-
-            // Update minimal pembayaran
-            updateMinPayment();
-        }
-
-        // Update minimal payment for DP (50%)
-        function updateMinPayment() {
-            const total = parseFloat($('#total').val() || 0);
-            const jenisPembayaran = $('input[name="jenis_pembayaran"]:checked').val();
-
-            if (jenisPembayaran === 'DP') {
-                const minPayment = total * 0.5; // 50% dari total
-                $('#minPayment').text(formatRupiah(minPayment));
-                $('#minPaymentInfo').removeClass('hidden');
-                // Tambahkan nilai minimum pembayaran ke input hidden
-                $('#min_payment').val(minPayment);
-            } else if (jenisPembayaran === 'Lunas') {
-                $('#minPayment').text(formatRupiah(total));
-                $('#minPaymentInfo').removeClass('hidden');
-                // Untuk pembayaran penuh, nilai min_payment adalah total
-                $('#min_payment').val(total);
-            } else {
-                // Tidak ada jenis pembayaran yang dipilih
-                $('#minPaymentInfo').addClass('hidden');
-                $('#min_payment').val(0);
-            }
-        }
-
-        // Ketika paket layanan berubah (hanya jika menggunakan select dropdown)
-        $('select#idpaket').on('change', function() {
-            // Reset form untuk meminta pelanggan memilih ulang tanggal, jam, dan karyawan
-            $('#timeSlotContainer').removeClass('show').hide();
-            $('#karyawanContainer').hide();
-            $('#summaryContainer').hide();
-
-            // Jika tanggal sudah dipilih, tampilkan time slot container
-            if ($('#tanggal_booking').val()) {
-                $('#timeSlotContainer').css('display', 'block').addClass('show');
-            }
-
-            // Reset input
-            $('#jamstart').val('');
-            $('#jamend').val('');
-            $('#idkaryawan').val('');
-            
-            // Check submit button setelah reset
-            checkSubmitButton();
-
-            // Update summary
-            updateSummary();
-        });
-
-        // Fungsi pembayaran dipindahkan ke halaman payment.php
-
-        // Duplikasi form submit handler dihapus - sudah ada handler di atas
-
-        // Preview bukti pembayaran
-        $('#bukti_pembayaran').on('change', function(e) {
-            const file = e.target.files[0];
-            if (!file) {
-                $('#buktiPreviewContainer').addClass('hidden');
-                return;
-            }
-
-            // Validasi tipe file
-            const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-            if (!acceptedImageTypes.includes(file.type)) {
-                showAlert('File harus berupa gambar (JPG, PNG, atau GIF)', 'error');
-                $(this).val('');
-                return;
-            }
-
-            // Validasi ukuran file (max 2MB)
-            if (file.size > 2 * 1024 * 1024) {
-                showAlert('Ukuran file terlalu besar (maksimal 2MB)', 'error');
-                $(this).val('');
-                return;
-            }
-
-            // Tampilkan preview
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                $('#buktiPreview').attr('src', e.target.result);
-                $('#buktiPreviewContainer').removeClass('hidden').addClass('animate__animated animate__fadeIn');
-            }
-            reader.readAsDataURL(file);
-        });
-
-        // Hapus bukti pembayaran
-        $('#removeBukti').on('click', function() {
-            $('#bukti_pembayaran').val('');
-            $('#buktiPreviewContainer').addClass('hidden');
-        });
-
-        // Fungsi untuk menampilkan alert menggunakan SweetAlert2
-        function showAlert(message, type = 'error') {
-            const icon = type === 'error' ? 'error' : 
-                        type === 'warning' ? 'warning' : 'success';
-            
-            const color = type === 'error' ? '#EF4444' : 
-                         type === 'warning' ? '#F59E0B' : '#10B981';
-
-            Swal.fire({
-                icon: icon,
-                title: message,
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                customClass: {
-                    popup: 'swal2-toast-custom'
-                },
-                showClass: {
-                    popup: 'animate__animated animate__fadeInRight'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutRight'
-                }
-            });
-        }
-
-        // Fungsi untuk menampilkan modal sukses booking
-        function showSuccessModal(bookingCode) {
-            const modal = document.getElementById('booking-success-modal');
-
-            // Tampilkan modal
-            modal.classList.remove('hidden');
-            modal.classList.add('modal-active');
-
-            // Tambahkan efek scale in ke modal content
-            setTimeout(() => {
-                const modalContent = modal.querySelector('.relative');
-                modalContent.classList.add('scale-in');
-            }, 100);
-
-            // Tambahkan efek pulse ke icon sukses
-            setTimeout(() => {
-                const successIcon = modal.querySelector('.w-24');
-                successIcon.classList.add('pulse-animation');
-            }, 500);
-
-            // Animasi countdown
-            const countdownBar = document.getElementById('countdown-bar');
-            countdownBar.classList.add('animate-countdown-bar');
-
-            // Hitung mundur timer
-            let countdownTime = 3;
-            const countdownTimer = document.getElementById('countdown-timer');
-            countdownTimer.textContent = countdownTime;
-
-            const countdownInterval = setInterval(function() {
-                countdownTime--;
-                countdownTimer.textContent = countdownTime;
-                if (countdownTime <= 0) {
-                    clearInterval(countdownInterval);
-                }
-            }, 1000);
-
-            // Redirect ke halaman pembayaran
-            setTimeout(function() {
-                window.location.href = '<?= site_url('customer/booking/payment/') ?>' + bookingCode;
-            }, 3000);
-        }
-
-        // Fungsi sudah didefinisikan di scope global
-
-        // Fungsi untuk menambahkan paket baru
-        function tambahPaket() {
-            // Jika ini adalah paket pertama yang ditambahkan dan ada paket yang dipilih dari landing page
-            if ($('#selectedPakets').length) {
-                // Ubah tampilan menjadi container paket biasa
-                const selectedPaketId = $('#selectedPakets').val();
-                const selectedPaketHarga = $('#selectedPakets').data('harga');
-                const selectedPaketDurasi = $('#selectedPakets').data('durasi') || 60;
-                const selectedPaketName = $('.bg-gray-50.p-4 h3.font-semibold.text-lg').text().trim();
-
-                // Hapus tampilan paket yang dipilih dari landing page
-                const paketContainer = $('.bg-gray-50.p-4.rounded-lg.border.border-gray-200.flex.items-start');
-                if (paketContainer.length) {
-                    paketContainer.closest('div').remove();
+                // Cek apakah paket dipilih dari landing page (hidden input) atau dari dropdown
+                if ($('#idpaket').is('input[type="hidden"]')) {
+                    // Jika paket dari landing page
+                    paketText = $('.bg-gradient-to-r.from-purple-50 h3').text();
+                    harga = $('#idpaket').data('harga');
                 } else {
-                    // Hanya hapus div yang berisi paket yang dipilih
-                    $('div:has(> #selectedPakets)').remove();
+                    // Jika paket dari dropdown
+                    paketText = $('#idpaket option:selected').text();
+                    harga = $('#idpaket option:selected').data('harga') || 0;
                 }
 
-                // Buat container paket baru dengan UI card
-                const paketContainerHtml = `
+                const tanggal = $('#tanggal_booking').val();
+                const jamstart = $('#jamstart').val();
+                const jamend = $('#jamend').val();
+                const karyawanId = $('#idkaryawan').val();
+
+                // Set nilai ringkasan
+                if (paketId) $('#summary_paket').text(paketText);
+                if (tanggal) $('#summary_tanggal').text(formatTanggal(tanggal));
+                if (jamstart && jamend) $('#summary_waktu').text(`${jamstart} - ${jamend}`);
+
+                // Set total harga
+                $('#summary_total').text(formatRupiah(harga));
+                $('#total').val(harga);
+
+                // Set nama karyawan jika sudah dipilih
+                if (karyawanId) {
+                    const karyawanName = $(`.karyawan-item[data-id="${karyawanId}"]`).find('.font-medium').text();
+                    $('#summary_karyawan').text(karyawanName);
+                }
+
+                // Update minimal pembayaran
+                updateMinPayment();
+            }
+
+            // Update minimal payment for DP (50%)
+            function updateMinPayment() {
+                const total = parseFloat($('#total').val() || 0);
+                const jenisPembayaran = $('input[name="jenis_pembayaran"]:checked').val();
+
+                if (jenisPembayaran === 'DP') {
+                    const minPayment = total * 0.5; // 50% dari total
+                    $('#minPayment').text(formatRupiah(minPayment));
+                    $('#minPaymentInfo').removeClass('hidden');
+                    // Tambahkan nilai minimum pembayaran ke input hidden
+                    $('#min_payment').val(minPayment);
+                } else if (jenisPembayaran === 'Lunas') {
+                    $('#minPayment').text(formatRupiah(total));
+                    $('#minPaymentInfo').removeClass('hidden');
+                    // Untuk pembayaran penuh, nilai min_payment adalah total
+                    $('#min_payment').val(total);
+                } else {
+                    // Tidak ada jenis pembayaran yang dipilih
+                    $('#minPaymentInfo').addClass('hidden');
+                    $('#min_payment').val(0);
+                }
+            }
+
+            // Ketika paket layanan berubah (hanya jika menggunakan select dropdown)
+            $('select#idpaket').on('change', function() {
+                // Reset form untuk meminta pelanggan memilih ulang tanggal, jam, dan karyawan
+                $('#timeSlotContainer').removeClass('show').hide();
+                $('#karyawanContainer').hide();
+                $('#summaryContainer').hide();
+
+                // Jika tanggal sudah dipilih, tampilkan time slot container
+                if ($('#tanggal_booking').val()) {
+                    $('#timeSlotContainer').css('display', 'block').addClass('show');
+                }
+
+                // Reset input
+                $('#jamstart').val('');
+                $('#jamend').val('');
+                $('#idkaryawan').val('');
+
+                // Check submit button setelah reset
+                checkSubmitButton();
+
+                // Update summary
+                updateSummary();
+            });
+
+            // Fungsi pembayaran dipindahkan ke halaman payment.php
+
+            // Duplikasi form submit handler dihapus - sudah ada handler di atas
+
+            // Preview bukti pembayaran
+            $('#bukti_pembayaran').on('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) {
+                    $('#buktiPreviewContainer').addClass('hidden');
+                    return;
+                }
+
+                // Validasi tipe file
+                const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+                if (!acceptedImageTypes.includes(file.type)) {
+                    showAlert('File harus berupa gambar (JPG, PNG, atau GIF)', 'error');
+                    $(this).val('');
+                    return;
+                }
+
+                // Validasi ukuran file (max 2MB)
+                if (file.size > 2 * 1024 * 1024) {
+                    showAlert('Ukuran file terlalu besar (maksimal 2MB)', 'error');
+                    $(this).val('');
+                    return;
+                }
+
+                // Tampilkan preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#buktiPreview').attr('src', e.target.result);
+                    $('#buktiPreviewContainer').removeClass('hidden').addClass('animate__animated animate__fadeIn');
+                }
+                reader.readAsDataURL(file);
+            });
+
+            // Hapus bukti pembayaran
+            $('#removeBukti').on('click', function() {
+                $('#bukti_pembayaran').val('');
+                $('#buktiPreviewContainer').addClass('hidden');
+            });
+
+            // Fungsi untuk menampilkan alert menggunakan SweetAlert2
+            function showAlert(message, type = 'error') {
+                const icon = type === 'error' ? 'error' :
+                    type === 'warning' ? 'warning' : 'success';
+
+                const color = type === 'error' ? '#EF4444' :
+                    type === 'warning' ? '#F59E0B' : '#10B981';
+
+                Swal.fire({
+                    icon: icon,
+                    title: message,
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    customClass: {
+                        popup: 'swal2-toast-custom'
+                    },
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInRight'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutRight'
+                    }
+                });
+            }
+
+            // Fungsi untuk menampilkan modal sukses booking
+            function showSuccessModal(bookingCode) {
+                const modal = document.getElementById('booking-success-modal');
+
+                // Tampilkan modal
+                modal.classList.remove('hidden');
+                modal.classList.add('modal-active');
+
+                // Tambahkan efek scale in ke modal content
+                setTimeout(() => {
+                    const modalContent = modal.querySelector('.relative');
+                    modalContent.classList.add('scale-in');
+                }, 100);
+
+                // Tambahkan efek pulse ke icon sukses
+                setTimeout(() => {
+                    const successIcon = modal.querySelector('.w-24');
+                    successIcon.classList.add('pulse-animation');
+                }, 500);
+
+                // Animasi countdown
+                const countdownBar = document.getElementById('countdown-bar');
+                countdownBar.classList.add('animate-countdown-bar');
+
+                // Hitung mundur timer
+                let countdownTime = 3;
+                const countdownTimer = document.getElementById('countdown-timer');
+                countdownTimer.textContent = countdownTime;
+
+                const countdownInterval = setInterval(function() {
+                    countdownTime--;
+                    countdownTimer.textContent = countdownTime;
+                    if (countdownTime <= 0) {
+                        clearInterval(countdownInterval);
+                    }
+                }, 1000);
+
+                // Redirect ke halaman pembayaran
+                setTimeout(function() {
+                    window.location.href = '<?= site_url('customer/booking/payment/') ?>' + bookingCode;
+                }, 3000);
+            }
+
+            // Fungsi sudah didefinisikan di scope global
+
+            // Fungsi untuk menambahkan paket baru
+            function tambahPaket() {
+                // Jika ini adalah paket pertama yang ditambahkan dan ada paket yang dipilih dari landing page
+                if ($('#selectedPakets').length) {
+                    // Ubah tampilan menjadi container paket biasa
+                    const selectedPaketId = $('#selectedPakets').val();
+                    const selectedPaketHarga = $('#selectedPakets').data('harga');
+                    const selectedPaketDurasi = $('#selectedPakets').data('durasi') || 60;
+                    const selectedPaketName = $('.bg-gray-50.p-4 h3.font-semibold.text-lg').text().trim();
+
+                    // Hapus tampilan paket yang dipilih dari landing page
+                    const paketContainer = $('.bg-gray-50.p-4.rounded-lg.border.border-gray-200.flex.items-start');
+                    if (paketContainer.length) {
+                        paketContainer.closest('div').remove();
+                    } else {
+                        // Hanya hapus div yang berisi paket yang dipilih
+                        $('div:has(> #selectedPakets)').remove();
+                    }
+
+                    // Buat container paket baru dengan UI card
+                    const paketContainerHtml = `
                     <div>
                         <div id="paketContainer">
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -1944,428 +2140,759 @@
                     </div>
                 `;
 
-                // Tambahkan container paket baru ke dalam DOM, segera setelah label "Informasi Layanan"
-                const layananHeading = $('.text-xl.font-semibold:contains("Informasi Layanan")');
-                if (layananHeading.length) {
-                    layananHeading.closest('.flex').after(paketContainerHtml);
-                } else {
-                    // Fallback jika heading tidak ditemukan
-                    const dataBookingSection = $('#durasiInfo').closest('.bg-white');
-                    dataBookingSection.find('.space-y-5').prepend(paketContainerHtml);
+                    // Tambahkan container paket baru ke dalam DOM, segera setelah label "Informasi Layanan"
+                    const layananHeading = $('.text-xl.font-semibold:contains("Informasi Layanan")');
+                    if (layananHeading.length) {
+                        layananHeading.closest('.flex').after(paketContainerHtml);
+                    } else {
+                        // Fallback jika heading tidak ditemukan
+                        const dataBookingSection = $('#durasiInfo').closest('.bg-white');
+                        dataBookingSection.find('.space-y-5').prepend(paketContainerHtml);
+                    }
+
+                    // Hapus input hidden selectedPakets
+                    $('#selectedPakets').remove();
+
+                    // Tambahkan paket yang sudah dipilih sebelumnya ke dalam selected pakets
+                    tambahPaketKeSelected(selectedPaketId, selectedPaketName, selectedPaketHarga, selectedPaketDurasi);
+
+                    return;
                 }
-
-                // Hapus input hidden selectedPakets
-                $('#selectedPakets').remove();
-
-                // Tambahkan paket yang sudah dipilih sebelumnya ke dalam selected pakets
-                tambahPaketKeSelected(selectedPaketId, selectedPaketName, selectedPaketHarga, selectedPaketDurasi);
-
-                return;
             }
-        }
 
-        // Fungsi sudah didefinisikan di scope global
+            // Fungsi sudah didefinisikan di scope global
 
-        // Inisialisasi perhitungan total saat halaman dimuat
-        hitungTotal();
-        
-        // Inisialisasi tombol submit
-        $('#btnSubmit').prop('disabled', true).addClass('opacity-50 cursor-not-allowed');
-        
-        // Check submit button setelah inisialisasi
-        setTimeout(function() {
-            checkSubmitButton();
-        }, 100);
-
-        // Fungsi untuk memperbarui jam selesai berdasarkan jam mulai dan durasi
-        function updateJamEnd() {
-            const jamStart = $('#jamstart').val();
-            if (jamStart && totalDurasi > 0) {
-                // Konversi jam mulai ke menit
-                const [hours, minutes] = jamStart.split(':').map(Number);
-                const startMinutes = hours * 60 + minutes;
-
-                // Tambahkan durasi total
-                const endMinutes = startMinutes + totalDurasi;
-
-                // Konversi kembali ke format jam
-                const endHours = Math.floor(endMinutes / 60) % 24;
-                const endMins = endMinutes % 60;
-
-                const formattedEndHours = endHours.toString().padStart(2, '0');
-                const formattedEndMins = endMins.toString().padStart(2, '0');
-
-                const jamEnd = `${formattedEndHours}:${formattedEndMins}`;
-                $('#jamend').val(jamEnd);
-            }
-        }
-
-        // Event handler untuk perubahan paket
-        $(document).on('change', '.paket-select', function() {
-            const $select = $(this);
-            const $paketInfo = $select.closest('.paket-selection').find('.paket-info');
-            const $durasi = $paketInfo.find('.paket-durasi');
-            const $harga = $paketInfo.find('.paket-harga');
-
-            if ($select.val()) {
-                const $option = $select.find('option:selected');
-                const harga = parseFloat($option.data('harga'));
-                const durasi = parseInt($option.data('durasi'));
-
-                $durasi.text(durasi);
-                $harga.text('Rp. ' + formatNumber(harga));
-                $paketInfo.removeClass('hidden');
-
-                hitungTotal();
-            } else {
-                $paketInfo.addClass('hidden');
-            }
-        });
-
-        // Event handler untuk menghapus paket
-        $(document).on('click', '.remove-paket', function() {
-            $(this).closest('.paket-selection').remove();
+            // Inisialisasi perhitungan total saat halaman dimuat
             hitungTotal();
-        });
 
-        // Perbarui jam end saat jam start berubah
-        $('#jamstart').on('change', function() {
-            updateJamEnd();
-        });
+            // Inisialisasi tombol submit
+            $('#btnSubmit').prop('disabled', true).addClass('opacity-50 cursor-not-allowed');
 
-        // Inisialisasi perhitungan total saat halaman dimuat
-        hitungTotal();
+            // Check submit button setelah inisialisasi
+            setTimeout(function() {
+                checkSubmitButton();
+            }, 100);
 
-        // Fungsi untuk memperbarui informasi durasi
-        function updateDurasiInfo(isInitial) {
-            debug('Memperbarui informasi durasi', {
-                totalDurasi,
-                isInitial
+            // Fungsi untuk memperbarui jam selesai berdasarkan jam mulai dan durasi
+            function updateJamEnd() {
+                const jamStart = $('#jamstart').val();
+                if (jamStart && totalDurasi > 0) {
+                    // Konversi jam mulai ke menit
+                    const [hours, minutes] = jamStart.split(':').map(Number);
+                    const startMinutes = hours * 60 + minutes;
+
+                    // Tambahkan durasi total
+                    const endMinutes = startMinutes + totalDurasi;
+
+                    // Konversi kembali ke format jam
+                    const endHours = Math.floor(endMinutes / 60) % 24;
+                    const endMins = endMinutes % 60;
+
+                    const formattedEndHours = endHours.toString().padStart(2, '0');
+                    const formattedEndMins = endMins.toString().padStart(2, '0');
+
+                    const jamEnd = `${formattedEndHours}:${formattedEndMins}`;
+                    $('#jamend').val(jamEnd);
+                }
+            }
+
+            // Event handler untuk perubahan paket
+            $(document).on('change', '.paket-select', function() {
+                const $select = $(this);
+                const $paketInfo = $select.closest('.paket-selection').find('.paket-info');
+                const $durasi = $paketInfo.find('.paket-durasi');
+                const $harga = $paketInfo.find('.paket-harga');
+
+                if ($select.val()) {
+                    const $option = $select.find('option:selected');
+                    const harga = parseFloat($option.data('harga'));
+                    const durasi = parseInt($option.data('durasi'));
+
+                    $durasi.text(durasi);
+                    $harga.text('Rp. ' + formatNumber(harga));
+                    $paketInfo.removeClass('hidden');
+
+                    hitungTotal();
+                } else {
+                    $paketInfo.addClass('hidden');
+                }
             });
 
-            if (totalDurasi > 0) {
-                // Hitung jam selesai berdasarkan jam mulai yang dipilih dan durasi total
-                const jamMulai = $('#jamstart').val();
+            // Event handler untuk menghapus paket
+            $(document).on('click', '.remove-paket', function() {
+                $(this).closest('.paket-selection').remove();
+                hitungTotal();
+            });
 
-                // Tampilkan informasi durasi yang lebih jelas
-                let durasiInfo = '';
-                if (totalDurasi >= 60) {
-                    const jam = Math.floor(totalDurasi / 60);
-                    const menit = totalDurasi % 60;
-                    durasiInfo = `${jam} jam`;
-                    if (menit > 0) {
-                        durasiInfo += ` ${menit} menit`;
+            // Perbarui jam end saat jam start berubah
+            $('#jamstart').on('change', function() {
+                updateJamEnd();
+            });
+
+            // Inisialisasi perhitungan total saat halaman dimuat
+            hitungTotal();
+
+            // Fungsi untuk memperbarui informasi durasi
+            function updateDurasiInfo(isInitial) {
+                debug('Memperbarui informasi durasi', {
+                    totalDurasi,
+                    isInitial
+                });
+
+                if (totalDurasi > 0) {
+                    // Hitung jam selesai berdasarkan jam mulai yang dipilih dan durasi total
+                    const jamMulai = $('#jamstart').val();
+
+                    // Tampilkan informasi durasi yang lebih jelas
+                    let durasiInfo = '';
+                    if (totalDurasi >= 60) {
+                        const jam = Math.floor(totalDurasi / 60);
+                        const menit = totalDurasi % 60;
+                        durasiInfo = `${jam} jam`;
+                        if (menit > 0) {
+                            durasiInfo += ` ${menit} menit`;
+                        }
+                    } else {
+                        durasiInfo = `${totalDurasi} menit`;
                     }
+
+                    // Update jam selesai jika ada jam mulai
+                    if (jamMulai) {
+                        const [jam, menit] = jamMulai.split(':');
+                        let jamMulaiMenit = (parseInt(jam) * 60) + parseInt(menit);
+                        let jamSelesaiMenit = jamMulaiMenit + totalDurasi;
+
+                        // Format jam selesai
+                        let jamSelesai = Math.floor(jamSelesaiMenit / 60);
+                        let menitSelesai = jamSelesaiMenit % 60;
+                        let jamSelesaiStr = `${jamSelesai.toString().padStart(2, '0')}:${menitSelesai.toString().padStart(2, '0')}`;
+
+                        // Update tampilan jam selesai
+                        $('#jamend').val(jamSelesaiStr);
+                    }
+
+                    // Kosongkan container durasi info untuk menghilangkan teks
+                    $('#durasiInfo').html('').addClass('hidden');
                 } else {
-                    durasiInfo = `${totalDurasi} menit`;
+                    $('#durasiInfo').addClass('hidden');
                 }
+            }
+        });
+    </script>
+    <?= $this->endSection() ?>
 
-                // Update jam selesai jika ada jam mulai
-                if (jamMulai) {
-                    const [jam, menit] = jamMulai.split(':');
-                    let jamMulaiMenit = (parseInt(jam) * 60) + parseInt(menit);
-                    let jamSelesaiMenit = jamMulaiMenit + totalDurasi;
+    <?= $this->section('custom_style') ?>
+    <style>
+        /* Style untuk animasi pada preview gambar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
-                    // Format jam selesai
-                    let jamSelesai = Math.floor(jamSelesaiMenit / 60);
-                    let menitSelesai = jamSelesaiMenit % 60;
-                    let jamSelesaiStr = `${jamSelesai.toString().padStart(2, '0')}:${menitSelesai.toString().padStart(2, '0')}`;
-
-                    // Update tampilan jam selesai
-                    $('#jamend').val(jamSelesaiStr);
-                }
-
-                // Kosongkan container durasi info untuk menghilangkan teks
-                $('#durasiInfo').html('').addClass('hidden');
-            } else {
-                $('#durasiInfo').addClass('hidden');
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    });
-</script>
-<?= $this->endSection() ?>
 
-<?= $this->section('custom_style') ?>
-<style>
-    /* Style untuk animasi pada preview gambar */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
+        .animate__animated {
+            animation-duration: 0.5s;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .animate__animated {
-        animation-duration: 0.5s;
-    }
-
-    .animate__fadeIn {
-        animation-name: fadeIn;
-    }
-
-    /* Styling untuk input tanggal saat validasi */
-    @keyframes pulseBorder {
-        0% {
-            box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.6);
+        .animate__fadeIn {
+            animation-name: fadeIn;
         }
 
-        70% {
-            box-shadow: 0 0 0 6px rgba(250, 204, 21, 0);
+        /* Styling untuk input tanggal saat validasi */
+        @keyframes pulseBorder {
+            0% {
+                box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(250, 204, 21, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+            }
         }
 
-        100% {
-            box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+        .border-yellow-400.ring-2 {
+            animation: pulseBorder 1.5s infinite;
+            transition: all 0.3s ease;
         }
-    }
 
-    .border-yellow-400.ring-2 {
-        animation: pulseBorder 1.5s infinite;
-        transition: all 0.3s ease;
-    }
-
-    /* Style untuk tombol radio */
-    .payment-radio:checked+label .radio-circle .radio-dot,
-    .method-radio:checked+label .radio-circle .radio-dot {
-        display: block;
-    }
-
-    .payment-radio:checked+label,
-    .method-radio:checked+label {
-        border-color: #4f46e5;
-        background-color: #f9fafb;
-    }
-
-    /* Styling untuk time slots - desain sederhana dan clean */
-    .time-slot {
-        padding: 0.75rem 1rem;
-        text-align: center;
-        border: 1px solid var(--gray-300);
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        font-weight: 500;
-        color: var(--text-primary);
-        background: var(--white);
-        min-width: 80px;
-        font-size: 0.875rem;
-        box-shadow: none;
-    }
-
-    .time-slot:hover {
-        border-color: var(--primary-color);
-        background: var(--white);
-        color: var(--primary-color);
-    }
-
-    .time-slot.active,
-    .time-slot.selected {
-        border-color: var(--success-color);
-        background: var(--success-color);
-        color: white;
-    }
-
-    .time-slot.booked {
-        background: var(--error-color);
-        border-color: var(--error-color);
-        color: white;
-        cursor: not-allowed;
-    }
-
-    .time-slot.disabled {
-        background: var(--gray-100);
-        border-color: var(--gray-300);
-        color: var(--text-light);
-        cursor: not-allowed;
-        opacity: 0.7;
-    }
-
-    .time-slot.booked:hover,
-    .time-slot.disabled:hover {
-        border-color: var(--gray-300);
-        background: var(--gray-100);
-        color: var(--text-light);
-    }
-
-    /* Responsive time slot grid */
-    @media (max-width: 768px) {
-        #timeSlotGrid {
-            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
-            gap: 0.5rem !important;
+        /* Style untuk tombol radio */
+        .payment-radio:checked+label .radio-circle .radio-dot,
+        .method-radio:checked+label .radio-circle .radio-dot {
+            display: block;
         }
-        
+
+        .payment-radio:checked+label,
+        .method-radio:checked+label {
+            border-color: #4f46e5;
+            background-color: #f9fafb;
+        }
+
+        /* Styling untuk time slots - desain yang lebih panjang dan menarik */
         .time-slot {
-            padding: 0.5rem 0.75rem !important;
-            font-size: 0.8rem !important;
-            min-width: 75px !important;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            border: 2px solid var(--gray-200);
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            background: var(--white);
+            min-width: 120px;
+            min-height: 80px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-    }
 
-    @media (max-width: 480px) {
-        #timeSlotGrid {
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 0.5rem !important;
+        .time-slot:hover {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--white), #F0F9FF);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
+        .time-slot:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02));
+            pointer-events: none;
+        }
+
+        .time-slot.active,
+        .time-slot.selected {
+            border-color: var(--success-color);
+            background: linear-gradient(135deg, var(--success-color), #10B981);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1), 0 8px 25px rgba(34, 197, 94, 0.3);
+        }
+
+        .time-slot.active::before,
+        .time-slot.selected::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            pointer-events: none;
+        }
+
+        .time-slot.active::after,
+        .time-slot.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            animation: fadeInScale 0.3s ease-out;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .time-slot.booked {
+            background: linear-gradient(135deg, var(--error-color), #DC2626);
+            border-color: var(--error-color);
+            color: white;
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        .time-slot.booked::after {
+            content: '✗';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--error-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .time-slot.disabled {
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+            border-color: var(--gray-300);
+            color: var(--text-light);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .time-slot.disabled::after {
+            content: '⏰';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .time-slot.booked:hover,
+        .time-slot.disabled:hover {
+            border-color: var(--gray-300);
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+            color: var(--text-light);
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Tooltip untuk time slot */
         .time-slot {
-            padding: 0.5rem 0.25rem !important;
-            font-size: 0.75rem !important;
-            min-width: 70px !important;
+            position: relative;
         }
-    }
 
-    /* Time slot container simple styling */
-    #timeSlotContainer {
-        transition: opacity 0.3s ease;
-        opacity: 0;
-    }
+        .time-slot[title]:hover::before {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            z-index: 10;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+        }
 
-    #timeSlotContainer.show {
-        opacity: 1;
-    }
+        .time-slot[title]:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--text-primary);
+            margin-bottom: -5px;
+            z-index: 10;
+            pointer-events: none;
+        }
 
-    /* Karyawan selection styling */
-    .karyawan-item {
-        background: var(--white);
-        border: 2px solid var(--gray-200);
-        border-radius: 1rem;
-        padding: 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
+        /* Override untuk time slot yang sudah dipilih atau tidak tersedia */
+        .time-slot.active[title]:hover::before,
+        .time-slot.selected[title]:hover::before,
+        .time-slot.booked[title]:hover::before,
+        .time-slot.disabled[title]:hover::before {
+            display: none;
+        }
 
-    .karyawan-item:hover {
-        border-color: var(--primary-color);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
+        .time-slot.active[title]:hover::after,
+        .time-slot.selected[title]:hover::after,
+        .time-slot.booked[title]:hover::after,
+        .time-slot.disabled[title]:hover::after {
+            display: none;
+        }
 
-    .karyawan-item.selected,
-    .karyawan-item.border-green-500 {
-        border-color: var(--success-color) !important;
-        background: linear-gradient(135deg, var(--white), #F0FDF4) !important;
-        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1) !important;
-    }
+        /* Responsive time slot grid */
+        @media (max-width: 768px) {
+            #timeSlotGrid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+                gap: 0.75rem !important;
+            }
 
-    /* Alert styling sudah tidak digunakan - menggunakan SweetAlert2 */
+            .time-slot {
+                padding: 1rem 0.75rem !important;
+                min-width: 100px !important;
+                min-height: 70px !important;
+            }
 
-    /* Modal dan animasi styling */
-    @keyframes fadeInUp {
-        from {
+            .time-slot span:first-child {
+                font-size: 1rem !important;
+            }
+
+            .time-slot span:last-child {
+                font-size: 0.7rem !important;
+            }
+
+            #karyawanList {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+                gap: 1rem !important;
+            }
+
+            .karyawan-item {
+                padding: 1.25rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #timeSlotGrid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+
+            .time-slot {
+                padding: 0.75rem 0.5rem !important;
+                min-width: 90px !important;
+                min-height: 60px !important;
+            }
+
+            .time-slot span:first-child {
+                font-size: 0.875rem !important;
+            }
+
+            .time-slot span:last-child {
+                font-size: 0.65rem !important;
+            }
+
+            #karyawanList {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .karyawan-item {
+                padding: 1rem !important;
+            }
+
+            .karyawan-item h4 {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Time slot container simple styling */
+        #timeSlotContainer {
+            transition: opacity 0.3s ease;
             opacity: 0;
-            transform: translateY(30px);
         }
-        to {
+
+        #timeSlotContainer.show {
             opacity: 1;
-            transform: translateY(0);
         }
-    }
 
-    .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out;
-    }
-
-    /* Modern paket card styling */
-    .paket-card {
-        transition: all 0.3s ease;
-        border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .paket-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        border-color: var(--primary-color);
-    }
-
-    .paket-card.selected {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
-    }
-
-    .selected-paket-item {
-        animation: slideInUp 0.3s ease;
-        border-radius: 1rem;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    @keyframes slideInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
+        /* Karyawan selection styling */
+        .karyawan-item {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .karyawan-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-    }
 
-    .remove-selected-paket {
-        transition: all 0.2s ease;
-        border-radius: 50%;
-        padding: 0.5rem;
-    }
-
-    .remove-selected-paket:hover {
-        background: #FEE2E2;
-        color: #DC2626;
-        transform: scale(1.1);
-    }
-
-    /* Animasi untuk loading spinner */
-    @keyframes spin {
-        from {
-            transform: rotate(0deg);
+        .karyawan-item:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02));
+            pointer-events: none;
         }
-        to {
-            transform: rotate(360deg);
+
+        .karyawan-item.selected,
+        .karyawan-item.border-green-500 {
+            border-color: var(--success-color) !important;
+            background: linear-gradient(135deg, var(--white), #F0FDF4) !important;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1) !important;
         }
-    }
 
-    .animate-spin {
-        animation: spin 1s linear infinite;
-    }
-
-    /* Animasi untuk SweetAlert2 Toast */
-    @keyframes fadeInRight {
-        from {
-            opacity: 0;
-            transform: translateX(100%);
+        .check-icon {
+            transition: all 0.3s ease;
         }
-        to {
-            opacity: 1;
-            transform: translateX(0);
+
+        .karyawan-item:hover .check-icon {
+            opacity: 0.3 !important;
+            transform: scale(1.05);
         }
-    }
 
-    @keyframes fadeOutRight {
-        from {
-            opacity: 1;
-            transform: translateX(0);
+        .karyawan-item.selected .check-icon,
+        .karyawan-item.border-green-500 .check-icon {
+            opacity: 1 !important;
+            transform: scale(1.1);
         }
-        to {
-            opacity: 0;
-            transform: translateX(100%);
+
+        .karyawan-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-    }
 
-    .animate__animated {
-        animation-duration: 0.5s;
-        animation-fill-mode: both;
-    }
+        .karyawan-item:hover .karyawan-photo {
+            transform: scale(1.05);
+        }
 
-    .animate__fadeInRight {
-        animation-name: fadeInRight;
-    }
+        .karyawan-photo {
+            transition: transform 0.3s ease;
+        }
 
-    .animate__fadeOutRight {
-        animation-name: fadeOutRight;
-    }
-</style>
-<?= $this->endSection() ?>
+        /* Alert styling sudah tidak digunakan - menggunakan SweetAlert2 */
+
+        /* Modal dan animasi styling */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Modern paket card styling */
+        .paket-card {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .paket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .paket-card.selected {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+        }
+
+        .selected-paket-item {
+            animation: slideInUp 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .karyawan-item {
+            animation: fadeInScale 0.4s ease-out;
+        }
+
+        .karyawan-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .karyawan-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .karyawan-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .karyawan-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .karyawan-item:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        /* Animasi untuk time slot */
+        .time-slot {
+            animation: fadeInScale 0.4s ease-out;
+        }
+
+        .time-slot:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .time-slot:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .time-slot:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .time-slot:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .time-slot:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .time-slot:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .time-slot:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .time-slot:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+
+        .time-slot:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+
+        .time-slot:nth-child(10) {
+            animation-delay: 0.5s;
+        }
+
+        .time-slot:nth-child(11) {
+            animation-delay: 0.55s;
+        }
+
+        .time-slot:nth-child(12) {
+            animation-delay: 0.6s;
+        }
+
+        .remove-selected-paket {
+            transition: all 0.2s ease;
+            border-radius: 50%;
+            padding: 0.5rem;
+        }
+
+        .remove-selected-paket:hover {
+            background: #FEE2E2;
+            color: #DC2626;
+            transform: scale(1.1);
+        }
+
+        /* Animasi untuk loading spinner */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Animasi untuk SweetAlert2 Toast */
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeOutRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+
+        .animate__animated {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .animate__fadeInRight {
+            animation-name: fadeInRight;
+        }
+
+        .animate__fadeOutRight {
+            animation-name: fadeOutRight;
+        }
+    </style>
+    <?= $this->endSection() ?>

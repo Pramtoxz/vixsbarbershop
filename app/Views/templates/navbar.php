@@ -5,11 +5,10 @@
             <!-- Logo Section -->
             <div class="nav-logo-section">
                 <a href="<?= base_url() ?>" class="nav-logo">
-                    <span class="logo-icon">✂️</span>
                     <span class="logo-text">Vixs Barbershop</span>
                 </a>
             </div>
-            
+
             <!-- Mobile Menu Toggle -->
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                 <span class="hamburger-icon">☰</span>
@@ -18,23 +17,22 @@
             <!-- Navigation Links -->
             <div class="nav-links-container">
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="<?= base_url() ?>#beranda" class="nav-link active">🏠 Beranda</a></li>
-                    <li><a href="<?= base_url() ?>#layanan" class="nav-link">✂️ Layanan</a></li>
-                    <li><a href="<?= base_url() ?>#galeri" class="nav-link">🖼️ Galeri</a></li>
-                    <li><a href="<?= base_url() ?>#tentang" class="nav-link">ℹ️ Tentang</a></li>
-                    <li><a href="<?= base_url() ?>#kontak" class="nav-link">📞 Kontak</a></li>
+                    <li><a href="<?= base_url() ?>#beranda" class="nav-link active">Beranda</a></li>
+                    <li><a href="<?= base_url() ?>#layanan" class="nav-link">Layanan</a></li>
+                    <li><a href="<?= base_url() ?>#galeri" class="nav-link">Galeri</a></li>
+                    <li><a href="<?= base_url() ?>#tentang" class="nav-link">Tentang</a></li>
+                    <li><a href="<?= base_url() ?>#kontak" class="nav-link">Kontak</a></li>
                 </ul>
-                
+
                 <!-- Action Buttons -->
                 <div class="nav-actions">
                     <?php if (isset($_SESSION['pelanggan']) || session()->get('logged_in')) : ?>
                         <!-- Booking Button -->
                         <a href="<?= base_url('customer/booking/create') ?>" class="btn btn-primary btn-enhanced nav-btn-booking">
-                            <span class="btn-icon">📅</span>
                             <span class="btn-text">Booking</span>
                             <span class="btn-shine"></span>
                         </a>
-                        
+
                         <!-- User Menu -->
                         <div class="user-menu-wrapper">
                             <button class="user-menu-trigger" onclick="toggleUserMenu()">
@@ -42,7 +40,7 @@
                                 <span class="user-text">Akun</span>
                                 <span class="dropdown-arrow">⌄</span>
                             </button>
-                            
+
                             <div class="user-menu" id="user-menu">
                                 <div class="user-menu-header">
                                     <span class="user-greeting">👋 Selamat datang!</span>
@@ -90,51 +88,45 @@
                 <span class="close-icon">✖️</span>
             </button>
         </div>
-        
+
         <!-- Mobile Navigation -->
         <div class="mobile-nav-section">
-            <h3 class="mobile-section-title">🧭 Navigasi</h3>
+            <h3 class="mobile-section-title">Navigasi</h3>
             <ul class="mobile-nav-links">
                 <li>
                     <a href="<?= base_url() ?>#beranda" class="mobile-nav-link" onclick="closeMobileMenu()">
-                        <span class="mobile-nav-icon">🏠</span>
                         <span class="mobile-nav-text">Beranda</span>
                     </a>
                 </li>
                 <li>
                     <a href="<?= base_url() ?>#layanan" class="mobile-nav-link" onclick="closeMobileMenu()">
-                        <span class="mobile-nav-icon">✂️</span>
                         <span class="mobile-nav-text">Layanan</span>
                     </a>
                 </li>
                 <li>
                     <a href="<?= base_url() ?>#galeri" class="mobile-nav-link" onclick="closeMobileMenu()">
-                        <span class="mobile-nav-icon">🖼️</span>
                         <span class="mobile-nav-text">Galeri</span>
                     </a>
                 </li>
                 <li>
                     <a href="<?= base_url() ?>#tentang" class="mobile-nav-link" onclick="closeMobileMenu()">
-                        <span class="mobile-nav-icon">ℹ️</span>
                         <span class="mobile-nav-text">Tentang</span>
                     </a>
                 </li>
                 <li>
                     <a href="<?= base_url() ?>#kontak" class="mobile-nav-link" onclick="closeMobileMenu()">
-                        <span class="mobile-nav-icon">📞</span>
                         <span class="mobile-nav-text">Kontak</span>
                     </a>
                 </li>
             </ul>
         </div>
-        
+
         <!-- Mobile Actions -->
         <div class="mobile-actions-section">
             <?php if (isset($_SESSION['pelanggan']) || session()->get('logged_in')) : ?>
                 <h3 class="mobile-section-title">⚡ Aksi Cepat</h3>
                 <div class="mobile-action-buttons">
                     <a href="<?= base_url('customer/booking/create') ?>" class="btn btn-primary mobile-action-btn" onclick="closeMobileMenu()">
-                        <span class="btn-icon">📅</span>
                         <span class="btn-text">Booking Sekarang</span>
                     </a>
                     <a href="<?= base_url('customer/profil') ?>" class="btn btn-secondary mobile-action-btn" onclick="closeMobileMenu()">
@@ -142,7 +134,7 @@
                         <span class="btn-text">Profil Saya</span>
                     </a>
                 </div>
-                
+
                 <div class="mobile-logout-section">
                     <a href="<?= base_url('customer/logout') ?>" class="mobile-logout-link" onclick="closeMobileMenu()">
                         <span class="logout-icon">🚪</span>
@@ -163,139 +155,139 @@
 </nav>
 
 <script>
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.remove('navbar-transparent');
-        navbar.classList.add('navbar-fixed');
-    } else {
-        navbar.classList.add('navbar-transparent');
-        navbar.classList.remove('navbar-fixed');
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.remove('navbar-transparent');
+            navbar.classList.add('navbar-fixed');
+        } else {
+            navbar.classList.add('navbar-transparent');
+            navbar.classList.remove('navbar-fixed');
+        }
+    });
+
+
+
+    // Enhanced User menu toggle
+    function toggleUserMenu() {
+        const userMenu = document.getElementById('user-menu');
+        const isVisible = userMenu.classList.contains('show');
+
+        if (isVisible) {
+            userMenu.classList.remove('show');
+            setTimeout(() => {
+                userMenu.style.display = 'none';
+            }, 300);
+        } else {
+            userMenu.style.display = 'block';
+            setTimeout(() => {
+                userMenu.classList.add('show');
+            }, 10);
+        }
     }
-});
 
+    // Close user menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const userMenu = document.getElementById('user-menu');
+        const userMenuWrapper = event.target.closest('.user-menu-wrapper');
 
+        if (userMenu && !userMenuWrapper && userMenu.classList.contains('show')) {
+            userMenu.classList.remove('show');
+            setTimeout(() => {
+                userMenu.style.display = 'none';
+            }, 300);
+        }
+    });
 
-// Enhanced User menu toggle
-function toggleUserMenu() {
-    const userMenu = document.getElementById('user-menu');
-    const isVisible = userMenu.classList.contains('show');
-    
-    if (isVisible) {
-        userMenu.classList.remove('show');
-        setTimeout(() => {
-            userMenu.style.display = 'none';
-        }, 300);
-    } else {
-        userMenu.style.display = 'block';
-        setTimeout(() => {
-            userMenu.classList.add('show');
-        }, 10);
+    // Enhanced Mobile menu functionality
+    function toggleMobileMenu() {
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const content = document.getElementById('mobile-menu-content');
+
+        const isVisible = content.classList.contains('show');
+
+        if (isVisible) {
+            // Hide mobile menu
+            content.classList.remove('show');
+            overlay.classList.remove('show');
+
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                content.style.display = 'none';
+            }, 400);
+        } else {
+            // Show mobile menu
+            overlay.style.display = 'block';
+            content.style.display = 'block';
+
+            setTimeout(() => {
+                overlay.classList.add('show');
+                content.classList.add('show');
+            }, 10);
+        }
     }
-}
 
-// Close user menu when clicking outside
-document.addEventListener('click', function(event) {
-    const userMenu = document.getElementById('user-menu');
-    const userMenuWrapper = event.target.closest('.user-menu-wrapper');
-    
-    if (userMenu && !userMenuWrapper && userMenu.classList.contains('show')) {
-        userMenu.classList.remove('show');
-        setTimeout(() => {
-            userMenu.style.display = 'none';
-        }, 300);
-    }
-});
+    function closeMobileMenu() {
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const content = document.getElementById('mobile-menu-content');
 
-// Enhanced Mobile menu functionality
-function toggleMobileMenu() {
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const content = document.getElementById('mobile-menu-content');
-    
-    const isVisible = content.classList.contains('show');
-    
-    if (isVisible) {
-        // Hide mobile menu
         content.classList.remove('show');
         overlay.classList.remove('show');
-        
+
         setTimeout(() => {
             overlay.style.display = 'none';
             content.style.display = 'none';
         }, 400);
-    } else {
-        // Show mobile menu
-        overlay.style.display = 'block';
-        content.style.display = 'block';
-        
-        setTimeout(() => {
-            overlay.classList.add('show');
-            content.classList.add('show');
-        }, 10);
     }
-}
 
-function closeMobileMenu() {
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const content = document.getElementById('mobile-menu-content');
-    
-    content.classList.remove('show');
-    overlay.classList.remove('show');
-    
-    setTimeout(() => {
-        overlay.style.display = 'none';
-        content.style.display = 'none';
-    }, 400);
-}
+    // Mobile menu responsive check
+    function checkMobile() {
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const navLinksContainer = document.querySelector('.nav-links-container');
 
-// Mobile menu responsive check
-function checkMobile() {
-    const mobileToggle = document.getElementById('mobile-menu-toggle');
-    const navLinksContainer = document.querySelector('.nav-links-container');
-    
-    if (window.innerWidth <= 768) {
-        mobileToggle.style.display = 'block';
-        if (navLinksContainer) {
-            navLinksContainer.style.display = 'none';
+        if (window.innerWidth <= 768) {
+            mobileToggle.style.display = 'block';
+            if (navLinksContainer) {
+                navLinksContainer.style.display = 'none';
+            }
+            mobileToggle.onclick = toggleMobileMenu;
+        } else {
+            mobileToggle.style.display = 'none';
+            if (navLinksContainer) {
+                navLinksContainer.style.display = 'flex';
+            }
+            // Close mobile menu if open
+            closeMobileMenu();
         }
-        mobileToggle.onclick = toggleMobileMenu;
-    } else {
-        mobileToggle.style.display = 'none';
-        if (navLinksContainer) {
-            navLinksContainer.style.display = 'flex';
-        }
-        // Close mobile menu if open
-        closeMobileMenu();
     }
-}
 
-// Check on load and resize
-window.addEventListener('load', checkMobile);
-window.addEventListener('resize', checkMobile);
+    // Check on load and resize
+    window.addEventListener('load', checkMobile);
+    window.addEventListener('resize', checkMobile);
 
-// Active nav link highlighting
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let currentSection = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        if (href && currentSection && href.includes('#' + currentSection)) {
-            link.classList.add('active');
-        }
-    });
-}
+    // Active nav link highlighting
+    function updateActiveNavLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', updateActiveNavLink);
+        let currentSection = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href && currentSection && href.includes('#' + currentSection)) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNavLink);
 </script>
