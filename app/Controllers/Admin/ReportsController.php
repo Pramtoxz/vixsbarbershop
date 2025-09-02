@@ -1330,14 +1330,14 @@ class ReportsController extends BaseController
             'manager' => 'Pimpinan'
         ];
 
-        $content = '\n        <table class="table table-bordered">\n            <thead>\n                <tr>\n                    <th class="text-center" width="5%">No</th>\n                    <th width="15%">Tanggal</th>\n                    <th>Keterangan</th>\n                    <th class="text-center">Jumlah</th>\n                </tr>\n            </thead>\n            <tbody>';
+        $content = '        <table class="table table-bordered">            <thead>                <tr>                    <th class="text-center" width="5%">No</th>                    <th width="15%">Tanggal</th>                    <th>Keterangan</th>                    <th class="text-center">Jumlah</th>                </tr>            </thead>            <tbody>';
 
         $no = 1;
         foreach ($rows as $r) {
-            $content .= '\n            <tr>\n                <td class="text-center">' . $no++ . '</td>\n                <td>' . date('d/m/Y', strtotime($r['tgl'])) . '</td>\n                <td>' . $r['keterangan'] . '</td>\n                <td class="text-end">Rp ' . number_format($r['jumlah'], 0, ',', '.') . '</td>\n            </tr>';
+            $content .= '            <tr>                <td class="text-center">' . $no++ . '</td>                <td>' . date('d/m/Y', strtotime($r['tgl'])) . '</td>                <td>' . $r['keterangan'] . '</td>                <td class="text-end">Rp ' . number_format($r['jumlah'], 0, ',', '.') . '</td>            </tr>';
         }
 
-        $content .= '\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td colspan="3" class="text-end fw-bold">Total:</td>\n                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>\n                </tr>\n            </tfoot>\n        </table>';
+        $content .= '            </tbody>            <tfoot>                <tr>                    <td colspan="3" class="text-end fw-bold">Total:</td>                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>                </tr>            </tfoot>        </table>';
 
         $data = array_merge($headerData, ['content' => $content]);
 
@@ -1440,14 +1440,14 @@ class ReportsController extends BaseController
             'manager' => 'Pimpinan'
         ];
 
-        $content = '\n        <table class="table table-bordered">\n            <thead>\n                <tr>\n                    <th class="text-center" width="5%">No</th>\n                    <th>Bulan</th>\n                    <th class="text-center">Total</th>\n                </tr>\n            </thead>\n            <tbody>';
+        $content = '<table class="table table-bordered">            <thead>           <tr>             <th class="text-center" width="5%">No</th>                    <th>Bulan</th>                    <th class="text-center">Total</th>                </tr>            </thead>            <tbody>';
 
         $no = 1;
         foreach ($rows as $r) {
-            $content .= '\n            <tr>\n                <td class="text-center">' . $no++ . '</td>\n                <td>' . $this->getNamaBulan($r['bulan']) . '</td>\n                <td class="text-end">Rp ' . number_format($r['total'], 0, ',', '.') . '</td>\n            </tr>';
+            $content .= '            <tr>                <td class="text-center">' . $no++ . '</td>                <td>' . $this->getNamaBulan($r['bulan']) . '</td>                <td class="text-end">Rp ' . number_format($r['total'], 0, ',', '.') . '</td>            </tr>';
         }
 
-        $content .= '\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td colspan="2" class="text-end fw-bold">Total :</td>\n                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>\n                </tr>\n            </tfoot>\n        </table>';
+        $content .= '            </tbody>            <tfoot>                <tr>                    <td colspan="2" class="text-end fw-bold">Total :</td>                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>                </tr>            </tfoot>        </table>';
 
         $data = array_merge($headerData, ['content' => $content]);
 
