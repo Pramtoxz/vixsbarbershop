@@ -586,8 +586,18 @@ class ReportsController extends BaseController
         }
 
 
+        // Mendukung parameter tanggal_awal dan tanggal_akhir
         $tanggalLabel = '';
-        if ($bulan && $tahun) {
+        $tanggalAwal = $this->request->getGet('start_date');
+        $tanggalAkhir = $this->request->getGet('end_date');
+
+        if ($tanggalAwal && $tanggalAkhir) {
+            $tanggalLabel = "Periode: " . date('d/m/Y', strtotime($tanggalAwal)) . " s/d " . date('d/m/Y', strtotime($tanggalAkhir));
+        } elseif ($tanggalAwal) {
+            $tanggalLabel = "Mulai: " . date('d/m/Y', strtotime($tanggalAwal));
+        } elseif ($tanggalAkhir) {
+            $tanggalLabel = "Sampai: " . date('d/m/Y', strtotime($tanggalAkhir));
+        } elseif ($bulan && $tahun) {
             $namaBulan = $this->getNamaBulan($bulan);
             $tanggalLabel = "Bulan: $namaBulan $tahun";
         } elseif ($bulan) {
