@@ -187,6 +187,12 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->get('pengeluaran', 'Admin\ReportsController::pengeluaran');
         $routes->get('pengeluaran/data', 'Admin\ReportsController::getPengeluaranData');
         $routes->get('pengeluaran/print', 'Admin\ReportsController::printPengeluaran');
+        $routes->get('pengeluaran-bulanan', 'Admin\ReportsController::pengeluaranBulanan');
+        $routes->get('pengeluaran-bulanan/print', 'Admin\ReportsController::printPengeluaranBulanan');
+        $routes->get('pengeluaran-tahunan', 'Admin\ReportsController::pengeluaranTahunan');
+        $routes->get('pengeluaran-tahunan/print', 'Admin\ReportsController::printPengeluaranTahunan');
+        $routes->get('pengeluaran-tahunan/data', 'Admin\ReportsController::getPengeluaranTahunanData');
+        $routes->get('pengeluaran-bulanan/data', 'Admin\ReportsController::getPengeluaranBulananData');
         $routes->get('laba-rugi', 'Admin\ReportsController::labaRugi');
         $routes->get('laba-rugi/print', 'Admin\ReportsController::printLabaRugi');
         $routes->get('laba-rugi-bulanan', 'Admin\ReportsController::labaRugiBulanan');

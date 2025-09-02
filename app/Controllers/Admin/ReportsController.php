@@ -1219,6 +1219,241 @@ class ReportsController extends BaseController
         return view('admin/reports/pengeluaran', $data);
     }
 
+    public function pengeluaranBulanan()
+    {
+
+        $queryTahun = $this->db->query(
+            "SELECT DISTINCT YEAR(tgl) as tahun FROM pengeluaran ORDER BY tahun DESC"
+        );
+        $daftarTahun = $queryTahun->getResultArray();
+
+
+        $data = [
+            'title' => 'Laporan Pengeluaran Bulanan',
+            'daftarTahun' => $daftarTahun,
+            'bulan' => date('m'),
+            'tahun' => date('Y')
+        ];
+
+        return view('admin/reports/pengeluaran_bulanan', $data);
+    }
+
+    public function getPengeluaranBulananData()
+    {
+
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Permintaan tidak valid'
+            ]);
+        }
+
+
+        $tahun = $this->request->getGet('tahun');
+        $bulan = $this->request->getGet('bulan');
+        $showAll = $this->request->getGet('show_all') === 'true';
+
+        if (!$showAll && (empty($tahun) || empty($bulan))) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Parameter tidak lengkap'
+            ]);
+        }
+
+        $pengeluaranModel = new \App\Models\PengeluaranModel();
+        $builder = $pengeluaranModel->builder();
+
+        if (!$showAll) {
+            $builder->where('MONTH(tgl)', $bulan);
+            $builder->where('YEAR(tgl)', $tahun);
+        } else {
+            $builder->limit(100);
+        }
+
+        $builder->orderBy('tgl', 'ASC');
+        $rows = $builder->get()->getResultArray();
+
+        $formatted = [];
+        $total = 0;
+        foreach ($rows as $r) {
+            $formatted[] = [
+                'id' => $r['idpengeluaran'],
+                'tanggal' => date('d/m/Y', strtotime($r['tgl'])),
+                'tgl_raw' => $r['tgl'],
+                'keterangan' => $r['keterangan'],
+                'jumlah' => $r['jumlah'],
+                'jumlah_formatted' => 'Rp ' . number_format($r['jumlah'], 0, ',', '.')
+            ];
+            $total += $r['jumlah'];
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'data' => $formatted,
+            'total' => $total,
+            'total_formatted' => 'Rp ' . number_format($total, 0, ',', '.')
+        ]);
+    }
+
+    public function printPengeluaranBulanan()
+    {
+        $tahun = $this->request->getGet('tahun') ?? date('Y');
+        $bulan = $this->request->getGet('bulan') ?? date('m');
+
+        $namaBulan = [
+            '01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
+            '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
+            '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+        ];
+
+        $pengeluaranModel = new \App\Models\PengeluaranModel();
+        $builder = $pengeluaranModel->builder();
+        $builder->where('MONTH(tgl)', $bulan);
+        $builder->where('YEAR(tgl)', $tahun);
+        $builder->orderBy('tgl', 'ASC');
+        $rows = $builder->get()->getResultArray();
+
+        $total = 0;
+        foreach ($rows as $r) {
+            $total += $r['jumlah'];
+        }
+
+        $headerData = [
+            'title' => 'Cetak Laporan Pengeluaran Bulanan',
+            'nama_perusahaan' => 'Vixs Barbershop',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
+            'telepon' => '081234567890',
+            'email' => 'info@awanbarbershop.com',
+            'website' => 'www.awanbarbershop.com',
+            'tanggal_label' => 'Bulan: ' . ($namaBulan[$bulan] ?? $bulan) . ' ' . $tahun,
+            'report_title' => 'LAPORAN PENGELUARAN PERBULAN',
+            'manager' => 'Pimpinan'
+        ];
+
+        $content = '\n        <table class="table table-bordered">\n            <thead>\n                <tr>\n                    <th class="text-center" width="5%">No</th>\n                    <th width="15%">Tanggal</th>\n                    <th>Keterangan</th>\n                    <th class="text-center">Jumlah</th>\n                </tr>\n            </thead>\n            <tbody>';
+
+        $no = 1;
+        foreach ($rows as $r) {
+            $content .= '\n            <tr>\n                <td class="text-center">' . $no++ . '</td>\n                <td>' . date('d/m/Y', strtotime($r['tgl'])) . '</td>\n                <td>' . $r['keterangan'] . '</td>\n                <td class="text-end">Rp ' . number_format($r['jumlah'], 0, ',', '.') . '</td>\n            </tr>';
+        }
+
+        $content .= '\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td colspan="3" class="text-end fw-bold">Total:</td>\n                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>\n                </tr>\n            </tfoot>\n        </table>';
+
+        $data = array_merge($headerData, ['content' => $content]);
+
+        return view('admin/reports/template_laporan', $data);
+    }
+
+    public function pengeluaranTahunan()
+    {
+        $queryTahun = $this->db->query(
+            "SELECT DISTINCT YEAR(tgl) as tahun FROM pengeluaran ORDER BY tahun DESC"
+        );
+        $daftarTahun = $queryTahun->getResultArray();
+
+        $data = [
+            'title' => 'Laporan Pengeluaran Tahunan',
+            'daftarTahun' => $daftarTahun,
+            'tahun' => date('Y')
+        ];
+
+        return view('admin/reports/pengeluaran_tahunan', $data);
+    }
+
+    public function getPengeluaranTahunanData()
+    {
+
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Permintaan tidak valid'
+            ]);
+        }
+
+        $tahun = $this->request->getGet('tahun');
+        $showAll = $this->request->getGet('show_all') === 'true';
+
+        if (!$showAll && empty($tahun)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Parameter tidak lengkap'
+            ]);
+        }
+
+        $sql = "SELECT MONTH(tgl) as bulan, YEAR(tgl) as tahun, SUM(jumlah) as total FROM pengeluaran";
+        if (!$showAll && $tahun) {
+            $sql .= " WHERE YEAR(tgl) = " . (int)$tahun;
+        }
+        $sql .= " GROUP BY MONTH(tgl), YEAR(tgl) ORDER BY tahun DESC, bulan ASC";
+
+        $query = $this->db->query($sql);
+        $rows = $query->getResultArray();
+
+        $formatted = [];
+        $total = 0;
+        foreach ($rows as $r) {
+            $formatted[] = [
+                'bulan' => $r['bulan'],
+                'tahun' => $r['tahun'],
+                'bulan_nama' => $this->getNamaBulan($r['bulan']),
+                'total' => $r['total'],
+                'total_formatted' => 'Rp ' . number_format($r['total'], 0, ',', '.')
+            ];
+            $total += $r['total'];
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'data' => $formatted,
+            'total' => $total,
+            'total_formatted' => 'Rp ' . number_format($total, 0, ',', '.')
+        ]);
+    }
+
+    public function printPengeluaranTahunan()
+    {
+        $tahun = $this->request->getGet('tahun');
+
+        $sql = "SELECT MONTH(tgl) as bulan, YEAR(tgl) as tahun, SUM(jumlah) as total FROM pengeluaran";
+        if (!empty($tahun)) {
+            $sql .= " WHERE YEAR(tgl) = " . (int)$tahun;
+        }
+        $sql .= " GROUP BY MONTH(tgl), YEAR(tgl) ORDER BY tahun DESC, bulan ASC";
+
+        $query = $this->db->query($sql);
+        $rows = $query->getResultArray();
+
+        $total = 0;
+        foreach ($rows as $r) {
+            $total += $r['total'];
+        }
+
+        $headerData = [
+            'title' => 'Cetak Laporan Pengeluaran Tahunan',
+            'nama_perusahaan' => 'Vixs Barbershop',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
+            'telepon' => '081234567890',
+            'email' => 'info@awanbarbershop.com',
+            'website' => 'www.awanbarbershop.com',
+            'tanggal_label' => $tahun ? 'Tahun: ' . $tahun : 'Semua Data',
+            'report_title' => 'LAPORAN PENGELUARAN PERTAHUN',
+            'manager' => 'Pimpinan'
+        ];
+
+        $content = '\n        <table class="table table-bordered">\n            <thead>\n                <tr>\n                    <th class="text-center" width="5%">No</th>\n                    <th>Bulan</th>\n                    <th class="text-center">Total</th>\n                </tr>\n            </thead>\n            <tbody>';
+
+        $no = 1;
+        foreach ($rows as $r) {
+            $content .= '\n            <tr>\n                <td class="text-center">' . $no++ . '</td>\n                <td>' . $this->getNamaBulan($r['bulan']) . '</td>\n                <td class="text-end">Rp ' . number_format($r['total'], 0, ',', '.') . '</td>\n            </tr>';
+        }
+
+        $content .= '\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td colspan="2" class="text-end fw-bold">Total :</td>\n                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>\n                </tr>\n            </tfoot>\n        </table>';
+
+        $data = array_merge($headerData, ['content' => $content]);
+
+        return view('admin/reports/template_laporan', $data);
+    }
+
     public function getPengeluaranData()
     {
 
