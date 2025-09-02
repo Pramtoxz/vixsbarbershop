@@ -18,24 +18,24 @@
          --primary-dark: #0f1023;
          --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
          --primary-gradient-alt: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-         
+
          /* Secondary Colors - Vibrant Accent */
          --secondary-color: #667eea;
          --secondary-light: rgba(102, 126, 234, 0.1);
          --secondary-dark: #5a6fd8;
-         
+
          /* Accent Colors */
          --accent-orange: #ff6b6b;
          --accent-purple: #a55eea;
          --accent-green: #26de81;
          --accent-blue: #45aaf2;
-         
+
          /* Status Colors */
          --success-color: #26de81;
          --info-color: #45aaf2;
          --warning-color: #ffa726;
          --danger-color: #ff6b6b;
-         
+
          /* Neutral Colors */
          --light-color: #f8fafc;
          --light-gray: #e2e8f0;
@@ -44,17 +44,17 @@
          --text-primary: #1e293b;
          --text-secondary: #64748b;
          --text-light: #94a3b8;
-         
+
          /* Glass Morphism */
          --glass-bg: rgba(255, 255, 255, 0.25);
          --glass-border: rgba(255, 255, 255, 0.18);
-         
+
          /* Spacing & Borders */
          --border-radius: 1rem;
          --border-radius-sm: 0.5rem;
          --border-radius-lg: 1.5rem;
          --border-radius-xl: 2rem;
-         
+
          /* Shadows */
          --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
          --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -62,7 +62,7 @@
          --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
          --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
          --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-         
+
          /* Transitions */
          --transition-fast: all 0.15s ease;
          --transition-normal: all 0.3s ease;
@@ -90,7 +90,7 @@
          left: 0;
          width: 100%;
          height: 100%;
-         background-image: 
+         background-image:
              radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
              radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
          pointer-events: none;
@@ -124,6 +124,7 @@
              opacity: 0;
              transform: translateY(-20px);
          }
+
          100% {
              opacity: 1;
              transform: translateY(0);
@@ -258,10 +259,13 @@
      }
 
      @keyframes pulse-glow {
-         0%, 100% {
+
+         0%,
+         100% {
              transform: translate(-50%, -50%) scale(0.95);
              box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
          }
+
          50% {
              transform: translate(-50%, -50%) scale(1.05);
              box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
@@ -324,10 +328,10 @@
          left: 0;
          right: 0;
          bottom: 0;
-         background: linear-gradient(180deg, 
-             rgba(102, 126, 234, 0.1) 0%,
-             rgba(26, 27, 58, 0.8) 50%,
-             rgba(15, 16, 35, 0.9) 100%);
+         background: linear-gradient(180deg,
+                 rgba(102, 126, 234, 0.1) 0%,
+                 rgba(26, 27, 58, 0.8) 50%,
+                 rgba(15, 16, 35, 0.9) 100%);
          pointer-events: none;
          z-index: -1;
      }
@@ -351,7 +355,7 @@
          left: -100%;
          width: 100%;
          height: 100%;
-         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
          transition: var(--transition-slow);
      }
 
@@ -366,13 +370,13 @@
          margin-right: 12px;
          background: white;
          padding: 6px;
-         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
          transition: var(--transition-normal);
      }
 
      .sidebar-brand:hover img {
          transform: scale(1.1) rotate(5deg);
-         box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
      }
 
      .sidebar-brand h3 {
@@ -381,7 +385,7 @@
          font-size: 1.3rem;
          margin-bottom: 0;
          letter-spacing: 2px;
-         text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
          font-family: 'Plus Jakarta Sans', sans-serif;
      }
 
@@ -577,8 +581,15 @@
      }
 
      @keyframes gradient-slide {
-         0%, 100% { background-position: 0% 50%; }
-         50% { background-position: 100% 50%; }
+
+         0%,
+         100% {
+             background-position: 0% 50%;
+         }
+
+         50% {
+             background-position: 100% 50%;
+         }
      }
 
      /* Modern Hamburger Menu */
@@ -747,7 +758,7 @@
          transition: var(--transition-normal);
      }
 
-     .quick-search-input:focus + .search-icon {
+     .quick-search-input:focus+.search-icon {
          color: var(--secondary-color);
      }
 
@@ -834,7 +845,7 @@
          left: -100%;
          width: 100%;
          height: 100%;
-         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
          transition: var(--transition-normal);
      }
 
@@ -890,6 +901,7 @@
              transform: scale(0.8);
              opacity: 1;
          }
+
          100% {
              transform: scale(2);
              opacity: 0;
@@ -1084,10 +1096,13 @@
      }
 
      @keyframes pulse-status {
-         0%, 100% {
+
+         0%,
+         100% {
              transform: scale(1);
              opacity: 1;
          }
+
          50% {
              transform: scale(1.2);
              opacity: 0.8;
@@ -1392,7 +1407,7 @@
          left: -100%;
          width: 100%;
          height: 100%;
-         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
          transition: var(--transition-normal);
      }
 
@@ -1433,7 +1448,7 @@
          right: -50px !important;
      }
 
-     /* User dropdown specific positioning */  
+     /* User dropdown specific positioning */
      .user-dropdown-wrapper .dropdown-menu {
          right: 0 !important;
      }
@@ -1465,7 +1480,7 @@
      }
 
      .card:hover {
-         transform: translateY(-8px);
+         transform: none;
          box-shadow: var(--shadow-2xl);
          border-color: rgba(102, 126, 234, 0.3);
      }
@@ -1527,7 +1542,7 @@
          left: -100%;
          width: 100%;
          height: 100%;
-         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
          transition: var(--transition-normal);
      }
 
@@ -2026,11 +2041,25 @@
          animation: slideInLeft 0.5s ease forwards;
      }
 
-     .nav-section:nth-child(1) { animation-delay: 0.1s; }
-     .nav-section:nth-child(2) { animation-delay: 0.2s; }
-     .nav-section:nth-child(3) { animation-delay: 0.3s; }
-     .nav-section:nth-child(4) { animation-delay: 0.4s; }
-     .nav-section:nth-child(5) { animation-delay: 0.5s; }
+     .nav-section:nth-child(1) {
+         animation-delay: 0.1s;
+     }
+
+     .nav-section:nth-child(2) {
+         animation-delay: 0.2s;
+     }
+
+     .nav-section:nth-child(3) {
+         animation-delay: 0.3s;
+     }
+
+     .nav-section:nth-child(4) {
+         animation-delay: 0.4s;
+     }
+
+     .nav-section:nth-child(5) {
+         animation-delay: 0.5s;
+     }
 
      .section-header {
          display: flex;
@@ -2123,15 +2152,41 @@
      }
 
      /* Icon Specific Colors */
-     .dashboard-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
-     .customers-icon { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-     .staff-icon { background: linear-gradient(135deg, #43e97b, #38f9d7); }
-     .services-icon { background: linear-gradient(135deg, #fa709a, #fee140); }
-     .gallery-icon { background: linear-gradient(135deg, #a8edea, #fed6e3); }
-     .users-icon { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
-     .booking-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
-     .expense-icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
-     .reports-icon { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+     .dashboard-icon {
+         background: linear-gradient(135deg, #667eea, #764ba2);
+     }
+
+     .customers-icon {
+         background: linear-gradient(135deg, #4facfe, #00f2fe);
+     }
+
+     .staff-icon {
+         background: linear-gradient(135deg, #43e97b, #38f9d7);
+     }
+
+     .services-icon {
+         background: linear-gradient(135deg, #fa709a, #fee140);
+     }
+
+     .gallery-icon {
+         background: linear-gradient(135deg, #a8edea, #fed6e3);
+     }
+
+     .users-icon {
+         background: linear-gradient(135deg, #ff9a9e, #fecfef);
+     }
+
+     .booking-icon {
+         background: linear-gradient(135deg, #667eea, #764ba2);
+     }
+
+     .expense-icon {
+         background: linear-gradient(135deg, #f093fb, #f5576c);
+     }
+
+     .reports-icon {
+         background: linear-gradient(135deg, #4facfe, #00f2fe);
+     }
 
      .nav-icon i {
          color: white;
@@ -2682,6 +2737,7 @@
                  transform: translateX(-100%);
                  opacity: 0.8;
              }
+
              100% {
                  transform: translateX(0);
                  opacity: 1;
@@ -2920,8 +2976,13 @@
 
      /* Modern Loading Animations */
      @keyframes shimmer {
-         0% { background-position: -200px 0; }
-         100% { background-position: calc(200px + 100%) 0; }
+         0% {
+             background-position: -200px 0;
+         }
+
+         100% {
+             background-position: calc(200px + 100%) 0;
+         }
      }
 
      .loading-shimmer {
@@ -2951,6 +3012,7 @@
 
      /* Enhanced Accessibility */
      @media (prefers-reduced-motion: reduce) {
+
          *,
          *::before,
          *::after {
@@ -2982,8 +3044,13 @@
      }
 
      @keyframes spin {
-         0% { transform: rotate(0deg); }
-         100% { transform: rotate(360deg); }
+         0% {
+             transform: rotate(0deg);
+         }
+
+         100% {
+             transform: rotate(360deg);
+         }
      }
 
      /* Floating Action Button Style */

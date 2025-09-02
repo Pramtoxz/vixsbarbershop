@@ -172,7 +172,10 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->get('booking', 'Admin\ReportsController::booking');
         $routes->get('booking/print', 'Admin\ReportsController::printBooking');
         $routes->get('booking/getData', 'Admin\ReportsController::getData');
+        $routes->get('booking-bulanan', 'Admin\ReportsController::bookingBulanan');
         $routes->get('pembayaran', 'Admin\ReportsController::pembayaran');
+        $routes->get('pembayaran-pertanggal', 'Admin\ReportsController::pembayaranPertanggal');
+        $routes->get('pembayaran-pertahun', 'Admin\ReportsController::pembayaranPertahun');
         $routes->get('pembayaran/print', 'Admin\ReportsController::printPembayaran');
         $routes->get('pembayaran/getData', 'Admin\ReportsController::getPembayaranData');
         $routes->get('pendapatan-bulanan', 'Admin\ReportsController::pendapatanBulanan');
@@ -201,13 +204,13 @@ $routes->group('karyawan', ['filter' => 'auth'], function ($routes) {
     $routes->get('dashboard', 'KaryawanSimple::index', ['filter' => 'role:karyawan']);
     $routes->get('jadwal', 'KaryawanSimple::jadwal', ['filter' => 'role:karyawan']);
     $routes->get('profile', 'KaryawanSimple::profile', ['filter' => 'role:karyawan']);
-    
+
     // Alternative routes (with more complex SQL - may have issues)
     $routes->get('advanced', 'KaryawanDashboard::index', ['filter' => 'role:karyawan']);
     $routes->get('advanced/jadwal', 'KaryawanDashboard::jadwal', ['filter' => 'role:karyawan']);
     $routes->get('advanced/profile', 'KaryawanDashboard::profile', ['filter' => 'role:karyawan']);
     $routes->get('getJadwal', 'KaryawanDashboard::getJadwal', ['filter' => 'role:karyawan']);
-    
+
     // Testing routes (can be removed in production)
     $routes->get('test', 'KaryawanTest::index', ['filter' => 'role:karyawan']);
     $routes->get('info', 'KaryawanTest::info', ['filter' => 'role:karyawan']);

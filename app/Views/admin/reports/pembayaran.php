@@ -5,7 +5,7 @@
 <!-- Page Header -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
-        <h1 class="h3 mb-0 text-gray-800">Laporan Pembayaran</h1>
+        <h1 class="h3 mb-0 text-gray-800"><?= esc($title ?? 'Laporan Pembayaran') ?></h1>
         <p class="mb-0 text-black">Laporan data pembayaran lengkap</p>
     </div>
     <div>
@@ -21,43 +21,65 @@
         <h6 class="m-0 font-weight-bold text-primary">Filter Data</h6>
     </div>
     <div class="card-body">
+        <?php $isPertanggal = isset($title) && stripos($title, 'pertanggal') !== false;
+        $isPertahun = isset($title) && stripos($title, 'pertahun') !== false; ?>
         <form id="filterForm">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="bulan">Bulan</label>
-                        <select class="form-control" id="bulan" name="bulan">
-                            <option value="">- Pilih Bulan -</option>
-                            <option value="01" <?= isset($_GET['bulan']) && $_GET['bulan'] == '01' ? 'selected' : '' ?>>Januari</option>
-                            <option value="02" <?= isset($_GET['bulan']) && $_GET['bulan'] == '02' ? 'selected' : '' ?>>Februari</option>
-                            <option value="03" <?= isset($_GET['bulan']) && $_GET['bulan'] == '03' ? 'selected' : '' ?>>Maret</option>
-                            <option value="04" <?= isset($_GET['bulan']) && $_GET['bulan'] == '04' ? 'selected' : '' ?>>April</option>
-                            <option value="05" <?= isset($_GET['bulan']) && $_GET['bulan'] == '05' ? 'selected' : '' ?>>Mei</option>
-                            <option value="06" <?= isset($_GET['bulan']) && $_GET['bulan'] == '06' ? 'selected' : '' ?>>Juni</option>
-                            <option value="07" <?= isset($_GET['bulan']) && $_GET['bulan'] == '07' ? 'selected' : '' ?>>Juli</option>
-                            <option value="08" <?= isset($_GET['bulan']) && $_GET['bulan'] == '08' ? 'selected' : '' ?>>Agustus</option>
-                            <option value="09" <?= isset($_GET['bulan']) && $_GET['bulan'] == '09' ? 'selected' : '' ?>>September</option>
-                            <option value="10" <?= isset($_GET['bulan']) && $_GET['bulan'] == '10' ? 'selected' : '' ?>>Oktober</option>
-                            <option value="11" <?= isset($_GET['bulan']) && $_GET['bulan'] == '11' ? 'selected' : '' ?>>November</option>
-                            <option value="12" <?= isset($_GET['bulan']) && $_GET['bulan'] == '12' ? 'selected' : '' ?>>Desember</option>
-                        </select>
+                <?php if ($isPertanggal): ?>
+
+                <?php elseif ($isPertahun): ?>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tahun">Tahun</label>
+                            <select class="form-control" id="tahun" name="tahun">
+                                <option value="">- Pilih Tahun -</option>
+                                <?php
+                                $currentYear = date('Y');
+                                for ($year = $currentYear - 5; $year <= $currentYear + 5; $year++) {
+                                    $selected = (isset($_GET['tahun']) && $_GET['tahun'] == $year) ? 'selected' : '';
+                                    echo "<option value=\"$year\" $selected>$year</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="tahun">Tahun</label>
-                        <select class="form-control" id="tahun" name="tahun">
-                            <option value="">- Pilih Tahun -</option>
-                            <?php
-                            $currentYear = date('Y');
-                            for ($year = $currentYear - 5; $year <= $currentYear + 5; $year++) {
-                                $selected = (isset($_GET['tahun']) && $_GET['tahun'] == $year) ? 'selected' : '';
-                                echo "<option value=\"$year\" $selected>$year</option>";
-                            }
-                            ?>
-                        </select>
+                <?php else: ?>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="bulan">Bulan</label>
+                            <select class="form-control" id="bulan" name="bulan">
+                                <option value="">- Pilih Bulan -</option>
+                                <option value="01" <?= isset($_GET['bulan']) && $_GET['bulan'] == '01' ? 'selected' : '' ?>>Januari</option>
+                                <option value="02" <?= isset($_GET['bulan']) && $_GET['bulan'] == '02' ? 'selected' : '' ?>>Februari</option>
+                                <option value="03" <?= isset($_GET['bulan']) && $_GET['bulan'] == '03' ? 'selected' : '' ?>>Maret</option>
+                                <option value="04" <?= isset($_GET['bulan']) && $_GET['bulan'] == '04' ? 'selected' : '' ?>>April</option>
+                                <option value="05" <?= isset($_GET['bulan']) && $_GET['bulan'] == '05' ? 'selected' : '' ?>>Mei</option>
+                                <option value="06" <?= isset($_GET['bulan']) && $_GET['bulan'] == '06' ? 'selected' : '' ?>>Juni</option>
+                                <option value="07" <?= isset($_GET['bulan']) && $_GET['bulan'] == '07' ? 'selected' : '' ?>>Juli</option>
+                                <option value="08" <?= isset($_GET['bulan']) && $_GET['bulan'] == '08' ? 'selected' : '' ?>>Agustus</option>
+                                <option value="09" <?= isset($_GET['bulan']) && $_GET['bulan'] == '09' ? 'selected' : '' ?>>September</option>
+                                <option value="10" <?= isset($_GET['bulan']) && $_GET['bulan'] == '10' ? 'selected' : '' ?>>Oktober</option>
+                                <option value="11" <?= isset($_GET['bulan']) && $_GET['bulan'] == '11' ? 'selected' : '' ?>>November</option>
+                                <option value="12" <?= isset($_GET['bulan']) && $_GET['bulan'] == '12' ? 'selected' : '' ?>>Desember</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tahun">Tahun</label>
+                            <select class="form-control" id="tahun" name="tahun">
+                                <option value="">- Pilih Tahun -</option>
+                                <?php
+                                $currentYear = date('Y');
+                                for ($year = $currentYear - 5; $year <= $currentYear + 5; $year++) {
+                                    $selected = (isset($_GET['tahun']) && $_GET['tahun'] == $year) ? 'selected' : '';
+                                    echo "<option value=\"$year\" $selected>$year</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <div class="col-md-4">
                     <div class="form-group" style="margin-top: 32px;">
                         <button type="button" id="filterBtn" class="btn btn-primary">Filter</button>
@@ -66,6 +88,28 @@
                     </div>
                 </div>
             </div>
+            <?php if ($isPertanggal): ?>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="singleDate">Filter Per Tanggal</label>
+                            <input type="date" class="form-control" id="singleDate" name="single_date" value="<?= isset($_GET['single_date']) ? $_GET['single_date'] : '' ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="startDate">Tanggal Mulai</label>
+                            <input type="date" class="form-control" id="startDate" name="start_date" value="<?= isset($_GET['start_date']) ? $_GET['start_date'] : '' ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="endDate">Tanggal Akhir</label>
+                            <input type="date" class="form-control" id="endDate" name="end_date" value="<?= isset($_GET['end_date']) ? $_GET['end_date'] : '' ?>">
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </form>
     </div>
 </div>
@@ -81,7 +125,7 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Data Pembayaran</h6>
+                <h6 class="m-0 font-weight-bold text-primary"><?= $isPertahun ? 'Ringkasan Pembayaran Tahunan' : 'Data Pembayaran' ?></h6>
                 <div id="loadingIndicator" class="spinner-border spinner-border-sm text-primary d-none" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -89,7 +133,14 @@
             <div class="card-body">
                 <!-- Instruksi untuk memilih filter -->
                 <div id="instructionMessage" class="alert alert-info">
-                    <i class="bi bi-info-circle me-2"></i> Silakan pilih filter bulan dan/atau tahun terlebih dahulu untuk menampilkan data pembayaran.
+                    <i class="bi bi-info-circle me-2"></i>
+                    <?php if ($isPertanggal): ?>
+                        Silakan pilih tanggal atau rentang tanggal terlebih dahulu untuk menampilkan data pembayaran.
+                    <?php elseif ($isPertahun): ?>
+                        Silakan pilih tahun terlebih dahulu untuk menampilkan data pembayaran.
+                    <?php else: ?>
+                        Silakan pilih filter bulan dan/atau tahun terlebih dahulu untuk menampilkan data pembayaran.
+                    <?php endif; ?>
                 </div>
 
                 <!-- Konten tabel yang akan ditampilkan setelah data dimuat -->
@@ -120,16 +171,24 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="pembayaranTable" width="100%" cellspacing="0">
                             <thead>
-                                <tr>
-                                    <th width="5%" class="sortable" data-sort="no">No</th>
-                                    <th class="sortable" data-sort="fakturbooking">No Transaksi</th>
-                                    <th class="sortable" data-sort="tanggal">Tanggal</th>
-                                    <th class="sortable" data-sort="pelanggan">Nama Pelanggan</th>
-                                    <th class="sortable" data-sort="paket">Paket</th>
-                                    <th class="sortable" data-sort="harga">Harga Paket</th>
-                                    <th class="sortable" data-sort="total">Total Bayar</th>
-                                    <th class="sortable" data-sort="metode">Metode Pembayaran</th>
-                                </tr>
+                                <?php if ($isPertahun): ?>
+                                    <tr>
+                                        <th width="5%" class="sortable" data-sort="no">No</th>
+                                        <th class="sortable" data-sort="bulan">Bulan</th>
+                                        <th class="sortable" data-sort="total">Total Bayar</th>
+                                    </tr>
+                                <?php else: ?>
+                                    <tr>
+                                        <th width="5%" class="sortable" data-sort="no">No</th>
+                                        <th class="sortable" data-sort="fakturbooking">No Transaksi</th>
+                                        <th class="sortable" data-sort="tanggal">Tanggal</th>
+                                        <th class="sortable" data-sort="pelanggan">Nama Pelanggan</th>
+                                        <th class="sortable" data-sort="paket">Paket</th>
+                                        <th class="sortable" data-sort="harga">Harga Paket</th>
+                                        <th class="sortable" data-sort="total">Total Bayar</th>
+                                        <th class="sortable" data-sort="metode">Metode Pembayaran</th>
+                                    </tr>
+                                <?php endif; ?>
                             </thead>
                             <tbody>
                                 <!-- Tabel body akan diisi oleh JavaScript -->
@@ -165,17 +224,34 @@
         $('.sortable').css('cursor', 'pointer');
         $('.sortable').append(' <span class="sort-icon"></span>');
 
+        // Mode halaman (pertanggal vs perbulan vs pertahun)
+        var isPertanggal = <?= $isPertanggal ? 'true' : 'false' ?>;
+        var isPertahun = <?= $isPertahun ? 'true' : 'false' ?>;
+
         // Cek apakah ada parameter filter di URL
         var urlParams = new URLSearchParams(window.location.search);
         var bulanParam = urlParams.get('bulan');
         var tahunParam = urlParams.get('tahun');
+        var singleDateParam = urlParams.get('single_date');
+        var startDateParam = urlParams.get('start_date');
+        var endDateParam = urlParams.get('end_date');
 
         console.log("URL parameters:", bulanParam, tahunParam);
 
-        // Jika ada parameter, gunakan untuk filter
-        if (bulanParam || tahunParam) {
+        // Jika ada parameter, gunakan untuk filter sesuai mode
+        if ((isPertanggal && (singleDateParam || startDateParam || endDateParam)) || (isPertahun && tahunParam) || (!isPertanggal && !isPertahun && (bulanParam || tahunParam))) {
             console.log("Loading data with URL parameters");
-            loadPembayaranData(bulanParam, tahunParam);
+            if (isPertanggal) {
+                if (singleDateParam) $('#singleDate').val(singleDateParam);
+                if (startDateParam) $('#startDate').val(startDateParam);
+                if (endDateParam) $('#endDate').val(endDateParam);
+                loadPembayaranData('', '', singleDateParam, startDateParam, endDateParam);
+            } else if (isPertahun) {
+                $('#tahun').val(tahunParam || '');
+                loadPembayaranData('', tahunParam || '', '', '', '');
+            } else {
+                loadPembayaranData(bulanParam, tahunParam, '', '', '');
+            }
         } else {
             // Jika tidak ada parameter, tampilkan pesan instruksi
             console.log("No data displayed yet, showing initial message");
@@ -217,14 +293,34 @@
         $('#filterBtn').on('click', function() {
             var bulan = $('#bulan').val();
             var tahun = $('#tahun').val();
+            var singleDate = isPertanggal ? $('#singleDate').val() : '';
+            var startDate = isPertanggal ? $('#startDate').val() : '';
+            var endDate = isPertanggal ? $('#endDate').val() : '';
             console.log("Filter button clicked with bulan:", bulan, "tahun:", tahun);
 
-            if (!bulan && !tahun) {
-                alert('Silakan pilih setidaknya bulan atau tahun untuk filter');
-                return;
+            if (isPertanggal) {
+                if (!singleDate && !startDate && !endDate) {
+                    alert('Silakan pilih tanggal atau rentang tanggal');
+                    return;
+                }
+                if (startDate && endDate && startDate > endDate) {
+                    alert('Tanggal awal tidak boleh lebih besar dari tanggal akhir!');
+                    return;
+                }
+                loadPembayaranData('', '', singleDate, startDate, endDate);
+            } else if (isPertahun) {
+                if (!tahun) {
+                    alert('Silakan pilih tahun');
+                    return;
+                }
+                loadPembayaranData('', tahun, '', '', '');
+            } else {
+                if (!bulan && !tahun) {
+                    alert('Silakan pilih bulan atau tahun');
+                    return;
+                }
+                loadPembayaranData(bulan, tahun, '', '', '');
             }
-
-            loadPembayaranData(bulan, tahun);
         });
 
         // Event listener untuk tombol reset
@@ -232,6 +328,11 @@
             console.log("Reset button clicked");
             $('#bulan').val('');
             $('#tahun').val('');
+            if (isPertanggal) {
+                $('#singleDate').val('');
+                $('#startDate').val('');
+                $('#endDate').val('');
+            }
             // Tidak perlu memuat data, hanya reset form
             $('#instructionMessage').show();
             $('#tableContent').hide();
@@ -243,11 +344,20 @@
             console.log("Show All button clicked");
             $('#bulan').val('');
             $('#tahun').val('');
-            loadPembayaranData('', '');
+            if (isPertanggal) {
+                $('#singleDate').val('');
+                $('#startDate').val('');
+                $('#endDate').val('');
+                loadPembayaranData('', '', '', '', '');
+            } else if (isPertahun) {
+                loadPembayaranData('', '', '', '', '');
+            } else {
+                loadPembayaranData('', '', '', '', '');
+            }
         });
 
         // Fungsi untuk memuat data pembayaran dengan AJAX
-        function loadPembayaranData(bulan, tahun) {
+        function loadPembayaranData(bulan, tahun, singleDate, startDate, endDate) {
             $('#loadingIndicator').removeClass('d-none');
             console.log("Loading pembayaran data with bulan:", bulan, "tahun:", tahun);
 
@@ -259,7 +369,10 @@
                 type: 'GET',
                 data: {
                     bulan: bulan,
-                    tahun: tahun
+                    tahun: tahun,
+                    single_date: singleDate,
+                    start_date: startDate,
+                    end_date: endDate
                 },
                 dataType: 'json',
                 success: function(response) {
@@ -303,39 +416,86 @@
                             // Menyimpan faktur yang sudah diproses untuk menghindari duplikat
                             var processedFaktur = {};
 
-                            response.data.forEach(function(p) {
-                                // Skip jika faktur sudah diproses
-                                if (processedFaktur[p.fakturbooking]) {
-                                    return;
-                                }
-
-                                // Tandai faktur ini sudah diproses
-                                processedFaktur[p.fakturbooking] = true;
-
-                                // Gabungkan semua paket dalam booking ini
-                                var paketList = [];
-                                if (p.details && Array.isArray(p.details)) {
-                                    p.details.forEach(function(detail) {
-                                        // Gabungkan nama paket dengan deskripsi
-                                        var paketInfo = detail.nama_paket;
-                                        if (detail.deskripsi) {
-                                            paketInfo += " (" + detail.deskripsi + ")";
-                                        }
-                                        paketList.push(paketInfo);
-                                    });
-                                }
-
-                                tableData.push({
-                                    no: no++,
-                                    fakturbooking: p.fakturbooking,
-                                    tanggal: formatDate(p.created_at),
-                                    pelanggan: p.booking?.nama_lengkap || '-',
-                                    paket: paketList.join(", "),
-                                    harga: 'Rp ' + formatNumber(p.grandtotal || 0),
-                                    total: 'Rp ' + formatNumber(p.total_bayar),
-                                    metode: p.metode ? p.metode.charAt(0).toUpperCase() + p.metode.slice(1) : '-'
+                            if (isPertahun) {
+                                // Ringkasan per bulan
+                                var monthNames = {
+                                    '01': 'Januari',
+                                    '02': 'Februari',
+                                    '03': 'Maret',
+                                    '04': 'April',
+                                    '05': 'Mei',
+                                    '06': 'Juni',
+                                    '07': 'Juli',
+                                    '08': 'Agustus',
+                                    '09': 'September',
+                                    '10': 'Oktober',
+                                    '11': 'November',
+                                    '12': 'Desember'
+                                };
+                                var summary = {};
+                                // init 12 months
+                                Object.keys(monthNames).forEach(function(m) {
+                                    summary[m] = {
+                                        bulan_kode: m,
+                                        bulan: monthNames[m],
+                                        total_bayar: 0
+                                    };
                                 });
-                            });
+                                response.data.forEach(function(p) {
+                                    var d = new Date(p.created_at);
+                                    if (isNaN(d.getTime())) return;
+                                    var m = String(d.getMonth() + 1).padStart(2, '0');
+                                    summary[m].total_bayar += parseFloat(p.total_bayar || 0);
+                                });
+
+                                // Susun tableData ringkasan
+                                Object.keys(summary).forEach(function(m) {
+                                    var item = summary[m];
+                                    tableData.push({
+                                        no: no++,
+                                        bulan_kode: m,
+                                        bulan: item.bulan,
+                                        total: 'Rp ' + formatNumber(item.total_bayar)
+                                    });
+                                });
+
+                                // Ubah header tabel untuk mode pertahun
+                                $('#pembayaranTable thead').html('<tr>' +
+                                    '<th width="5%" class="sortable" data-sort="no">No</th>' +
+                                    '<th class="sortable" data-sort="bulan">Bulan</th>' +
+                                    '<th class="sortable" data-sort="total">Total Bayar</th>' +
+                                    '</tr>');
+                            } else {
+                                response.data.forEach(function(p) {
+                                    // Skip jika faktur sudah diproses
+                                    if (processedFaktur[p.fakturbooking]) {
+                                        return;
+                                    }
+                                    processedFaktur[p.fakturbooking] = true;
+
+                                    var paketList = [];
+                                    if (p.details && Array.isArray(p.details)) {
+                                        p.details.forEach(function(detail) {
+                                            var paketInfo = detail.nama_paket;
+                                            if (detail.deskripsi) {
+                                                paketInfo += " (" + detail.deskripsi + ")";
+                                            }
+                                            paketList.push(paketInfo);
+                                        });
+                                    }
+
+                                    tableData.push({
+                                        no: no++,
+                                        fakturbooking: p.fakturbooking,
+                                        tanggal: formatDate(p.created_at),
+                                        pelanggan: p.booking?.nama_lengkap || '-',
+                                        paket: paketList.join(", "),
+                                        harga: 'Rp ' + formatNumber(p.grandtotal || 0),
+                                        total: 'Rp ' + formatNumber(p.total_bayar),
+                                        metode: p.metode ? p.metode.charAt(0).toUpperCase() + p.metode.slice(1) : '-'
+                                    });
+                                });
+                            }
                         }
 
                         console.log("Final tableData:", tableData);
@@ -347,7 +507,7 @@
                         showAlert('success', response.message);
 
                         // Perbarui URL cetak
-                        updatePrintUrl(bulan, tahun);
+                        updatePrintUrl(bulan, tahun, singleDate, startDate, endDate);
 
                         // Tampilkan konten tabel dan sembunyikan pesan instruksi
                         if (tableData.length > 0) {
@@ -428,7 +588,7 @@
                     }
                 }
 
-                // Sorting sangat sederhana tanpa toLowerCase
+                // Sorting
                 if (sortColumn) {
                     filteredData.sort(function(a, b) {
                         try {
@@ -456,6 +616,9 @@
                                 var bDate = parseDateString(String(bVal));
                                 aVal = aDate ? aDate.getTime() : 0;
                                 bVal = bDate ? bDate.getTime() : 0;
+                            } else if (isPertahun && sortColumn === 'total_transaksi') {
+                                aVal = parseInt(aVal || 0);
+                                bVal = parseInt(bVal || 0);
                             } else {
                                 // For string columns - convert to string without toLowerCase
                                 aVal = String(aVal);
@@ -515,18 +678,27 @@
                     console.log("Displaying data:", filteredData);
                     for (var i = 0; i < filteredData.length; i++) {
                         var item = filteredData[i] || {};
-                        console.log("Rendering item:", item);
-                        var row = '<tr>' +
-                            '<td>' + (item.no || '') + '</td>' +
-                            '<td>' + (item.fakturbooking || '') + '</td>' +
-                            '<td>' + (item.tanggal || '') + '</td>' +
-                            '<td>' + (item.pelanggan || '') + '</td>' +
-                            '<td>' + (item.paket || '') + '</td>' +
-                            '<td>' + (item.harga || '') + '</td>' +
-                            '<td>' + (item.total || '') + '</td>' +
-                            '<td>' + (item.metode || '') + '</td>' +
-                            '</tr>';
-                        tbody.append(row);
+                        if (isPertahun) {
+                            var row = '<tr>' +
+                                '<td>' + (item.no || '') + '</td>' +
+                                '<td>' + (item.bulan || '') + '</td>' +
+                                '<td>' + (item.total_transaksi || 0) + '</td>' +
+                                '<td>' + (item.total || '') + '</td>' +
+                                '</tr>';
+                            tbody.append(row);
+                        } else {
+                            var row2 = '<tr>' +
+                                '<td>' + (item.no || '') + '</td>' +
+                                '<td>' + (item.fakturbooking || '') + '</td>' +
+                                '<td>' + (item.tanggal || '') + '</td>' +
+                                '<td>' + (item.pelanggan || '') + '</td>' +
+                                '<td>' + (item.paket || '') + '</td>' +
+                                '<td>' + (item.harga || '') + '</td>' +
+                                '<td>' + (item.total || '') + '</td>' +
+                                '<td>' + (item.metode || '') + '</td>' +
+                                '</tr>';
+                            tbody.append(row2);
+                        }
                     }
                 }
 
@@ -552,16 +724,19 @@
         }
 
         // Fungsi untuk memperbarui URL cetak
-        function updatePrintUrl(bulan, tahun) {
+        function updatePrintUrl(bulan, tahun, singleDate, startDate, endDate) {
             var printUrl = '<?= site_url('admin/reports/pembayaran/print') ?>';
             var params = [];
 
-            if (bulan) {
-                params.push('bulan=' + bulan);
-            }
-
-            if (tahun) {
-                params.push('tahun=' + tahun);
+            if (isPertanggal) {
+                if (singleDate) params.push('single_date=' + singleDate);
+                if (startDate) params.push('start_date=' + startDate);
+                if (endDate) params.push('end_date=' + endDate);
+            } else if (isPertahun) {
+                if (tahun) params.push('tahun=' + tahun);
+            } else {
+                if (bulan) params.push('bulan=' + bulan);
+                if (tahun) params.push('tahun=' + tahun);
             }
 
             if (params.length > 0) {

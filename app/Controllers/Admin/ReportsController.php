@@ -325,6 +325,14 @@ class ReportsController extends BaseController
         return view('admin/reports/booking', $data);
     }
 
+    public function bookingBulanan()
+    {
+        $data = [
+            'title' => 'Laporan Booking Bulanan'
+        ];
+        return view('admin/reports/booking_bulanan', $data);
+    }
+
     public function printBooking()
     {
 
@@ -523,6 +531,22 @@ class ReportsController extends BaseController
         $data = [
             'title' => 'Laporan Pembayaran',
             'pembayaran' => $pembayaranData
+        ];
+        return view('admin/reports/pembayaran', $data);
+    }
+
+    public function pembayaranPertanggal()
+    {
+        $data = [
+            'title' => 'Laporan Pembayaran Pertanggal'
+        ];
+        return view('admin/reports/pembayaran', $data);
+    }
+
+    public function pembayaranPertahun()
+    {
+        $data = [
+            'title' => 'Laporan Pembayaran Pertahun'
         ];
         return view('admin/reports/pembayaran', $data);
     }
@@ -2259,12 +2283,24 @@ class ReportsController extends BaseController
 
         $bulan = $this->request->getGet('bulan');
         $tahun = $this->request->getGet('tahun');
+        $singleDate = $this->request->getGet('single_date');
+        $startDate = $this->request->getGet('start_date');
+        $endDate = $this->request->getGet('end_date');
 
         $pembayaranData = [];
         $pembayaran = $this->pembayaranModel->where('status', 'paid');
 
 
-        if ($bulan && $tahun) {
+        if ($singleDate) {
+            $pembayaran->where('DATE(created_at)', $singleDate);
+        } elseif ($startDate || $endDate) {
+            if ($startDate) {
+                $pembayaran->where('DATE(created_at) >=', $startDate);
+            }
+            if ($endDate) {
+                $pembayaran->where('DATE(created_at) <=', $endDate);
+            }
+        } elseif ($bulan && $tahun) {
             $pembayaran->where("DATE_FORMAT(created_at, '%m-%Y') = ", "$bulan-$tahun");
         } elseif ($bulan) {
             $pembayaran->where("DATE_FORMAT(created_at, '%m') = ", $bulan);
@@ -2324,7 +2360,15 @@ class ReportsController extends BaseController
 
 
         $pesan = 'Data berhasil dimuat';
-        if ($bulan && $tahun) {
+        if ($singleDate) {
+            $pesan = 'Data pembayaran tanggal ' . date('d/m/Y', strtotime($singleDate)) . ' berhasil dimuat';
+        } elseif ($startDate && $endDate) {
+            $pesan = 'Data pembayaran periode ' . date('d/m/Y', strtotime($startDate)) . ' - ' . date('d/m/Y', strtotime($endDate)) . ' berhasil dimuat';
+        } elseif ($startDate) {
+            $pesan = 'Data pembayaran dari tanggal ' . date('d/m/Y', strtotime($startDate)) . ' berhasil dimuat';
+        } elseif ($endDate) {
+            $pesan = 'Data pembayaran sampai tanggal ' . date('d/m/Y', strtotime($endDate)) . ' berhasil dimuat';
+        } elseif ($bulan && $tahun) {
             $namaBulan = $this->getNamaBulan($bulan);
             $pesan = "Data pembayaran bulan $namaBulan $tahun berhasil dimuat";
         } elseif ($bulan) {

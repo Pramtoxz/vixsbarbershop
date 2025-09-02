@@ -102,6 +102,27 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Laporan Booking Bulanan</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Data Booking Per Bulan</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="<?= site_url('admin/reports/booking-bulanan') ?>" class="btn btn-warning btn-sm text-white">
+                                        <i class="fas fa-eye"></i> Lihat Laporan
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
                         <div class="card border-left-danger shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -116,6 +137,48 @@
                                 </div>
                                 <div class="mt-3">
                                     <a href="<?= site_url('admin/reports/pembayaran') ?>" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-eye"></i> Lihat Laporan
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Laporan Pembayaran Pertanggal</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Data Pembayaran Per Tanggal</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-calendar-day fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="<?= site_url('admin/reports/pembayaran-pertanggal') ?>" class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-eye"></i> Lihat Laporan
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Laporan Pembayaran Pertahun</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Data Pembayaran Per Tahun</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="<?= site_url('admin/reports/pembayaran-pertahun') ?>" class="btn btn-outline-danger btn-sm">
                                         <i class="fas fa-eye"></i> Lihat Laporan
                                     </a>
                                 </div>

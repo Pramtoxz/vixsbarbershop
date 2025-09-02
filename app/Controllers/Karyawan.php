@@ -310,7 +310,6 @@ class Karyawan extends BaseController
                 $userData['password'] = $data['password'];
             }
         } else if (!empty($existingKaryawan['user_id'])) {
-            // If email is not provided but user exists, update only name
             $userData = [
                 'name' => $data['namakaryawan']
             ];
