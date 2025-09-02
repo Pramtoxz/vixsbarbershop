@@ -5,8 +5,8 @@
 <!-- Page Header -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
-        <h1 class="h3 mb-0 text-gray-800">Laporan Pendapatan Pertahun</h1>
-        <p class="mb-0 text-black">Laporan pendapatan per tahun</p>
+        <h1 class="h3 mb-0 text-gray-800">Laporan Uang Masuk Tahun</h1>
+        <p class="mb-0 text-black">Laporan Uang Masuk Per Tahun</p>
     </div>
     <div>
         <button id="btnPrint" class="btn btn-primary btn-sm" style="display: none;">
@@ -76,7 +76,7 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Data Pendapatan Pertahun</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Uang Masuk Tahun</h6>
                 <div id="loadingIndicator" class="spinner-border spinner-border-sm text-primary" style="display: none;" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>

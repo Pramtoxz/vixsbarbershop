@@ -383,8 +383,56 @@
                         tableData = [];
                         console.log("Cleared tableData");
 
-                        // Periksa apakah response.html tersedia
-                        if (response.html) {
+                        // Untuk mode pertahun, gunakan data JSON agar dapat diringkas per-bulan
+                        if (isPertahun && response.data && Array.isArray(response.data)) {
+                            console.log("Processing yearly summary from data array with", response.data.length, "pembayaran");
+                            var no = 1;
+                            var monthNames = {
+                                '01': 'Januari',
+                                '02': 'Februari',
+                                '03': 'Maret',
+                                '04': 'April',
+                                '05': 'Mei',
+                                '06': 'Juni',
+                                '07': 'Juli',
+                                '08': 'Agustus',
+                                '09': 'September',
+                                '10': 'Oktober',
+                                '11': 'November',
+                                '12': 'Desember'
+                            };
+                            var summary = {};
+                            Object.keys(monthNames).forEach(function(m) {
+                                summary[m] = {
+                                    bulan_kode: m,
+                                    bulan: monthNames[m],
+                                    total_bayar: 0
+                                };
+                            });
+                            response.data.forEach(function(p) {
+                                var d = new Date(p.created_at);
+                                if (isNaN(d.getTime())) return;
+                                var m = String(d.getMonth() + 1).padStart(2, '0');
+                                summary[m].total_bayar += parseFloat(p.total_bayar || 0);
+                            });
+
+                            Object.keys(summary).forEach(function(m) {
+                                var item = summary[m];
+                                tableData.push({
+                                    no: no++,
+                                    bulan_kode: m,
+                                    bulan: item.bulan,
+                                    total: 'Rp ' + formatNumber(item.total_bayar)
+                                });
+                            });
+
+                            // Ubah header tabel untuk mode pertahun
+                            $('#pembayaranTable thead').html('<tr>' +
+                                '<th width="5%" class="sortable" data-sort="no">No</th>' +
+                                '<th class="sortable" data-sort="bulan">Bulan</th>' +
+                                '<th class="sortable" data-sort="total">Total Bayar</th>' +
+                                '</tr>');
+                        } else if (response.html) {
                             console.log("Processing HTML response");
                             // Jika response.html tersedia, kita perlu mengekstrak data dari HTML
                             var tempDiv = $('<div>').html(response.html);
@@ -416,56 +464,7 @@
                             // Menyimpan faktur yang sudah diproses untuk menghindari duplikat
                             var processedFaktur = {};
 
-                            if (isPertahun) {
-                                // Ringkasan per bulan
-                                var monthNames = {
-                                    '01': 'Januari',
-                                    '02': 'Februari',
-                                    '03': 'Maret',
-                                    '04': 'April',
-                                    '05': 'Mei',
-                                    '06': 'Juni',
-                                    '07': 'Juli',
-                                    '08': 'Agustus',
-                                    '09': 'September',
-                                    '10': 'Oktober',
-                                    '11': 'November',
-                                    '12': 'Desember'
-                                };
-                                var summary = {};
-                                // init 12 months
-                                Object.keys(monthNames).forEach(function(m) {
-                                    summary[m] = {
-                                        bulan_kode: m,
-                                        bulan: monthNames[m],
-                                        total_bayar: 0
-                                    };
-                                });
-                                response.data.forEach(function(p) {
-                                    var d = new Date(p.created_at);
-                                    if (isNaN(d.getTime())) return;
-                                    var m = String(d.getMonth() + 1).padStart(2, '0');
-                                    summary[m].total_bayar += parseFloat(p.total_bayar || 0);
-                                });
-
-                                // Susun tableData ringkasan
-                                Object.keys(summary).forEach(function(m) {
-                                    var item = summary[m];
-                                    tableData.push({
-                                        no: no++,
-                                        bulan_kode: m,
-                                        bulan: item.bulan,
-                                        total: 'Rp ' + formatNumber(item.total_bayar)
-                                    });
-                                });
-
-                                // Ubah header tabel untuk mode pertahun
-                                $('#pembayaranTable thead').html('<tr>' +
-                                    '<th width="5%" class="sortable" data-sort="no">No</th>' +
-                                    '<th class="sortable" data-sort="bulan">Bulan</th>' +
-                                    '<th class="sortable" data-sort="total">Total Bayar</th>' +
-                                    '</tr>');
-                            } else {
+                            if (!isPertahun) {
                                 response.data.forEach(function(p) {
                                     // Skip jika faktur sudah diproses
                                     if (processedFaktur[p.fakturbooking]) {
@@ -682,7 +681,6 @@
                             var row = '<tr>' +
                                 '<td>' + (item.no || '') + '</td>' +
                                 '<td>' + (item.bulan || '') + '</td>' +
-                                '<td>' + (item.total_transaksi || 0) + '</td>' +
                                 '<td>' + (item.total || '') + '</td>' +
                                 '</tr>';
                             tbody.append(row);

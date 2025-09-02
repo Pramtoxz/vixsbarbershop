@@ -6,7 +6,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         <h1 class="h3 mb-0 text-gray-800">Laporan Pendapatan Perbulan</h1>
-        <p class="mb-0 text-black">Laporan pendapatan per bulan</p>
+        <p class="mb-0 text-black">Laporan Uang Masuk Bulanan</p>
     </div>
     <div>
         <button id="btnPrint" class="btn btn-primary btn-sm" style="display: none;">
@@ -96,14 +96,14 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Data Pendapatan Bulanan</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Uang Masuk Bulanan</h6>
                 <div class="loading-indicator" id="loadingIndicator" style="display: none;">
                     <i class="bi bi-hourglass-split"></i> Memuat data...
                 </div>
             </div>
             <div class="card-body">
                 <div class="alert alert-info" id="initialMessage">
-                    <i class="bi bi-info-circle me-2"></i> Silakan pilih tahun dan bulan terlebih dahulu untuk menampilkan data pendapatan bulanan.
+                    <i class="bi bi-info-circle me-2"></i> Silakan pilih tahun dan bulan terlebih dahulu untuk menampilkan data Uang Masuk Bulanan.
                 </div>
 
                 <div class="alert alert-info" id="noDataMessage" style="display: none;">

@@ -120,7 +120,7 @@
                     <div class="section-line"></div>
                 </div>
 
-                <a href="<?= site_url('admin/reports') ?>" class="nav-item <?= ($title == 'Laporan' || $title == 'Laporan Karyawan' || $title == 'Laporan Pembayaran' || $title == 'Laporan Pendapatan Bulanan' || $title == 'Laporan Pendapatan Pertahun' || $title == 'Laporan Pendapatan Tahunan') ? 'active' : '' ?>">
+                <a href="<?= site_url('admin/reports') ?>" class="nav-item <?= ($title == 'Laporan' || $title == 'Laporan Karyawan' || $title == 'Laporan Pembayaran' || $title == 'Laporan Uang Masuk Bulanan' || $title == 'Laporan Uang Masuk Tahun' || $title == 'Laporan Pendapatan Tahunan') ? 'active' : '' ?>">
                     <div class="nav-icon reports-icon">
                         <i class="bi bi-bar-chart-fill"></i>
                     </div>

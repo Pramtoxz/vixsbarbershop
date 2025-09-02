@@ -730,7 +730,7 @@ class ReportsController extends BaseController
         }
 
         $data = [
-            'title' => 'Laporan Pendapatan Bulanan',
+            'title' => 'Laporan Uang Masuk Bulanan',
             'pendapatan' => $pendapatanBulanan,
             'totalPendapatan' => $totalPendapatan,
             'bulan' => $bulan,
@@ -898,7 +898,7 @@ class ReportsController extends BaseController
 
 
         $headerData = [
-            'title' => 'Cetak Laporan Pendapatan Bulanan',
+            'title' => 'Cetak Laporan Uang Masuk Bulanan',
             'nama_perusahaan' => 'Vixs Barbershop',
             'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
@@ -1011,7 +1011,7 @@ class ReportsController extends BaseController
         }
 
         $data = [
-            'title' => 'Laporan Pendapatan Bulanan',
+            'title' => 'Laporan Uang Masuk Bulanan',
             'pendapatan' => $pendapatanBulanan,
             'totalPendapatan' => $totalPendapatan
         ];
@@ -1134,7 +1134,7 @@ class ReportsController extends BaseController
 
 
         $headerData = [
-            'title' => 'Cetak Laporan Pendapatan Bulanan',
+            'title' => 'Cetak Laporan Uang Masuk Bulanan',
             'nama_perusahaan' => 'Vixs Barbershop',
             'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
@@ -1142,7 +1142,7 @@ class ReportsController extends BaseController
             'website' => 'www.awanbarbershop.com',
             'tanggal' => $tahun ? 'Tahun: ' . $tahun : date('d F Y'),
             'tanggal_label' => $tahun ? 'Tahun: ' . $tahun : 'Tahun: ' . date('Y'),
-            'report_title' => 'LAPORAN PENDAPATAN PERTAHUN',
+            'report_title' => 'LAPORAN Uang Masuk Tahun',
             'manager' => 'Pimpinan'
         ];
 
@@ -1150,7 +1150,7 @@ class ReportsController extends BaseController
         $subtitle = '';
         if ($tahun) {
 
-            $headerData['report_title'] = 'LAPORAN PENDAPATAN PERTAHUN ';
+            $headerData['report_title'] = 'LAPORAN Uang Masuk Tahun ';
         }
 
 
