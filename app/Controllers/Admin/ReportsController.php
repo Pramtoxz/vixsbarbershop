@@ -628,54 +628,46 @@ class ReportsController extends BaseController
             <thead>
                 <tr>
                     <th class="text-center" width="5%">No</th>
-                    <th>No Transaksi</th>
-                    <th>Tanggal</th>
-                    <th>Nama Pelanggan</th>
-                    <th>Paket</th>
-                    <th>Harga Paket</th>
+                    <th>Bulan</th>
                     <th class="text-center">Total Bayar</th>
-                    <th>Metode Pembayaran</th>
                 </tr>
             </thead>
             <tbody>';
 
         $no = 1;
         $totalBayar = 0;
+        
+        // Inisialisasi array untuk semua bulan
+        $monthlyData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $bulan = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $monthlyData[$bulan] = 0;
+        }
 
+        // Tambahkan data transaksi ke bulan yang sesuai
         foreach ($pembayaranData as $p) {
+            $bulan = date('m', strtotime($p['created_at']));
+            $monthlyData[$bulan] += $p['total_bayar'];
+            $totalBayar += $p['total_bayar'];
+        }
 
-            $paketList = [];
-            foreach ($p['details'] as $detail) {
-                $paketInfo = $detail['nama_paket'];
-                if (!empty($detail['deskripsi'])) {
-                    $paketInfo .= ' (' . $detail['deskripsi'] . ')';
-                }
-                $paketList[] = $paketInfo;
-            }
-
+        // Tampilkan semua bulan
+        foreach ($monthlyData as $bulan => $total) {
+            $namaBulan = $this->getNamaBulan($bulan);
             $content .= '
             <tr>
                 <td class="text-center">' . $no++ . '</td>
-                <td>' . $p['fakturbooking'] . '</td>
-                <td>' . date('d/m/Y', strtotime($p['created_at'])) . '</td>
-                <td>' . $p['booking']['nama_lengkap'] . '</td>
-                <td>' . implode(", ", $paketList) . '</td>
-                <td class="text-end">Rp ' . number_format($p['grandtotal'], 0, ',', '.') . '</td>
-                <td class="text-end">Rp ' . number_format($p['total_bayar'], 0, ',', '.') . '</td>
-                <td>' . ucfirst($p['metode']) . '</td>
+                <td>' . $namaBulan . '</td>
+                <td class="text-end">Rp ' . number_format($total, 0, ',', '.') . '</td>
             </tr>';
-
-
-            $totalBayar += $p['total_bayar'];
         }
 
         $content .= '
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" class="text-end fw-bold">Total Seluruh Pembayaran:</td>
+                    <td colspan="2" class="text-end fw-bold">Total Seluruh Pembayaran:</td>
                     <td class="text-end fw-bold">Rp ' . number_format($totalBayar, 0, ',', '.') . '</td>
-                    <td></td>
                 </tr>
             </tfoot>
         </table>';
@@ -1311,9 +1303,18 @@ class ReportsController extends BaseController
         $bulan = $this->request->getGet('bulan') ?? date('m');
 
         $namaBulan = [
-            '01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
-            '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
-            '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+            '01' => 'Januari',
+            '02' => 'Februari',
+            '03' => 'Maret',
+            '04' => 'April',
+            '05' => 'Mei',
+            '06' => 'Juni',
+            '07' => 'Juli',
+            '08' => 'Agustus',
+            '09' => 'September',
+            '10' => 'Oktober',
+            '11' => 'November',
+            '12' => 'Desember'
         ];
 
         $pengeluaranModel = new \App\Models\PengeluaranModel();
