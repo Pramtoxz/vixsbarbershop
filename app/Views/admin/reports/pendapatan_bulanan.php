@@ -5,7 +5,7 @@
 <!-- Page Header -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
-        <h1 class="h3 mb-0 text-gray-800">Laporan Pendapatan Perbulan</h1>
+        <h1 class="h3 mb-0 text-gray-800">Laporan Uang Masuk Perbulan</h1>
         <p class="mb-0 text-black">Laporan Uang Masuk Bulanan</p>
     </div>
     <div>
