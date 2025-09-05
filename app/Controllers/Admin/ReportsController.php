@@ -636,7 +636,7 @@ class ReportsController extends BaseController
 
         $no = 1;
         $totalBayar = 0;
-        
+
         // Inisialisasi array untuk semua bulan
         $monthlyData = [];
         for ($i = 1; $i <= 12; $i++) {
@@ -959,63 +959,50 @@ class ReportsController extends BaseController
 
     public function pendapatanTahunan()
     {
+        $tahun = $this->request->getGet('tahun') ?? date('Y');
+
+        // Initialize array for all 12 months
+        $pendapatanPerBulan = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $pendapatanPerBulan[$i] = [
+                'bulan' => $i,
+                'tahun' => $tahun,
+                'total' => 0
+            ];
+        }
 
         $this->db->query("SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED");
 
+        $query = $this->db->query(
+            "SELECT 
+                MONTH(p.created_at) as bulan,
+                YEAR(p.created_at) as tahun,
+                SUM(p.total_bayar) as total
+            FROM 
+                pembayaran p
+            WHERE 
+                p.status = 'paid'
+                AND YEAR(p.created_at) = ?
+            GROUP BY 
+                MONTH(p.created_at), YEAR(p.created_at)
+            ORDER BY 
+                bulan ASC",
+            [$tahun]
+        );
 
-        $pendapatanBulanan = [];
+        $result = $query->getResultArray();
+
         $totalPendapatan = 0;
-
-
-        $tahun = $this->request->getGet('tahun');
-
-        if ($tahun) {
-
-            $query = $this->db->query(
-                "SELECT 
-                    MONTH(p.created_at) as bulan,
-                    YEAR(p.created_at) as tahun,
-                    SUM(p.total_bayar) as total
-                FROM 
-                    pembayaran p
-                WHERE 
-                    p.status = 'paid'
-                    AND YEAR(p.created_at) = ?
-                GROUP BY 
-                    MONTH(p.created_at), YEAR(p.created_at)
-                ORDER BY 
-                    tahun DESC, bulan ASC",
-                [$tahun]
-            );
-        } else {
-
-            $query = $this->db->query(
-                "SELECT 
-                    MONTH(p.created_at) as bulan,
-                    YEAR(p.created_at) as tahun,
-                    SUM(p.total_bayar) as total
-                FROM 
-                    pembayaran p
-                WHERE 
-                    p.status = 'paid'
-                GROUP BY 
-                    MONTH(p.created_at), YEAR(p.created_at)
-                ORDER BY 
-                    tahun DESC, bulan ASC"
-            );
-        }
-
-        $pendapatanBulanan = $query->getResultArray();
-
-
-        foreach ($pendapatanBulanan as $item) {
-            $totalPendapatan += $item['total'];
+        foreach ($result as $row) {
+            $pendapatanPerBulan[$row['bulan']] = $row;
+            $totalPendapatan += $row['total'];
         }
 
         $data = [
-            'title' => 'Laporan Uang Masuk Bulanan',
-            'pendapatan' => $pendapatanBulanan,
-            'totalPendapatan' => $totalPendapatan
+            'title' => 'Laporan Uang Masuk Tahunan',
+            'pendapatan' => $pendapatanPerBulan,
+            'totalPendapatan' => $totalPendapatan,
+            'tahun' => $tahun
         ];
 
         return view('admin/reports/pendapatan_tahunan', $data);
@@ -1036,8 +1023,6 @@ class ReportsController extends BaseController
 
 
         $tahun = $this->request->getGet('tahun');
-
-
         $showAll = $this->request->getGet('show_all') === 'true';
 
         if (!$showAll && empty($tahun)) {
@@ -1047,45 +1032,89 @@ class ReportsController extends BaseController
             ]);
         }
 
-
-        $sql = "SELECT 
-                MONTH(p.created_at) as bulan,
-                YEAR(p.created_at) as tahun,
-                SUM(p.total_bayar) as total
-            FROM 
-                pembayaran p
-            WHERE 
-                p.status = 'paid'";
-
+        $totalPendapatan = 0;
+        $formattedData = [];
 
         if (!$showAll && $tahun) {
-            $sql .= " AND YEAR(p.created_at) = $tahun";
-        }
+            // Logic for a specific year: ensure all 12 months are present
+            $monthlyData = [];
+            for ($i = 1; $i <= 12; $i++) {
+                $monthlyData[$i] = [
+                    'bulan' => $i,
+                    'tahun' => $tahun,
+                    'total' => 0
+                ];
+            }
 
+            $sql = "SELECT 
+                    MONTH(p.created_at) as bulan,
+                    SUM(p.total_bayar) as total
+                FROM 
+                    pembayaran p
+                WHERE 
+                    p.status = 'paid' AND YEAR(p.created_at) = ?
+                GROUP BY 
+                    MONTH(p.created_at)
+                ORDER BY 
+                    bulan ASC";
+            
+            $query = $this->db->query($sql, [$tahun]);
+            $result = $query->getResultArray();
 
-        $sql .= " GROUP BY 
-                MONTH(p.created_at), YEAR(p.created_at)
-            ORDER BY 
-                tahun DESC, bulan ASC";
+            foreach ($result as $row) {
+                $monthlyData[$row['bulan']]['total'] = $row['total'];
+            }
 
-        $query = $this->db->query($sql);
-        $pendapatanBulanan = $query->getResultArray();
+            foreach ($monthlyData as $item) {
+                $formattedData[] = [
+                    'bulan' => $item['bulan'],
+                    'tahun' => $item['tahun'],
+                    'bulan_nama' => $this->getNamaBulan($item['bulan']),
+                    'total' => $item['total']
+                ];
+                $totalPendapatan += $item['total'];
+            }
 
+        } else {
+            // New logic for "Show All"
+            $yearQuery = $this->db->query("SELECT DISTINCT YEAR(created_at) as tahun FROM pembayaran WHERE status = 'paid' ORDER BY tahun ASC");
+            $years = $yearQuery->getResultArray();
 
-        $formattedData = [];
-        foreach ($pendapatanBulanan as $item) {
-            $formattedData[] = [
-                'bulan' => $item['bulan'],
-                'tahun' => $item['tahun'],
-                'bulan_nama' => $this->getNamaBulan($item['bulan']),
-                'total' => $item['total']
-            ];
-        }
+            $allData = [];
+            foreach ($years as $y) {
+                $currentYear = $y['tahun'];
+                $monthlyData = [];
+                for ($i = 1; $i <= 12; $i++) {
+                    $monthlyData[$i] = [
+                        'bulan' => $i,
+                        'tahun' => $currentYear,
+                        'total' => 0
+                    ];
+                }
 
+                $sql = "SELECT MONTH(p.created_at) as bulan, SUM(p.total_bayar) as total
+                        FROM pembayaran p
+                        WHERE p.status = 'paid' AND YEAR(p.created_at) = ?
+                        GROUP BY MONTH(p.created_at)
+                        ORDER BY bulan ASC";
+                $query = $this->db->query($sql, [$currentYear]);
+                $result = $query->getResultArray();
 
-        $totalPendapatan = 0;
-        foreach ($pendapatanBulanan as $item) {
-            $totalPendapatan += $item['total'];
+                foreach ($result as $row) {
+                    $monthlyData[$row['bulan']]['total'] = $row['total'];
+                }
+                
+                foreach ($monthlyData as $item) {
+                    $allData[] = [
+                        'bulan' => $item['bulan'],
+                        'tahun' => $item['tahun'],
+                        'bulan_nama' => $this->getNamaBulan($item['bulan']),
+                        'total' => $item['total']
+                    ];
+                    $totalPendapatan += $item['total'];
+                }
+            }
+            $formattedData = $allData;
         }
 
         return $this->response->setJSON([
@@ -1098,100 +1127,117 @@ class ReportsController extends BaseController
 
     public function printPendapatanTahunan()
     {
-
         $this->db->query("SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED");
-
-
         $tahun = $this->request->getGet('tahun');
 
-
-        $sql = "SELECT 
-                MONTH(p.created_at) as bulan,
-                YEAR(p.created_at) as tahun,
-                SUM(p.total_bayar) as total
-            FROM 
-                pembayaran p
-            WHERE 
-                p.status = 'paid'";
-
-
-        if ($tahun) {
-            $sql .= " AND YEAR(p.created_at) = $tahun";
-        }
-
-
-        $sql .= " GROUP BY 
-                MONTH(p.created_at), YEAR(p.created_at)
-            ORDER BY 
-                tahun DESC, bulan ASC";
-
-        $query = $this->db->query($sql);
-        $pendapatanBulanan = $query->getResultArray();
-
-
+        $pendapatanBulanan = [];
         $totalPendapatan = 0;
-        foreach ($pendapatanBulanan as $item) {
-            $totalPendapatan += $item['total'];
-        }
-
-
         $headerData = [
-            'title' => 'Cetak Laporan Uang Masuk Bulanan',
+            'title' => 'Cetak Laporan Pendapatan Tahunan',
             'nama_perusahaan' => 'Vixs Barbershop',
             'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
-            'tanggal' => $tahun ? 'Tahun: ' . $tahun : date('d F Y'),
-            'tanggal_label' => $tahun ? 'Tahun: ' . $tahun : 'Tahun: ' . date('Y'),
-            'report_title' => 'LAPORAN Uang Masuk Tahun',
+            'report_title' => 'LAPORAN PENDAPATAN TAHUNAN',
             'manager' => 'Pimpinan'
         ];
 
-
-        $subtitle = '';
         if ($tahun) {
+            // Case 1: A specific year is selected
+            $headerData['tanggal_label'] = 'Tahun: ' . $tahun;
+            
+            $monthlyData = [];
+            for ($i = 1; $i <= 12; $i++) {
+                $monthlyData[$i] = ['bulan' => $i, 'total' => 0];
+            }
 
-            $headerData['report_title'] = 'LAPORAN Uang Masuk Tahun ';
+            $sql = "SELECT MONTH(p.created_at) as bulan, SUM(p.total_bayar) as total
+                    FROM pembayaran p
+                    WHERE p.status = 'paid' AND YEAR(p.created_at) = ?
+                    GROUP BY MONTH(p.created_at)
+                    ORDER BY bulan ASC";
+            $query = $this->db->query($sql, [$tahun]);
+            $result = $query->getResultArray();
+
+            foreach ($result as $row) {
+                $monthlyData[$row['bulan']]['total'] = $row['total'];
+            }
+            $pendapatanBulanan = array_values($monthlyData);
+        } else {
+            // Case 2: "Show All" is selected
+            $headerData['tanggal_label'] = 'Semua Tahun';
+
+            $yearQuery = $this->db->query("SELECT DISTINCT YEAR(created_at) as tahun FROM pembayaran WHERE status = 'paid' ORDER BY tahun ASC");
+            $years = $yearQuery->getResultArray();
+
+            $allData = [];
+            foreach ($years as $y) {
+                $currentYear = $y['tahun'];
+                $monthlyData = [];
+                for ($i = 1; $i <= 12; $i++) {
+                    $monthlyData[$i] = ['bulan' => $i, 'tahun' => $currentYear, 'total' => 0];
+                }
+
+                $sql = "SELECT MONTH(p.created_at) as bulan, SUM(p.total_bayar) as total
+                        FROM pembayaran p
+                        WHERE p.status = 'paid' AND YEAR(p.created_at) = ?
+                        GROUP BY MONTH(p.created_at)
+                        ORDER BY bulan ASC";
+                $query = $this->db->query($sql, [$currentYear]);
+                $result = $query->getResultArray();
+
+                foreach ($result as $row) {
+                    $monthlyData[$row['bulan']]['total'] = $row['total'];
+                }
+                $allData = array_merge($allData, array_values($monthlyData));
+            }
+            $pendapatanBulanan = $allData;
         }
 
+        // Calculate total
+        foreach ($pendapatanBulanan as $item) {
+            $totalPendapatan += $item['total'];
+        }
 
-        $content = $subtitle . '
-        <table class="table table-bordered">
+        // Generate HTML content for the print view
+        $content = '<table class="table table-bordered">
             <thead>
                 <tr>
                     <th class="text-center" width="5%">No</th>
-                    <th>Bulan</th>
-                    <th class="text-center">Total</th>
+                    <th>Bulan</th>';
+        if (!$tahun) {
+            $content .= '<th>Tahun</th>';
+        }
+        $content .= '<th class="text-center">Total</th>
                 </tr>
             </thead>
             <tbody>';
 
         $no = 1;
-
         foreach ($pendapatanBulanan as $item) {
             $namaBulan = $this->getNamaBulan($item['bulan']);
-            $content .= '
-            <tr>
+            $content .= '<tr>
                 <td class="text-center">' . $no++ . '</td>
-                <td>' . $namaBulan . '</td>
-                <td class="text-end">Rp ' . number_format($item['total'], 0, ',', '.') . '</td>
+                <td>' . $namaBulan . '</td>';
+            if (!$tahun) {
+                $content .= '<td>' . $item['tahun'] . '</td>';
+            }
+            $content .= '<td class="text-end">Rp ' . number_format($item['total'], 0, ',', '.') . '</td>
             </tr>';
         }
 
-        $content .= '
-            </tbody>
+        $colspan = $tahun ? 2 : 3;
+        $content .= '</tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2" class="text-end fw-bold">Total :</td>
+                    <td colspan="' . $colspan . '" class="text-end fw-bold">Total :</td>
                     <td class="text-end fw-bold">Rp ' . number_format($totalPendapatan, 0, ',', '.') . '</td>
                 </tr>
             </tfoot>
         </table>';
 
-
         $data = array_merge($headerData, ['content' => $content]);
-
         return view('admin/reports/template_laporan', $data);
     }
 
@@ -1391,26 +1437,73 @@ class ReportsController extends BaseController
             ]);
         }
 
-        $sql = "SELECT MONTH(tgl) as bulan, YEAR(tgl) as tahun, SUM(jumlah) as total FROM pengeluaran";
-        if (!$showAll && $tahun) {
-            $sql .= " WHERE YEAR(tgl) = " . (int)$tahun;
-        }
-        $sql .= " GROUP BY MONTH(tgl), YEAR(tgl) ORDER BY tahun DESC, bulan ASC";
-
-        $query = $this->db->query($sql);
-        $rows = $query->getResultArray();
-
         $formatted = [];
         $total = 0;
-        foreach ($rows as $r) {
-            $formatted[] = [
-                'bulan' => $r['bulan'],
-                'tahun' => $r['tahun'],
-                'bulan_nama' => $this->getNamaBulan($r['bulan']),
-                'total' => $r['total'],
-                'total_formatted' => 'Rp ' . number_format($r['total'], 0, ',', '.')
-            ];
-            $total += $r['total'];
+
+        if (!$showAll && $tahun) {
+            // Specific year selected
+            $monthlyData = [];
+            for ($i = 1; $i <= 12; $i++) {
+                $monthlyData[$i] = [
+                    'bulan' => $i,
+                    'tahun' => $tahun,
+                    'total' => 0
+                ];
+            }
+
+            $sql = "SELECT MONTH(tgl) as bulan, SUM(jumlah) as total FROM pengeluaran WHERE YEAR(tgl) = ? GROUP BY MONTH(tgl) ORDER BY bulan ASC";
+            $query = $this->db->query($sql, [$tahun]);
+            $result = $query->getResultArray();
+
+            foreach ($result as $row) {
+                $monthlyData[$row['bulan']]['total'] = $row['total'];
+            }
+
+            foreach ($monthlyData as $item) {
+                $formatted[] = [
+                    'bulan' => $item['bulan'],
+                    'tahun' => $item['tahun'],
+                    'bulan_nama' => $this->getNamaBulan($item['bulan']),
+                    'total' => $item['total'],
+                    'total_formatted' => 'Rp ' . number_format($item['total'], 0, ',', '.')
+                ];
+                $total += $item['total'];
+            }
+        } else {
+            // Show All selected
+            $yearQuery = $this->db->query("SELECT DISTINCT YEAR(tgl) as tahun FROM pengeluaran ORDER BY tahun ASC");
+            $years = $yearQuery->getResultArray();
+
+            foreach ($years as $y) {
+                $currentYear = $y['tahun'];
+                $monthlyData = [];
+                for ($i = 1; $i <= 12; $i++) {
+                    $monthlyData[$i] = [
+                        'bulan' => $i,
+                        'tahun' => $currentYear,
+                        'total' => 0
+                    ];
+                }
+
+                $sql = "SELECT MONTH(tgl) as bulan, SUM(jumlah) as total FROM pengeluaran WHERE YEAR(tgl) = ? GROUP BY MONTH(tgl) ORDER BY bulan ASC";
+                $query = $this->db->query($sql, [$currentYear]);
+                $result = $query->getResultArray();
+
+                foreach ($result as $row) {
+                    $monthlyData[$row['bulan']]['total'] = $row['total'];
+                }
+
+                foreach ($monthlyData as $item) {
+                    $formatted[] = [
+                        'bulan' => $item['bulan'],
+                        'tahun' => $item['tahun'],
+                        'bulan_nama' => $this->getNamaBulan($item['bulan']),
+                        'total' => $item['total'],
+                        'total_formatted' => 'Rp ' . number_format($item['total'], 0, ',', '.')
+                    ];
+                    $total += $item['total'];
+                }
+            }
         }
 
         return $this->response->setJSON([
@@ -1425,19 +1518,8 @@ class ReportsController extends BaseController
     {
         $tahun = $this->request->getGet('tahun');
 
-        $sql = "SELECT MONTH(tgl) as bulan, YEAR(tgl) as tahun, SUM(jumlah) as total FROM pengeluaran";
-        if (!empty($tahun)) {
-            $sql .= " WHERE YEAR(tgl) = " . (int)$tahun;
-        }
-        $sql .= " GROUP BY MONTH(tgl), YEAR(tgl) ORDER BY tahun DESC, bulan ASC";
-
-        $query = $this->db->query($sql);
-        $rows = $query->getResultArray();
-
+        $rows = [];
         $total = 0;
-        foreach ($rows as $r) {
-            $total += $r['total'];
-        }
 
         $headerData = [
             'title' => 'Cetak Laporan Pengeluaran Tahunan',
@@ -1446,19 +1528,72 @@ class ReportsController extends BaseController
             'telepon' => '081234567890',
             'email' => 'info@awanbarbershop.com',
             'website' => 'www.awanbarbershop.com',
-            'tanggal_label' => $tahun ? 'Tahun: ' . $tahun : 'Semua Data',
             'report_title' => 'LAPORAN PENGELUARAN PERTAHUN',
             'manager' => 'Pimpinan'
         ];
 
-        $content = '<table class="table table-bordered">            <thead>           <tr>             <th class="text-center" width="5%">No</th>                    <th>Bulan</th>                    <th class="text-center">Total</th>                </tr>            </thead>            <tbody>';
+        if ($tahun) {
+            // Specific year
+            $headerData['tanggal_label'] = 'Tahun: ' . $tahun;
+            $monthlyData = [];
+            for ($i = 1; $i <= 12; $i++) {
+                $monthlyData[$i] = ['bulan' => $i, 'tahun' => $tahun, 'total' => 0];
+            }
+
+            $sql = "SELECT MONTH(tgl) as bulan, SUM(jumlah) as total FROM pengeluaran WHERE YEAR(tgl) = ? GROUP BY MONTH(tgl) ORDER BY bulan ASC";
+            $query = $this->db->query($sql, [$tahun]);
+            $result = $query->getResultArray();
+
+            foreach ($result as $row) {
+                $monthlyData[$row['bulan']]['total'] = $row['total'];
+            }
+            $rows = array_values($monthlyData);
+
+        } else {
+            // Show All
+            $headerData['tanggal_label'] = 'Semua Data';
+            $yearQuery = $this->db->query("SELECT DISTINCT YEAR(tgl) as tahun FROM pengeluaran ORDER BY tahun ASC");
+            $years = $yearQuery->getResultArray();
+
+            foreach ($years as $y) {
+                $currentYear = $y['tahun'];
+                $monthlyData = [];
+                for ($i = 1; $i <= 12; $i++) {
+                    $monthlyData[$i] = ['bulan' => $i, 'tahun' => $currentYear, 'total' => 0];
+                }
+
+                $sql = "SELECT MONTH(tgl) as bulan, SUM(jumlah) as total FROM pengeluaran WHERE YEAR(tgl) = ? GROUP BY MONTH(tgl) ORDER BY bulan ASC";
+                $query = $this->db->query($sql, [$currentYear]);
+                $result = $query->getResultArray();
+
+                foreach ($result as $row) {
+                    $monthlyData[$row['bulan']]['total'] = $row['total'];
+                }
+                $rows = array_merge($rows, array_values($monthlyData));
+            }
+        }
+
+        foreach ($rows as $r) {
+            $total += $r['total'];
+        }
+
+        $content = '<table class="table table-bordered"><thead><tr><th class="text-center" width="5%">No</th><th>Bulan</th>';
+        if (!$tahun) {
+            $content .= '<th>Tahun</th>';
+        }
+        $content .= '<th class="text-center">Total</th></tr></thead><tbody>';
 
         $no = 1;
         foreach ($rows as $r) {
-            $content .= '            <tr>                <td class="text-center">' . $no++ . '</td>                <td>' . $this->getNamaBulan($r['bulan']) . '</td>                <td class="text-end">Rp ' . number_format($r['total'], 0, ',', '.') . '</td>            </tr>';
+            $content .= '<tr><td class="text-center">' . $no++ . '</td><td>' . $this->getNamaBulan($r['bulan']) . '</td>';
+            if (!$tahun) {
+                $content .= '<td>' . $r['tahun'] . '</td>';
+            }
+            $content .= '<td class="text-end">Rp ' . number_format($r['total'], 0, ',', '.') . '</td></tr>';
         }
 
-        $content .= '            </tbody>            <tfoot>                <tr>                    <td colspan="2" class="text-end fw-bold">Total :</td>                    <td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td>                </tr>            </tfoot>        </table>';
+        $colspan = $tahun ? 2 : 3;
+        $content .= '</tbody><tfoot><tr><td colspan="' . $colspan . '" class="text-end fw-bold">Total :</td><td class="text-end fw-bold">Rp ' . number_format($total, 0, ',', '.') . '</td></tr></tfoot></table>';
 
         $data = array_merge($headerData, ['content' => $content]);
 
