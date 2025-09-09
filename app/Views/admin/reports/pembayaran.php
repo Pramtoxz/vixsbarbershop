@@ -723,16 +723,19 @@
 
         // Fungsi untuk memperbarui URL cetak
         function updatePrintUrl(bulan, tahun, singleDate, startDate, endDate) {
-            var printUrl = '<?= site_url('admin/reports/pembayaran/print') ?>';
+            var printUrl = '';
             var params = [];
 
             if (isPertanggal) {
+                printUrl = '<?= site_url('admin/reports/pembayaran-pertanggal/print') ?>';
                 if (singleDate) params.push('single_date=' + singleDate);
                 if (startDate) params.push('start_date=' + startDate);
                 if (endDate) params.push('end_date=' + endDate);
             } else if (isPertahun) {
+                printUrl = '<?= site_url('admin/reports/pembayaran-pertahun/print') ?>';
                 if (tahun) params.push('tahun=' + tahun);
             } else {
+                printUrl = '<?= site_url('admin/reports/pembayaran/print') ?>';
                 if (bulan) params.push('bulan=' + bulan);
                 if (tahun) params.push('tahun=' + tahun);
             }

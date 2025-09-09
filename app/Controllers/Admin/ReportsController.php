@@ -540,7 +540,471 @@ class ReportsController extends BaseController
         $data = [
             'title' => 'Laporan Pembayaran Pertanggal'
         ];
-        return view('admin/reports/pembayaran', $data);
+        return view('admin/reports/pembayaran_pertanggal', $data);
+    }
+
+    public function printPembayaranPertanggal()
+    {
+        $singleDate = $this->request->getGet('single_date');
+        $startDate = $this->request->getGet('start_date');
+        $endDate = $this->request->getGet('end_date');
+
+        $pembayaranData = [];
+        $pembayaran = $this->pembayaranModel->where('status', 'paid');
+
+        // Filter berdasarkan tanggal
+        if ($singleDate) {
+            $pembayaran->where('DATE(created_at)', $singleDate);
+        } elseif ($startDate || $endDate) {
+            if ($startDate) {
+                $pembayaran->where('DATE(created_at) >=', $startDate);
+            }
+            if ($endDate) {
+                $pembayaran->where('DATE(created_at) <=', $endDate);
+            }
+        }
+
+        $pembayaran = $pembayaran->findAll();
+
+        foreach ($pembayaran as $p) {
+            $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
+            if ($booking) {
+                $details = $this->detailBookingModel->getDetailsByBookingCode($p['fakturbooking']);
+                if (!empty($details)) {
+                    $p['booking'] = $booking;
+                    $p['details'] = $details;
+                    $pembayaranData[] = $p;
+                }
+            }
+        }
+
+        // Label periode
+        $tanggalLabel = '';
+        if ($singleDate) {
+            $tanggalLabel = "Tanggal: " . date('d/m/Y', strtotime($singleDate));
+        } elseif ($startDate && $endDate) {
+            $tanggalLabel = "Periode: " . date('d/m/Y', strtotime($startDate)) . " s/d " . date('d/m/Y', strtotime($endDate));
+        } elseif ($startDate) {
+            $tanggalLabel = "Mulai: " . date('d/m/Y', strtotime($startDate));
+        } elseif ($endDate) {
+            $tanggalLabel = "Sampai: " . date('d/m/Y', strtotime($endDate));
+        }
+
+        $headerData = [
+            'title' => 'Cetak Laporan Pembayaran Pertanggal',
+            'nama_perusahaan' => 'Vixs Barbershop',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
+            'telepon' => '081234567890',
+            'email' => 'info@awanbarbershop.com',
+            'website' => 'www.awanbarbershop.com',
+            'tanggal_label' => $tanggalLabel,
+            'report_title' => 'LAPORAN DATA PEMBAYARAN PERTANGGAL',
+            'manager' => 'Pimpinan'
+        ];
+
+        $content = '
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" width="5%">No</th>
+                    <th width="15%">No Transaksi</th>
+                    <th width="12%">Tanggal</th>
+                    <th width="20%">Nama Pelanggan</th>
+                    <th width="25%">Paket</th>
+                    <th class="text-center" width="12%">Harga Paket</th>
+                    <th class="text-center" width="12%">Total Bayar</th>
+                    <th class="text-center" width="10%">Metode</th>
+                </tr>
+            </thead>
+            <tbody>';
+
+        $no = 1;
+        $totalBayar = 0;
+        $processedFaktur = [];
+
+        foreach ($pembayaranData as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFaktur)) {
+                continue;
+            }
+            $processedFaktur[] = $p['fakturbooking'];
+            $totalBayar += $p['total_bayar'];
+
+            $paketList = [];
+            if (isset($p['details']) && is_array($p['details'])) {
+                foreach ($p['details'] as $detail) {
+                    $paketInfo = $detail['nama_paket'] ?? '';
+                    if (!empty($detail['deskripsi'])) {
+                        $paketInfo .= ' (' . $detail['deskripsi'] . ')';
+                    }
+                    $paketList[] = $paketInfo;
+                }
+            }
+
+            $content .= '
+            <tr>
+                <td class="text-center">' . $no++ . '</td>
+                <td>' . ($p['fakturbooking'] ?? '') . '</td>
+                <td>' . (isset($p['created_at']) ? date('d/m/Y', strtotime($p['created_at'])) : '') . '</td>
+                <td>' . ($p['booking']['nama_lengkap'] ?? '') . '</td>
+                <td>' . implode(', ', $paketList) . '</td>
+                <td class="text-end">Rp ' . number_format(($p['grandtotal'] ?? 0), 0, ',', '.') . '</td>
+                <td class="text-end">Rp ' . number_format(($p['total_bayar'] ?? 0), 0, ',', '.') . '</td>
+                <td class="text-center">' . ucfirst($p['metode'] ?? '') . '</td>
+            </tr>';
+        }
+
+        $content .= '
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="text-end fw-bold">Total Seluruh Pembayaran:</td>
+                    <td class="text-end fw-bold">Rp ' . number_format($totalBayar, 0, ',', '.') . '</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>';
+
+        $data = array_merge($headerData, ['content' => $content]);
+
+        return view('admin/reports/template_laporan', $data);
+    }
+
+    public function printPembayaranPerbulan()
+    {
+        $bulan = $this->request->getGet('bulan');
+        $tahun = $this->request->getGet('tahun');
+
+        $pembayaranData = [];
+        $pembayaran = $this->pembayaranModel->where('status', 'paid');
+
+        // Filter berdasarkan bulan dan tahun
+        if ($bulan && $tahun) {
+            $pembayaran->where("DATE_FORMAT(created_at, '%m-%Y') = ", "$bulan-$tahun");
+        } elseif ($bulan) {
+            $pembayaran->where("DATE_FORMAT(created_at, '%m') = ", $bulan);
+        } elseif ($tahun) {
+            $pembayaran->where("DATE_FORMAT(created_at, '%Y') = ", $tahun);
+        }
+
+        $pembayaran = $pembayaran->findAll();
+
+        $processedFaktur = [];
+        foreach ($pembayaran as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFaktur)) {
+                continue;
+            }
+            $processedFaktur[] = $p['fakturbooking'];
+
+            $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
+            if ($booking) {
+                $details = $this->detailBookingModel->getDetailsByBookingCode($p['fakturbooking']);
+                if (!empty($details)) {
+                    $p['booking'] = $booking;
+                    $p['details'] = $details;
+                    $pembayaranData[] = $p;
+                }
+            }
+        }
+
+        // Label periode
+        $tanggalLabel = '';
+        if ($bulan && $tahun) {
+            $namaBulan = $this->getNamaBulan($bulan);
+            $tanggalLabel = "Bulan: $namaBulan $tahun";
+        } elseif ($bulan) {
+            $namaBulan = $this->getNamaBulan($bulan);
+            $tanggalLabel = "Bulan: $namaBulan " . date('Y');
+        } elseif ($tahun) {
+            $tanggalLabel = "Tahun: $tahun";
+        } else {
+            $tanggalLabel = 'Bulan: Semua';
+        }
+
+        $headerData = [
+            'title' => 'Cetak Laporan Pembayaran Perbulan',
+            'nama_perusahaan' => 'Vixs Barbershop',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
+            'telepon' => '081234567890',
+            'email' => 'info@awanbarbershop.com',
+            'website' => 'www.awanbarbershop.com',
+            'tanggal_label' => $tanggalLabel,
+            'report_title' => 'LAPORAN DATA PEMBAYARAN PERBULAN',
+            'manager' => 'Pimpinan'
+        ];
+
+        $content = '
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" width="5%">No</th>
+                    <th width="15%">No Transaksi</th>
+                    <th width="12%">Tanggal</th>
+                    <th width="20%">Nama Pelanggan</th>
+                    <th width="25%">Paket</th>
+                    <th class="text-center" width="12%">Harga Paket</th>
+                    <th class="text-center" width="12%">Total Bayar</th>
+                    <th class="text-center" width="10%">Metode</th>
+                </tr>
+            </thead>
+            <tbody>';
+
+        $no = 1;
+        $totalBayar = 0;
+
+        foreach ($pembayaranData as $p) {
+            $totalBayar += $p['total_bayar'];
+
+            $paketList = [];
+            if (isset($p['details']) && is_array($p['details'])) {
+                foreach ($p['details'] as $detail) {
+                    $paketInfo = $detail['nama_paket'] ?? '';
+                    if (!empty($detail['deskripsi'])) {
+                        $paketInfo .= ' (' . $detail['deskripsi'] . ')';
+                    }
+                    $paketList[] = $paketInfo;
+                }
+            }
+
+            $content .= '
+            <tr>
+                <td class="text-center">' . $no++ . '</td>
+                <td>' . ($p['fakturbooking'] ?? '') . '</td>
+                <td>' . (isset($p['created_at']) ? date('d/m/Y', strtotime($p['created_at'])) : '') . '</td>
+                <td>' . ($p['booking']['nama_lengkap'] ?? '') . '</td>
+                <td>' . implode(', ', $paketList) . '</td>
+                <td class="text-end">Rp ' . number_format(($p['grandtotal'] ?? 0), 0, ',', '.') . '</td>
+                <td class="text-end">Rp ' . number_format(($p['total_bayar'] ?? 0), 0, ',', '.') . '</td>
+                <td class="text-center">' . ucfirst($p['metode'] ?? '') . '</td>
+            </tr>';
+        }
+
+        $content .= '
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="text-end fw-bold">Total Seluruh Pembayaran:</td>
+                    <td class="text-end fw-bold">Rp ' . number_format($totalBayar, 0, ',', '.') . '</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>';
+
+        $data = array_merge($headerData, ['content' => $content]);
+
+        return view('admin/reports/template_laporan', $data);
+    }
+
+    public function printPembayaranPertahun()
+    {
+        $tahun = $this->request->getGet('tahun');
+
+        $pembayaranData = [];
+        $pembayaran = $this->pembayaranModel->where('status', 'paid');
+
+        // Filter berdasarkan tahun
+        if ($tahun) {
+            $pembayaran->where("DATE_FORMAT(created_at, '%Y') = ", $tahun);
+        }
+
+        $pembayaran = $pembayaran->findAll();
+
+        $processedFaktur = [];
+        foreach ($pembayaran as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFaktur)) {
+                continue;
+            }
+            $processedFaktur[] = $p['fakturbooking'];
+
+            $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
+            if ($booking) {
+                $details = $this->detailBookingModel->getDetailsByBookingCode($p['fakturbooking']);
+                if (!empty($details)) {
+                    $p['booking'] = $booking;
+                    $p['details'] = $details;
+                    $pembayaranData[] = $p;
+                }
+            }
+        }
+
+        // Label periode
+        $tanggalLabel = '';
+        if ($tahun) {
+            $tanggalLabel = "Tahun: $tahun";
+        } else {
+            $tanggalLabel = 'Tahun: Semua';
+        }
+
+        $headerData = [
+            'title' => 'Cetak Laporan Pembayaran Pertahun',
+            'nama_perusahaan' => 'Vixs Barbershop',
+            'alamat_perusahaan' => 'Jl. Adinegoro No.16, Batang Kabung Ganting, Kec. Koto Tangah Kota Padang, Sumatera Barat 25586',
+            'telepon' => '081234567890',
+            'email' => 'info@awanbarbershop.com',
+            'website' => 'www.awanbarbershop.com',
+            'tanggal_label' => $tanggalLabel,
+            'report_title' => 'LAPORAN DATA PEMBAYARAN PERTAHUN',
+            'manager' => 'Pimpinan'
+        ];
+
+        // Inisialisasi array untuk semua bulan
+        $monthlyData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $bulan = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $monthlyData[$bulan] = 0;
+        }
+
+        // Tambahkan data transaksi ke bulan yang sesuai
+        $totalBayar = 0;
+        foreach ($pembayaranData as $p) {
+            $bulan = date('m', strtotime($p['created_at']));
+            $monthlyData[$bulan] += $p['total_bayar'];
+            $totalBayar += $p['total_bayar'];
+        }
+
+        $content = '
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" width="5%">No</th>
+                    <th>Bulan</th>
+                    <th class="text-center">Total Bayar</th>
+                </tr>
+            </thead>
+            <tbody>';
+
+        $no = 1;
+
+        // Tampilkan semua bulan
+        foreach ($monthlyData as $bulan => $total) {
+            $namaBulan = $this->getNamaBulan($bulan);
+            $content .= '
+            <tr>
+                <td class="text-center">' . $no++ . '</td>
+                <td>' . $namaBulan . '</td>
+                <td class="text-end">Rp ' . number_format($total, 0, ',', '.') . '</td>
+            </tr>';
+        }
+
+        $content .= '
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" class="text-end fw-bold">Total Seluruh Pembayaran:</td>
+                    <td class="text-end fw-bold">Rp ' . number_format($totalBayar, 0, ',', '.') . '</td>
+                </tr>
+            </tfoot>
+        </table>';
+
+        $data = array_merge($headerData, ['content' => $content]);
+
+        return view('admin/reports/template_laporan', $data);
+    }
+
+    public function getPembayaranPertanggalData()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Permintaan tidak valid'
+            ]);
+        }
+
+        $singleDate = $this->request->getGet('single_date');
+        $startDate = $this->request->getGet('start_date');
+        $endDate = $this->request->getGet('end_date');
+
+        $pembayaranData = [];
+        $pembayaran = $this->pembayaranModel->where('status', 'paid');
+
+        // Filter berdasarkan tanggal
+        if ($singleDate) {
+            $pembayaran->where('DATE(created_at)', $singleDate);
+        } elseif ($startDate || $endDate) {
+            if ($startDate) {
+                $pembayaran->where('DATE(created_at) >=', $startDate);
+            }
+            if ($endDate) {
+                $pembayaran->where('DATE(created_at) <=', $endDate);
+            }
+        }
+
+        $pembayaran = $pembayaran->findAll();
+        $totalData = 0;
+
+        $processedFaktur = [];
+        foreach ($pembayaran as $p) {
+            $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
+            if ($booking) {
+                $details = $this->detailBookingModel->getDetailsByBookingCode($p['fakturbooking']);
+                if (!empty($details)) {
+                    $p['booking'] = $booking;
+                    $p['details'] = $details;
+                    $pembayaranData[] = $p;
+                }
+            }
+        }
+
+        // Generate HTML untuk tabel
+        $html = '';
+        $no = 1;
+
+        foreach ($pembayaranData as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFaktur)) {
+                continue;
+            }
+            $processedFaktur[] = $p['fakturbooking'];
+
+            $paketList = [];
+            if (isset($p['details']) && is_array($p['details'])) {
+                foreach ($p['details'] as $detail) {
+                    $paketInfo = $detail['nama_paket'] ?? '';
+                    if (!empty($detail['deskripsi'])) {
+                        $paketInfo .= ' (' . $detail['deskripsi'] . ')';
+                    }
+                    $paketList[] = $paketInfo;
+                }
+            }
+
+            $html .= '<tr>';
+            $html .= '<td class="text-center">' . $no++ . '</td>';
+            $html .= '<td>' . ($p['fakturbooking'] ?? '') . '</td>';
+            $html .= '<td>' . (isset($p['created_at']) ? date('d/m/Y', strtotime($p['created_at'])) : '') . '</td>';
+            $html .= '<td>' . ($p['booking']['nama_lengkap'] ?? '') . '</td>';
+            $html .= '<td>' . implode(", ", $paketList) . '</td>';
+            $html .= '<td class="text-end">Rp ' . number_format(($p['grandtotal'] ?? 0), 0, ',', '.') . '</td>';
+            $html .= '<td class="text-end">Rp ' . number_format(($p['total_bayar'] ?? 0), 0, ',', '.') . '</td>';
+            $html .= '<td class="text-center">' . ucfirst($p['metode'] ?? '') . '</td>';
+            $html .= '</tr>';
+            $totalData++;
+        }
+
+        if ($totalData === 0) {
+            $html = '<tr><td colspan="8" class="text-center">Tidak ada data yang ditemukan</td></tr>';
+        }
+
+        // Pesan berdasarkan filter
+        $pesan = 'Data berhasil dimuat';
+        if ($singleDate) {
+            $pesan = 'Data pembayaran tanggal ' . date('d/m/Y', strtotime($singleDate)) . ' berhasil dimuat';
+        } elseif ($startDate && $endDate) {
+            $pesan = 'Data pembayaran periode ' . date('d/m/Y', strtotime($startDate)) . ' - ' . date('d/m/Y', strtotime($endDate)) . ' berhasil dimuat';
+        } elseif ($startDate) {
+            $pesan = 'Data pembayaran dari tanggal ' . date('d/m/Y', strtotime($startDate)) . ' berhasil dimuat';
+        } elseif ($endDate) {
+            $pesan = 'Data pembayaran sampai tanggal ' . date('d/m/Y', strtotime($endDate)) . ' berhasil dimuat';
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => $pesan,
+            'html' => $html,
+            'data' => $pembayaranData,
+            'total' => $totalData
+        ]);
     }
 
     public function pembayaranPertahun()
@@ -571,11 +1035,16 @@ class ReportsController extends BaseController
 
         $pembayaran = $pembayaran->findAll();
 
+        $processedFaktur = [];
         foreach ($pembayaran as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFaktur)) {
+                continue;
+            }
+            $processedFaktur[] = $p['fakturbooking'];
 
             $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
             if ($booking) {
-
                 $details = $this->detailBookingModel->getDetailsByBookingCode($p['fakturbooking']);
                 if (!empty($details)) {
                     $p['booking'] = $booking;
@@ -1057,7 +1526,7 @@ class ReportsController extends BaseController
                     MONTH(p.created_at)
                 ORDER BY 
                     bulan ASC";
-            
+
             $query = $this->db->query($sql, [$tahun]);
             $result = $query->getResultArray();
 
@@ -1074,7 +1543,6 @@ class ReportsController extends BaseController
                 ];
                 $totalPendapatan += $item['total'];
             }
-
         } else {
             // New logic for "Show All"
             $yearQuery = $this->db->query("SELECT DISTINCT YEAR(created_at) as tahun FROM pembayaran WHERE status = 'paid' ORDER BY tahun ASC");
@@ -1103,7 +1571,7 @@ class ReportsController extends BaseController
                 foreach ($result as $row) {
                     $monthlyData[$row['bulan']]['total'] = $row['total'];
                 }
-                
+
                 foreach ($monthlyData as $item) {
                     $allData[] = [
                         'bulan' => $item['bulan'],
@@ -1146,7 +1614,7 @@ class ReportsController extends BaseController
         if ($tahun) {
             // Case 1: A specific year is selected
             $headerData['tanggal_label'] = 'Tahun: ' . $tahun;
-            
+
             $monthlyData = [];
             for ($i = 1; $i <= 12; $i++) {
                 $monthlyData[$i] = ['bulan' => $i, 'total' => 0];
@@ -1548,7 +2016,6 @@ class ReportsController extends BaseController
                 $monthlyData[$row['bulan']]['total'] = $row['total'];
             }
             $rows = array_values($monthlyData);
-
         } else {
             // Show All
             $headerData['tanggal_label'] = 'Semua Data';
@@ -2692,11 +3159,16 @@ class ReportsController extends BaseController
         $pembayaran = $pembayaran->findAll();
         $totalData = 0;
 
+        $processedFaktur = [];
         foreach ($pembayaran as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFaktur)) {
+                continue;
+            }
+            $processedFaktur[] = $p['fakturbooking'];
 
             $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
             if ($booking) {
-
                 $details = $this->detailBookingModel->getDetailsByBookingCode($p['fakturbooking']);
                 if (!empty($details)) {
                     $p['booking'] = $booking;
@@ -2709,27 +3181,35 @@ class ReportsController extends BaseController
 
         $html = '';
         $no = 1;
+        $processedFakturHtml = [];
 
         foreach ($pembayaranData as $p) {
+            // Skip jika faktur sudah diproses (untuk menghindari duplikat)
+            if (in_array($p['fakturbooking'], $processedFakturHtml)) {
+                continue;
+            }
+            $processedFakturHtml[] = $p['fakturbooking'];
 
             $paketList = [];
-            foreach ($p['details'] as $detail) {
-                $paketInfo = $detail['nama_paket'];
-                if (!empty($detail['deskripsi'])) {
-                    $paketInfo .= ' (' . $detail['deskripsi'] . ')';
+            if (isset($p['details']) && is_array($p['details'])) {
+                foreach ($p['details'] as $detail) {
+                    $paketInfo = $detail['nama_paket'] ?? '';
+                    if (!empty($detail['deskripsi'])) {
+                        $paketInfo .= ' (' . $detail['deskripsi'] . ')';
+                    }
+                    $paketList[] = $paketInfo;
                 }
-                $paketList[] = $paketInfo;
             }
 
             $html .= '<tr>';
-            $html .= '<td>' . $no++ . '</td>';
+            $html .= '<td class="text-center">' . $no++ . '</td>';
             $html .= '<td>' . ($p['fakturbooking'] ?? '') . '</td>';
             $html .= '<td>' . (isset($p['created_at']) ? date('d/m/Y', strtotime($p['created_at'])) : '') . '</td>';
             $html .= '<td>' . ($p['booking']['nama_lengkap'] ?? '') . '</td>';
             $html .= '<td>' . implode(", ", $paketList) . '</td>';
             $html .= '<td class="text-end">Rp ' . number_format(($p['grandtotal'] ?? 0), 0, ',', '.') . '</td>';
             $html .= '<td class="text-end">Rp ' . number_format(($p['total_bayar'] ?? 0), 0, ',', '.') . '</td>';
-            $html .= '<td>' . ucfirst($p['metode'] ?? '') . '</td>';
+            $html .= '<td class="text-center">' . ucfirst($p['metode'] ?? '') . '</td>';
             $html .= '</tr>';
             $totalData++;
         }

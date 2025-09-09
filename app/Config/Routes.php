@@ -174,10 +174,13 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->get('booking/getData', 'Admin\ReportsController::getData');
         $routes->get('booking-bulanan', 'Admin\ReportsController::bookingBulanan');
         $routes->get('pembayaran', 'Admin\ReportsController::pembayaran');
-        $routes->get('pembayaran-pertanggal', 'Admin\ReportsController::pembayaranPertanggal');
-        $routes->get('pembayaran-pertahun', 'Admin\ReportsController::pembayaranPertahun');
-        $routes->get('pembayaran/print', 'Admin\ReportsController::printPembayaran');
+        $routes->get('pembayaran/print', 'Admin\ReportsController::printPembayaranPerbulan');
         $routes->get('pembayaran/getData', 'Admin\ReportsController::getPembayaranData');
+        $routes->get('pembayaran-pertanggal', 'Admin\ReportsController::pembayaranPertanggal');
+        $routes->get('pembayaran-pertanggal/print', 'Admin\ReportsController::printPembayaranPertanggal');
+        $routes->get('pembayaran-pertanggal/getData', 'Admin\ReportsController::getPembayaranPertanggalData');
+        $routes->get('pembayaran-pertahun', 'Admin\ReportsController::pembayaranPertahun');
+        $routes->get('pembayaran-pertahun/print', 'Admin\ReportsController::printPembayaranPertahun');
         $routes->get('pendapatan-bulanan', 'Admin\ReportsController::pendapatanBulanan');
         $routes->get('pendapatan-bulanan/print', 'Admin\ReportsController::printPendapatanBulanan');
         $routes->get('pendapatan-bulanan/data', 'Admin\ReportsController::getPendapatanBulananData');
