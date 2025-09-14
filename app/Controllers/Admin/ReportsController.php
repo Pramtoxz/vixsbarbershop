@@ -424,7 +424,6 @@ class ReportsController extends BaseController
                     <th>Nama Pelanggan</th>
                     <th>Nama Paket</th>
                     <th class="text-center">Harga Paket</th>
-                    <th class="text-center">Total Bayar</th>
                 </tr>
             </thead>
             <tbody>';
@@ -467,7 +466,6 @@ class ReportsController extends BaseController
                 <td>' . $booking['nama_lengkap'] . '</td>
                 <td>' . implode(", ", $paketList) . '</td>
                 <td class="text-end">Rp ' . number_format($totalHarga, 0, ',', '.') . '</td>
-                <td class="text-end">Rp ' . number_format($booking['total'], 0, ',', '.') . '</td>
             </tr>';
 
 
@@ -478,7 +476,7 @@ class ReportsController extends BaseController
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="5" class="text-end fw-bold">Total Seluruh Booking:</td>
+                    <td colspan="4" class="text-end fw-bold">Total Seluruh Booking:</td>
                     <td class="text-end fw-bold">Rp ' . number_format($totalBayar, 0, ',', '.') . '</td>
                 </tr>
             </tfoot>
@@ -624,9 +622,9 @@ class ReportsController extends BaseController
 
         foreach ($pembayaranData as $p) {
             // Skip jika faktur sudah diproses (untuk menghindari duplikat)
-            if (in_array($p['fakturbooking'], $processedFaktur)) {
-                continue;
-            }
+            // if (in_array($p['fakturbooking'], $processedFaktur)) {
+            //     continue;
+            // }
             $processedFaktur[] = $p['fakturbooking'];
             $totalBayar += $p['total_bayar'];
 
@@ -692,9 +690,9 @@ class ReportsController extends BaseController
         $processedFaktur = [];
         foreach ($pembayaran as $p) {
             // Skip jika faktur sudah diproses (untuk menghindari duplikat)
-            if (in_array($p['fakturbooking'], $processedFaktur)) {
-                continue;
-            }
+            // if (in_array($p['fakturbooking'], $processedFaktur)) {
+            //     continue;
+            // }
             $processedFaktur[] = $p['fakturbooking'];
 
             $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
@@ -813,9 +811,9 @@ class ReportsController extends BaseController
         $processedFaktur = [];
         foreach ($pembayaran as $p) {
             // Skip jika faktur sudah diproses (untuk menghindari duplikat)
-            if (in_array($p['fakturbooking'], $processedFaktur)) {
-                continue;
-            }
+            // if (in_array($p['fakturbooking'], $processedFaktur)) {
+            //     continue;
+            // }
             $processedFaktur[] = $p['fakturbooking'];
 
             $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
@@ -953,9 +951,9 @@ class ReportsController extends BaseController
 
         foreach ($pembayaranData as $p) {
             // Skip jika faktur sudah diproses (untuk menghindari duplikat)
-            if (in_array($p['fakturbooking'], $processedFaktur)) {
-                continue;
-            }
+            // if (in_array($p['fakturbooking'], $processedFaktur)) {
+            //     continue;
+            // }
             $processedFaktur[] = $p['fakturbooking'];
 
             $paketList = [];
@@ -1038,9 +1036,9 @@ class ReportsController extends BaseController
         $processedFaktur = [];
         foreach ($pembayaran as $p) {
             // Skip jika faktur sudah diproses (untuk menghindari duplikat)
-            if (in_array($p['fakturbooking'], $processedFaktur)) {
-                continue;
-            }
+            // if (in_array($p['fakturbooking'], $processedFaktur)) {
+            //     continue;
+            // }
             $processedFaktur[] = $p['fakturbooking'];
 
             $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);
@@ -3162,9 +3160,9 @@ class ReportsController extends BaseController
         $processedFaktur = [];
         foreach ($pembayaran as $p) {
             // Skip jika faktur sudah diproses (untuk menghindari duplikat)
-            if (in_array($p['fakturbooking'], $processedFaktur)) {
-                continue;
-            }
+            // if (in_array($p['fakturbooking'], $processedFaktur)) {
+            //     continue;
+            // }
             $processedFaktur[] = $p['fakturbooking'];
 
             $booking = $this->bookingModel->getBookingWithPelanggan($p['fakturbooking']);

@@ -107,7 +107,6 @@
                                     <!-- <th class="sortable" data-sort="tanggal">Tanggal</th> -->
                                     <th class="sortable" data-sort="paket">Nama Paket</th>
                                     <th class="sortable" data-sort="harga">Harga Paket</th>
-                                    <th class="sortable" data-sort="total">Total Bayar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -273,7 +272,6 @@
                                     // tanggal: tanggal,
                                     paket: paketNames.join(", "),
                                     harga: 'Rp ' + formatNumber(totalHarga),
-                                    total: 'Rp ' + formatNumber(booking.total)
                                 });
                             });
                         }
@@ -462,7 +460,6 @@
                             // '<td>' + (item.tanggal || '') + '</td>' +
                             '<td>' + (item.paket || '') + '</td>' +
                             '<td>' + (item.harga || '') + '</td>' +
-                            '<td>' + (item.total || '') + '</td>' +
                             '</tr>';
                         tbody.append(row);
                     }

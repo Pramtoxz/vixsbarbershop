@@ -89,14 +89,13 @@
                                     <th class="sortable" data-sort="tanggal">Tanggal</th>
                                     <th class="sortable" data-sort="paket">Nama Paket</th>
                                     <th class="sortable" data-sort="harga">Harga Paket</th>
-                                    <th class="sortable" data-sort="total">Total Bayar</th>
                                 </tr>
                             </thead>
                             <tbody>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th colspan="6" class="text-end">Total Bulan Ini</th>
+                                    <th colspan="5" class="text-end">Total Bulan Ini</th>
                                     <th id="totalBulanIni">Rp 0</th>
                                 </tr>
                             </tfoot>
@@ -243,7 +242,6 @@
                                     tanggal: tanggalTampil,
                                     paket: paketNames.join(', '),
                                     harga: 'Rp ' + formatNumber(subtotal),
-                                    total: 'Rp ' + formatNumber(booking.total)
                                 });
                             });
                         }
@@ -343,7 +341,6 @@
                         '<td>' + (it.tanggal || '') + '</td>' +
                         '<td>' + (it.paket || '') + '</td>' +
                         '<td>' + (it.harga || '') + '</td>' +
-                        '<td>' + (it.total || '') + '</td>' +
                         '</tr>';
                     tbody.append(row);
                 }
@@ -490,4 +487,3 @@
     }
 </style>
 <?= $this->endSection() ?>
-
